@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TProductesProv
+ *
+ * @ORM\Table(name="t_productes_prov")
+ * @ORM\Entity
+ */
+class TProductesProv
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="Id_Prod_Prov", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProdProv;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="Num_Proveidor", type="integer", nullable=true)
+     */
+    private $numProveidor;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="Codi_Producte", type="string", length=255, nullable=true)
+     */
+    private $codiProducte;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="Descrip_Producte", type="string", length=50, nullable=true)
+     */
+    private $descripProducte;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="PreuUnit_Producte", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $preuunitProducte;
+
+
+}
