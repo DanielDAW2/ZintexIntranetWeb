@@ -63,5 +63,82 @@ class TComandaProvAux
      */
     private $preuTotalProd;
 
+    public function getIdComandaProvAux(): ?int
+    {
+        return $this->idComandaProvAux;
+    }
+
+    public function getNumComandaProv(): ?int
+    {
+        return $this->numComandaProv;
+    }
+
+    public function setNumComandaProv(?int $numComandaProv): self
+    {
+        $this->numComandaProv = $numComandaProv;
+
+        return $this;
+    }
+
+    public function getNumProdProv(): ?int
+    {
+        return $this->numProdProv;
+    }
+
+    public function setNumProdProv(?int $numProdProv): self
+    {
+        $this->numProdProv = $numProdProv;
+
+        return $this;
+    }
+
+    public function getDescripProdProv(): ?string
+    {
+        return $this->descripProdProv;
+    }
+
+    public function setDescripProdProv(?string $descripProdProv): self
+    {
+        $this->descripProdProv = $descripProdProv;
+
+        return $this;
+    }
+
+    public function getNumUnitProd(): ?float
+    {
+        return $this->numUnitProd;
+    }
+
+    public function setNumUnitProd(?float $numUnitProd): self
+    {
+        $this->numUnitProd = $numUnitProd;
+
+        return $this;
+    }
+
+    public function getPreuUnitProd(): ?float
+    {
+        return $this->preuUnitProd;
+    }
+
+    public function setPreuUnitProd(?float $preuUnitProd): self
+    {
+        $this->preuUnitProd = $preuUnitProd;
+
+        return $this;
+    }
+
+    public function getPreuTotalProd(): ?float
+    {
+        return $this->preuTotalProd;
+    }
+
+    public function setPreuTotalProd(?float $preuTotalProd): self
+    {
+        $this->preuTotalProd = $preuTotalProd;
+
+        return $this;
+    }
+
 
 }

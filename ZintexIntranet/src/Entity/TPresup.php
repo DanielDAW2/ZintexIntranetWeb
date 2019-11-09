@@ -252,5 +252,406 @@ class TPresup
      */
     private $totalPresup;
 
+    public function getIdPresup(): ?int
+    {
+        return $this->idPresup;
+    }
+
+    public function getNumPresup(): ?string
+    {
+        return $this->numPresup;
+    }
+
+    public function setNumPresup(?string $numPresup): self
+    {
+        $this->numPresup = $numPresup;
+
+        return $this;
+    }
+
+    public function getClientPresup(): ?int
+    {
+        return $this->clientPresup;
+    }
+
+    public function setClientPresup(?int $clientPresup): self
+    {
+        $this->clientPresup = $clientPresup;
+
+        return $this;
+    }
+
+    public function getMarcaCli(): ?string
+    {
+        return $this->marcaCli;
+    }
+
+    public function setMarcaCli(?string $marcaCli): self
+    {
+        $this->marcaCli = $marcaCli;
+
+        return $this;
+    }
+
+    public function getPersonaPresup(): ?string
+    {
+        return $this->personaPresup;
+    }
+
+    public function setPersonaPresup(?string $personaPresup): self
+    {
+        $this->personaPresup = $personaPresup;
+
+        return $this;
+    }
+
+    public function getDadesClientPresup(): ?string
+    {
+        return $this->dadesClientPresup;
+    }
+
+    public function setDadesClientPresup(?string $dadesClientPresup): self
+    {
+        $this->dadesClientPresup = $dadesClientPresup;
+
+        return $this;
+    }
+
+    public function getDataPresup(): ?\DateTimeInterface
+    {
+        return $this->dataPresup;
+    }
+
+    public function setDataPresup(?\DateTimeInterface $dataPresup): self
+    {
+        $this->dataPresup = $dataPresup;
+
+        return $this;
+    }
+
+    public function getTextDataPresup(): ?string
+    {
+        return $this->textDataPresup;
+    }
+
+    public function setTextDataPresup(?string $textDataPresup): self
+    {
+        $this->textDataPresup = $textDataPresup;
+
+        return $this;
+    }
+
+    public function getAutorPresup(): ?int
+    {
+        return $this->autorPresup;
+    }
+
+    public function setAutorPresup(?int $autorPresup): self
+    {
+        $this->autorPresup = $autorPresup;
+
+        return $this;
+    }
+
+    public function getFraprofPresup(): ?string
+    {
+        return $this->fraprofPresup;
+    }
+
+    public function setFraprofPresup(?string $fraprofPresup): self
+    {
+        $this->fraprofPresup = $fraprofPresup;
+
+        return $this;
+    }
+
+    public function getFraPresup(): ?string
+    {
+        return $this->fraPresup;
+    }
+
+    public function setFraPresup(?string $fraPresup): self
+    {
+        $this->fraPresup = $fraPresup;
+
+        return $this;
+    }
+
+    public function getDenegPresup(): ?bool
+    {
+        return $this->denegPresup;
+    }
+
+    public function setDenegPresup(?bool $denegPresup): self
+    {
+        $this->denegPresup = $denegPresup;
+
+        return $this;
+    }
+
+    public function getNref1(): ?string
+    {
+        return $this->nref1;
+    }
+
+    public function setNref1(?string $nref1): self
+    {
+        $this->nref1 = $nref1;
+
+        return $this;
+    }
+
+    public function getNref2(): ?string
+    {
+        return $this->nref2;
+    }
+
+    public function setNref2(?string $nref2): self
+    {
+        $this->nref2 = $nref2;
+
+        return $this;
+    }
+
+    public function getTerminiePresup(): ?string
+    {
+        return $this->terminiePresup;
+    }
+
+    public function setTerminiePresup(?string $terminiePresup): self
+    {
+        $this->terminiePresup = $terminiePresup;
+
+        return $this;
+    }
+
+    public function getMetpagPresup(): ?int
+    {
+        return $this->metpagPresup;
+    }
+
+    public function setMetpagPresup(?int $metpagPresup): self
+    {
+        $this->metpagPresup = $metpagPresup;
+
+        return $this;
+    }
+
+    public function getMetpagAux(): ?string
+    {
+        return $this->metpagAux;
+    }
+
+    public function setMetpagAux(?string $metpagAux): self
+    {
+        $this->metpagAux = $metpagAux;
+
+        return $this;
+    }
+
+    public function getObservauxPresup(): ?string
+    {
+        return $this->observauxPresup;
+    }
+
+    public function setObservauxPresup(?string $observauxPresup): self
+    {
+        $this->observauxPresup = $observauxPresup;
+
+        return $this;
+    }
+
+    public function getObservvtoPresup(): ?string
+    {
+        return $this->observvtoPresup;
+    }
+
+    public function setObservvtoPresup(?string $observvtoPresup): self
+    {
+        $this->observvtoPresup = $observvtoPresup;
+
+        return $this;
+    }
+
+    public function getTitolPlazoentregaAux(): ?string
+    {
+        return $this->titolPlazoentregaAux;
+    }
+
+    public function setTitolPlazoentregaAux(?string $titolPlazoentregaAux): self
+    {
+        $this->titolPlazoentregaAux = $titolPlazoentregaAux;
+
+        return $this;
+    }
+
+    public function getNourgenteTitolAux(): ?string
+    {
+        return $this->nourgenteTitolAux;
+    }
+
+    public function setNourgenteTitolAux(?string $nourgenteTitolAux): self
+    {
+        $this->nourgenteTitolAux = $nourgenteTitolAux;
+
+        return $this;
+    }
+
+    public function getNourgenteDescripAux(): ?string
+    {
+        return $this->nourgenteDescripAux;
+    }
+
+    public function setNourgenteDescripAux(?string $nourgenteDescripAux): self
+    {
+        $this->nourgenteDescripAux = $nourgenteDescripAux;
+
+        return $this;
+    }
+
+    public function getUrgenteTitolAux(): ?string
+    {
+        return $this->urgenteTitolAux;
+    }
+
+    public function setUrgenteTitolAux(?string $urgenteTitolAux): self
+    {
+        $this->urgenteTitolAux = $urgenteTitolAux;
+
+        return $this;
+    }
+
+    public function getUrgenteDescrip1Aux(): ?string
+    {
+        return $this->urgenteDescrip1Aux;
+    }
+
+    public function setUrgenteDescrip1Aux(?string $urgenteDescrip1Aux): self
+    {
+        $this->urgenteDescrip1Aux = $urgenteDescrip1Aux;
+
+        return $this;
+    }
+
+    public function getUrgenteRecargoAux(): ?string
+    {
+        return $this->urgenteRecargoAux;
+    }
+
+    public function setUrgenteRecargoAux(?string $urgenteRecargoAux): self
+    {
+        $this->urgenteRecargoAux = $urgenteRecargoAux;
+
+        return $this;
+    }
+
+    public function getUrgenteDescrip2Aux(): ?string
+    {
+        return $this->urgenteDescrip2Aux;
+    }
+
+    public function setUrgenteDescrip2Aux(?string $urgenteDescrip2Aux): self
+    {
+        $this->urgenteDescrip2Aux = $urgenteDescrip2Aux;
+
+        return $this;
+    }
+
+    public function getUrgenteDescrip3Aux(): ?string
+    {
+        return $this->urgenteDescrip3Aux;
+    }
+
+    public function setUrgenteDescrip3Aux(?string $urgenteDescrip3Aux): self
+    {
+        $this->urgenteDescrip3Aux = $urgenteDescrip3Aux;
+
+        return $this;
+    }
+
+    public function getPedidosupTitolAux(): ?string
+    {
+        return $this->pedidosupTitolAux;
+    }
+
+    public function setPedidosupTitolAux(?string $pedidosupTitolAux): self
+    {
+        $this->pedidosupTitolAux = $pedidosupTitolAux;
+
+        return $this;
+    }
+
+    public function getPedidosupDescripAux(): ?string
+    {
+        return $this->pedidosupDescripAux;
+    }
+
+    public function setPedidosupDescripAux(?string $pedidosupDescripAux): self
+    {
+        $this->pedidosupDescripAux = $pedidosupDescripAux;
+
+        return $this;
+    }
+
+    public function getDataAlta(): ?\DateTimeInterface
+    {
+        return $this->dataAlta;
+    }
+
+    public function setDataAlta(?\DateTimeInterface $dataAlta): self
+    {
+        $this->dataAlta = $dataAlta;
+
+        return $this;
+    }
+
+    public function getHoraAlta(): ?\DateTimeInterface
+    {
+        return $this->horaAlta;
+    }
+
+    public function setHoraAlta(?\DateTimeInterface $horaAlta): self
+    {
+        $this->horaAlta = $horaAlta;
+
+        return $this;
+    }
+
+    public function getSeguiment(): ?string
+    {
+        return $this->seguiment;
+    }
+
+    public function setSeguiment(?string $seguiment): self
+    {
+        $this->seguiment = $seguiment;
+
+        return $this;
+    }
+
+    public function getComercial(): ?int
+    {
+        return $this->comercial;
+    }
+
+    public function setComercial(?int $comercial): self
+    {
+        $this->comercial = $comercial;
+
+        return $this;
+    }
+
+    public function getTotalPresup(): ?float
+    {
+        return $this->totalPresup;
+    }
+
+    public function setTotalPresup(?float $totalPresup): self
+    {
+        $this->totalPresup = $totalPresup;
+
+        return $this;
+    }
+
 
 }

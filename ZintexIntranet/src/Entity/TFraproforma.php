@@ -259,5 +259,418 @@ class TFraproforma
      */
     private $produccio = '0';
 
+    public function getIdFraprof(): ?int
+    {
+        return $this->idFraprof;
+    }
+
+    public function getClientFraprof(): ?int
+    {
+        return $this->clientFraprof;
+    }
+
+    public function setClientFraprof(?int $clientFraprof): self
+    {
+        $this->clientFraprof = $clientFraprof;
+
+        return $this;
+    }
+
+    public function getPersonaFraprof(): ?string
+    {
+        return $this->personaFraprof;
+    }
+
+    public function setPersonaFraprof(?string $personaFraprof): self
+    {
+        $this->personaFraprof = $personaFraprof;
+
+        return $this;
+    }
+
+    public function getDataFraprof(): ?\DateTimeInterface
+    {
+        return $this->dataFraprof;
+    }
+
+    public function setDataFraprof(?\DateTimeInterface $dataFraprof): self
+    {
+        $this->dataFraprof = $dataFraprof;
+
+        return $this;
+    }
+
+    public function getNumFraprof(): ?string
+    {
+        return $this->numFraprof;
+    }
+
+    public function setNumFraprof(?string $numFraprof): self
+    {
+        $this->numFraprof = $numFraprof;
+
+        return $this;
+    }
+
+    public function getRefPresup(): ?string
+    {
+        return $this->refPresup;
+    }
+
+    public function setRefPresup(?string $refPresup): self
+    {
+        $this->refPresup = $refPresup;
+
+        return $this;
+    }
+
+    public function getRefAlbara(): ?string
+    {
+        return $this->refAlbara;
+    }
+
+    public function setRefAlbara(?string $refAlbara): self
+    {
+        $this->refAlbara = $refAlbara;
+
+        return $this;
+    }
+
+    public function getRefFactura(): ?string
+    {
+        return $this->refFactura;
+    }
+
+    public function setRefFactura(?string $refFactura): self
+    {
+        $this->refFactura = $refFactura;
+
+        return $this;
+    }
+
+    public function getNref(): ?string
+    {
+        return $this->nref;
+    }
+
+    public function setNref(?string $nref): self
+    {
+        $this->nref = $nref;
+
+        return $this;
+    }
+
+    public function getSref(): ?string
+    {
+        return $this->sref;
+    }
+
+    public function setSref(?string $sref): self
+    {
+        $this->sref = $sref;
+
+        return $this;
+    }
+
+    public function getValorada(): ?bool
+    {
+        return $this->valorada;
+    }
+
+    public function setValorada(?bool $valorada): self
+    {
+        $this->valorada = $valorada;
+
+        return $this;
+    }
+
+    public function getBaseImp(): ?float
+    {
+        return $this->baseImp;
+    }
+
+    public function setBaseImp(?float $baseImp): self
+    {
+        $this->baseImp = $baseImp;
+
+        return $this;
+    }
+
+    public function getIva(): ?float
+    {
+        return $this->iva;
+    }
+
+    public function setIva(?float $iva): self
+    {
+        $this->iva = $iva;
+
+        return $this;
+    }
+
+    public function getReq(): ?float
+    {
+        return $this->req;
+    }
+
+    public function setReq(?float $req): self
+    {
+        $this->req = $req;
+
+        return $this;
+    }
+
+    public function getIvaVar(): ?float
+    {
+        return $this->ivaVar;
+    }
+
+    public function setIvaVar(?float $ivaVar): self
+    {
+        $this->ivaVar = $ivaVar;
+
+        return $this;
+    }
+
+    public function getReqVar(): ?float
+    {
+        return $this->reqVar;
+    }
+
+    public function setReqVar(?float $reqVar): self
+    {
+        $this->reqVar = $reqVar;
+
+        return $this;
+    }
+
+    public function getTotalFra(): ?float
+    {
+        return $this->totalFra;
+    }
+
+    public function setTotalFra(?float $totalFra): self
+    {
+        $this->totalFra = $totalFra;
+
+        return $this;
+    }
+
+    public function getImportPendent(): ?float
+    {
+        return $this->importPendent;
+    }
+
+    public function setImportPendent(?float $importPendent): self
+    {
+        $this->importPendent = $importPendent;
+
+        return $this;
+    }
+
+    public function getImportPagat(): ?float
+    {
+        return $this->importPagat;
+    }
+
+    public function setImportPagat(?float $importPagat): self
+    {
+        $this->importPagat = $importPagat;
+
+        return $this;
+    }
+
+    public function getMetodePag(): ?int
+    {
+        return $this->metodePag;
+    }
+
+    public function setMetodePag(?int $metodePag): self
+    {
+        $this->metodePag = $metodePag;
+
+        return $this;
+    }
+
+    public function getMetpagAux(): ?string
+    {
+        return $this->metpagAux;
+    }
+
+    public function setMetpagAux(?string $metpagAux): self
+    {
+        $this->metpagAux = $metpagAux;
+
+        return $this;
+    }
+
+    public function getObservFraprof(): ?string
+    {
+        return $this->observFraprof;
+    }
+
+    public function setObservFraprof(?string $observFraprof): self
+    {
+        $this->observFraprof = $observFraprof;
+
+        return $this;
+    }
+
+    public function getSeguiment(): ?string
+    {
+        return $this->seguiment;
+    }
+
+    public function setSeguiment(?string $seguiment): self
+    {
+        $this->seguiment = $seguiment;
+
+        return $this;
+    }
+
+    public function getNumAutor(): ?int
+    {
+        return $this->numAutor;
+    }
+
+    public function setNumAutor(?int $numAutor): self
+    {
+        $this->numAutor = $numAutor;
+
+        return $this;
+    }
+
+    public function getNumAutorProforma(): ?int
+    {
+        return $this->numAutorProforma;
+    }
+
+    public function setNumAutorProforma(?int $numAutorProforma): self
+    {
+        $this->numAutorProforma = $numAutorProforma;
+
+        return $this;
+    }
+
+    public function getDataGravacio(): ?\DateTimeInterface
+    {
+        return $this->dataGravacio;
+    }
+
+    public function setDataGravacio(?\DateTimeInterface $dataGravacio): self
+    {
+        $this->dataGravacio = $dataGravacio;
+
+        return $this;
+    }
+
+    public function getHoraGravacio(): ?\DateTimeInterface
+    {
+        return $this->horaGravacio;
+    }
+
+    public function setHoraGravacio(?\DateTimeInterface $horaGravacio): self
+    {
+        $this->horaGravacio = $horaGravacio;
+
+        return $this;
+    }
+
+    public function getAcceptada(): ?bool
+    {
+        return $this->acceptada;
+    }
+
+    public function setAcceptada(?bool $acceptada): self
+    {
+        $this->acceptada = $acceptada;
+
+        return $this;
+    }
+
+    public function getDataAcceptacio(): ?\DateTimeInterface
+    {
+        return $this->dataAcceptacio;
+    }
+
+    public function setDataAcceptacio(?\DateTimeInterface $dataAcceptacio): self
+    {
+        $this->dataAcceptacio = $dataAcceptacio;
+
+        return $this;
+    }
+
+    public function getHoraAcceptacio(): ?\DateTimeInterface
+    {
+        return $this->horaAcceptacio;
+    }
+
+    public function setHoraAcceptacio(?\DateTimeInterface $horaAcceptacio): self
+    {
+        $this->horaAcceptacio = $horaAcceptacio;
+
+        return $this;
+    }
+
+    public function getUltimPagament(): ?\DateTimeInterface
+    {
+        return $this->ultimPagament;
+    }
+
+    public function setUltimPagament(?\DateTimeInterface $ultimPagament): self
+    {
+        $this->ultimPagament = $ultimPagament;
+
+        return $this;
+    }
+
+    public function getFacturar(): ?bool
+    {
+        return $this->facturar;
+    }
+
+    public function setFacturar(?bool $facturar): self
+    {
+        $this->facturar = $facturar;
+
+        return $this;
+    }
+
+    public function getDataProduccio(): ?\DateTimeInterface
+    {
+        return $this->dataProduccio;
+    }
+
+    public function setDataProduccio(?\DateTimeInterface $dataProduccio): self
+    {
+        $this->dataProduccio = $dataProduccio;
+
+        return $this;
+    }
+
+    public function getHoraProduccio(): ?\DateTimeInterface
+    {
+        return $this->horaProduccio;
+    }
+
+    public function setHoraProduccio(?\DateTimeInterface $horaProduccio): self
+    {
+        $this->horaProduccio = $horaProduccio;
+
+        return $this;
+    }
+
+    public function getProduccio(): ?bool
+    {
+        return $this->produccio;
+    }
+
+    public function setProduccio(?bool $produccio): self
+    {
+        $this->produccio = $produccio;
+
+        return $this;
+    }
+
 
 }

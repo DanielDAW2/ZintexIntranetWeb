@@ -28,5 +28,22 @@ class TTractaments
      */
     private $tractament;
 
+    public function getIdTract(): ?int
+    {
+        return $this->idTract;
+    }
+
+    public function getTractament(): ?string
+    {
+        return $this->tractament;
+    }
+
+    public function setTractament(?string $tractament): self
+    {
+        $this->tractament = $tractament;
+
+        return $this;
+    }
+
 
 }

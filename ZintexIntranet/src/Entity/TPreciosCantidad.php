@@ -42,5 +42,46 @@ class TPreciosCantidad
      */
     private $precio;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getProductoId(): ?string
+    {
+        return $this->productoId;
+    }
+
+    public function setProductoId(?string $productoId): self
+    {
+        $this->productoId = $productoId;
+
+        return $this;
+    }
+
+    public function getCantidad(): ?int
+    {
+        return $this->cantidad;
+    }
+
+    public function setCantidad(?int $cantidad): self
+    {
+        $this->cantidad = $cantidad;
+
+        return $this;
+    }
+
+    public function getPrecio(): ?float
+    {
+        return $this->precio;
+    }
+
+    public function setPrecio(?float $precio): self
+    {
+        $this->precio = $precio;
+
+        return $this;
+    }
+
 
 }

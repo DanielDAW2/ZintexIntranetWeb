@@ -28,5 +28,22 @@ class TComptadorComanda
      */
     private $comptadorComanda;
 
+    public function getIdComptadorComanda(): ?int
+    {
+        return $this->idComptadorComanda;
+    }
+
+    public function getComptadorComanda(): ?int
+    {
+        return $this->comptadorComanda;
+    }
+
+    public function setComptadorComanda(?int $comptadorComanda): self
+    {
+        $this->comptadorComanda = $comptadorComanda;
+
+        return $this;
+    }
+
 
 }

@@ -56,5 +56,70 @@ class TEmpresesPath
      */
     private $carpetaFactura;
 
+    public function getIdEmpresaPath(): ?int
+    {
+        return $this->idEmpresaPath;
+    }
+
+    public function getIdEmpresa(): ?int
+    {
+        return $this->idEmpresa;
+    }
+
+    public function setIdEmpresa(?int $idEmpresa): self
+    {
+        $this->idEmpresa = $idEmpresa;
+
+        return $this;
+    }
+
+    public function getNumAny(): ?string
+    {
+        return $this->numAny;
+    }
+
+    public function setNumAny(?string $numAny): self
+    {
+        $this->numAny = $numAny;
+
+        return $this;
+    }
+
+    public function getCarpetaPressupost(): ?string
+    {
+        return $this->carpetaPressupost;
+    }
+
+    public function setCarpetaPressupost(?string $carpetaPressupost): self
+    {
+        $this->carpetaPressupost = $carpetaPressupost;
+
+        return $this;
+    }
+
+    public function getCarpetaProforma(): ?string
+    {
+        return $this->carpetaProforma;
+    }
+
+    public function setCarpetaProforma(?string $carpetaProforma): self
+    {
+        $this->carpetaProforma = $carpetaProforma;
+
+        return $this;
+    }
+
+    public function getCarpetaFactura(): ?string
+    {
+        return $this->carpetaFactura;
+    }
+
+    public function setCarpetaFactura(?string $carpetaFactura): self
+    {
+        $this->carpetaFactura = $carpetaFactura;
+
+        return $this;
+    }
+
 
 }

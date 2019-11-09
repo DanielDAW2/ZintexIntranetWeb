@@ -35,5 +35,34 @@ class TBancs
      */
     private $banc;
 
+    public function getIdBanc(): ?int
+    {
+        return $this->idBanc;
+    }
+
+    public function getCodiBanc(): ?string
+    {
+        return $this->codiBanc;
+    }
+
+    public function setCodiBanc(?string $codiBanc): self
+    {
+        $this->codiBanc = $codiBanc;
+
+        return $this;
+    }
+
+    public function getBanc(): ?string
+    {
+        return $this->banc;
+    }
+
+    public function setBanc(?string $banc): self
+    {
+        $this->banc = $banc;
+
+        return $this;
+    }
+
 
 }

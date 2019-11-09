@@ -49,5 +49,58 @@ class TProductesProv
      */
     private $preuunitProducte;
 
+    public function getIdProdProv(): ?int
+    {
+        return $this->idProdProv;
+    }
+
+    public function getNumProveidor(): ?int
+    {
+        return $this->numProveidor;
+    }
+
+    public function setNumProveidor(?int $numProveidor): self
+    {
+        $this->numProveidor = $numProveidor;
+
+        return $this;
+    }
+
+    public function getCodiProducte(): ?string
+    {
+        return $this->codiProducte;
+    }
+
+    public function setCodiProducte(?string $codiProducte): self
+    {
+        $this->codiProducte = $codiProducte;
+
+        return $this;
+    }
+
+    public function getDescripProducte(): ?string
+    {
+        return $this->descripProducte;
+    }
+
+    public function setDescripProducte(?string $descripProducte): self
+    {
+        $this->descripProducte = $descripProducte;
+
+        return $this;
+    }
+
+    public function getPreuunitProducte(): ?float
+    {
+        return $this->preuunitProducte;
+    }
+
+    public function setPreuunitProducte(?float $preuunitProducte): self
+    {
+        $this->preuunitProducte = $preuunitProducte;
+
+        return $this;
+    }
+
 
 }

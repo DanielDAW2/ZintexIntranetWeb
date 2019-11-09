@@ -105,5 +105,154 @@ class TAlbara
      */
     private $numfacturaAlbara;
 
+    public function getIdAlbara(): ?int
+    {
+        return $this->idAlbara;
+    }
+
+    public function getClientAlbara(): ?int
+    {
+        return $this->clientAlbara;
+    }
+
+    public function setClientAlbara(?int $clientAlbara): self
+    {
+        $this->clientAlbara = $clientAlbara;
+
+        return $this;
+    }
+
+    public function getDescripClientAlbara(): ?string
+    {
+        return $this->descripClientAlbara;
+    }
+
+    public function setDescripClientAlbara(?string $descripClientAlbara): self
+    {
+        $this->descripClientAlbara = $descripClientAlbara;
+
+        return $this;
+    }
+
+    public function getNomClientAlbara(): ?string
+    {
+        return $this->nomClientAlbara;
+    }
+
+    public function setNomClientAlbara(?string $nomClientAlbara): self
+    {
+        $this->nomClientAlbara = $nomClientAlbara;
+
+        return $this;
+    }
+
+    public function getDireccioClientAlbara(): ?string
+    {
+        return $this->direccioClientAlbara;
+    }
+
+    public function setDireccioClientAlbara(?string $direccioClientAlbara): self
+    {
+        $this->direccioClientAlbara = $direccioClientAlbara;
+
+        return $this;
+    }
+
+    public function getNumAlbara(): ?string
+    {
+        return $this->numAlbara;
+    }
+
+    public function setNumAlbara(?string $numAlbara): self
+    {
+        $this->numAlbara = $numAlbara;
+
+        return $this;
+    }
+
+    public function getDataAlbara(): ?\DateTimeInterface
+    {
+        return $this->dataAlbara;
+    }
+
+    public function setDataAlbara(?\DateTimeInterface $dataAlbara): self
+    {
+        $this->dataAlbara = $dataAlbara;
+
+        return $this;
+    }
+
+    public function getDataSortidaAlbara(): ?\DateTimeInterface
+    {
+        return $this->dataSortidaAlbara;
+    }
+
+    public function setDataSortidaAlbara(?\DateTimeInterface $dataSortidaAlbara): self
+    {
+        $this->dataSortidaAlbara = $dataSortidaAlbara;
+
+        return $this;
+    }
+
+    public function getNrefAlbara(): ?string
+    {
+        return $this->nrefAlbara;
+    }
+
+    public function setNrefAlbara(?string $nrefAlbara): self
+    {
+        $this->nrefAlbara = $nrefAlbara;
+
+        return $this;
+    }
+
+    public function getSrefAlbara(): ?string
+    {
+        return $this->srefAlbara;
+    }
+
+    public function setSrefAlbara(?string $srefAlbara): self
+    {
+        $this->srefAlbara = $srefAlbara;
+
+        return $this;
+    }
+
+    public function getFacturableAlbara(): ?int
+    {
+        return $this->facturableAlbara;
+    }
+
+    public function setFacturableAlbara(?int $facturableAlbara): self
+    {
+        $this->facturableAlbara = $facturableAlbara;
+
+        return $this;
+    }
+
+    public function getNumfraproformaAlbara(): ?string
+    {
+        return $this->numfraproformaAlbara;
+    }
+
+    public function setNumfraproformaAlbara(?string $numfraproformaAlbara): self
+    {
+        $this->numfraproformaAlbara = $numfraproformaAlbara;
+
+        return $this;
+    }
+
+    public function getNumfacturaAlbara(): ?string
+    {
+        return $this->numfacturaAlbara;
+    }
+
+    public function setNumfacturaAlbara(?string $numfacturaAlbara): self
+    {
+        $this->numfacturaAlbara = $numfacturaAlbara;
+
+        return $this;
+    }
+
 
 }

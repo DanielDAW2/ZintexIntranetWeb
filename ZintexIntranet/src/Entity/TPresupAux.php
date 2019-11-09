@@ -84,5 +84,118 @@ class TPresupAux
      */
     private $baixa;
 
+    public function getIdPresupAux(): ?int
+    {
+        return $this->idPresupAux;
+    }
+
+    public function getNumPresup(): ?int
+    {
+        return $this->numPresup;
+    }
+
+    public function setNumPresup(?int $numPresup): self
+    {
+        $this->numPresup = $numPresup;
+
+        return $this;
+    }
+
+    public function getNumLinia(): ?int
+    {
+        return $this->numLinia;
+    }
+
+    public function setNumLinia(?int $numLinia): self
+    {
+        $this->numLinia = $numLinia;
+
+        return $this;
+    }
+
+    public function getCodprodPresup(): ?int
+    {
+        return $this->codprodPresup;
+    }
+
+    public function setCodprodPresup(?int $codprodPresup): self
+    {
+        $this->codprodPresup = $codprodPresup;
+
+        return $this;
+    }
+
+    public function getDescripprodPresup(): ?string
+    {
+        return $this->descripprodPresup;
+    }
+
+    public function setDescripprodPresup(?string $descripprodPresup): self
+    {
+        $this->descripprodPresup = $descripprodPresup;
+
+        return $this;
+    }
+
+    public function getCodparamimpPresup(): ?int
+    {
+        return $this->codparamimpPresup;
+    }
+
+    public function setCodparamimpPresup(?int $codparamimpPresup): self
+    {
+        $this->codparamimpPresup = $codparamimpPresup;
+
+        return $this;
+    }
+
+    public function getDescripparamimpPresup(): ?string
+    {
+        return $this->descripparamimpPresup;
+    }
+
+    public function setDescripparamimpPresup(?string $descripparamimpPresup): self
+    {
+        $this->descripparamimpPresup = $descripparamimpPresup;
+
+        return $this;
+    }
+
+    public function getNumunitPresup(): ?float
+    {
+        return $this->numunitPresup;
+    }
+
+    public function setNumunitPresup(?float $numunitPresup): self
+    {
+        $this->numunitPresup = $numunitPresup;
+
+        return $this;
+    }
+
+    public function getPreuunitPresup(): ?float
+    {
+        return $this->preuunitPresup;
+    }
+
+    public function setPreuunitPresup(?float $preuunitPresup): self
+    {
+        $this->preuunitPresup = $preuunitPresup;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
 
 }

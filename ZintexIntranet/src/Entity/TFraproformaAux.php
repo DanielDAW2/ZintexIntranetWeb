@@ -119,5 +119,178 @@ class TFraproformaAux
      */
     private $codiFraproforma;
 
+    public function getIdFraproformaAux(): ?int
+    {
+        return $this->idFraproformaAux;
+    }
+
+    public function getNumProforma(): ?int
+    {
+        return $this->numProforma;
+    }
+
+    public function setNumProforma(?int $numProforma): self
+    {
+        $this->numProforma = $numProforma;
+
+        return $this;
+    }
+
+    public function getNumLinia(): ?int
+    {
+        return $this->numLinia;
+    }
+
+    public function setNumLinia(?int $numLinia): self
+    {
+        $this->numLinia = $numLinia;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?int
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?int $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getCodprodProforma(): ?int
+    {
+        return $this->codprodProforma;
+    }
+
+    public function setCodprodProforma(?int $codprodProforma): self
+    {
+        $this->codprodProforma = $codprodProforma;
+
+        return $this;
+    }
+
+    public function getDescripprodProforma(): ?string
+    {
+        return $this->descripprodProforma;
+    }
+
+    public function setDescripprodProforma(?string $descripprodProforma): self
+    {
+        $this->descripprodProforma = $descripprodProforma;
+
+        return $this;
+    }
+
+    public function getCodparamimpProforma(): ?int
+    {
+        return $this->codparamimpProforma;
+    }
+
+    public function setCodparamimpProforma(?int $codparamimpProforma): self
+    {
+        $this->codparamimpProforma = $codparamimpProforma;
+
+        return $this;
+    }
+
+    public function getDescripparamimpProforma(): ?string
+    {
+        return $this->descripparamimpProforma;
+    }
+
+    public function setDescripparamimpProforma(?string $descripparamimpProforma): self
+    {
+        $this->descripparamimpProforma = $descripparamimpProforma;
+
+        return $this;
+    }
+
+    public function getNumunitProforma(): ?float
+    {
+        return $this->numunitProforma;
+    }
+
+    public function setNumunitProforma(?float $numunitProforma): self
+    {
+        $this->numunitProforma = $numunitProforma;
+
+        return $this;
+    }
+
+    public function getPreuunitProforma(): ?float
+    {
+        return $this->preuunitProforma;
+    }
+
+    public function setPreuunitProforma(?float $preuunitProforma): self
+    {
+        $this->preuunitProforma = $preuunitProforma;
+
+        return $this;
+    }
+
+    public function getPreuProforma(): ?float
+    {
+        return $this->preuProforma;
+    }
+
+    public function setPreuProforma(?float $preuProforma): self
+    {
+        $this->preuProforma = $preuProforma;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    public function getMarcat(): ?bool
+    {
+        return $this->marcat;
+    }
+
+    public function setMarcat(?bool $marcat): self
+    {
+        $this->marcat = $marcat;
+
+        return $this;
+    }
+
+    public function getProdPrincipal(): ?bool
+    {
+        return $this->prodPrincipal;
+    }
+
+    public function setProdPrincipal(?bool $prodPrincipal): self
+    {
+        $this->prodPrincipal = $prodPrincipal;
+
+        return $this;
+    }
+
+    public function getCodiFraproforma(): ?string
+    {
+        return $this->codiFraproforma;
+    }
+
+    public function setCodiFraproforma(?string $codiFraproforma): self
+    {
+        $this->codiFraproforma = $codiFraproforma;
+
+        return $this;
+    }
+
 
 }

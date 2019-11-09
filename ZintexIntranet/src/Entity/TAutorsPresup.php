@@ -42,5 +42,46 @@ class TAutorsPresup
      */
     private $baixa;
 
+    public function getIdAutpresup(): ?int
+    {
+        return $this->idAutpresup;
+    }
+
+    public function getCodAutpresup(): ?string
+    {
+        return $this->codAutpresup;
+    }
+
+    public function setCodAutpresup(?string $codAutpresup): self
+    {
+        $this->codAutpresup = $codAutpresup;
+
+        return $this;
+    }
+
+    public function getDescripAutpresup(): ?string
+    {
+        return $this->descripAutpresup;
+    }
+
+    public function setDescripAutpresup(?string $descripAutpresup): self
+    {
+        $this->descripAutpresup = $descripAutpresup;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
 
 }

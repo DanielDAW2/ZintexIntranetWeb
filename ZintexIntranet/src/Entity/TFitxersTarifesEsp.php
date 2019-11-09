@@ -42,5 +42,46 @@ class TFitxersTarifesEsp
      */
     private $nomFitxer;
 
+    public function getIdFitxer(): ?int
+    {
+        return $this->idFitxer;
+    }
+
+    public function getProducte(): ?string
+    {
+        return $this->producte;
+    }
+
+    public function setProducte(?string $producte): self
+    {
+        $this->producte = $producte;
+
+        return $this;
+    }
+
+    public function getPathFitxer(): ?string
+    {
+        return $this->pathFitxer;
+    }
+
+    public function setPathFitxer(?string $pathFitxer): self
+    {
+        $this->pathFitxer = $pathFitxer;
+
+        return $this;
+    }
+
+    public function getNomFitxer(): ?string
+    {
+        return $this->nomFitxer;
+    }
+
+    public function setNomFitxer(?string $nomFitxer): self
+    {
+        $this->nomFitxer = $nomFitxer;
+
+        return $this;
+    }
+
 
 }

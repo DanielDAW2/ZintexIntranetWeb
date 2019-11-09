@@ -49,5 +49,58 @@ class TPresupVto
      */
     private $instpagAux;
 
+    public function getIdPresupVto(): ?int
+    {
+        return $this->idPresupVto;
+    }
+
+    public function getNumPresup(): ?int
+    {
+        return $this->numPresup;
+    }
+
+    public function setNumPresup(?int $numPresup): self
+    {
+        $this->numPresup = $numPresup;
+
+        return $this;
+    }
+
+    public function getConcepteVto(): ?string
+    {
+        return $this->concepteVto;
+    }
+
+    public function setConcepteVto(?string $concepteVto): self
+    {
+        $this->concepteVto = $concepteVto;
+
+        return $this;
+    }
+
+    public function getInstpag(): ?int
+    {
+        return $this->instpag;
+    }
+
+    public function setInstpag(?int $instpag): self
+    {
+        $this->instpag = $instpag;
+
+        return $this;
+    }
+
+    public function getInstpagAux(): ?string
+    {
+        return $this->instpagAux;
+    }
+
+    public function setInstpagAux(?string $instpagAux): self
+    {
+        $this->instpagAux = $instpagAux;
+
+        return $this;
+    }
+
 
 }

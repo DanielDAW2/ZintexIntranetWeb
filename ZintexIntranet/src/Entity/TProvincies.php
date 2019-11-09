@@ -49,5 +49,58 @@ class TProvincies
      */
     private $codtel;
 
+    public function getIdProvincia(): ?int
+    {
+        return $this->idProvincia;
+    }
+
+    public function getIdComunitat(): ?int
+    {
+        return $this->idComunitat;
+    }
+
+    public function setIdComunitat(?int $idComunitat): self
+    {
+        $this->idComunitat = $idComunitat;
+
+        return $this;
+    }
+
+    public function getProvincia(): ?string
+    {
+        return $this->provincia;
+    }
+
+    public function setProvincia(?string $provincia): self
+    {
+        $this->provincia = $provincia;
+
+        return $this;
+    }
+
+    public function getCodpos(): ?string
+    {
+        return $this->codpos;
+    }
+
+    public function setCodpos(?string $codpos): self
+    {
+        $this->codpos = $codpos;
+
+        return $this;
+    }
+
+    public function getCodtel(): ?string
+    {
+        return $this->codtel;
+    }
+
+    public function setCodtel(?string $codtel): self
+    {
+        $this->codtel = $codtel;
+
+        return $this;
+    }
+
 
 }

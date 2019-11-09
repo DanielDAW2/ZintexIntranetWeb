@@ -98,5 +98,142 @@ class TClientsMails
      */
     private $tractamentPersonaMail;
 
+    public function getIdCliMail(): ?int
+    {
+        return $this->idCliMail;
+    }
+
+    public function getNumClientMail(): ?int
+    {
+        return $this->numClientMail;
+    }
+
+    public function setNumClientMail(?int $numClientMail): self
+    {
+        $this->numClientMail = $numClientMail;
+
+        return $this;
+    }
+
+    public function getNomPersonaMail(): ?string
+    {
+        return $this->nomPersonaMail;
+    }
+
+    public function setNomPersonaMail(?string $nomPersonaMail): self
+    {
+        $this->nomPersonaMail = $nomPersonaMail;
+
+        return $this;
+    }
+
+    public function getCognom1PersonaMail(): ?string
+    {
+        return $this->cognom1PersonaMail;
+    }
+
+    public function setCognom1PersonaMail(?string $cognom1PersonaMail): self
+    {
+        $this->cognom1PersonaMail = $cognom1PersonaMail;
+
+        return $this;
+    }
+
+    public function getCognom2PersonaMail(): ?string
+    {
+        return $this->cognom2PersonaMail;
+    }
+
+    public function setCognom2PersonaMail(?string $cognom2PersonaMail): self
+    {
+        $this->cognom2PersonaMail = $cognom2PersonaMail;
+
+        return $this;
+    }
+
+    public function getMailcliMail(): ?string
+    {
+        return $this->mailcliMail;
+    }
+
+    public function setMailcliMail(?string $mailcliMail): self
+    {
+        $this->mailcliMail = $mailcliMail;
+
+        return $this;
+    }
+
+    public function getDepartamentMail(): ?string
+    {
+        return $this->departamentMail;
+    }
+
+    public function setDepartamentMail(?string $departamentMail): self
+    {
+        $this->departamentMail = $departamentMail;
+
+        return $this;
+    }
+
+    public function getExtensioMail(): ?string
+    {
+        return $this->extensioMail;
+    }
+
+    public function setExtensioMail(?string $extensioMail): self
+    {
+        $this->extensioMail = $extensioMail;
+
+        return $this;
+    }
+
+    public function getTelefonMail(): ?string
+    {
+        return $this->telefonMail;
+    }
+
+    public function setTelefonMail(?string $telefonMail): self
+    {
+        $this->telefonMail = $telefonMail;
+
+        return $this;
+    }
+
+    public function getMobilMail(): ?string
+    {
+        return $this->mobilMail;
+    }
+
+    public function setMobilMail(?string $mobilMail): self
+    {
+        $this->mobilMail = $mobilMail;
+
+        return $this;
+    }
+
+    public function getCarrecMail(): ?string
+    {
+        return $this->carrecMail;
+    }
+
+    public function setCarrecMail(?string $carrecMail): self
+    {
+        $this->carrecMail = $carrecMail;
+
+        return $this;
+    }
+
+    public function getTractamentPersonaMail(): ?int
+    {
+        return $this->tractamentPersonaMail;
+    }
+
+    public function setTractamentPersonaMail(?int $tractamentPersonaMail): self
+    {
+        $this->tractamentPersonaMail = $tractamentPersonaMail;
+
+        return $this;
+    }
+
 
 }

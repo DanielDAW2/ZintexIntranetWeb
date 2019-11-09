@@ -21,5 +21,10 @@ class TBlanc
      */
     private $idBlanc;
 
+    public function getIdBlanc(): ?int
+    {
+        return $this->idBlanc;
+    }
+
 
 }

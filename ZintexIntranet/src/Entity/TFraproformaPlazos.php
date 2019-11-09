@@ -49,5 +49,58 @@ class TFraproformaPlazos
      */
     private $baixa;
 
+    public function getIdFraproformaPlazo(): ?int
+    {
+        return $this->idFraproformaPlazo;
+    }
+
+    public function getNumFraproforma(): ?int
+    {
+        return $this->numFraproforma;
+    }
+
+    public function setNumFraproforma(?int $numFraproforma): self
+    {
+        $this->numFraproforma = $numFraproforma;
+
+        return $this;
+    }
+
+    public function getCodprodFraprofPlazo(): ?int
+    {
+        return $this->codprodFraprofPlazo;
+    }
+
+    public function setCodprodFraprofPlazo(?int $codprodFraprofPlazo): self
+    {
+        $this->codprodFraprofPlazo = $codprodFraprofPlazo;
+
+        return $this;
+    }
+
+    public function getDescripprodFraprofPlazo(): ?string
+    {
+        return $this->descripprodFraprofPlazo;
+    }
+
+    public function setDescripprodFraprofPlazo(?string $descripprodFraprofPlazo): self
+    {
+        $this->descripprodFraprofPlazo = $descripprodFraprofPlazo;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
 
 }

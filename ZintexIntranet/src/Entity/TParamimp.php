@@ -42,5 +42,46 @@ class TParamimp
      */
     private $nomParamimpCat;
 
+    public function getIdParamimp(): ?int
+    {
+        return $this->idParamimp;
+    }
+
+    public function getCodiParamimp(): ?string
+    {
+        return $this->codiParamimp;
+    }
+
+    public function setCodiParamimp(?string $codiParamimp): self
+    {
+        $this->codiParamimp = $codiParamimp;
+
+        return $this;
+    }
+
+    public function getNomParamimp(): ?string
+    {
+        return $this->nomParamimp;
+    }
+
+    public function setNomParamimp(?string $nomParamimp): self
+    {
+        $this->nomParamimp = $nomParamimp;
+
+        return $this;
+    }
+
+    public function getNomParamimpCat(): ?string
+    {
+        return $this->nomParamimpCat;
+    }
+
+    public function setNomParamimpCat(?string $nomParamimpCat): self
+    {
+        $this->nomParamimpCat = $nomParamimpCat;
+
+        return $this;
+    }
+
 
 }

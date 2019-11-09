@@ -42,5 +42,46 @@ class TOrdreTreballDreamRibbonsShop
      */
     private $dataEntrega;
 
+    public function getIdOtDrs(): ?int
+    {
+        return $this->idOtDrs;
+    }
+
+    public function getComanda(): ?string
+    {
+        return $this->comanda;
+    }
+
+    public function setComanda(?string $comanda): self
+    {
+        $this->comanda = $comanda;
+
+        return $this;
+    }
+
+    public function getDataComanda(): ?\DateTimeInterface
+    {
+        return $this->dataComanda;
+    }
+
+    public function setDataComanda(?\DateTimeInterface $dataComanda): self
+    {
+        $this->dataComanda = $dataComanda;
+
+        return $this;
+    }
+
+    public function getDataEntrega(): ?\DateTimeInterface
+    {
+        return $this->dataEntrega;
+    }
+
+    public function setDataEntrega(?\DateTimeInterface $dataEntrega): self
+    {
+        $this->dataEntrega = $dataEntrega;
+
+        return $this;
+    }
+
 
 }

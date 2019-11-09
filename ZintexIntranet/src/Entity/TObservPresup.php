@@ -35,5 +35,34 @@ class TObservPresup
      */
     private $observPresupVto;
 
+    public function getIdObservPresup(): ?int
+    {
+        return $this->idObservPresup;
+    }
+
+    public function getObservPresup(): ?string
+    {
+        return $this->observPresup;
+    }
+
+    public function setObservPresup(?string $observPresup): self
+    {
+        $this->observPresup = $observPresup;
+
+        return $this;
+    }
+
+    public function getObservPresupVto(): ?string
+    {
+        return $this->observPresupVto;
+    }
+
+    public function setObservPresupVto(?string $observPresupVto): self
+    {
+        $this->observPresupVto = $observPresupVto;
+
+        return $this;
+    }
+
 
 }

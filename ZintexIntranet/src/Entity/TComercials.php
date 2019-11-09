@@ -35,5 +35,34 @@ class TComercials
      */
     private $nomComercial;
 
+    public function getIdComercial(): ?int
+    {
+        return $this->idComercial;
+    }
+
+    public function getCodiComercial(): ?string
+    {
+        return $this->codiComercial;
+    }
+
+    public function setCodiComercial(?string $codiComercial): self
+    {
+        $this->codiComercial = $codiComercial;
+
+        return $this;
+    }
+
+    public function getNomComercial(): ?string
+    {
+        return $this->nomComercial;
+    }
+
+    public function setNomComercial(?string $nomComercial): self
+    {
+        $this->nomComercial = $nomComercial;
+
+        return $this;
+    }
+
 
 }

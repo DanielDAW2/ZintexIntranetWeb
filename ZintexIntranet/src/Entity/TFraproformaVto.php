@@ -77,5 +77,106 @@ class TFraproformaVto
      */
     private $okbancVto;
 
+    public function getIdFraproformaVto(): ?int
+    {
+        return $this->idFraproformaVto;
+    }
+
+    public function getNumProforma(): ?int
+    {
+        return $this->numProforma;
+    }
+
+    public function setNumProforma(?int $numProforma): self
+    {
+        $this->numProforma = $numProforma;
+
+        return $this;
+    }
+
+    public function getConcepteVto(): ?string
+    {
+        return $this->concepteVto;
+    }
+
+    public function setConcepteVto(?string $concepteVto): self
+    {
+        $this->concepteVto = $concepteVto;
+
+        return $this;
+    }
+
+    public function getInstpag(): ?int
+    {
+        return $this->instpag;
+    }
+
+    public function setInstpag(?int $instpag): self
+    {
+        $this->instpag = $instpag;
+
+        return $this;
+    }
+
+    public function getInstpagAux(): ?string
+    {
+        return $this->instpagAux;
+    }
+
+    public function setInstpagAux(?string $instpagAux): self
+    {
+        $this->instpagAux = $instpagAux;
+
+        return $this;
+    }
+
+    public function getImportVto(): ?float
+    {
+        return $this->importVto;
+    }
+
+    public function setImportVto(?float $importVto): self
+    {
+        $this->importVto = $importVto;
+
+        return $this;
+    }
+
+    public function getDatapagVto(): ?\DateTimeInterface
+    {
+        return $this->datapagVto;
+    }
+
+    public function setDatapagVto(?\DateTimeInterface $datapagVto): self
+    {
+        $this->datapagVto = $datapagVto;
+
+        return $this;
+    }
+
+    public function getImportpagVto(): ?float
+    {
+        return $this->importpagVto;
+    }
+
+    public function setImportpagVto(?float $importpagVto): self
+    {
+        $this->importpagVto = $importpagVto;
+
+        return $this;
+    }
+
+    public function getOkbancVto(): ?\DateTimeInterface
+    {
+        return $this->okbancVto;
+    }
+
+    public function setOkbancVto(?\DateTimeInterface $okbancVto): self
+    {
+        $this->okbancVto = $okbancVto;
+
+        return $this;
+    }
+
 
 }

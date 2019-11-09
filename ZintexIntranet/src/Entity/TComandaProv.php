@@ -70,5 +70,94 @@ class TComandaProv
      */
     private $facturat;
 
+    public function getIdComandaProv(): ?int
+    {
+        return $this->idComandaProv;
+    }
+
+    public function getRefComandaProv(): ?string
+    {
+        return $this->refComandaProv;
+    }
+
+    public function setRefComandaProv(?string $refComandaProv): self
+    {
+        $this->refComandaProv = $refComandaProv;
+
+        return $this;
+    }
+
+    public function getNumProveidorComanda(): ?int
+    {
+        return $this->numProveidorComanda;
+    }
+
+    public function setNumProveidorComanda(?int $numProveidorComanda): self
+    {
+        $this->numProveidorComanda = $numProveidorComanda;
+
+        return $this;
+    }
+
+    public function getDescripComanda(): ?string
+    {
+        return $this->descripComanda;
+    }
+
+    public function setDescripComanda(?string $descripComanda): self
+    {
+        $this->descripComanda = $descripComanda;
+
+        return $this;
+    }
+
+    public function getDataComanda(): ?\DateTimeInterface
+    {
+        return $this->dataComanda;
+    }
+
+    public function setDataComanda(?\DateTimeInterface $dataComanda): self
+    {
+        $this->dataComanda = $dataComanda;
+
+        return $this;
+    }
+
+    public function getAutorComanda(): ?int
+    {
+        return $this->autorComanda;
+    }
+
+    public function setAutorComanda(?int $autorComanda): self
+    {
+        $this->autorComanda = $autorComanda;
+
+        return $this;
+    }
+
+    public function getDemanaComanda(): ?int
+    {
+        return $this->demanaComanda;
+    }
+
+    public function setDemanaComanda(?int $demanaComanda): self
+    {
+        $this->demanaComanda = $demanaComanda;
+
+        return $this;
+    }
+
+    public function getFacturat(): ?bool
+    {
+        return $this->facturat;
+    }
+
+    public function setFacturat(?bool $facturat): self
+    {
+        $this->facturat = $facturat;
+
+        return $this;
+    }
+
 
 }

@@ -77,5 +77,106 @@ class TProductesTarifa
      */
     private $filaRang2;
 
+    public function getIdProdTarifa(): ?int
+    {
+        return $this->idProdTarifa;
+    }
+
+    public function getIdProducte(): ?int
+    {
+        return $this->idProducte;
+    }
+
+    public function setIdProducte(?int $idProducte): self
+    {
+        $this->idProducte = $idProducte;
+
+        return $this;
+    }
+
+    public function getMarca(): ?string
+    {
+        return $this->marca;
+    }
+
+    public function setMarca(?string $marca): self
+    {
+        $this->marca = $marca;
+
+        return $this;
+    }
+
+    public function getPathExcel(): ?string
+    {
+        return $this->pathExcel;
+    }
+
+    public function setPathExcel(?string $pathExcel): self
+    {
+        $this->pathExcel = $pathExcel;
+
+        return $this;
+    }
+
+    public function getSheetExcel(): ?string
+    {
+        return $this->sheetExcel;
+    }
+
+    public function setSheetExcel(?string $sheetExcel): self
+    {
+        $this->sheetExcel = $sheetExcel;
+
+        return $this;
+    }
+
+    public function getColumnaAmple(): ?string
+    {
+        return $this->columnaAmple;
+    }
+
+    public function setColumnaAmple(?string $columnaAmple): self
+    {
+        $this->columnaAmple = $columnaAmple;
+
+        return $this;
+    }
+
+    public function getColumnaRang(): ?string
+    {
+        return $this->columnaRang;
+    }
+
+    public function setColumnaRang(?string $columnaRang): self
+    {
+        $this->columnaRang = $columnaRang;
+
+        return $this;
+    }
+
+    public function getFilaRang1(): ?int
+    {
+        return $this->filaRang1;
+    }
+
+    public function setFilaRang1(?int $filaRang1): self
+    {
+        $this->filaRang1 = $filaRang1;
+
+        return $this;
+    }
+
+    public function getFilaRang2(): ?int
+    {
+        return $this->filaRang2;
+    }
+
+    public function setFilaRang2(?int $filaRang2): self
+    {
+        $this->filaRang2 = $filaRang2;
+
+        return $this;
+    }
+
 
 }

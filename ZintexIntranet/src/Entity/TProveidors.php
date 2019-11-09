@@ -196,5 +196,310 @@ class TProveidors
      */
     private $stock;
 
+    public function getIdProv(): ?int
+    {
+        return $this->idProv;
+    }
+
+    public function getCodiProv(): ?string
+    {
+        return $this->codiProv;
+    }
+
+    public function setCodiProv(?string $codiProv): self
+    {
+        $this->codiProv = $codiProv;
+
+        return $this;
+    }
+
+    public function getNifProv(): ?string
+    {
+        return $this->nifProv;
+    }
+
+    public function setNifProv(?string $nifProv): self
+    {
+        $this->nifProv = $nifProv;
+
+        return $this;
+    }
+
+    public function getProveidor(): ?string
+    {
+        return $this->proveidor;
+    }
+
+    public function setProveidor(?string $proveidor): self
+    {
+        $this->proveidor = $proveidor;
+
+        return $this;
+    }
+
+    public function getProveidorCom(): ?string
+    {
+        return $this->proveidorCom;
+    }
+
+    public function setProveidorCom(?string $proveidorCom): self
+    {
+        $this->proveidorCom = $proveidorCom;
+
+        return $this;
+    }
+
+    public function getTractProv(): ?int
+    {
+        return $this->tractProv;
+    }
+
+    public function setTractProv(?int $tractProv): self
+    {
+        $this->tractProv = $tractProv;
+
+        return $this;
+    }
+
+    public function getNomProv(): ?string
+    {
+        return $this->nomProv;
+    }
+
+    public function setNomProv(?string $nomProv): self
+    {
+        $this->nomProv = $nomProv;
+
+        return $this;
+    }
+
+    public function getCognomProv(): ?string
+    {
+        return $this->cognomProv;
+    }
+
+    public function setCognomProv(?string $cognomProv): self
+    {
+        $this->cognomProv = $cognomProv;
+
+        return $this;
+    }
+
+    public function getCarrecProv(): ?string
+    {
+        return $this->carrecProv;
+    }
+
+    public function setCarrecProv(?string $carrecProv): self
+    {
+        $this->carrecProv = $carrecProv;
+
+        return $this;
+    }
+
+    public function getDirProv(): ?string
+    {
+        return $this->dirProv;
+    }
+
+    public function setDirProv(?string $dirProv): self
+    {
+        $this->dirProv = $dirProv;
+
+        return $this;
+    }
+
+    public function getCodpProv(): ?string
+    {
+        return $this->codpProv;
+    }
+
+    public function setCodpProv(?string $codpProv): self
+    {
+        $this->codpProv = $codpProv;
+
+        return $this;
+    }
+
+    public function getPobProv(): ?string
+    {
+        return $this->pobProv;
+    }
+
+    public function setPobProv(?string $pobProv): self
+    {
+        $this->pobProv = $pobProv;
+
+        return $this;
+    }
+
+    public function getPaisProv(): ?int
+    {
+        return $this->paisProv;
+    }
+
+    public function setPaisProv(?int $paisProv): self
+    {
+        $this->paisProv = $paisProv;
+
+        return $this;
+    }
+
+    public function getTelProv(): ?string
+    {
+        return $this->telProv;
+    }
+
+    public function setTelProv(?string $telProv): self
+    {
+        $this->telProv = $telProv;
+
+        return $this;
+    }
+
+    public function getFaxProv(): ?string
+    {
+        return $this->faxProv;
+    }
+
+    public function setFaxProv(?string $faxProv): self
+    {
+        $this->faxProv = $faxProv;
+
+        return $this;
+    }
+
+    public function getMobProv(): ?string
+    {
+        return $this->mobProv;
+    }
+
+    public function setMobProv(?string $mobProv): self
+    {
+        $this->mobProv = $mobProv;
+
+        return $this;
+    }
+
+    public function getEmailProv(): ?string
+    {
+        return $this->emailProv;
+    }
+
+    public function setEmailProv(?string $emailProv): self
+    {
+        $this->emailProv = $emailProv;
+
+        return $this;
+    }
+
+    public function getWebProv(): ?string
+    {
+        return $this->webProv;
+    }
+
+    public function setWebProv(?string $webProv): self
+    {
+        $this->webProv = $webProv;
+
+        return $this;
+    }
+
+    public function getMetPag(): ?int
+    {
+        return $this->metPag;
+    }
+
+    public function setMetPag(?int $metPag): self
+    {
+        $this->metPag = $metPag;
+
+        return $this;
+    }
+
+    public function getInstPag(): ?int
+    {
+        return $this->instPag;
+    }
+
+    public function setInstPag(?int $instPag): self
+    {
+        $this->instPag = $instPag;
+
+        return $this;
+    }
+
+    public function getDiaPag(): ?string
+    {
+        return $this->diaPag;
+    }
+
+    public function setDiaPag(?string $diaPag): self
+    {
+        $this->diaPag = $diaPag;
+
+        return $this;
+    }
+
+    public function getCcProv(): ?string
+    {
+        return $this->ccProv;
+    }
+
+    public function setCcProv(?string $ccProv): self
+    {
+        $this->ccProv = $ccProv;
+
+        return $this;
+    }
+
+    public function getObservacionsProv(): ?string
+    {
+        return $this->observacionsProv;
+    }
+
+    public function setObservacionsProv(?string $observacionsProv): self
+    {
+        $this->observacionsProv = $observacionsProv;
+
+        return $this;
+    }
+
+    public function getActivitatProv(): ?string
+    {
+        return $this->activitatProv;
+    }
+
+    public function setActivitatProv(?string $activitatProv): self
+    {
+        $this->activitatProv = $activitatProv;
+
+        return $this;
+    }
+
+    public function getMailing(): ?bool
+    {
+        return $this->mailing;
+    }
+
+    public function setMailing(?bool $mailing): self
+    {
+        $this->mailing = $mailing;
+
+        return $this;
+    }
+
+    public function getStock(): ?bool
+    {
+        return $this->stock;
+    }
+
+    public function setStock(?bool $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
 
 }

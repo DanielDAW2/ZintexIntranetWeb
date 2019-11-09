@@ -49,5 +49,58 @@ class TMetodePag
      */
     private $descripcio;
 
+    public function getIdMetode(): ?int
+    {
+        return $this->idMetode;
+    }
+
+    public function getMetode(): ?string
+    {
+        return $this->metode;
+    }
+
+    public function setMetode(?string $metode): self
+    {
+        $this->metode = $metode;
+
+        return $this;
+    }
+
+    public function getNomMetode(): ?string
+    {
+        return $this->nomMetode;
+    }
+
+    public function setNomMetode(?string $nomMetode): self
+    {
+        $this->nomMetode = $nomMetode;
+
+        return $this;
+    }
+
+    public function getTemps(): ?int
+    {
+        return $this->temps;
+    }
+
+    public function setTemps(?int $temps): self
+    {
+        $this->temps = $temps;
+
+        return $this;
+    }
+
+    public function getDescripcio(): ?string
+    {
+        return $this->descripcio;
+    }
+
+    public function setDescripcio(?string $descripcio): self
+    {
+        $this->descripcio = $descripcio;
+
+        return $this;
+    }
+
 
 }

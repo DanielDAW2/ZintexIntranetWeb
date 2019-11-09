@@ -42,5 +42,46 @@ class TActivitatClient
      */
     private $coefRecarrec;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCodiActivitat(): ?int
+    {
+        return $this->codiActivitat;
+    }
+
+    public function setCodiActivitat(?int $codiActivitat): self
+    {
+        $this->codiActivitat = $codiActivitat;
+
+        return $this;
+    }
+
+    public function getTipusClient(): ?string
+    {
+        return $this->tipusClient;
+    }
+
+    public function setTipusClient(?string $tipusClient): self
+    {
+        $this->tipusClient = $tipusClient;
+
+        return $this;
+    }
+
+    public function getCoefRecarrec(): ?string
+    {
+        return $this->coefRecarrec;
+    }
+
+    public function setCoefRecarrec(?string $coefRecarrec): self
+    {
+        $this->coefRecarrec = $coefRecarrec;
+
+        return $this;
+    }
+
 
 }

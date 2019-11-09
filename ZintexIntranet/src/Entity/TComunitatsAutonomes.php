@@ -28,5 +28,22 @@ class TComunitatsAutonomes
      */
     private $comunitat;
 
+    public function getIdComunitat(): ?int
+    {
+        return $this->idComunitat;
+    }
+
+    public function getComunitat(): ?string
+    {
+        return $this->comunitat;
+    }
+
+    public function setComunitat(?string $comunitat): self
+    {
+        $this->comunitat = $comunitat;
+
+        return $this;
+    }
+
 
 }

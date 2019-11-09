@@ -84,5 +84,118 @@ class TAlbaraAux
      */
     private $preuAlbara;
 
+    public function getIdAlbaraAux(): ?int
+    {
+        return $this->idAlbaraAux;
+    }
+
+    public function getNumAlbara(): ?int
+    {
+        return $this->numAlbara;
+    }
+
+    public function setNumAlbara(?int $numAlbara): self
+    {
+        $this->numAlbara = $numAlbara;
+
+        return $this;
+    }
+
+    public function getNumLinia(): ?int
+    {
+        return $this->numLinia;
+    }
+
+    public function setNumLinia(?int $numLinia): self
+    {
+        $this->numLinia = $numLinia;
+
+        return $this;
+    }
+
+    public function getCodprodAlbara(): ?int
+    {
+        return $this->codprodAlbara;
+    }
+
+    public function setCodprodAlbara(?int $codprodAlbara): self
+    {
+        $this->codprodAlbara = $codprodAlbara;
+
+        return $this;
+    }
+
+    public function getDescripprodAlbara(): ?string
+    {
+        return $this->descripprodAlbara;
+    }
+
+    public function setDescripprodAlbara(?string $descripprodAlbara): self
+    {
+        $this->descripprodAlbara = $descripprodAlbara;
+
+        return $this;
+    }
+
+    public function getCodparamimpAlbara(): ?int
+    {
+        return $this->codparamimpAlbara;
+    }
+
+    public function setCodparamimpAlbara(?int $codparamimpAlbara): self
+    {
+        $this->codparamimpAlbara = $codparamimpAlbara;
+
+        return $this;
+    }
+
+    public function getDescripparamimpAlbara(): ?string
+    {
+        return $this->descripparamimpAlbara;
+    }
+
+    public function setDescripparamimpAlbara(?string $descripparamimpAlbara): self
+    {
+        $this->descripparamimpAlbara = $descripparamimpAlbara;
+
+        return $this;
+    }
+
+    public function getNumunitAlbara(): ?float
+    {
+        return $this->numunitAlbara;
+    }
+
+    public function setNumunitAlbara(?float $numunitAlbara): self
+    {
+        $this->numunitAlbara = $numunitAlbara;
+
+        return $this;
+    }
+
+    public function getPreuunitAlbara(): ?float
+    {
+        return $this->preuunitAlbara;
+    }
+
+    public function setPreuunitAlbara(?float $preuunitAlbara): self
+    {
+        $this->preuunitAlbara = $preuunitAlbara;
+
+        return $this;
+    }
+
+    public function getPreuAlbara(): ?float
+    {
+        return $this->preuAlbara;
+    }
+
+    public function setPreuAlbara(?float $preuAlbara): self
+    {
+        $this->preuAlbara = $preuAlbara;
+
+        return $this;
+    }
+
 
 }

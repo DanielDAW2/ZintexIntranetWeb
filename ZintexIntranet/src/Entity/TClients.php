@@ -511,5 +511,850 @@ class TClients
      */
     private $activitat2;
 
+    public function getIdCli(): ?int
+    {
+        return $this->idCli;
+    }
+
+    public function getMarcaCli(): ?string
+    {
+        return $this->marcaCli;
+    }
+
+    public function setMarcaCli(?string $marcaCli): self
+    {
+        $this->marcaCli = $marcaCli;
+
+        return $this;
+    }
+
+    public function getCodiCli(): ?string
+    {
+        return $this->codiCli;
+    }
+
+    public function setCodiCli(?string $codiCli): self
+    {
+        $this->codiCli = $codiCli;
+
+        return $this;
+    }
+
+    public function getCodiCliDream(): ?string
+    {
+        return $this->codiCliDream;
+    }
+
+    public function setCodiCliDream(?string $codiCliDream): self
+    {
+        $this->codiCliDream = $codiCliDream;
+
+        return $this;
+    }
+
+    public function getNifCli(): ?string
+    {
+        return $this->nifCli;
+    }
+
+    public function setNifCli(?string $nifCli): self
+    {
+        $this->nifCli = $nifCli;
+
+        return $this;
+    }
+
+    public function getClient(): ?string
+    {
+        return $this->client;
+    }
+
+    public function setClient(?string $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getClientCom(): ?string
+    {
+        return $this->clientCom;
+    }
+
+    public function setClientCom(?string $clientCom): self
+    {
+        $this->clientCom = $clientCom;
+
+        return $this;
+    }
+
+    public function getTractCli(): ?int
+    {
+        return $this->tractCli;
+    }
+
+    public function setTractCli(?int $tractCli): self
+    {
+        $this->tractCli = $tractCli;
+
+        return $this;
+    }
+
+    public function getNomfraCli(): ?string
+    {
+        return $this->nomfraCli;
+    }
+
+    public function setNomfraCli(?string $nomfraCli): self
+    {
+        $this->nomfraCli = $nomfraCli;
+
+        return $this;
+    }
+
+    public function getCognomfraCli(): ?string
+    {
+        return $this->cognomfraCli;
+    }
+
+    public function setCognomfraCli(?string $cognomfraCli): self
+    {
+        $this->cognomfraCli = $cognomfraCli;
+
+        return $this;
+    }
+
+    public function getCarrecfraCli(): ?string
+    {
+        return $this->carrecfraCli;
+    }
+
+    public function setCarrecfraCli(?string $carrecfraCli): self
+    {
+        $this->carrecfraCli = $carrecfraCli;
+
+        return $this;
+    }
+
+    public function getDirfraCli(): ?string
+    {
+        return $this->dirfraCli;
+    }
+
+    public function setDirfraCli(?string $dirfraCli): self
+    {
+        $this->dirfraCli = $dirfraCli;
+
+        return $this;
+    }
+
+    public function getCodpfraCli(): ?string
+    {
+        return $this->codpfraCli;
+    }
+
+    public function setCodpfraCli(?string $codpfraCli): self
+    {
+        $this->codpfraCli = $codpfraCli;
+
+        return $this;
+    }
+
+    public function getPobfraCli(): ?string
+    {
+        return $this->pobfraCli;
+    }
+
+    public function setPobfraCli(?string $pobfraCli): self
+    {
+        $this->pobfraCli = $pobfraCli;
+
+        return $this;
+    }
+
+    public function getPaisfraCli(): ?int
+    {
+        return $this->paisfraCli;
+    }
+
+    public function setPaisfraCli(?int $paisfraCli): self
+    {
+        $this->paisfraCli = $paisfraCli;
+
+        return $this;
+    }
+
+    public function getTelfraCli(): ?string
+    {
+        return $this->telfraCli;
+    }
+
+    public function setTelfraCli(?string $telfraCli): self
+    {
+        $this->telfraCli = $telfraCli;
+
+        return $this;
+    }
+
+    public function getFaxfraCli(): ?string
+    {
+        return $this->faxfraCli;
+    }
+
+    public function setFaxfraCli(?string $faxfraCli): self
+    {
+        $this->faxfraCli = $faxfraCli;
+
+        return $this;
+    }
+
+    public function getMobfraCli(): ?string
+    {
+        return $this->mobfraCli;
+    }
+
+    public function setMobfraCli(?string $mobfraCli): self
+    {
+        $this->mobfraCli = $mobfraCli;
+
+        return $this;
+    }
+
+    public function getEmailCli(): ?string
+    {
+        return $this->emailCli;
+    }
+
+    public function setEmailCli(?string $emailCli): self
+    {
+        $this->emailCli = $emailCli;
+
+        return $this;
+    }
+
+    public function getEmpentCli(): ?string
+    {
+        return $this->empentCli;
+    }
+
+    public function setEmpentCli(?string $empentCli): self
+    {
+        $this->empentCli = $empentCli;
+
+        return $this;
+    }
+
+    public function getTractentCli(): ?int
+    {
+        return $this->tractentCli;
+    }
+
+    public function setTractentCli(?int $tractentCli): self
+    {
+        $this->tractentCli = $tractentCli;
+
+        return $this;
+    }
+
+    public function getPersentCli(): ?string
+    {
+        return $this->persentCli;
+    }
+
+    public function setPersentCli(?string $persentCli): self
+    {
+        $this->persentCli = $persentCli;
+
+        return $this;
+    }
+
+    public function getDirentCli(): ?string
+    {
+        return $this->direntCli;
+    }
+
+    public function setDirentCli(?string $direntCli): self
+    {
+        $this->direntCli = $direntCli;
+
+        return $this;
+    }
+
+    public function getCodpentCli(): ?string
+    {
+        return $this->codpentCli;
+    }
+
+    public function setCodpentCli(?string $codpentCli): self
+    {
+        $this->codpentCli = $codpentCli;
+
+        return $this;
+    }
+
+    public function getPobentCli(): ?string
+    {
+        return $this->pobentCli;
+    }
+
+    public function setPobentCli(?string $pobentCli): self
+    {
+        $this->pobentCli = $pobentCli;
+
+        return $this;
+    }
+
+    public function getPaisentCli(): ?int
+    {
+        return $this->paisentCli;
+    }
+
+    public function setPaisentCli(?int $paisentCli): self
+    {
+        $this->paisentCli = $paisentCli;
+
+        return $this;
+    }
+
+    public function getTelentCli(): ?string
+    {
+        return $this->telentCli;
+    }
+
+    public function setTelentCli(?string $telentCli): self
+    {
+        $this->telentCli = $telentCli;
+
+        return $this;
+    }
+
+    public function getFaxentCli(): ?string
+    {
+        return $this->faxentCli;
+    }
+
+    public function setFaxentCli(?string $faxentCli): self
+    {
+        $this->faxentCli = $faxentCli;
+
+        return $this;
+    }
+
+    public function getWebCli(): ?string
+    {
+        return $this->webCli;
+    }
+
+    public function setWebCli(?string $webCli): self
+    {
+        $this->webCli = $webCli;
+
+        return $this;
+    }
+
+    public function getMetPag(): ?int
+    {
+        return $this->metPag;
+    }
+
+    public function setMetPag(?int $metPag): self
+    {
+        $this->metPag = $metPag;
+
+        return $this;
+    }
+
+    public function getInstPag(): ?int
+    {
+        return $this->instPag;
+    }
+
+    public function setInstPag(?int $instPag): self
+    {
+        $this->instPag = $instPag;
+
+        return $this;
+    }
+
+    public function getDiaPag(): ?string
+    {
+        return $this->diaPag;
+    }
+
+    public function setDiaPag(?string $diaPag): self
+    {
+        $this->diaPag = $diaPag;
+
+        return $this;
+    }
+
+    public function getProblemaPag(): ?bool
+    {
+        return $this->problemaPag;
+    }
+
+    public function setProblemaPag(?bool $problemaPag): self
+    {
+        $this->problemaPag = $problemaPag;
+
+        return $this;
+    }
+
+    public function getTitularccCli(): ?string
+    {
+        return $this->titularccCli;
+    }
+
+    public function setTitularccCli(?string $titularccCli): self
+    {
+        $this->titularccCli = $titularccCli;
+
+        return $this;
+    }
+
+    public function getCcCli(): ?string
+    {
+        return $this->ccCli;
+    }
+
+    public function setCcCli(?string $ccCli): self
+    {
+        $this->ccCli = $ccCli;
+
+        return $this;
+    }
+
+    public function getPersfinCli(): ?string
+    {
+        return $this->persfinCli;
+    }
+
+    public function setPersfinCli(?string $persfinCli): self
+    {
+        $this->persfinCli = $persfinCli;
+
+        return $this;
+    }
+
+    public function getCarrecfinCli(): ?string
+    {
+        return $this->carrecfinCli;
+    }
+
+    public function setCarrecfinCli(?string $carrecfinCli): self
+    {
+        $this->carrecfinCli = $carrecfinCli;
+
+        return $this;
+    }
+
+    public function getTelfinCli(): ?string
+    {
+        return $this->telfinCli;
+    }
+
+    public function setTelfinCli(?string $telfinCli): self
+    {
+        $this->telfinCli = $telfinCli;
+
+        return $this;
+    }
+
+    public function getEmailfinCli(): ?string
+    {
+        return $this->emailfinCli;
+    }
+
+    public function setEmailfinCli(?string $emailfinCli): self
+    {
+        $this->emailfinCli = $emailfinCli;
+
+        return $this;
+    }
+
+    public function getTipusIva(): ?float
+    {
+        return $this->tipusIva;
+    }
+
+    public function setTipusIva(?float $tipusIva): self
+    {
+        $this->tipusIva = $tipusIva;
+
+        return $this;
+    }
+
+    public function getTipusReq(): ?float
+    {
+        return $this->tipusReq;
+    }
+
+    public function setTipusReq(?float $tipusReq): self
+    {
+        $this->tipusReq = $tipusReq;
+
+        return $this;
+    }
+
+    public function getObservacionsCli(): ?string
+    {
+        return $this->observacionsCli;
+    }
+
+    public function setObservacionsCli(?string $observacionsCli): self
+    {
+        $this->observacionsCli = $observacionsCli;
+
+        return $this;
+    }
+
+    public function getObservacionsfinCli(): ?string
+    {
+        return $this->observacionsfinCli;
+    }
+
+    public function setObservacionsfinCli(?string $observacionsfinCli): self
+    {
+        $this->observacionsfinCli = $observacionsfinCli;
+
+        return $this;
+    }
+
+    public function getMotiuContacte(): ?string
+    {
+        return $this->motiuContacte;
+    }
+
+    public function setMotiuContacte(?string $motiuContacte): self
+    {
+        $this->motiuContacte = $motiuContacte;
+
+        return $this;
+    }
+
+    public function getMailing(): ?bool
+    {
+        return $this->mailing;
+    }
+
+    public function setMailing(?bool $mailing): self
+    {
+        $this->mailing = $mailing;
+
+        return $this;
+    }
+
+    public function getCat(): ?bool
+    {
+        return $this->cat;
+    }
+
+    public function setCat(?bool $cat): self
+    {
+        $this->cat = $cat;
+
+        return $this;
+    }
+
+    public function getClientCycred(): ?string
+    {
+        return $this->clientCycred;
+    }
+
+    public function setClientCycred(?string $clientCycred): self
+    {
+        $this->clientCycred = $clientCycred;
+
+        return $this;
+    }
+
+    public function getClassificatCycred(): ?\DateTimeInterface
+    {
+        return $this->classificatCycred;
+    }
+
+    public function setClassificatCycred(?\DateTimeInterface $classificatCycred): self
+    {
+        $this->classificatCycred = $classificatCycred;
+
+        return $this;
+    }
+
+    public function getCreditCycred(): ?int
+    {
+        return $this->creditCycred;
+    }
+
+    public function setCreditCycred(?int $creditCycred): self
+    {
+        $this->creditCycred = $creditCycred;
+
+        return $this;
+    }
+
+    public function getStatusCycred(): ?string
+    {
+        return $this->statusCycred;
+    }
+
+    public function setStatusCycred(?string $statusCycred): self
+    {
+        $this->statusCycred = $statusCycred;
+
+        return $this;
+    }
+
+    public function getLimitCycred(): ?string
+    {
+        return $this->limitCycred;
+    }
+
+    public function setLimitCycred(?string $limitCycred): self
+    {
+        $this->limitCycred = $limitCycred;
+
+        return $this;
+    }
+
+    public function getBaixaCycred(): ?\DateTimeInterface
+    {
+        return $this->baixaCycred;
+    }
+
+    public function setBaixaCycred(?\DateTimeInterface $baixaCycred): self
+    {
+        $this->baixaCycred = $baixaCycred;
+
+        return $this;
+    }
+
+    public function getNumAgentComercial(): ?int
+    {
+        return $this->numAgentComercial;
+    }
+
+    public function setNumAgentComercial(?int $numAgentComercial): self
+    {
+        $this->numAgentComercial = $numAgentComercial;
+
+        return $this;
+    }
+
+    public function getNumUltimPresup(): ?string
+    {
+        return $this->numUltimPresup;
+    }
+
+    public function setNumUltimPresup(?string $numUltimPresup): self
+    {
+        $this->numUltimPresup = $numUltimPresup;
+
+        return $this;
+    }
+
+    public function getDataUltimPresup(): ?\DateTimeInterface
+    {
+        return $this->dataUltimPresup;
+    }
+
+    public function setDataUltimPresup(?\DateTimeInterface $dataUltimPresup): self
+    {
+        $this->dataUltimPresup = $dataUltimPresup;
+
+        return $this;
+    }
+
+    public function getNumUltimFraproforma(): ?string
+    {
+        return $this->numUltimFraproforma;
+    }
+
+    public function setNumUltimFraproforma(?string $numUltimFraproforma): self
+    {
+        $this->numUltimFraproforma = $numUltimFraproforma;
+
+        return $this;
+    }
+
+    public function getDataUltimFraproforma(): ?\DateTimeInterface
+    {
+        return $this->dataUltimFraproforma;
+    }
+
+    public function setDataUltimFraproforma(?\DateTimeInterface $dataUltimFraproforma): self
+    {
+        $this->dataUltimFraproforma = $dataUltimFraproforma;
+
+        return $this;
+    }
+
+    public function getNumUltimFactura(): ?string
+    {
+        return $this->numUltimFactura;
+    }
+
+    public function setNumUltimFactura(?string $numUltimFactura): self
+    {
+        $this->numUltimFactura = $numUltimFactura;
+
+        return $this;
+    }
+
+    public function getDataUltimFactura(): ?\DateTimeInterface
+    {
+        return $this->dataUltimFactura;
+    }
+
+    public function setDataUltimFactura(?\DateTimeInterface $dataUltimFactura): self
+    {
+        $this->dataUltimFactura = $dataUltimFactura;
+
+        return $this;
+    }
+
+    public function getOkbancDomiciliacio(): ?bool
+    {
+        return $this->okbancDomiciliacio;
+    }
+
+    public function setOkbancDomiciliacio(?bool $okbancDomiciliacio): self
+    {
+        $this->okbancDomiciliacio = $okbancDomiciliacio;
+
+        return $this;
+    }
+
+    public function getMailingNadal(): ?bool
+    {
+        return $this->mailingNadal;
+    }
+
+    public function setMailingNadal(?bool $mailingNadal): self
+    {
+        $this->mailingNadal = $mailingNadal;
+
+        return $this;
+    }
+
+    public function getEspecial(): ?bool
+    {
+        return $this->especial;
+    }
+
+    public function setEspecial(?bool $especial): self
+    {
+        $this->especial = $especial;
+
+        return $this;
+    }
+
+    public function getDataAlta(): ?\DateTimeInterface
+    {
+        return $this->dataAlta;
+    }
+
+    public function setDataAlta(?\DateTimeInterface $dataAlta): self
+    {
+        $this->dataAlta = $dataAlta;
+
+        return $this;
+    }
+
+    public function getHoraAlta(): ?\DateTimeInterface
+    {
+        return $this->horaAlta;
+    }
+
+    public function setHoraAlta(?\DateTimeInterface $horaAlta): self
+    {
+        $this->horaAlta = $horaAlta;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    public function getExpressAfegit(): ?bool
+    {
+        return $this->expressAfegit;
+    }
+
+    public function setExpressAfegit(?bool $expressAfegit): self
+    {
+        $this->expressAfegit = $expressAfegit;
+
+        return $this;
+    }
+
+    public function getExpressMai(): ?bool
+    {
+        return $this->expressMai;
+    }
+
+    public function setExpressMai(?bool $expressMai): self
+    {
+        $this->expressMai = $expressMai;
+
+        return $this;
+    }
+
+    public function getMajorista(): ?bool
+    {
+        return $this->majorista;
+    }
+
+    public function setMajorista(?bool $majorista): self
+    {
+        $this->majorista = $majorista;
+
+        return $this;
+    }
+
+    public function getRoyalty(): ?bool
+    {
+        return $this->royalty;
+    }
+
+    public function setRoyalty(?bool $royalty): self
+    {
+        $this->royalty = $royalty;
+
+        return $this;
+    }
+
+    public function getActivitat1(): ?int
+    {
+        return $this->activitat1;
+    }
+
+    public function setActivitat1(?int $activitat1): self
+    {
+        $this->activitat1 = $activitat1;
+
+        return $this;
+    }
+
+    public function getActivitat2(): ?string
+    {
+        return $this->activitat2;
+    }
+
+    public function setActivitat2(?string $activitat2): self
+    {
+        $this->activitat2 = $activitat2;
+
+        return $this;
+    }
+
 
 }

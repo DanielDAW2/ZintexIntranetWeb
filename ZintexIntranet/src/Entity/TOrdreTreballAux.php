@@ -154,5 +154,238 @@ class TOrdreTreballAux
      */
     private $principal;
 
+    public function getIdOrdreTreballAux(): ?int
+    {
+        return $this->idOrdreTreballAux;
+    }
+
+    public function getNumOrdreTreball(): ?int
+    {
+        return $this->numOrdreTreball;
+    }
+
+    public function setNumOrdreTreball(?int $numOrdreTreball): self
+    {
+        $this->numOrdreTreball = $numOrdreTreball;
+
+        return $this;
+    }
+
+    public function getNumLinia(): ?int
+    {
+        return $this->numLinia;
+    }
+
+    public function setNumLinia(?int $numLinia): self
+    {
+        $this->numLinia = $numLinia;
+
+        return $this;
+    }
+
+    public function getCodprodOrdreTreball(): ?int
+    {
+        return $this->codprodOrdreTreball;
+    }
+
+    public function setCodprodOrdreTreball(?int $codprodOrdreTreball): self
+    {
+        $this->codprodOrdreTreball = $codprodOrdreTreball;
+
+        return $this;
+    }
+
+    public function getDescripprodOrdreTreball(): ?string
+    {
+        return $this->descripprodOrdreTreball;
+    }
+
+    public function setDescripprodOrdreTreball(?string $descripprodOrdreTreball): self
+    {
+        $this->descripprodOrdreTreball = $descripprodOrdreTreball;
+
+        return $this;
+    }
+
+    public function getCodparamimpOrdreTreball(): ?int
+    {
+        return $this->codparamimpOrdreTreball;
+    }
+
+    public function setCodparamimpOrdreTreball(?int $codparamimpOrdreTreball): self
+    {
+        $this->codparamimpOrdreTreball = $codparamimpOrdreTreball;
+
+        return $this;
+    }
+
+    public function getDescripparamimpOrdreTreball(): ?string
+    {
+        return $this->descripparamimpOrdreTreball;
+    }
+
+    public function setDescripparamimpOrdreTreball(?string $descripparamimpOrdreTreball): self
+    {
+        $this->descripparamimpOrdreTreball = $descripparamimpOrdreTreball;
+
+        return $this;
+    }
+
+    public function getNumunitOrdreTreball(): ?float
+    {
+        return $this->numunitOrdreTreball;
+    }
+
+    public function setNumunitOrdreTreball(?float $numunitOrdreTreball): self
+    {
+        $this->numunitOrdreTreball = $numunitOrdreTreball;
+
+        return $this;
+    }
+
+    public function getMetres(): ?int
+    {
+        return $this->metres;
+    }
+
+    public function setMetres(?int $metres): self
+    {
+        $this->metres = $metres;
+
+        return $this;
+    }
+
+    public function getLongitud(): ?int
+    {
+        return $this->longitud;
+    }
+
+    public function setLongitud(?int $longitud): self
+    {
+        $this->longitud = $longitud;
+
+        return $this;
+    }
+
+    public function getDepartament(): ?string
+    {
+        return $this->departament;
+    }
+
+    public function setDepartament(?string $departament): self
+    {
+        $this->departament = $departament;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    public function getAmple(): ?string
+    {
+        return $this->ample;
+    }
+
+    public function setAmple(?string $ample): self
+    {
+        $this->ample = $ample;
+
+        return $this;
+    }
+
+    public function getCares(): ?string
+    {
+        return $this->cares;
+    }
+
+    public function setCares(?string $cares): self
+    {
+        $this->cares = $cares;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?int
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?int $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getCodiOrdreTreball(): ?string
+    {
+        return $this->codiOrdreTreball;
+    }
+
+    public function setCodiOrdreTreball(?string $codiOrdreTreball): self
+    {
+        $this->codiOrdreTreball = $codiOrdreTreball;
+
+        return $this;
+    }
+
+    public function getCodiFraproforma(): ?string
+    {
+        return $this->codiFraproforma;
+    }
+
+    public function setCodiFraproforma(?string $codiFraproforma): self
+    {
+        $this->codiFraproforma = $codiFraproforma;
+
+        return $this;
+    }
+
+    public function getLiniaProforma(): ?int
+    {
+        return $this->liniaProforma;
+    }
+
+    public function setLiniaProforma(?int $liniaProforma): self
+    {
+        $this->liniaProforma = $liniaProforma;
+
+        return $this;
+    }
+
+    public function getIdFraproformaAux(): ?int
+    {
+        return $this->idFraproformaAux;
+    }
+
+    public function setIdFraproformaAux(?int $idFraproformaAux): self
+    {
+        $this->idFraproformaAux = $idFraproformaAux;
+
+        return $this;
+    }
+
+    public function getPrincipal(): ?bool
+    {
+        return $this->principal;
+    }
+
+    public function setPrincipal(?bool $principal): self
+    {
+        $this->principal = $principal;
+
+        return $this;
+    }
+
 
 }

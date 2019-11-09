@@ -112,5 +112,166 @@ class TProductes
      */
     private $foto;
 
+    public function getIdProd(): ?int
+    {
+        return $this->idProd;
+    }
+
+    public function getOrdre(): ?int
+    {
+        return $this->ordre;
+    }
+
+    public function setOrdre(?int $ordre): self
+    {
+        $this->ordre = $ordre;
+
+        return $this;
+    }
+
+    public function getRefProd(): ?string
+    {
+        return $this->refProd;
+    }
+
+    public function setRefProd(?string $refProd): self
+    {
+        $this->refProd = $refProd;
+
+        return $this;
+    }
+
+    public function getEtiqueta(): ?string
+    {
+        return $this->etiqueta;
+    }
+
+    public function setEtiqueta(?string $etiqueta): self
+    {
+        $this->etiqueta = $etiqueta;
+
+        return $this;
+    }
+
+    public function getNomProd(): ?string
+    {
+        return $this->nomProd;
+    }
+
+    public function setNomProd(?string $nomProd): self
+    {
+        $this->nomProd = $nomProd;
+
+        return $this;
+    }
+
+    public function getNomProdCurt(): ?string
+    {
+        return $this->nomProdCurt;
+    }
+
+    public function setNomProdCurt(?string $nomProdCurt): self
+    {
+        $this->nomProdCurt = $nomProdCurt;
+
+        return $this;
+    }
+
+    public function getDescripot(): ?string
+    {
+        return $this->descripot;
+    }
+
+    public function setDescripot(?string $descripot): self
+    {
+        $this->descripot = $descripot;
+
+        return $this;
+    }
+
+    public function getDescripal(): ?string
+    {
+        return $this->descripal;
+    }
+
+    public function setDescripal(?string $descripal): self
+    {
+        $this->descripal = $descripal;
+
+        return $this;
+    }
+
+    public function getColor(): ?int
+    {
+        return $this->color;
+    }
+
+    public function setColor(?int $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?int
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?int $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    public function getDisseny(): ?bool
+    {
+        return $this->disseny;
+    }
+
+    public function setDisseny(?bool $disseny): self
+    {
+        $this->disseny = $disseny;
+
+        return $this;
+    }
+
+    public function getProduccio(): ?bool
+    {
+        return $this->produccio;
+    }
+
+    public function setProduccio(?bool $produccio): self
+    {
+        $this->produccio = $produccio;
+
+        return $this;
+    }
+
+    public function getFoto(): ?string
+    {
+        return $this->foto;
+    }
+
+    public function setFoto(?string $foto): self
+    {
+        $this->foto = $foto;
+
+        return $this;
+    }
+
 
 }

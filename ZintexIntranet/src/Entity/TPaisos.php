@@ -35,5 +35,34 @@ class TPaisos
      */
     private $preftelPais;
 
+    public function getIdPais(): ?int
+    {
+        return $this->idPais;
+    }
+
+    public function getPais(): ?string
+    {
+        return $this->pais;
+    }
+
+    public function setPais(?string $pais): self
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    public function getPreftelPais(): ?string
+    {
+        return $this->preftelPais;
+    }
+
+    public function setPreftelPais(?string $preftelPais): self
+    {
+        $this->preftelPais = $preftelPais;
+
+        return $this;
+    }
+
 
 }

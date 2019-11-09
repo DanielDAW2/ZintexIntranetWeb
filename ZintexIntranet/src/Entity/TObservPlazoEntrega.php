@@ -98,5 +98,142 @@ class TObservPlazoEntrega
      */
     private $valleRecargo;
 
+    public function getIdObservPlazoEntrega(): ?int
+    {
+        return $this->idObservPlazoEntrega;
+    }
+
+    public function getTitolPlazoentrega(): ?string
+    {
+        return $this->titolPlazoentrega;
+    }
+
+    public function setTitolPlazoentrega(?string $titolPlazoentrega): self
+    {
+        $this->titolPlazoentrega = $titolPlazoentrega;
+
+        return $this;
+    }
+
+    public function getNourgenteTitol(): ?string
+    {
+        return $this->nourgenteTitol;
+    }
+
+    public function setNourgenteTitol(?string $nourgenteTitol): self
+    {
+        $this->nourgenteTitol = $nourgenteTitol;
+
+        return $this;
+    }
+
+    public function getNourgenteDescrip(): ?string
+    {
+        return $this->nourgenteDescrip;
+    }
+
+    public function setNourgenteDescrip(?string $nourgenteDescrip): self
+    {
+        $this->nourgenteDescrip = $nourgenteDescrip;
+
+        return $this;
+    }
+
+    public function getUrgenteTitol(): ?string
+    {
+        return $this->urgenteTitol;
+    }
+
+    public function setUrgenteTitol(?string $urgenteTitol): self
+    {
+        $this->urgenteTitol = $urgenteTitol;
+
+        return $this;
+    }
+
+    public function getUrgenteDescrip1(): ?string
+    {
+        return $this->urgenteDescrip1;
+    }
+
+    public function setUrgenteDescrip1(?string $urgenteDescrip1): self
+    {
+        $this->urgenteDescrip1 = $urgenteDescrip1;
+
+        return $this;
+    }
+
+    public function getUrgenteRecargo(): ?string
+    {
+        return $this->urgenteRecargo;
+    }
+
+    public function setUrgenteRecargo(?string $urgenteRecargo): self
+    {
+        $this->urgenteRecargo = $urgenteRecargo;
+
+        return $this;
+    }
+
+    public function getUrgenteDescrip2(): ?string
+    {
+        return $this->urgenteDescrip2;
+    }
+
+    public function setUrgenteDescrip2(?string $urgenteDescrip2): self
+    {
+        $this->urgenteDescrip2 = $urgenteDescrip2;
+
+        return $this;
+    }
+
+    public function getUrgenteDescrip3(): ?string
+    {
+        return $this->urgenteDescrip3;
+    }
+
+    public function setUrgenteDescrip3(?string $urgenteDescrip3): self
+    {
+        $this->urgenteDescrip3 = $urgenteDescrip3;
+
+        return $this;
+    }
+
+    public function getPedidosupTitol(): ?string
+    {
+        return $this->pedidosupTitol;
+    }
+
+    public function setPedidosupTitol(?string $pedidosupTitol): self
+    {
+        $this->pedidosupTitol = $pedidosupTitol;
+
+        return $this;
+    }
+
+    public function getPedidosupDescrip(): ?string
+    {
+        return $this->pedidosupDescrip;
+    }
+
+    public function setPedidosupDescrip(?string $pedidosupDescrip): self
+    {
+        $this->pedidosupDescrip = $pedidosupDescrip;
+
+        return $this;
+    }
+
+    public function getValleRecargo(): ?string
+    {
+        return $this->valleRecargo;
+    }
+
+    public function setValleRecargo(?string $valleRecargo): self
+    {
+        $this->valleRecargo = $valleRecargo;
+
+        return $this;
+    }
+
 
 }

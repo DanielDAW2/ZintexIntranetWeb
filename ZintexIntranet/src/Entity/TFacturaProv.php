@@ -112,5 +112,166 @@ class TFacturaProv
      */
     private $exentIva;
 
+    public function getIdFacturaProv(): ?int
+    {
+        return $this->idFacturaProv;
+    }
+
+    public function getProveidor(): ?int
+    {
+        return $this->proveidor;
+    }
+
+    public function setProveidor(?int $proveidor): self
+    {
+        $this->proveidor = $proveidor;
+
+        return $this;
+    }
+
+    public function getNumFraprov(): ?string
+    {
+        return $this->numFraprov;
+    }
+
+    public function setNumFraprov(?string $numFraprov): self
+    {
+        $this->numFraprov = $numFraprov;
+
+        return $this;
+    }
+
+    public function getDataFraprov(): ?\DateTimeInterface
+    {
+        return $this->dataFraprov;
+    }
+
+    public function setDataFraprov(?\DateTimeInterface $dataFraprov): self
+    {
+        $this->dataFraprov = $dataFraprov;
+
+        return $this;
+    }
+
+    public function getDataVtoFraprov(): ?\DateTimeInterface
+    {
+        return $this->dataVtoFraprov;
+    }
+
+    public function setDataVtoFraprov(?\DateTimeInterface $dataVtoFraprov): self
+    {
+        $this->dataVtoFraprov = $dataVtoFraprov;
+
+        return $this;
+    }
+
+    public function getDataEntradaProv(): ?\DateTimeInterface
+    {
+        return $this->dataEntradaProv;
+    }
+
+    public function setDataEntradaProv(?\DateTimeInterface $dataEntradaProv): self
+    {
+        $this->dataEntradaProv = $dataEntradaProv;
+
+        return $this;
+    }
+
+    public function getBimpFraprov(): ?float
+    {
+        return $this->bimpFraprov;
+    }
+
+    public function setBimpFraprov(?float $bimpFraprov): self
+    {
+        $this->bimpFraprov = $bimpFraprov;
+
+        return $this;
+    }
+
+    public function getIvaFraprov(): ?float
+    {
+        return $this->ivaFraprov;
+    }
+
+    public function setIvaFraprov(?float $ivaFraprov): self
+    {
+        $this->ivaFraprov = $ivaFraprov;
+
+        return $this;
+    }
+
+    public function getTotalFraprov(): ?float
+    {
+        return $this->totalFraprov;
+    }
+
+    public function setTotalFraprov(?float $totalFraprov): self
+    {
+        $this->totalFraprov = $totalFraprov;
+
+        return $this;
+    }
+
+    public function getIvaInclos(): ?bool
+    {
+        return $this->ivaInclos;
+    }
+
+    public function setIvaInclos(?bool $ivaInclos): self
+    {
+        $this->ivaInclos = $ivaInclos;
+
+        return $this;
+    }
+
+    public function getImportPendent(): ?float
+    {
+        return $this->importPendent;
+    }
+
+    public function setImportPendent(?float $importPendent): self
+    {
+        $this->importPendent = $importPendent;
+
+        return $this;
+    }
+
+    public function getImportPagat(): ?float
+    {
+        return $this->importPagat;
+    }
+
+    public function setImportPagat(?float $importPagat): self
+    {
+        $this->importPagat = $importPagat;
+
+        return $this;
+    }
+
+    public function getReDto(): ?float
+    {
+        return $this->reDto;
+    }
+
+    public function setReDto(?float $reDto): self
+    {
+        $this->reDto = $reDto;
+
+        return $this;
+    }
+
+    public function getExentIva(): ?float
+    {
+        return $this->exentIva;
+    }
+
+    public function setExentIva(?float $exentIva): self
+    {
+        $this->exentIva = $exentIva;
+
+        return $this;
+    }
+
 
 }

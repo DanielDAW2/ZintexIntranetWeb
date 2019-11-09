@@ -28,5 +28,22 @@ class TAutorComanda
      */
     private $nomAutorComanda;
 
+    public function getIdAutorComanda(): ?int
+    {
+        return $this->idAutorComanda;
+    }
+
+    public function getNomAutorComanda(): ?string
+    {
+        return $this->nomAutorComanda;
+    }
+
+    public function setNomAutorComanda(?string $nomAutorComanda): self
+    {
+        $this->nomAutorComanda = $nomAutorComanda;
+
+        return $this;
+    }
+
 
 }

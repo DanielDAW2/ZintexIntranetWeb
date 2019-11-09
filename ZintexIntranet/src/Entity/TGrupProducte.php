@@ -49,5 +49,58 @@ class TGrupProducte
      */
     private $admetMarcatge;
 
+    public function getIdGrupproducte(): ?int
+    {
+        return $this->idGrupproducte;
+    }
+
+    public function getNumGrupProducte(): ?int
+    {
+        return $this->numGrupProducte;
+    }
+
+    public function setNumGrupProducte(?int $numGrupProducte): self
+    {
+        $this->numGrupProducte = $numGrupProducte;
+
+        return $this;
+    }
+
+    public function getGrupGral(): ?int
+    {
+        return $this->grupGral;
+    }
+
+    public function setGrupGral(?int $grupGral): self
+    {
+        $this->grupGral = $grupGral;
+
+        return $this;
+    }
+
+    public function getDescripGrupProducte(): ?string
+    {
+        return $this->descripGrupProducte;
+    }
+
+    public function setDescripGrupProducte(?string $descripGrupProducte): self
+    {
+        $this->descripGrupProducte = $descripGrupProducte;
+
+        return $this;
+    }
+
+    public function getAdmetMarcatge(): ?bool
+    {
+        return $this->admetMarcatge;
+    }
+
+    public function setAdmetMarcatge(?bool $admetMarcatge): self
+    {
+        $this->admetMarcatge = $admetMarcatge;
+
+        return $this;
+    }
+
 
 }

@@ -231,5 +231,370 @@ class TOrdreTreball
      */
     private $unitats;
 
+    public function getIdOrdre(): ?int
+    {
+        return $this->idOrdre;
+    }
+
+    public function getNumClient(): ?int
+    {
+        return $this->numClient;
+    }
+
+    public function setNumClient(?int $numClient): self
+    {
+        $this->numClient = $numClient;
+
+        return $this;
+    }
+
+    public function getNomClient(): ?string
+    {
+        return $this->nomClient;
+    }
+
+    public function setNomClient(?string $nomClient): self
+    {
+        $this->nomClient = $nomClient;
+
+        return $this;
+    }
+
+    public function getNumFraproforma(): ?int
+    {
+        return $this->numFraproforma;
+    }
+
+    public function setNumFraproforma(?int $numFraproforma): self
+    {
+        $this->numFraproforma = $numFraproforma;
+
+        return $this;
+    }
+
+    public function getNumSubordre(): ?string
+    {
+        return $this->numSubordre;
+    }
+
+    public function setNumSubordre(?string $numSubordre): self
+    {
+        $this->numSubordre = $numSubordre;
+
+        return $this;
+    }
+
+    public function getCampanya(): ?string
+    {
+        return $this->campanya;
+    }
+
+    public function setCampanya(?string $campanya): self
+    {
+        $this->campanya = $campanya;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?int
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?int $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getDescripOrdreTreball(): ?string
+    {
+        return $this->descripOrdreTreball;
+    }
+
+    public function setDescripOrdreTreball(?string $descripOrdreTreball): self
+    {
+        $this->descripOrdreTreball = $descripOrdreTreball;
+
+        return $this;
+    }
+
+    public function getProveidor(): ?string
+    {
+        return $this->proveidor;
+    }
+
+    public function setProveidor(?string $proveidor): self
+    {
+        $this->proveidor = $proveidor;
+
+        return $this;
+    }
+
+    public function getEntregaDisseny(): ?\DateTimeInterface
+    {
+        return $this->entregaDisseny;
+    }
+
+    public function setEntregaDisseny(?\DateTimeInterface $entregaDisseny): self
+    {
+        $this->entregaDisseny = $entregaDisseny;
+
+        return $this;
+    }
+
+    public function getSortidaCalandra(): ?\DateTimeInterface
+    {
+        return $this->sortidaCalandra;
+    }
+
+    public function setSortidaCalandra(?\DateTimeInterface $sortidaCalandra): self
+    {
+        $this->sortidaCalandra = $sortidaCalandra;
+
+        return $this;
+    }
+
+    public function getSortidaImpressio(): ?\DateTimeInterface
+    {
+        return $this->sortidaImpressio;
+    }
+
+    public function setSortidaImpressio(?\DateTimeInterface $sortidaImpressio): self
+    {
+        $this->sortidaImpressio = $sortidaImpressio;
+
+        return $this;
+    }
+
+    public function getSortidaProduccio(): ?\DateTimeInterface
+    {
+        return $this->sortidaProduccio;
+    }
+
+    public function setSortidaProduccio(?\DateTimeInterface $sortidaProduccio): self
+    {
+        $this->sortidaProduccio = $sortidaProduccio;
+
+        return $this;
+    }
+
+    public function getEntregaClient(): ?\DateTimeInterface
+    {
+        return $this->entregaClient;
+    }
+
+    public function setEntregaClient(?\DateTimeInterface $entregaClient): self
+    {
+        $this->entregaClient = $entregaClient;
+
+        return $this;
+    }
+
+    public function getDissenyador(): ?string
+    {
+        return $this->dissenyador;
+    }
+
+    public function setDissenyador(?string $dissenyador): self
+    {
+        $this->dissenyador = $dissenyador;
+
+        return $this;
+    }
+
+    public function getPostaMarxa(): ?string
+    {
+        return $this->postaMarxa;
+    }
+
+    public function setPostaMarxa(?string $postaMarxa): self
+    {
+        $this->postaMarxa = $postaMarxa;
+
+        return $this;
+    }
+
+    public function getCalandra(): ?string
+    {
+        return $this->calandra;
+    }
+
+    public function setCalandra(?string $calandra): self
+    {
+        $this->calandra = $calandra;
+
+        return $this;
+    }
+
+    public function getAnonim(): ?bool
+    {
+        return $this->anonim;
+    }
+
+    public function setAnonim(?bool $anonim): self
+    {
+        $this->anonim = $anonim;
+
+        return $this;
+    }
+
+    public function getAdreã§aEntrega(): ?bool
+    {
+        return $this->adreã§aEntrega;
+    }
+
+    public function setAdreã§aEntrega(?bool $adreã§aEntrega): self
+    {
+        $this->adreã§aEntrega = $adreã§aEntrega;
+
+        return $this;
+    }
+
+    public function getRecullClient(): ?bool
+    {
+        return $this->recullClient;
+    }
+
+    public function setRecullClient(?bool $recullClient): self
+    {
+        $this->recullClient = $recullClient;
+
+        return $this;
+    }
+
+    public function getPortsDeguts(): ?bool
+    {
+        return $this->portsDeguts;
+    }
+
+    public function setPortsDeguts(?bool $portsDeguts): self
+    {
+        $this->portsDeguts = $portsDeguts;
+
+        return $this;
+    }
+
+    public function getServeiUrgent830(): ?bool
+    {
+        return $this->serveiUrgent830;
+    }
+
+    public function setServeiUrgent830(?bool $serveiUrgent830): self
+    {
+        $this->serveiUrgent830 = $serveiUrgent830;
+
+        return $this;
+    }
+
+    public function getServeiUrgent10(): ?bool
+    {
+        return $this->serveiUrgent10;
+    }
+
+    public function setServeiUrgent10(?bool $serveiUrgent10): self
+    {
+        $this->serveiUrgent10 = $serveiUrgent10;
+
+        return $this;
+    }
+
+    public function getServeiUrgent12(): ?bool
+    {
+        return $this->serveiUrgent12;
+    }
+
+    public function setServeiUrgent12(?bool $serveiUrgent12): self
+    {
+        $this->serveiUrgent12 = $serveiUrgent12;
+
+        return $this;
+    }
+
+    public function getServeiUrgent14(): ?bool
+    {
+        return $this->serveiUrgent14;
+    }
+
+    public function setServeiUrgent14(?bool $serveiUrgent14): self
+    {
+        $this->serveiUrgent14 = $serveiUrgent14;
+
+        return $this;
+    }
+
+    public function getObservacionsDisseny(): ?string
+    {
+        return $this->observacionsDisseny;
+    }
+
+    public function setObservacionsDisseny(?string $observacionsDisseny): self
+    {
+        $this->observacionsDisseny = $observacionsDisseny;
+
+        return $this;
+    }
+
+    public function getObservacionsProduccio(): ?string
+    {
+        return $this->observacionsProduccio;
+    }
+
+    public function setObservacionsProduccio(?string $observacionsProduccio): self
+    {
+        $this->observacionsProduccio = $observacionsProduccio;
+
+        return $this;
+    }
+
+    public function getPersona(): ?string
+    {
+        return $this->persona;
+    }
+
+    public function setPersona(?string $persona): self
+    {
+        $this->persona = $persona;
+
+        return $this;
+    }
+
+    public function getResumUnitats(): ?string
+    {
+        return $this->resumUnitats;
+    }
+
+    public function setResumUnitats(?string $resumUnitats): self
+    {
+        $this->resumUnitats = $resumUnitats;
+
+        return $this;
+    }
+
+    public function getResumProductes(): ?string
+    {
+        return $this->resumProductes;
+    }
+
+    public function setResumProductes(?string $resumProductes): self
+    {
+        $this->resumProductes = $resumProductes;
+
+        return $this;
+    }
+
+    public function getUnitats(): ?int
+    {
+        return $this->unitats;
+    }
+
+    public function setUnitats(?int $unitats): self
+    {
+        $this->unitats = $unitats;
+
+        return $this;
+    }
+
 
 }

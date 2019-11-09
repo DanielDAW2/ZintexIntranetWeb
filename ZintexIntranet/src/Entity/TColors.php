@@ -35,5 +35,34 @@ class TColors
      */
     private $color;
 
+    public function getIdColor(): ?int
+    {
+        return $this->idColor;
+    }
+
+    public function getTipoColor(): ?int
+    {
+        return $this->tipoColor;
+    }
+
+    public function setTipoColor(?int $tipoColor): self
+    {
+        $this->tipoColor = $tipoColor;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
 
 }

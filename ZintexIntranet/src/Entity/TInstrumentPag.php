@@ -49,5 +49,58 @@ class TInstrumentPag
      */
     private $baixa;
 
+    public function getIdInstPag(): ?int
+    {
+        return $this->idInstPag;
+    }
+
+    public function getCodInstPag(): ?string
+    {
+        return $this->codInstPag;
+    }
+
+    public function setCodInstPag(?string $codInstPag): self
+    {
+        $this->codInstPag = $codInstPag;
+
+        return $this;
+    }
+
+    public function getNomInstPag(): ?string
+    {
+        return $this->nomInstPag;
+    }
+
+    public function setNomInstPag(?string $nomInstPag): self
+    {
+        $this->nomInstPag = $nomInstPag;
+
+        return $this;
+    }
+
+    public function getDescripcioInstrument(): ?string
+    {
+        return $this->descripcioInstrument;
+    }
+
+    public function setDescripcioInstrument(?string $descripcioInstrument): self
+    {
+        $this->descripcioInstrument = $descripcioInstrument;
+
+        return $this;
+    }
+
+    public function getBaixa(): ?bool
+    {
+        return $this->baixa;
+    }
+
+    public function setBaixa(?bool $baixa): self
+    {
+        $this->baixa = $baixa;
+
+        return $this;
+    }
+
 
 }

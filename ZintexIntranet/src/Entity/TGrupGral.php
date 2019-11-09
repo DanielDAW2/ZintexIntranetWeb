@@ -28,5 +28,22 @@ class TGrupGral
      */
     private $nomGrupo;
 
+    public function getIdGrupo(): ?int
+    {
+        return $this->idGrupo;
+    }
+
+    public function getNomGrupo(): ?string
+    {
+        return $this->nomGrupo;
+    }
+
+    public function setNomGrupo(?string $nomGrupo): self
+    {
+        $this->nomGrupo = $nomGrupo;
+
+        return $this;
+    }
+
 
 }

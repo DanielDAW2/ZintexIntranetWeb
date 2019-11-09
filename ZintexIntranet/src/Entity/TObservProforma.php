@@ -28,5 +28,22 @@ class TObservProforma
      */
     private $observProforma;
 
+    public function getIdObservProforma(): ?int
+    {
+        return $this->idObservProforma;
+    }
+
+    public function getObservProforma(): ?string
+    {
+        return $this->observProforma;
+    }
+
+    public function setObservProforma(?string $observProforma): self
+    {
+        $this->observProforma = $observProforma;
+
+        return $this;
+    }
+
 
 }
