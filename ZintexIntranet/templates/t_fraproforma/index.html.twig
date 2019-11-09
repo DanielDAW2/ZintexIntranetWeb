@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFraproforma index{% endblock %}
+
+{% block body %}
+    <h1>TFraproforma index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdFraprof</th>
+                <th>ClientFraprof</th>
+                <th>PersonaFraprof</th>
+                <th>DataFraprof</th>
+                <th>NumFraprof</th>
+                <th>RefPresup</th>
+                <th>RefAlbara</th>
+                <th>RefFactura</th>
+                <th>Nref</th>
+                <th>Sref</th>
+                <th>Valorada</th>
+                <th>BaseImp</th>
+                <th>Iva</th>
+                <th>Req</th>
+                <th>IvaVar</th>
+                <th>ReqVar</th>
+                <th>TotalFra</th>
+                <th>ImportPendent</th>
+                <th>ImportPagat</th>
+                <th>MetodePag</th>
+                <th>MetpagAux</th>
+                <th>ObservFraprof</th>
+                <th>Seguiment</th>
+                <th>NumAutor</th>
+                <th>NumAutorProforma</th>
+                <th>DataGravacio</th>
+                <th>HoraGravacio</th>
+                <th>Acceptada</th>
+                <th>DataAcceptacio</th>
+                <th>HoraAcceptacio</th>
+                <th>UltimPagament</th>
+                <th>Facturar</th>
+                <th>DataProduccio</th>
+                <th>HoraProduccio</th>
+                <th>Produccio</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_fraproforma in t_fraproformas %}
+            <tr>
+                <td>{{ t_fraproforma.idFraprof }}</td>
+                <td>{{ t_fraproforma.clientFraprof }}</td>
+                <td>{{ t_fraproforma.personaFraprof }}</td>
+                <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.numFraprof }}</td>
+                <td>{{ t_fraproforma.refPresup }}</td>
+                <td>{{ t_fraproforma.refAlbara }}</td>
+                <td>{{ t_fraproforma.refFactura }}</td>
+                <td>{{ t_fraproforma.nref }}</td>
+                <td>{{ t_fraproforma.sref }}</td>
+                <td>{{ t_fraproforma.valorada ? 'Yes' : 'No' }}</td>
+                <td>{{ t_fraproforma.baseImp }}</td>
+                <td>{{ t_fraproforma.iva }}</td>
+                <td>{{ t_fraproforma.req }}</td>
+                <td>{{ t_fraproforma.ivaVar }}</td>
+                <td>{{ t_fraproforma.reqVar }}</td>
+                <td>{{ t_fraproforma.totalFra }}</td>
+                <td>{{ t_fraproforma.importPendent }}</td>
+                <td>{{ t_fraproforma.importPagat }}</td>
+                <td>{{ t_fraproforma.metodePag }}</td>
+                <td>{{ t_fraproforma.metpagAux }}</td>
+                <td>{{ t_fraproforma.observFraprof }}</td>
+                <td>{{ t_fraproforma.seguiment }}</td>
+                <td>{{ t_fraproforma.numAutor }}</td>
+                <td>{{ t_fraproforma.numAutorProforma }}</td>
+                <td>{{ t_fraproforma.dataGravacio ? t_fraproforma.dataGravacio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.horaGravacio ? t_fraproforma.horaGravacio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.acceptada ? 'Yes' : 'No' }}</td>
+                <td>{{ t_fraproforma.dataAcceptacio ? t_fraproforma.dataAcceptacio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.horaAcceptacio ? t_fraproforma.horaAcceptacio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.ultimPagament ? t_fraproforma.ultimPagament|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.facturar ? 'Yes' : 'No' }}</td>
+                <td>{{ t_fraproforma.dataProduccio ? t_fraproforma.dataProduccio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.horaProduccio ? t_fraproforma.horaProduccio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.produccio ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('t_fraproforma_show', {'idFraprof': t_fraproforma.idFraprof}) }}">show</a>
+                    <a href="{{ path('t_fraproforma_edit', {'idFraprof': t_fraproforma.idFraprof}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="36">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_fraproforma_new') }}">Create new</a>
+{% endblock %}

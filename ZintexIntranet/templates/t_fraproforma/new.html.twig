@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TFraproforma{% endblock %}
+
+{% block body %}
+    <h1>Create new TFraproforma</h1>
+
+    {{ include('t_fraproforma/_form.html.twig') }}
+
+    <a href="{{ path('t_fraproforma_index') }}">back to list</a>
+{% endblock %}

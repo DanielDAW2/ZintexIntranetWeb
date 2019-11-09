@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFraproforma{% endblock %}
+
+{% block body %}
+    <h1>TFraproforma</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdFraprof</th>
+                <td>{{ t_fraproforma.idFraprof }}</td>
+            </tr>
+            <tr>
+                <th>ClientFraprof</th>
+                <td>{{ t_fraproforma.clientFraprof }}</td>
+            </tr>
+            <tr>
+                <th>PersonaFraprof</th>
+                <td>{{ t_fraproforma.personaFraprof }}</td>
+            </tr>
+            <tr>
+                <th>DataFraprof</th>
+                <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NumFraprof</th>
+                <td>{{ t_fraproforma.numFraprof }}</td>
+            </tr>
+            <tr>
+                <th>RefPresup</th>
+                <td>{{ t_fraproforma.refPresup }}</td>
+            </tr>
+            <tr>
+                <th>RefAlbara</th>
+                <td>{{ t_fraproforma.refAlbara }}</td>
+            </tr>
+            <tr>
+                <th>RefFactura</th>
+                <td>{{ t_fraproforma.refFactura }}</td>
+            </tr>
+            <tr>
+                <th>Nref</th>
+                <td>{{ t_fraproforma.nref }}</td>
+            </tr>
+            <tr>
+                <th>Sref</th>
+                <td>{{ t_fraproforma.sref }}</td>
+            </tr>
+            <tr>
+                <th>Valorada</th>
+                <td>{{ t_fraproforma.valorada ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>BaseImp</th>
+                <td>{{ t_fraproforma.baseImp }}</td>
+            </tr>
+            <tr>
+                <th>Iva</th>
+                <td>{{ t_fraproforma.iva }}</td>
+            </tr>
+            <tr>
+                <th>Req</th>
+                <td>{{ t_fraproforma.req }}</td>
+            </tr>
+            <tr>
+                <th>IvaVar</th>
+                <td>{{ t_fraproforma.ivaVar }}</td>
+            </tr>
+            <tr>
+                <th>ReqVar</th>
+                <td>{{ t_fraproforma.reqVar }}</td>
+            </tr>
+            <tr>
+                <th>TotalFra</th>
+                <td>{{ t_fraproforma.totalFra }}</td>
+            </tr>
+            <tr>
+                <th>ImportPendent</th>
+                <td>{{ t_fraproforma.importPendent }}</td>
+            </tr>
+            <tr>
+                <th>ImportPagat</th>
+                <td>{{ t_fraproforma.importPagat }}</td>
+            </tr>
+            <tr>
+                <th>MetodePag</th>
+                <td>{{ t_fraproforma.metodePag }}</td>
+            </tr>
+            <tr>
+                <th>MetpagAux</th>
+                <td>{{ t_fraproforma.metpagAux }}</td>
+            </tr>
+            <tr>
+                <th>ObservFraprof</th>
+                <td>{{ t_fraproforma.observFraprof }}</td>
+            </tr>
+            <tr>
+                <th>Seguiment</th>
+                <td>{{ t_fraproforma.seguiment }}</td>
+            </tr>
+            <tr>
+                <th>NumAutor</th>
+                <td>{{ t_fraproforma.numAutor }}</td>
+            </tr>
+            <tr>
+                <th>NumAutorProforma</th>
+                <td>{{ t_fraproforma.numAutorProforma }}</td>
+            </tr>
+            <tr>
+                <th>DataGravacio</th>
+                <td>{{ t_fraproforma.dataGravacio ? t_fraproforma.dataGravacio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>HoraGravacio</th>
+                <td>{{ t_fraproforma.horaGravacio ? t_fraproforma.horaGravacio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Acceptada</th>
+                <td>{{ t_fraproforma.acceptada ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DataAcceptacio</th>
+                <td>{{ t_fraproforma.dataAcceptacio ? t_fraproforma.dataAcceptacio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>HoraAcceptacio</th>
+                <td>{{ t_fraproforma.horaAcceptacio ? t_fraproforma.horaAcceptacio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UltimPagament</th>
+                <td>{{ t_fraproforma.ultimPagament ? t_fraproforma.ultimPagament|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Facturar</th>
+                <td>{{ t_fraproforma.facturar ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DataProduccio</th>
+                <td>{{ t_fraproforma.dataProduccio ? t_fraproforma.dataProduccio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>HoraProduccio</th>
+                <td>{{ t_fraproforma.horaProduccio ? t_fraproforma.horaProduccio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Produccio</th>
+                <td>{{ t_fraproforma.produccio ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_fraproforma_index') }}">back to list</a>
+
+    <a href="{{ path('t_fraproforma_edit', {'idFraprof': t_fraproforma.idFraprof}) }}">edit</a>
+
+    {{ include('t_fraproforma/_delete_form.html.twig') }}
+{% endblock %}
