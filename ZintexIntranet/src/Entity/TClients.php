@@ -500,7 +500,8 @@ class TClients
     /**
      * @var int|null
      *
-     * @ORM\Column(name="Activitat_1", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="TActivitatClient", inversedBy="activitatClient")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $activitat1;
 
