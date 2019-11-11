@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,17 @@ class TTractaments
      * @ORM\Column(name="Tractament", type="string", length=50, nullable=true)
      */
     private $tractament;
+
+    /**
+     *  @ORM\OneToMany(targetEntity="TClients", mappedBy="tractCli")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $client;
+
+    function __construct()
+    {
+        $this->client = new ArrayCollection();
+    }
 
     public function getIdTract(): ?int
     {

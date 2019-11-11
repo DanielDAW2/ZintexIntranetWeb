@@ -65,8 +65,8 @@ class TClients
 
     /**
      * @var int|null
-     *
-     * @ORM\Column(name="Tract_Cli", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="TTractaments", inversedBy="client")
+     * @ORM\JoinColumn(nullable=true,  referencedColumnName="Id_Tract")
      */
     private $tractCli;
 
@@ -492,7 +492,6 @@ class TClients
 
     /**
      * @var bool|null
-     *
      * @ORM\Column(name="Royalty", type="boolean", nullable=true)
      */
     private $royalty;
