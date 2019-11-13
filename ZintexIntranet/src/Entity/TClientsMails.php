@@ -21,12 +21,7 @@ class TClientsMails
      */
     private $idCliMail;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Client_Mail", type="integer", nullable=true)
-     */
-    private $numClientMail;
+
 
     /**
      * @var string|null
@@ -98,22 +93,17 @@ class TClientsMails
      */
     private $tractamentPersonaMail;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tClientsMails")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli")
+     */
+    private $numClientMail;
+
     public function getIdCliMail(): ?int
     {
         return $this->idCliMail;
     }
 
-    public function getNumClientMail(): ?int
-    {
-        return $this->numClientMail;
-    }
-
-    public function setNumClientMail(?int $numClientMail): self
-    {
-        $this->numClientMail = $numClientMail;
-
-        return $this;
-    }
 
     public function getNomPersonaMail(): ?string
     {
@@ -231,6 +221,18 @@ class TClientsMails
     public function setTractamentPersonaMail(?int $tractamentPersonaMail): self
     {
         $this->tractamentPersonaMail = $tractamentPersonaMail;
+
+        return $this;
+    }
+
+    public function getNumClientMail(): ?TClients
+    {
+        return $this->numClientMail;
+    }
+
+    public function setNumClientMail(?TClients $numClientMail): self
+    {
+        $this->numClientMail = $numClientMail;
 
         return $this;
     }

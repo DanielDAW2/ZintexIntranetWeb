@@ -528,10 +528,16 @@ class TClients
      */
     private $instPag;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TClientsMails", mappedBy="numClientMail")
+     */
+    private $tClientsMails;
+
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
         $this->TAlbara = new ArrayCollection();
+        $this->tClientsMails = new ArrayCollection();
     }
 
     
@@ -1442,6 +1448,37 @@ class TClients
     public function setInstPag(?TInstrumentPag $instPag): self
     {
         $this->instPag = $instPag;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TClientsMails[]
+     */
+    public function getTClientsMails(): Collection
+    {
+        return $this->tClientsMails;
+    }
+
+    public function addTClientsMail(TClientsMails $tClientsMail): self
+    {
+        if (!$this->tClientsMails->contains($tClientsMail)) {
+            $this->tClientsMails[] = $tClientsMail;
+            $tClientsMail->setNumClientMail($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTClientsMail(TClientsMails $tClientsMail): self
+    {
+        if ($this->tClientsMails->contains($tClientsMail)) {
+            $this->tClientsMails->removeElement($tClientsMail);
+            // set the owning side to null (unless already changed)
+            if ($tClientsMail->getNumClientMail() === $this) {
+                $tClientsMail->setNumClientMail(null);
+            }
+        }
 
         return $this;
     }
