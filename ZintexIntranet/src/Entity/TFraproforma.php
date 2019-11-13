@@ -255,16 +255,19 @@ class TFraproforma
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
+     * @ORM\JoinColumn( referencedColumnName="Id_Metode")
      */
     private $metodePag;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup", inversedBy="tFraProformas")
+     * @ORM\JoinColumn( referencedColumnName="Id_AutPresup")
      */
     private $numAutor;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup")
+     * @ORM\JoinColumn( referencedColumnName="Id_AutPresup")
      */
     private $numAutorProforma;
 

@@ -106,16 +106,19 @@ class TFraproformaAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
      */
     private $codprodProforma;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp")
      */
     private $codparamimpProforma;
 

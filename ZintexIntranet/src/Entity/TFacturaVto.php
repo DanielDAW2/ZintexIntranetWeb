@@ -74,12 +74,14 @@ class TFacturaVto
     private $okbancVto;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tfactura", inversedBy="tFacturaVtos")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFactura", inversedBy="tFacturaVtos")
+     * @ORM\JoinColumn(referencedColumnName="Id_Factura")
      */
     private $numFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag")
      */
     private $instpag;
 

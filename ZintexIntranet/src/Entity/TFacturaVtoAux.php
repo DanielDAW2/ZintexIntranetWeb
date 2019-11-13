@@ -201,17 +201,20 @@ class TFacturaVtoAux
     private $okbancVto3;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tfactura", inversedBy="tFacturaVtoAuxes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFactura", inversedBy="tFacturaVtoAuxes")
+     * @ORM\JoinColumn(referencedColumnName="Id_Factura")
      */
     private $idFactura;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tclients")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TClients")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
      */
     private $clientFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFacturaVTo")
+     * @ORM\JoinColumn(referencedColumnName="Id_Factura_Vto")
      */
     private $idFacturaVto1;
 
