@@ -21,19 +21,8 @@ class TFacturaVtoAux
      */
     private $idFacturaVtoAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Id_Factura", type="integer", nullable=true)
-     */
-    private $idFactura;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Client_Factura", type="integer", nullable=true)
-     */
-    private $clientFactura;
+
 
     /**
      * @var \DateTime|null
@@ -70,12 +59,6 @@ class TFacturaVtoAux
      */
     private $importPagat;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Id_Factura_Vto_1", type="integer", nullable=true)
-     */
-    private $idFacturaVto1;
 
     /**
      * @var \DateTime|null
@@ -217,33 +200,25 @@ class TFacturaVtoAux
      */
     private $okbancVto3;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tfactura", inversedBy="tFacturaVtoAuxes")
+     */
+    private $idFactura;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tclients")
+     */
+    private $clientFactura;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFacturaVTo")
+     */
+    private $idFacturaVto1;
+
+
     public function getIdFacturaVtoAux(): ?int
     {
         return $this->idFacturaVtoAux;
-    }
-
-    public function getIdFactura(): ?int
-    {
-        return $this->idFactura;
-    }
-
-    public function setIdFactura(?int $idFactura): self
-    {
-        $this->idFactura = $idFactura;
-
-        return $this;
-    }
-
-    public function getClientFactura(): ?int
-    {
-        return $this->clientFactura;
-    }
-
-    public function setClientFactura(?int $clientFactura): self
-    {
-        $this->clientFactura = $clientFactura;
-
-        return $this;
     }
 
     public function getDataFactura(): ?\DateTimeInterface
@@ -306,17 +281,6 @@ class TFacturaVtoAux
         return $this;
     }
 
-    public function getIdFacturaVto1(): ?int
-    {
-        return $this->idFacturaVto1;
-    }
-
-    public function setIdFacturaVto1(?int $idFacturaVto1): self
-    {
-        $this->idFacturaVto1 = $idFacturaVto1;
-
-        return $this;
-    }
 
     public function getDataVto1(): ?\DateTimeInterface
     {
@@ -554,6 +518,42 @@ class TFacturaVtoAux
     public function setOkbancVto3(?\DateTimeInterface $okbancVto3): self
     {
         $this->okbancVto3 = $okbancVto3;
+
+        return $this;
+    }
+
+    public function getIdFactura(): ?Tfactura
+    {
+        return $this->idFactura;
+    }
+
+    public function setIdFactura(?Tfactura $idFactura): self
+    {
+        $this->idFactura = $idFactura;
+
+        return $this;
+    }
+
+    public function getClientFactura(): ?Tclients
+    {
+        return $this->clientFactura;
+    }
+
+    public function setClientFactura(?Tclients $clientFactura): self
+    {
+        $this->clientFactura = $clientFactura;
+
+        return $this;
+    }
+
+    public function getIdFacturaVto1(): ?TFacturaVTo
+    {
+        return $this->idFacturaVto1;
+    }
+
+    public function setIdFacturaVto1(?TFacturaVTo $idFacturaVto1): self
+    {
+        $this->idFacturaVto1 = $idFacturaVto1;
 
         return $this;
     }

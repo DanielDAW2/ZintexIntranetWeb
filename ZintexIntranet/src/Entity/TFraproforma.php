@@ -144,12 +144,7 @@ class TFraproforma
      */
     private $importPagat;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Metode_Pag", type="integer", nullable=true)
-     */
-    private $metodePag;
+
 
     /**
      * @var string|null
@@ -172,19 +167,9 @@ class TFraproforma
      */
     private $seguiment;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Autor", type="integer", nullable=true)
-     */
-    private $numAutor;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Autor_Proforma", type="integer", nullable=true)
-     */
-    private $numAutorProforma;
+
+
 
     /**
      * @var \DateTime|null
@@ -267,6 +252,21 @@ class TFraproforma
      * @ORM\JoinColumn( referencedColumnName="idFraproformaAux")
      */
     private $tFraproformaAuxes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
+     */
+    private $metodePag;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup", inversedBy="tFraProformas")
+     */
+    private $numAutor;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup")
+     */
+    private $numAutorProforma;
 
 
 
@@ -497,17 +497,7 @@ class TFraproforma
         return $this;
     }
 
-    public function getMetodePag(): ?int
-    {
-        return $this->metodePag;
-    }
 
-    public function setMetodePag(?int $metodePag): self
-    {
-        $this->metodePag = $metodePag;
-
-        return $this;
-    }
 
     public function getMetpagAux(): ?string
     {
@@ -545,29 +535,7 @@ class TFraproforma
         return $this;
     }
 
-    public function getNumAutor(): ?int
-    {
-        return $this->numAutor;
-    }
 
-    public function setNumAutor(?int $numAutor): self
-    {
-        $this->numAutor = $numAutor;
-
-        return $this;
-    }
-
-    public function getNumAutorProforma(): ?int
-    {
-        return $this->numAutorProforma;
-    }
-
-    public function setNumAutorProforma(?int $numAutorProforma): self
-    {
-        $this->numAutorProforma = $numAutorProforma;
-
-        return $this;
-    }
 
     public function getDataGravacio(): ?\DateTimeInterface
     {
@@ -739,6 +707,42 @@ class TFraproforma
                 $tFraproformaAux->setNumProforma(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMetodePag(): ?TMetodePag
+    {
+        return $this->metodePag;
+    }
+
+    public function setMetodePag(?TMetodePag $metodePag): self
+    {
+        $this->metodePag = $metodePag;
+
+        return $this;
+    }
+
+    public function getNumAutor(): ?Tautorspresup
+    {
+        return $this->numAutor;
+    }
+
+    public function setNumAutor(?Tautorspresup $numAutor): self
+    {
+        $this->numAutor = $numAutor;
+
+        return $this;
+    }
+
+    public function getNumAutorProforma(): ?Tautorspresup
+    {
+        return $this->numAutorProforma;
+    }
+
+    public function setNumAutorProforma(?Tautorspresup $numAutorProforma): self
+    {
+        $this->numAutorProforma = $numAutorProforma;
 
         return $this;
     }

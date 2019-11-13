@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,16 @@ class TAutorsPresup
      */
     private $baixa;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraProforma", mappedBy="numAutor")
+     */
+    private $tFraProformas;
+
+    public function __construct()
+    {
+        $this->tFraProformas = new ArrayCollection();
+    }
+
     public function getIdAutpresup(): ?int
     {
         return $this->idAutpresup;
@@ -79,6 +91,37 @@ class TAutorsPresup
     public function setBaixa(?bool $baixa): self
     {
         $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFraProforma[]
+     */
+    public function getTFraProformas(): Collection
+    {
+        return $this->tFraProformas;
+    }
+
+    public function addTFraProforma(TFraProforma $tFraProforma): self
+    {
+        if (!$this->tFraProformas->contains($tFraProforma)) {
+            $this->tFraProformas[] = $tFraProforma;
+            $tFraProforma->setNumAutor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFraProforma(TFraProforma $tFraProforma): self
+    {
+        if ($this->tFraProformas->contains($tFraProforma)) {
+            $this->tFraProformas->removeElement($tFraProforma);
+            // set the owning side to null (unless already changed)
+            if ($tFraProforma->getNumAutor() === $this) {
+                $tFraProforma->setNumAutor(null);
+            }
+        }
 
         return $this;
     }
