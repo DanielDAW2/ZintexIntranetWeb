@@ -42,11 +42,17 @@ class TPaisos
      */
     private $TClients;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TProveidors", mappedBy="paisProv")
+     */
+    private $tProveidors;
+
 
     public function __construct()
     {
         $this->tClients = new ArrayCollection();
         $this->TClient = new ArrayCollection();
+        $this->tProveidors = new ArrayCollection();
     }
 
     public function getIdPais(): ?int
@@ -103,6 +109,37 @@ class TPaisos
             // set the owning side to null (unless already changed)
             if ($tClient->getPaisentCli() === $this) {
                 $tClient->setPaisentCli(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TProveidors[]
+     */
+    public function getTProveidors(): Collection
+    {
+        return $this->tProveidors;
+    }
+
+    public function addTProveidor(TProveidors $tProveidor): self
+    {
+        if (!$this->tProveidors->contains($tProveidor)) {
+            $this->tProveidors[] = $tProveidor;
+            $tProveidor->setPaisProv($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTProveidor(TProveidors $tProveidor): self
+    {
+        if ($this->tProveidors->contains($tProveidor)) {
+            $this->tProveidors->removeElement($tProveidor);
+            // set the owning side to null (unless already changed)
+            if ($tProveidor->getPaisProv() === $this) {
+                $tProveidor->setPaisProv(null);
             }
         }
 

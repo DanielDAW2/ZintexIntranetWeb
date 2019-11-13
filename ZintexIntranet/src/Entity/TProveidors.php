@@ -51,12 +51,7 @@ class TProveidors
      */
     private $proveidorCom;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Tract_Prov", type="integer", nullable=true)
-     */
-    private $tractProv;
+
 
     /**
      * @var string|null
@@ -100,12 +95,7 @@ class TProveidors
      */
     private $pobProv;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Pais_Prov", type="integer", nullable=true)
-     */
-    private $paisProv;
+    
 
     /**
      * @var string|null
@@ -142,19 +132,9 @@ class TProveidors
      */
     private $webProv;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Met_Pag", type="integer", nullable=true)
-     */
-    private $metPag;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Inst_Pag", type="integer", nullable=true)
-     */
-    private $instPag;
+
+
 
     /**
      * @var string|null
@@ -207,6 +187,26 @@ class TProveidors
      * @ORM\OneToMany(targetEntity="App\Entity\TProductesProv", mappedBy="numProveidor")
      */
     private $tProductesProvs;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TTractaments")
+     */
+    private $tractProv;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
+     */
+    private $instPag;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
+     */
+    private $metPag;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="tProveidors")
+     */
+    private $paisProv;
 
     public function __construct()
     {
@@ -267,17 +267,7 @@ class TProveidors
         return $this;
     }
 
-    public function getTractProv(): ?int
-    {
-        return $this->tractProv;
-    }
 
-    public function setTractProv(?int $tractProv): self
-    {
-        $this->tractProv = $tractProv;
-
-        return $this;
-    }
 
     public function getNomProv(): ?string
     {
@@ -351,17 +341,7 @@ class TProveidors
         return $this;
     }
 
-    public function getPaisProv(): ?int
-    {
-        return $this->paisProv;
-    }
 
-    public function setPaisProv(?int $paisProv): self
-    {
-        $this->paisProv = $paisProv;
-
-        return $this;
-    }
 
     public function getTelProv(): ?string
     {
@@ -423,29 +403,9 @@ class TProveidors
         return $this;
     }
 
-    public function getMetPag(): ?int
-    {
-        return $this->metPag;
-    }
 
-    public function setMetPag(?int $metPag): self
-    {
-        $this->metPag = $metPag;
 
-        return $this;
-    }
 
-    public function getInstPag(): ?int
-    {
-        return $this->instPag;
-    }
-
-    public function setInstPag(?int $instPag): self
-    {
-        $this->instPag = $instPag;
-
-        return $this;
-    }
 
     public function getDiaPag(): ?string
     {
@@ -577,6 +537,54 @@ class TProveidors
                 $tProductesProv->setNumProveidor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTractProv(): ?TTractaments
+    {
+        return $this->tractProv;
+    }
+
+    public function setTractProv(?TTractaments $tractProv): self
+    {
+        $this->tractProv = $tractProv;
+
+        return $this;
+    }
+
+    public function getInstPag(): ?TInstrumentPag
+    {
+        return $this->instPag;
+    }
+
+    public function setInstPag(?TInstrumentPag $instPag): self
+    {
+        $this->instPag = $instPag;
+
+        return $this;
+    }
+
+    public function getMetPag(): ?TMetodePag
+    {
+        return $this->metPag;
+    }
+
+    public function setMetPag(?TMetodePag $metPag): self
+    {
+        $this->metPag = $metPag;
+
+        return $this;
+    }
+
+    public function getPaisProv(): ?TPaisos
+    {
+        return $this->paisProv;
+    }
+
+    public function setPaisProv(?TPaisos $paisProv): self
+    {
+        $this->paisProv = $paisProv;
 
         return $this;
     }
