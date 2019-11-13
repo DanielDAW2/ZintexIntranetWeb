@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -116,6 +118,16 @@ class TFraproformaAux
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
      */
     private $codparamimpProforma;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreballAux", mappedBy="idFraproformaAux")
+     */
+    private $tOrdreTreballAuxes;
+
+    public function __construct()
+    {
+        $this->tOrdreTreballAuxes = new ArrayCollection();
+    }
 
 
 
@@ -291,6 +303,37 @@ class TFraproformaAux
     public function setCodparamimpProforma(?TParamImp $codparamimpProforma): self
     {
         $this->codparamimpProforma = $codparamimpProforma;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TOrdreTreballAux[]
+     */
+    public function getTOrdreTreballAuxes(): Collection
+    {
+        return $this->tOrdreTreballAuxes;
+    }
+
+    public function addTOrdreTreballAux(TOrdreTreballAux $tOrdreTreballAux): self
+    {
+        if (!$this->tOrdreTreballAuxes->contains($tOrdreTreballAux)) {
+            $this->tOrdreTreballAuxes[] = $tOrdreTreballAux;
+            $tOrdreTreballAux->setIdFraproformaAux($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTOrdreTreballAux(TOrdreTreballAux $tOrdreTreballAux): self
+    {
+        if ($this->tOrdreTreballAuxes->contains($tOrdreTreballAux)) {
+            $this->tOrdreTreballAuxes->removeElement($tOrdreTreballAux);
+            // set the owning side to null (unless already changed)
+            if ($tOrdreTreballAux->getIdFraproformaAux() === $this) {
+                $tOrdreTreballAux->setIdFraproformaAux(null);
+            }
+        }
 
         return $this;
     }

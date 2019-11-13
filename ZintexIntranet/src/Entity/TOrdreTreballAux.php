@@ -21,12 +21,7 @@ class TOrdreTreballAux
      */
     private $idOrdreTreballAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Ordre_Treball", type="integer", nullable=true)
-     */
-    private $numOrdreTreball;
+
 
     /**
      * @var int|null
@@ -35,12 +30,7 @@ class TOrdreTreballAux
      */
     private $numLinia;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodProd_Ordre_Treball", type="integer", nullable=true)
-     */
-    private $codprodOrdreTreball;
+
 
     /**
      * @var string|null
@@ -49,12 +39,7 @@ class TOrdreTreballAux
      */
     private $descripprodOrdreTreball;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodParamImp_Ordre_Treball", type="integer", nullable=true)
-     */
-    private $codparamimpOrdreTreball;
+
 
     /**
      * @var string|null
@@ -112,12 +97,7 @@ class TOrdreTreballAux
      */
     private $cares;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Grup_Producte", type="integer", nullable=true)
-     */
-    private $grupProducte;
+
 
     /**
      * @var string|null
@@ -140,12 +120,6 @@ class TOrdreTreballAux
      */
     private $liniaProforma;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Id_FraProforma_Aux", type="integer", nullable=true)
-     */
-    private $idFraproformaAux;
 
     /**
      * @var bool|null
@@ -154,22 +128,38 @@ class TOrdreTreballAux
      */
     private $principal;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TOrdreTreball", inversedBy="tOrdreTreballAuxes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $numOrdreTreball;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFraProformaAux", inversedBy="tOrdreTreballAuxes")
+     */
+    private $idFraproformaAux;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
+     */
+    private $grupProducte;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     */
+    private $codparamimpOrdreTreball;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
+     */
+    private $codprodOrdreTreball;
+
     public function getIdOrdreTreballAux(): ?int
     {
         return $this->idOrdreTreballAux;
     }
 
-    public function getNumOrdreTreball(): ?int
-    {
-        return $this->numOrdreTreball;
-    }
 
-    public function setNumOrdreTreball(?int $numOrdreTreball): self
-    {
-        $this->numOrdreTreball = $numOrdreTreball;
-
-        return $this;
-    }
 
     public function getNumLinia(): ?int
     {
@@ -183,17 +173,7 @@ class TOrdreTreballAux
         return $this;
     }
 
-    public function getCodprodOrdreTreball(): ?int
-    {
-        return $this->codprodOrdreTreball;
-    }
 
-    public function setCodprodOrdreTreball(?int $codprodOrdreTreball): self
-    {
-        $this->codprodOrdreTreball = $codprodOrdreTreball;
-
-        return $this;
-    }
 
     public function getDescripprodOrdreTreball(): ?string
     {
@@ -207,17 +187,7 @@ class TOrdreTreballAux
         return $this;
     }
 
-    public function getCodparamimpOrdreTreball(): ?int
-    {
-        return $this->codparamimpOrdreTreball;
-    }
 
-    public function setCodparamimpOrdreTreball(?int $codparamimpOrdreTreball): self
-    {
-        $this->codparamimpOrdreTreball = $codparamimpOrdreTreball;
-
-        return $this;
-    }
 
     public function getDescripparamimpOrdreTreball(): ?string
     {
@@ -315,17 +285,6 @@ class TOrdreTreballAux
         return $this;
     }
 
-    public function getGrupProducte(): ?int
-    {
-        return $this->grupProducte;
-    }
-
-    public function setGrupProducte(?int $grupProducte): self
-    {
-        $this->grupProducte = $grupProducte;
-
-        return $this;
-    }
 
     public function getCodiOrdreTreball(): ?string
     {
@@ -363,17 +322,7 @@ class TOrdreTreballAux
         return $this;
     }
 
-    public function getIdFraproformaAux(): ?int
-    {
-        return $this->idFraproformaAux;
-    }
 
-    public function setIdFraproformaAux(?int $idFraproformaAux): self
-    {
-        $this->idFraproformaAux = $idFraproformaAux;
-
-        return $this;
-    }
 
     public function getPrincipal(): ?bool
     {
@@ -383,6 +332,66 @@ class TOrdreTreballAux
     public function setPrincipal(?bool $principal): self
     {
         $this->principal = $principal;
+
+        return $this;
+    }
+
+    public function getNumOrdreTreball(): ?TOrdreTreball
+    {
+        return $this->numOrdreTreball;
+    }
+
+    public function setNumOrdreTreball(?TOrdreTreball $numOrdreTreball): self
+    {
+        $this->numOrdreTreball = $numOrdreTreball;
+
+        return $this;
+    }
+
+    public function getIdFraproformaAux(): ?TFraProformaAux
+    {
+        return $this->idFraproformaAux;
+    }
+
+    public function setIdFraproformaAux(?TFraProformaAux $idFraproformaAux): self
+    {
+        $this->idFraproformaAux = $idFraproformaAux;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?TGrupProducte
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?TGrupProducte $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getCodparamimpOrdreTreball(): ?TParamImp
+    {
+        return $this->codparamimpOrdreTreball;
+    }
+
+    public function setCodparamimpOrdreTreball(?TParamImp $codparamimpOrdreTreball): self
+    {
+        $this->codparamimpOrdreTreball = $codparamimpOrdreTreball;
+
+        return $this;
+    }
+
+    public function getCodprodOrdreTreball(): ?TProductes
+    {
+        return $this->codprodOrdreTreball;
+    }
+
+    public function setCodprodOrdreTreball(?TProductes $codprodOrdreTreball): self
+    {
+        $this->codprodOrdreTreball = $codprodOrdreTreball;
 
         return $this;
     }

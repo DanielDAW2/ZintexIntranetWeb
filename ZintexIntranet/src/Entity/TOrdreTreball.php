@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -230,6 +232,16 @@ class TOrdreTreball
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tOrdreTreballs")
      */
     private $numFraproforma;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreballAux", mappedBy="numOrdreTreball", orphanRemoval=true)
+     */
+    private $tOrdreTreballAuxes;
+
+    public function __construct()
+    {
+        $this->tOrdreTreballAuxes = new ArrayCollection();
+    }
 
     public function getIdOrdre(): ?int
     {
@@ -595,6 +607,37 @@ class TOrdreTreball
     public function setNumFraproforma(?TFraProforma $numFraproforma): self
     {
         $this->numFraproforma = $numFraproforma;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TOrdreTreballAux[]
+     */
+    public function getTOrdreTreballAuxes(): Collection
+    {
+        return $this->tOrdreTreballAuxes;
+    }
+
+    public function addTOrdreTreballAux(TOrdreTreballAux $tOrdreTreballAux): self
+    {
+        if (!$this->tOrdreTreballAuxes->contains($tOrdreTreballAux)) {
+            $this->tOrdreTreballAuxes[] = $tOrdreTreballAux;
+            $tOrdreTreballAux->setNumOrdreTreball($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTOrdreTreballAux(TOrdreTreballAux $tOrdreTreballAux): self
+    {
+        if ($this->tOrdreTreballAuxes->contains($tOrdreTreballAux)) {
+            $this->tOrdreTreballAuxes->removeElement($tOrdreTreballAux);
+            // set the owning side to null (unless already changed)
+            if ($tOrdreTreballAux->getNumOrdreTreball() === $this) {
+                $tOrdreTreballAux->setNumOrdreTreball(null);
+            }
+        }
 
         return $this;
     }
