@@ -24,7 +24,8 @@ class TPreciosCantidad
     /**
      * @var string|null
      *
-     * @ORM\Column(name="producto_id", type="string", length=25, nullable=true)
+     * @ORM\ManyToOne(targetEntity="TProductes", inversedBy="preciosCantidad")
+     * @ORM\JoinColumn(name="producto_id", nullable=true, referencedColumnName="Ref_Prod")
      */
     private $productoId;
 
@@ -47,16 +48,27 @@ class TPreciosCantidad
         return $this->id;
     }
 
-    public function getProductoId(): ?string
+    public function getProductoId(): ?TProductes
     {
         return $this->productoId;
     }
 
-    public function setProductoId(?string $productoId): self
+    public function addProductoId(?TProductes $productoId): self
     {
-        $this->productoId = $productoId;
+        $this->productoId[] = $productoId;
 
         return $this;
+    }
+
+    public function removeProductoId(TProductes $TProducte){
+        if($this->productoId->contains($TProducte))
+        {
+            $this->productoId->removeElement($TProducte);
+            if($TProducte->getPreciosCantidad() === $this){
+                $TProducte->setPreciosCantidad(null);
+            }
+        }
+        return self;
     }
 
     public function getCantidad(): ?int

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -111,6 +112,29 @@ class TProductes
      * @ORM\Column(name="FOTO", type="string", length=255, nullable=true)
      */
     private $foto;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\OneToMany(targetEntity="TPreciosCantidad", mappedBy="productoId")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $preciosCantidad;
+
+    public function __construct()
+    {
+        $this->preciosCantidad = new ArrayCollection();
+    }
+
+    public function getPreciosCantidad(): ?ArrayCollection {
+        return $this->preciosCantidad;
+    }
+
+    public function setPreciosCantidad(?TPreciosCantidad $preciosCantidad) : self {
+        $this->preciosCantidad = $preciosCantidad;
+
+        return self;
+    }
 
     public function getIdProd(): ?int
     {
