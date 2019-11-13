@@ -518,9 +518,15 @@ class TClients
      */
     private $tFraproformas;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TAlbara", mappedBy="clientAlbara")
+     */
+    private $TAlbara;
+
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
+        $this->TAlbara = new ArrayCollection();
     }
 
     
@@ -1395,6 +1401,37 @@ class TClients
             // set the owning side to null (unless already changed)
             if ($tFraproforma->getClientFraprof() === $this) {
                 $tFraproforma->setClientFraprof(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TAlbara[]
+     */
+    public function getTAlbara(): Collection
+    {
+        return $this->TAlbara;
+    }
+
+    public function addTAlbara(TAlbara $tAlbara): self
+    {
+        if (!$this->TAlbara->contains($tAlbara)) {
+            $this->TAlbara[] = $tAlbara;
+            $tAlbara->setClientAlbara($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTAlbara(TAlbara $tAlbara): self
+    {
+        if ($this->TAlbara->contains($tAlbara)) {
+            $this->TAlbara->removeElement($tAlbara);
+            // set the owning side to null (unless already changed)
+            if ($tAlbara->getClientAlbara() === $this) {
+                $tAlbara->setClientAlbara(null);
             }
         }
 

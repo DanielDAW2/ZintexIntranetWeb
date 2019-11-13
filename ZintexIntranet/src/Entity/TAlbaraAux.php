@@ -21,12 +21,7 @@ class TAlbaraAux
      */
     private $idAlbaraAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Albara", type="integer", nullable=true)
-     */
-    private $numAlbara;
+
 
     /**
      * @var int|null
@@ -84,22 +79,18 @@ class TAlbaraAux
      */
     private $preuAlbara;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TAlbara", inversedBy="tAlbaraAuxes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $numAlbara;
+
     public function getIdAlbaraAux(): ?int
     {
         return $this->idAlbaraAux;
     }
 
-    public function getNumAlbara(): ?int
-    {
-        return $this->numAlbara;
-    }
 
-    public function setNumAlbara(?int $numAlbara): self
-    {
-        $this->numAlbara = $numAlbara;
-
-        return $this;
-    }
 
     public function getNumLinia(): ?int
     {
@@ -193,6 +184,18 @@ class TAlbaraAux
     public function setPreuAlbara(?float $preuAlbara): self
     {
         $this->preuAlbara = $preuAlbara;
+
+        return $this;
+    }
+
+    public function getNumAlbara(): ?TAlbara
+    {
+        return $this->numAlbara;
+    }
+
+    public function setNumAlbara(?TAlbara $numAlbara): self
+    {
+        $this->numAlbara = $numAlbara;
 
         return $this;
     }

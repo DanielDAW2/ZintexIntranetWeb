@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,12 +23,7 @@ class TAlbara
      */
     private $idAlbara;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Client_Albara", type="integer", nullable=true)
-     */
-    private $clientAlbara;
+
 
     /**
      * @var string|null
@@ -105,22 +102,26 @@ class TAlbara
      */
     private $numfacturaAlbara;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="TAlbara")
+     */
+    private $clientAlbara;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TAlbaraAux", mappedBy="numAlbara", orphanRemoval=true)
+     */
+    private $tAlbaraAuxes;
+
+    public function __construct()
+    {
+        $this->tAlbaraAuxes = new ArrayCollection();
+    }
+
     public function getIdAlbara(): ?int
     {
         return $this->idAlbara;
     }
 
-    public function getClientAlbara(): ?int
-    {
-        return $this->clientAlbara;
-    }
-
-    public function setClientAlbara(?int $clientAlbara): self
-    {
-        $this->clientAlbara = $clientAlbara;
-
-        return $this;
-    }
 
     public function getDescripClientAlbara(): ?string
     {
@@ -250,6 +251,49 @@ class TAlbara
     public function setNumfacturaAlbara(?string $numfacturaAlbara): self
     {
         $this->numfacturaAlbara = $numfacturaAlbara;
+
+        return $this;
+    }
+
+    public function getClientAlbara(): ?TClients
+    {
+        return $this->clientAlbara;
+    }
+
+    public function setClientAlbara(?TClients $clientAlbara): self
+    {
+        $this->clientAlbara = $clientAlbara;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TAlbaraAux[]
+     */
+    public function getTAlbaraAuxes(): Collection
+    {
+        return $this->tAlbaraAuxes;
+    }
+
+    public function addTAlbaraAux(TAlbaraAux $tAlbaraAux): self
+    {
+        if (!$this->tAlbaraAuxes->contains($tAlbaraAux)) {
+            $this->tAlbaraAuxes[] = $tAlbaraAux;
+            $tAlbaraAux->setNumAlbara($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTAlbaraAux(TAlbaraAux $tAlbaraAux): self
+    {
+        if ($this->tAlbaraAuxes->contains($tAlbaraAux)) {
+            $this->tAlbaraAuxes->removeElement($tAlbaraAux);
+            // set the owning side to null (unless already changed)
+            if ($tAlbaraAux->getNumAlbara() === $this) {
+                $tAlbaraAux->setNumAlbara(null);
+            }
+        }
 
         return $this;
     }
