@@ -22,13 +22,6 @@ class TFacturaProvVto
     private $idFacturaProvVto;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_FraProv_Vto", type="integer", nullable=true)
-     */
-    private $numFraprovVto;
-
-    /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="Data_FraProv_Vto", type="datetime", nullable=true)
@@ -42,12 +35,6 @@ class TFacturaProvVto
      */
     private $concepteFraprovVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="InstPag_FraProv_Vto", type="integer", nullable=true)
-     */
-    private $instpagFraprovVto;
 
     /**
      * @var string|null
@@ -77,22 +64,21 @@ class TFacturaProvVto
      */
     private $okbancFraprovVto;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFacturaProv", inversedBy="tFacturaProvVtos")
+     */
+    private $numFraprovVto;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPagProv")
+     */
+    private $instpagFraprovVto;
+
     public function getIdFacturaProvVto(): ?int
     {
         return $this->idFacturaProvVto;
     }
 
-    public function getNumFraprovVto(): ?int
-    {
-        return $this->numFraprovVto;
-    }
-
-    public function setNumFraprovVto(?int $numFraprovVto): self
-    {
-        $this->numFraprovVto = $numFraprovVto;
-
-        return $this;
-    }
 
     public function getDataFraprovVto(): ?\DateTimeInterface
     {
@@ -118,17 +104,7 @@ class TFacturaProvVto
         return $this;
     }
 
-    public function getInstpagFraprovVto(): ?int
-    {
-        return $this->instpagFraprovVto;
-    }
 
-    public function setInstpagFraprovVto(?int $instpagFraprovVto): self
-    {
-        $this->instpagFraprovVto = $instpagFraprovVto;
-
-        return $this;
-    }
 
     public function getInstpagAuxFraprovVto(): ?string
     {
@@ -174,6 +150,30 @@ class TFacturaProvVto
     public function setOkbancFraprovVto(?\DateTimeInterface $okbancFraprovVto): self
     {
         $this->okbancFraprovVto = $okbancFraprovVto;
+
+        return $this;
+    }
+
+    public function getNumFraprovVto(): ?TFacturaProv
+    {
+        return $this->numFraprovVto;
+    }
+
+    public function setNumFraprovVto(?TFacturaProv $numFraprovVto): self
+    {
+        $this->numFraprovVto = $numFraprovVto;
+
+        return $this;
+    }
+
+    public function getInstpagFraprovVto(): ?TInstrumentPagProv
+    {
+        return $this->instpagFraprovVto;
+    }
+
+    public function setInstpagFraprovVto(?TInstrumentPagProv $instpagFraprovVto): self
+    {
+        $this->instpagFraprovVto = $instpagFraprovVto;
 
         return $this;
     }

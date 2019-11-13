@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -111,6 +113,16 @@ class TFacturaProv
      * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prov")
      */
     private $proveidor;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFacturaProvVto", mappedBy="numFraprovVto")
+     */
+    private $tFacturaProvVtos;
+
+    public function __construct()
+    {
+        $this->tFacturaProvVtos = new ArrayCollection();
+    }
 
     public function getIdFacturaProv(): ?int
     {
@@ -270,6 +282,37 @@ class TFacturaProv
     public function setProveidor(?Tproveidors $proveidor): self
     {
         $this->proveidor = $proveidor;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFacturaProvVto[]
+     */
+    public function getTFacturaProvVtos(): Collection
+    {
+        return $this->tFacturaProvVtos;
+    }
+
+    public function addTFacturaProvVto(TFacturaProvVto $tFacturaProvVto): self
+    {
+        if (!$this->tFacturaProvVtos->contains($tFacturaProvVto)) {
+            $this->tFacturaProvVtos[] = $tFacturaProvVto;
+            $tFacturaProvVto->setNumFraprovVto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFacturaProvVto(TFacturaProvVto $tFacturaProvVto): self
+    {
+        if ($this->tFacturaProvVtos->contains($tFacturaProvVto)) {
+            $this->tFacturaProvVtos->removeElement($tFacturaProvVto);
+            // set the owning side to null (unless already changed)
+            if ($tFacturaProvVto->getNumFraprovVto() === $this) {
+                $tFacturaProvVto->setNumFraprovVto(null);
+            }
+        }
 
         return $this;
     }
