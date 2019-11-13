@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -195,6 +197,16 @@ class TProveidors
      * @ORM\Column(name="Stock", type="boolean", nullable=true)
      */
     private $stock;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFacturaProv", mappedBy="proveidor")
+     */
+    private $tFacturaProvs;
+
+    public function __construct()
+    {
+        $this->tFacturaProvs = new ArrayCollection();
+    }
 
     public function getIdProv(): ?int
     {
@@ -497,6 +509,37 @@ class TProveidors
     public function setStock(?bool $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFacturaProv[]
+     */
+    public function getTFacturaProvs(): Collection
+    {
+        return $this->tFacturaProvs;
+    }
+
+    public function addTFacturaProv(TFacturaProv $tFacturaProv): self
+    {
+        if (!$this->tFacturaProvs->contains($tFacturaProv)) {
+            $this->tFacturaProvs[] = $tFacturaProv;
+            $tFacturaProv->setProveidor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFacturaProv(TFacturaProv $tFacturaProv): self
+    {
+        if ($this->tFacturaProvs->contains($tFacturaProv)) {
+            $this->tFacturaProvs->removeElement($tFacturaProv);
+            // set the owning side to null (unless already changed)
+            if ($tFacturaProv->getProveidor() === $this) {
+                $tFacturaProv->setProveidor(null);
+            }
+        }
 
         return $this;
     }

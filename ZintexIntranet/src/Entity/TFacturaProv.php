@@ -21,12 +21,6 @@ class TFacturaProv
      */
     private $idFacturaProv;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Proveidor", type="integer", nullable=true)
-     */
-    private $proveidor;
 
     /**
      * @var string|null
@@ -112,22 +106,17 @@ class TFacturaProv
      */
     private $exentIva;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tproveidors", inversedBy="tFacturaProvs")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prov")
+     */
+    private $proveidor;
+
     public function getIdFacturaProv(): ?int
     {
         return $this->idFacturaProv;
     }
 
-    public function getProveidor(): ?int
-    {
-        return $this->proveidor;
-    }
-
-    public function setProveidor(?int $proveidor): self
-    {
-        $this->proveidor = $proveidor;
-
-        return $this;
-    }
 
     public function getNumFraprov(): ?string
     {
@@ -269,6 +258,18 @@ class TFacturaProv
     public function setExentIva(?float $exentIva): self
     {
         $this->exentIva = $exentIva;
+
+        return $this;
+    }
+
+    public function getProveidor(): ?Tproveidors
+    {
+        return $this->proveidor;
+    }
+
+    public function setProveidor(?Tproveidors $proveidor): self
+    {
+        $this->proveidor = $proveidor;
 
         return $this;
     }
