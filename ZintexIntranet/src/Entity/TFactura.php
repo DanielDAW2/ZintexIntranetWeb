@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TFacturaRepository")
+ * @ORM\Table(name="t_factura")
  */
 class TFactura
 {
@@ -18,6 +19,7 @@ class TFactura
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tFacturas")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
      */
     private $Client_Factura;
 
@@ -52,12 +54,12 @@ class TFactura
     private $Ref_Proforma;
 
     /**
-     * @ORM\Column(type="string", length=40, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Ref_Albara;
 
     /**
-     * @ORM\Column(type="string", length=40, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Ref_Presup;
 
@@ -103,6 +105,7 @@ class TFactura
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Metode")
      */
     private $Metode_Pag;
 
