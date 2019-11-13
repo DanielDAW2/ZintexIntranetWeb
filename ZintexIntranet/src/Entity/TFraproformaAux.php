@@ -21,12 +21,6 @@ class TFraproformaAux
      */
     private $idFraproformaAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Proforma", type="integer", nullable=true)
-     */
-    private $numProforma;
 
     /**
      * @var int|null
@@ -119,17 +113,25 @@ class TFraproformaAux
      */
     private $codiFraproforma;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFraproforma", inversedBy="tFraproformaAuxes")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_FraProf")
+     */
+    private $numProforma;
+
+
+
     public function getIdFraproformaAux(): ?int
     {
         return $this->idFraproformaAux;
     }
 
-    public function getNumProforma(): ?int
+    public function getNumProforma(): ?TFraproforma
     {
         return $this->numProforma;
     }
 
-    public function setNumProforma(?int $numProforma): self
+    public function setNumProforma(?TFraproforma $numProforma): self
     {
         $this->numProforma = $numProforma;
 

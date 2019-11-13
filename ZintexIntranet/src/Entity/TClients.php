@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -510,6 +512,18 @@ class TClients
      * @ORM\Column(name="Activitat_2", type="string", length=255, nullable=true)
      */
     private $activitat2;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproforma", mappedBy="clientFraprof")
+     */
+    private $tFraproformas;
+
+    public function __construct()
+    {
+        $this->tFraproformas = new ArrayCollection();
+    }
+
+    
 
     public function getIdCli(): ?int
     {
@@ -1352,6 +1366,37 @@ class TClients
     public function setActivitat2(?string $activitat2): self
     {
         $this->activitat2 = $activitat2;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFraproforma[]
+     */
+    public function getTFraproformas(): Collection
+    {
+        return $this->tFraproformas;
+    }
+
+    public function addTFraproforma(TFraproforma $tFraproforma): self
+    {
+        if (!$this->tFraproformas->contains($tFraproforma)) {
+            $this->tFraproformas[] = $tFraproforma;
+            $tFraproforma->setClientFraprof($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFraproforma(TFraproforma $tFraproforma): self
+    {
+        if ($this->tFraproformas->contains($tFraproforma)) {
+            $this->tFraproformas->removeElement($tFraproforma);
+            // set the owning side to null (unless already changed)
+            if ($tFraproforma->getClientFraprof() === $this) {
+                $tFraproforma->setClientFraprof(null);
+            }
+        }
 
         return $this;
     }

@@ -1,0 +1,302 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TClients{% endblock %}
+
+{% block body %}
+    <h1>TClients</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdCli</th>
+                <td>{{ t_client.idCli }}</td>
+            </tr>
+            <tr>
+                <th>MarcaCli</th>
+                <td>{{ t_client.marcaCli }}</td>
+            </tr>
+            <tr>
+                <th>CodiCli</th>
+                <td>{{ t_client.codiCli }}</td>
+            </tr>
+            <tr>
+                <th>CodiCliDream</th>
+                <td>{{ t_client.codiCliDream }}</td>
+            </tr>
+            <tr>
+                <th>NifCli</th>
+                <td>{{ t_client.nifCli }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ t_client.client }}</td>
+            </tr>
+            <tr>
+                <th>ClientCom</th>
+                <td>{{ t_client.clientCom }}</td>
+            </tr>
+            <tr>
+                <th>TractCli</th>
+                <td>{{ t_client.tractCli }}</td>
+            </tr>
+            <tr>
+                <th>NomfraCli</th>
+                <td>{{ t_client.nomfraCli }}</td>
+            </tr>
+            <tr>
+                <th>CognomfraCli</th>
+                <td>{{ t_client.cognomfraCli }}</td>
+            </tr>
+            <tr>
+                <th>CarrecfraCli</th>
+                <td>{{ t_client.carrecfraCli }}</td>
+            </tr>
+            <tr>
+                <th>DirfraCli</th>
+                <td>{{ t_client.dirfraCli }}</td>
+            </tr>
+            <tr>
+                <th>CodpfraCli</th>
+                <td>{{ t_client.codpfraCli }}</td>
+            </tr>
+            <tr>
+                <th>PobfraCli</th>
+                <td>{{ t_client.pobfraCli }}</td>
+            </tr>
+            <tr>
+                <th>PaisfraCli</th>
+                <td>{{ t_client.paisfraCli }}</td>
+            </tr>
+            <tr>
+                <th>TelfraCli</th>
+                <td>{{ t_client.telfraCli }}</td>
+            </tr>
+            <tr>
+                <th>FaxfraCli</th>
+                <td>{{ t_client.faxfraCli }}</td>
+            </tr>
+            <tr>
+                <th>MobfraCli</th>
+                <td>{{ t_client.mobfraCli }}</td>
+            </tr>
+            <tr>
+                <th>EmailCli</th>
+                <td>{{ t_client.emailCli }}</td>
+            </tr>
+            <tr>
+                <th>EmpentCli</th>
+                <td>{{ t_client.empentCli }}</td>
+            </tr>
+            <tr>
+                <th>TractentCli</th>
+                <td>{{ t_client.tractentCli }}</td>
+            </tr>
+            <tr>
+                <th>PersentCli</th>
+                <td>{{ t_client.persentCli }}</td>
+            </tr>
+            <tr>
+                <th>DirentCli</th>
+                <td>{{ t_client.direntCli }}</td>
+            </tr>
+            <tr>
+                <th>CodpentCli</th>
+                <td>{{ t_client.codpentCli }}</td>
+            </tr>
+            <tr>
+                <th>PobentCli</th>
+                <td>{{ t_client.pobentCli }}</td>
+            </tr>
+            <tr>
+                <th>PaisentCli</th>
+                <td>{{ t_client.paisentCli }}</td>
+            </tr>
+            <tr>
+                <th>TelentCli</th>
+                <td>{{ t_client.telentCli }}</td>
+            </tr>
+            <tr>
+                <th>FaxentCli</th>
+                <td>{{ t_client.faxentCli }}</td>
+            </tr>
+            <tr>
+                <th>WebCli</th>
+                <td>{{ t_client.webCli }}</td>
+            </tr>
+            <tr>
+                <th>MetPag</th>
+                <td>{{ t_client.metPag }}</td>
+            </tr>
+            <tr>
+                <th>InstPag</th>
+                <td>{{ t_client.instPag }}</td>
+            </tr>
+            <tr>
+                <th>DiaPag</th>
+                <td>{{ t_client.diaPag }}</td>
+            </tr>
+            <tr>
+                <th>ProblemaPag</th>
+                <td>{{ t_client.problemaPag ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>TitularccCli</th>
+                <td>{{ t_client.titularccCli }}</td>
+            </tr>
+            <tr>
+                <th>CcCli</th>
+                <td>{{ t_client.ccCli }}</td>
+            </tr>
+            <tr>
+                <th>PersfinCli</th>
+                <td>{{ t_client.persfinCli }}</td>
+            </tr>
+            <tr>
+                <th>CarrecfinCli</th>
+                <td>{{ t_client.carrecfinCli }}</td>
+            </tr>
+            <tr>
+                <th>TelfinCli</th>
+                <td>{{ t_client.telfinCli }}</td>
+            </tr>
+            <tr>
+                <th>EmailfinCli</th>
+                <td>{{ t_client.emailfinCli }}</td>
+            </tr>
+            <tr>
+                <th>TipusIva</th>
+                <td>{{ t_client.tipusIva }}</td>
+            </tr>
+            <tr>
+                <th>TipusReq</th>
+                <td>{{ t_client.tipusReq }}</td>
+            </tr>
+            <tr>
+                <th>ObservacionsCli</th>
+                <td>{{ t_client.observacionsCli }}</td>
+            </tr>
+            <tr>
+                <th>ObservacionsfinCli</th>
+                <td>{{ t_client.observacionsfinCli }}</td>
+            </tr>
+            <tr>
+                <th>MotiuContacte</th>
+                <td>{{ t_client.motiuContacte }}</td>
+            </tr>
+            <tr>
+                <th>Mailing</th>
+                <td>{{ t_client.mailing ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Cat</th>
+                <td>{{ t_client.cat ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ClientCycred</th>
+                <td>{{ t_client.clientCycred }}</td>
+            </tr>
+            <tr>
+                <th>ClassificatCycred</th>
+                <td>{{ t_client.classificatCycred ? t_client.classificatCycred|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CreditCycred</th>
+                <td>{{ t_client.creditCycred }}</td>
+            </tr>
+            <tr>
+                <th>StatusCycred</th>
+                <td>{{ t_client.statusCycred }}</td>
+            </tr>
+            <tr>
+                <th>LimitCycred</th>
+                <td>{{ t_client.limitCycred }}</td>
+            </tr>
+            <tr>
+                <th>BaixaCycred</th>
+                <td>{{ t_client.baixaCycred ? t_client.baixaCycred|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NumAgentComercial</th>
+                <td>{{ t_client.numAgentComercial }}</td>
+            </tr>
+            <tr>
+                <th>NumUltimPresup</th>
+                <td>{{ t_client.numUltimPresup }}</td>
+            </tr>
+            <tr>
+                <th>DataUltimPresup</th>
+                <td>{{ t_client.dataUltimPresup ? t_client.dataUltimPresup|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NumUltimFraproforma</th>
+                <td>{{ t_client.numUltimFraproforma }}</td>
+            </tr>
+            <tr>
+                <th>DataUltimFraproforma</th>
+                <td>{{ t_client.dataUltimFraproforma ? t_client.dataUltimFraproforma|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NumUltimFactura</th>
+                <td>{{ t_client.numUltimFactura }}</td>
+            </tr>
+            <tr>
+                <th>DataUltimFactura</th>
+                <td>{{ t_client.dataUltimFactura ? t_client.dataUltimFactura|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>OkbancDomiciliacio</th>
+                <td>{{ t_client.okbancDomiciliacio ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>MailingNadal</th>
+                <td>{{ t_client.mailingNadal ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Especial</th>
+                <td>{{ t_client.especial ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DataAlta</th>
+                <td>{{ t_client.dataAlta ? t_client.dataAlta|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>HoraAlta</th>
+                <td>{{ t_client.horaAlta ? t_client.horaAlta|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Baixa</th>
+                <td>{{ t_client.baixa ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ExpressAfegit</th>
+                <td>{{ t_client.expressAfegit ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ExpressMai</th>
+                <td>{{ t_client.expressMai ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Majorista</th>
+                <td>{{ t_client.majorista ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Royalty</th>
+                <td>{{ t_client.royalty ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Activitat1</th>
+                <td>{{ t_client.activitat1 }}</td>
+            </tr>
+            <tr>
+                <th>Activitat2</th>
+                <td>{{ t_client.activitat2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_clients_index') }}">back to list</a>
+
+    <a href="{{ path('t_clients_edit', {'idCli': t_client.idCli}) }}">edit</a>
+
+    {{ include('t_clients/_delete_form.html.twig') }}
+{% endblock %}

@@ -3,16 +3,22 @@
 namespace App\Form;
 
 use App\Entity\TFraproforma;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Entity\TClients;
+use App\Form\TFraproformaAuxType;
 
 class TFraproformaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('clientFraprof')
+            ->add('clientFraprof',EntityType::class,[
+                "class"=>TClients::class,
+                "choice_label"=>"client"
+            ])
             ->add('personaFraprof')
             ->add('dataFraprof')
             ->add('numFraprof')
@@ -46,6 +52,7 @@ class TFraproformaType extends AbstractType
             ->add('dataProduccio')
             ->add('horaProduccio')
             ->add('produccio')
+            ->add('tFraproformaAuxes', TFraproformaAuxType::class)
         ;
     }
 

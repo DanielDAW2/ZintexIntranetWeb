@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TClients index{% endblock %}
+
+{% block body %}
+    <h1>TClients index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdCli</th>
+                <th>MarcaCli</th>
+                <th>CodiCli</th>
+                <th>CodiCliDream</th>
+                <th>NifCli</th>
+                <th>Client</th>
+                <th>ClientCom</th>
+                <th>TractCli</th>
+                <th>NomfraCli</th>
+                <th>CognomfraCli</th>
+                <th>CarrecfraCli</th>
+                <th>DirfraCli</th>
+                <th>CodpfraCli</th>
+                <th>PobfraCli</th>
+                <th>PaisfraCli</th>
+                <th>TelfraCli</th>
+                <th>FaxfraCli</th>
+                <th>MobfraCli</th>
+                <th>EmailCli</th>
+                <th>EmpentCli</th>
+                <th>TractentCli</th>
+                <th>PersentCli</th>
+                <th>DirentCli</th>
+                <th>CodpentCli</th>
+                <th>PobentCli</th>
+                <th>PaisentCli</th>
+                <th>TelentCli</th>
+                <th>FaxentCli</th>
+                <th>WebCli</th>
+                <th>MetPag</th>
+                <th>InstPag</th>
+                <th>DiaPag</th>
+                <th>ProblemaPag</th>
+                <th>TitularccCli</th>
+                <th>CcCli</th>
+                <th>PersfinCli</th>
+                <th>CarrecfinCli</th>
+                <th>TelfinCli</th>
+                <th>EmailfinCli</th>
+                <th>TipusIva</th>
+                <th>TipusReq</th>
+                <th>ObservacionsCli</th>
+                <th>ObservacionsfinCli</th>
+                <th>MotiuContacte</th>
+                <th>Mailing</th>
+                <th>Cat</th>
+                <th>ClientCycred</th>
+                <th>ClassificatCycred</th>
+                <th>CreditCycred</th>
+                <th>StatusCycred</th>
+                <th>LimitCycred</th>
+                <th>BaixaCycred</th>
+                <th>NumAgentComercial</th>
+                <th>NumUltimPresup</th>
+                <th>DataUltimPresup</th>
+                <th>NumUltimFraproforma</th>
+                <th>DataUltimFraproforma</th>
+                <th>NumUltimFactura</th>
+                <th>DataUltimFactura</th>
+                <th>OkbancDomiciliacio</th>
+                <th>MailingNadal</th>
+                <th>Especial</th>
+                <th>DataAlta</th>
+                <th>HoraAlta</th>
+                <th>Baixa</th>
+                <th>ExpressAfegit</th>
+                <th>ExpressMai</th>
+                <th>Majorista</th>
+                <th>Royalty</th>
+                <th>Activitat1</th>
+                <th>Activitat2</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_client in t_clients %}
+            <tr>
+                <td>{{ t_client.idCli }}</td>
+                <td>{{ t_client.marcaCli }}</td>
+                <td>{{ t_client.codiCli }}</td>
+                <td>{{ t_client.codiCliDream }}</td>
+                <td>{{ t_client.nifCli }}</td>
+                <td>{{ t_client.client }}</td>
+                <td>{{ t_client.clientCom }}</td>
+                <td>{{ t_client.tractCli }}</td>
+                <td>{{ t_client.nomfraCli }}</td>
+                <td>{{ t_client.cognomfraCli }}</td>
+                <td>{{ t_client.carrecfraCli }}</td>
+                <td>{{ t_client.dirfraCli }}</td>
+                <td>{{ t_client.codpfraCli }}</td>
+                <td>{{ t_client.pobfraCli }}</td>
+                <td>{{ t_client.paisfraCli }}</td>
+                <td>{{ t_client.telfraCli }}</td>
+                <td>{{ t_client.faxfraCli }}</td>
+                <td>{{ t_client.mobfraCli }}</td>
+                <td>{{ t_client.emailCli }}</td>
+                <td>{{ t_client.empentCli }}</td>
+                <td>{{ t_client.tractentCli }}</td>
+                <td>{{ t_client.persentCli }}</td>
+                <td>{{ t_client.direntCli }}</td>
+                <td>{{ t_client.codpentCli }}</td>
+                <td>{{ t_client.pobentCli }}</td>
+                <td>{{ t_client.paisentCli }}</td>
+                <td>{{ t_client.telentCli }}</td>
+                <td>{{ t_client.faxentCli }}</td>
+                <td>{{ t_client.webCli }}</td>
+                <td>{{ t_client.metPag }}</td>
+                <td>{{ t_client.instPag }}</td>
+                <td>{{ t_client.diaPag }}</td>
+                <td>{{ t_client.problemaPag ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.titularccCli }}</td>
+                <td>{{ t_client.ccCli }}</td>
+                <td>{{ t_client.persfinCli }}</td>
+                <td>{{ t_client.carrecfinCli }}</td>
+                <td>{{ t_client.telfinCli }}</td>
+                <td>{{ t_client.emailfinCli }}</td>
+                <td>{{ t_client.tipusIva }}</td>
+                <td>{{ t_client.tipusReq }}</td>
+                <td>{{ t_client.observacionsCli }}</td>
+                <td>{{ t_client.observacionsfinCli }}</td>
+                <td>{{ t_client.motiuContacte }}</td>
+                <td>{{ t_client.mailing ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.cat ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.clientCycred }}</td>
+                <td>{{ t_client.classificatCycred ? t_client.classificatCycred|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.creditCycred }}</td>
+                <td>{{ t_client.statusCycred }}</td>
+                <td>{{ t_client.limitCycred }}</td>
+                <td>{{ t_client.baixaCycred ? t_client.baixaCycred|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.numAgentComercial }}</td>
+                <td>{{ t_client.numUltimPresup }}</td>
+                <td>{{ t_client.dataUltimPresup ? t_client.dataUltimPresup|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.numUltimFraproforma }}</td>
+                <td>{{ t_client.dataUltimFraproforma ? t_client.dataUltimFraproforma|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.numUltimFactura }}</td>
+                <td>{{ t_client.dataUltimFactura ? t_client.dataUltimFactura|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.okbancDomiciliacio ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.mailingNadal ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.especial ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.dataAlta ? t_client.dataAlta|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.horaAlta ? t_client.horaAlta|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_client.baixa ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.expressAfegit ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.expressMai ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.majorista ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.royalty ? 'Yes' : 'No' }}</td>
+                <td>{{ t_client.activitat1 }}</td>
+                <td>{{ t_client.activitat2 }}</td>
+                <td>
+                    <a href="{{ path('t_clients_show', {'idCli': t_client.idCli}) }}">show</a>
+                    <a href="{{ path('t_clients_edit', {'idCli': t_client.idCli}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="72">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_clients_new') }}">Create new</a>
+{% endblock %}

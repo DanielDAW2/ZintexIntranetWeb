@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,15 +20,10 @@ class TFraproforma
      * @ORM\Column(name="Id_FraProf", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+
      */
     private $idFraprof;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Client_FraProf", type="integer", nullable=true)
-     */
-    private $clientFraprof;
 
     /**
      * @var string|null
@@ -259,12 +256,32 @@ class TFraproforma
      */
     private $produccio = '0';
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tFraproformas")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
+     */
+    private $clientFraprof;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaAux", mappedBy="numProforma", orphanRemoval=true)
+     * @ORM\JoinColumn( referencedColumnName="idFraproformaAux")
+     */
+    private $tFraproformaAuxes;
+
+
+
+    public function __construct()
+    {
+        $this->clientFraprof = new ArrayCollection();
+        $this->tFraproformaAuxes = new ArrayCollection();
+    }
+
     public function getIdFraprof(): ?int
     {
         return $this->idFraprof;
     }
 
-    public function getClientFraprof(): ?int
+    public function getClientFraprof(): ?ArrayCollection
     {
         return $this->clientFraprof;
     }
@@ -668,6 +685,60 @@ class TFraproforma
     public function setProduccio(?bool $produccio): self
     {
         $this->produccio = $produccio;
+
+        return $this;
+    }
+
+    public function addClientFraprof(TFraProformaAux $clientFraprof): self
+    {
+        if (!$this->clientFraprof->contains($clientFraprof)) {
+            $this->clientFraprof[] = $clientFraprof;
+            $clientFraprof->setNumProforma($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClientFraprof(TFraProformaAux $clientFraprof): self
+    {
+        if ($this->clientFraprof->contains($clientFraprof)) {
+            $this->clientFraprof->removeElement($clientFraprof);
+            // set the owning side to null (unless already changed)
+            if ($clientFraprof->getNumProforma() === $this) {
+                $clientFraprof->setNumProforma(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFraproformaAux[]
+     */
+    public function getTFraproformaAuxes(): Collection
+    {
+        return $this->tFraproformaAuxes;
+    }
+
+    public function addTFraproformaAux(TFraproformaAux $tFraproformaAux): self
+    {
+        if (!$this->tFraproformaAuxes->contains($tFraproformaAux)) {
+            $this->tFraproformaAuxes[] = $tFraproformaAux;
+            $tFraproformaAux->setNumProforma($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFraproformaAux(TFraproformaAux $tFraproformaAux): self
+    {
+        if ($this->tFraproformaAuxes->contains($tFraproformaAux)) {
+            $this->tFraproformaAuxes->removeElement($tFraproformaAux);
+            // set the owning side to null (unless already changed)
+            if ($tFraproformaAux->getNumProforma() === $this) {
+                $tFraproformaAux->setNumProforma(null);
+            }
+        }
 
         return $this;
     }

@@ -1,7 +1,4 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    {% for tFraproformaAux in form.tFraproformaAuxes %}
-            {{ form_row(tFraproformaAux) }}
-        {% endfor %}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
