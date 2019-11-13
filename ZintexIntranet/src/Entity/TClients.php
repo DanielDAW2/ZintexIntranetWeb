@@ -500,26 +500,31 @@ class TClients
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="tClients")
+     * @ORM\JoinColumn(referencedColumnName="Id_Pais")
      */
     private $paisfraCli;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TTractaments")
+     * @ORM\JoinColumn(referencedColumnName="Id_Tract")
      */
     private $tractentCli;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="TClient")
+     * @ORM\JoinColumn(referencedColumnName="Id_Pais")
      */
     private $paisentCli;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Metode")
      */
     private $metPag;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag")
      */
     private $instPag;
 

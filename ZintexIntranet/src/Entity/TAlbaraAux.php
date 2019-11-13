@@ -81,7 +81,7 @@ class TAlbaraAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TAlbara", inversedBy="tAlbaraAuxes")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Albara")
      */
     private $numAlbara;
 
