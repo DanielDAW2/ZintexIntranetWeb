@@ -21,12 +21,7 @@ class TProductesTarifa
      */
     private $idProdTarifa;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Id_Producte", type="integer", nullable=true)
-     */
-    private $idProducte;
+    
 
     /**
      * @var string|null
@@ -77,17 +72,15 @@ class TProductesTarifa
      */
     private $filaRang2;
 
-    public function getIdProdTarifa(): ?int
-    {
-        return $this->idProdTarifa;
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductes", inversedBy="tProductesTarifas")
+     */
+    private $idProducte;
 
-    public function getIdProducte(): ?int
-    {
-        return $this->idProducte;
-    }
 
-    public function setIdProducte(?int $idProducte): self
+
+
+    public function setIdProducte(?TProductes $idProducte): self
     {
         $this->idProducte = $idProducte;
 
@@ -176,6 +169,11 @@ class TProductesTarifa
         $this->filaRang2 = $filaRang2;
 
         return $this;
+    }
+
+    public function getIdProducte(): ?TProductes
+    {
+        return $this->idProducte;
     }
 
 

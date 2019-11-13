@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -121,9 +122,17 @@ class TProductes
      */
     private $color;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TProductesTarifa", mappedBy="idProducte")
+     */
+    private $tProductesTarifas;
+
+
+
     public function __construct()
     {
         $this->preciosCantidad = new ArrayCollection();
+        $this->tProductesTarifas = new ArrayCollection();
     }
 
     public function getPreciosCantidad(): ?ArrayCollection {
@@ -300,6 +309,39 @@ class TProductes
 
         return $this;
     }
+
+    /**
+     * @return Collection|TProductesTarifa[]
+     */
+    public function getTProductesTarifas(): Collection
+    {
+        return $this->tProductesTarifas;
+    }
+
+    public function addTProductesTarifa(TProductesTarifa $tProductesTarifa): self
+    {
+        if (!$this->tProductesTarifas->contains($tProductesTarifa)) {
+            $this->tProductesTarifas[] = $tProductesTarifa;
+            $tProductesTarifa->setIdProducte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTProductesTarifa(TProductesTarifa $tProductesTarifa): self
+    {
+        if ($this->tProductesTarifas->contains($tProductesTarifa)) {
+            $this->tProductesTarifas->removeElement($tProductesTarifa);
+            // set the owning side to null (unless already changed)
+            if ($tProductesTarifa->getIdProducte() === $this) {
+                $tProductesTarifa->setIdProducte(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
 
 }
