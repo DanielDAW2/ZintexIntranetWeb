@@ -533,11 +533,17 @@ class TClients
      */
     private $tClientsMails;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFactura", mappedBy="Client_Factura")
+     */
+    private $tFacturas;
+
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
         $this->TAlbara = new ArrayCollection();
         $this->tClientsMails = new ArrayCollection();
+        $this->tFacturas = new ArrayCollection();
     }
 
     
@@ -1477,6 +1483,37 @@ class TClients
             // set the owning side to null (unless already changed)
             if ($tClientsMail->getNumClientMail() === $this) {
                 $tClientsMail->setNumClientMail(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFactura[]
+     */
+    public function getTFacturas(): Collection
+    {
+        return $this->tFacturas;
+    }
+
+    public function addTFactura(TFactura $tFactura): self
+    {
+        if (!$this->tFacturas->contains($tFactura)) {
+            $this->tFacturas[] = $tFactura;
+            $tFactura->setClientFactura($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFactura(TFactura $tFactura): self
+    {
+        if ($this->tFacturas->contains($tFactura)) {
+            $this->tFacturas->removeElement($tFactura);
+            // set the owning side to null (unless already changed)
+            if ($tFactura->getClientFactura() === $this) {
+                $tFactura->setClientFactura(null);
             }
         }
 
