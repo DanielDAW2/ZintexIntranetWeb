@@ -543,6 +543,11 @@ class TClients
      */
     private $tOrdreTreballs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TPresup", mappedBy="clientPresup")
+     */
+    private $tPresups;
+
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
@@ -550,6 +555,7 @@ class TClients
         $this->tClientsMails = new ArrayCollection();
         $this->tFacturas = new ArrayCollection();
         $this->tOrdreTreballs = new ArrayCollection();
+        $this->tPresups = new ArrayCollection();
     }
 
     
@@ -1551,6 +1557,37 @@ class TClients
             // set the owning side to null (unless already changed)
             if ($tOrdreTreball->getNumClient() === $this) {
                 $tOrdreTreball->setNumClient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TPresup[]
+     */
+    public function getTPresups(): Collection
+    {
+        return $this->tPresups;
+    }
+
+    public function addTPresup(TPresup $tPresup): self
+    {
+        if (!$this->tPresups->contains($tPresup)) {
+            $this->tPresups[] = $tPresup;
+            $tPresup->setClientPresup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTPresup(TPresup $tPresup): self
+    {
+        if ($this->tPresups->contains($tPresup)) {
+            $this->tPresups->removeElement($tPresup);
+            // set the owning side to null (unless already changed)
+            if ($tPresup->getClientPresup() === $this) {
+                $tPresup->setClientPresup(null);
             }
         }
 

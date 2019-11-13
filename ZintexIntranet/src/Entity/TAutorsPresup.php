@@ -49,9 +49,15 @@ class TAutorsPresup
      */
     private $tFraProformas;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TPresup", mappedBy="autorPresup")
+     */
+    private $tPresups;
+
     public function __construct()
     {
         $this->tFraProformas = new ArrayCollection();
+        $this->tPresups = new ArrayCollection();
     }
 
     public function getIdAutpresup(): ?int
@@ -120,6 +126,37 @@ class TAutorsPresup
             // set the owning side to null (unless already changed)
             if ($tFraProforma->getNumAutor() === $this) {
                 $tFraProforma->setNumAutor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TPresup[]
+     */
+    public function getTPresups(): Collection
+    {
+        return $this->tPresups;
+    }
+
+    public function addTPresup(TPresup $tPresup): self
+    {
+        if (!$this->tPresups->contains($tPresup)) {
+            $this->tPresups[] = $tPresup;
+            $tPresup->setAutorPresup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTPresup(TPresup $tPresup): self
+    {
+        if ($this->tPresups->contains($tPresup)) {
+            $this->tPresups->removeElement($tPresup);
+            // set the owning side to null (unless already changed)
+            if ($tPresup->getAutorPresup() === $this) {
+                $tPresup->setAutorPresup(null);
             }
         }
 

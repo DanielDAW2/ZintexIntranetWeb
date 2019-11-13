@@ -21,12 +21,7 @@ class TPresupAux
      */
     private $idPresupAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Presup", type="integer", nullable=true)
-     */
-    private $numPresup;
+
 
     /**
      * @var int|null
@@ -35,12 +30,7 @@ class TPresupAux
      */
     private $numLinia;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodProd_Presup", type="integer", nullable=true)
-     */
-    private $codprodPresup;
+
 
     /**
      * @var string|null
@@ -49,12 +39,7 @@ class TPresupAux
      */
     private $descripprodPresup;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodParamImp_Presup", type="integer", nullable=true)
-     */
-    private $codparamimpPresup;
+
 
     /**
      * @var string|null
@@ -84,22 +69,30 @@ class TPresupAux
      */
     private $baixa;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPresup", inversedBy="tPresupAuxes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $numPresup;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     */
+    private $codparamimpPresup;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $codprodPresup;
+
+ 
+
     public function getIdPresupAux(): ?int
     {
         return $this->idPresupAux;
     }
 
-    public function getNumPresup(): ?int
-    {
-        return $this->numPresup;
-    }
-
-    public function setNumPresup(?int $numPresup): self
-    {
-        $this->numPresup = $numPresup;
-
-        return $this;
-    }
 
     public function getNumLinia(): ?int
     {
@@ -113,17 +106,7 @@ class TPresupAux
         return $this;
     }
 
-    public function getCodprodPresup(): ?int
-    {
-        return $this->codprodPresup;
-    }
 
-    public function setCodprodPresup(?int $codprodPresup): self
-    {
-        $this->codprodPresup = $codprodPresup;
-
-        return $this;
-    }
 
     public function getDescripprodPresup(): ?string
     {
@@ -137,17 +120,7 @@ class TPresupAux
         return $this;
     }
 
-    public function getCodparamimpPresup(): ?int
-    {
-        return $this->codparamimpPresup;
-    }
 
-    public function setCodparamimpPresup(?int $codparamimpPresup): self
-    {
-        $this->codparamimpPresup = $codparamimpPresup;
-
-        return $this;
-    }
 
     public function getDescripparamimpPresup(): ?string
     {
@@ -193,6 +166,42 @@ class TPresupAux
     public function setBaixa(?bool $baixa): self
     {
         $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    public function getNumPresup(): ?TPresup
+    {
+        return $this->numPresup;
+    }
+
+    public function setNumPresup(?TPresup $numPresup): self
+    {
+        $this->numPresup = $numPresup;
+
+        return $this;
+    }
+
+    public function getCodparamimpPresup(): ?TParamImp
+    {
+        return $this->codparamimpPresup;
+    }
+
+    public function setCodparamimpPresup(?TParamImp $codparamimpPresup): self
+    {
+        $this->codparamimpPresup = $codparamimpPresup;
+
+        return $this;
+    }
+
+    public function getCodprodPresup(): ?TProductes
+    {
+        return $this->codprodPresup;
+    }
+
+    public function setCodprodPresup(?TProductes $codprodPresup): self
+    {
+        $this->codprodPresup = $codprodPresup;
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,12 +30,7 @@ class TPresup
      */
     private $numPresup;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Client_Presup", type="integer", nullable=true)
-     */
-    private $clientPresup;
+
 
     /**
      * @var string|null
@@ -70,12 +67,6 @@ class TPresup
      */
     private $textDataPresup;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Autor_Presup", type="integer", nullable=true)
-     */
-    private $autorPresup;
 
     /**
      * @var string|null
@@ -119,12 +110,7 @@ class TPresup
      */
     private $terminiePresup;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="MetPag_Presup", type="integer", nullable=true)
-     */
-    private $metpagPresup;
+
 
     /**
      * @var string|null
@@ -238,12 +224,7 @@ class TPresup
      */
     private $seguiment;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Comercial", type="integer", nullable=true)
-     */
-    private $comercial;
+
 
     /**
      * @var float|null
@@ -251,6 +232,37 @@ class TPresup
      * @ORM\Column(name="Total_Presup", type="float", precision=10, scale=0, nullable=true)
      */
     private $totalPresup;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tPresups")
+     */
+    private $clientPresup;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TComercials", inversedBy="tPresups")
+     */
+    private $comercial;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag", inversedBy="tPresups")
+     */
+    private $metpagPresup;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TautorsPresup", inversedBy="tPresups")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $autorPresup;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TPresupAux", mappedBy="numPresup", orphanRemoval=true)
+     */
+    private $tPresupAuxes;
+
+    public function __construct()
+    {
+        $this->tPresupAuxes = new ArrayCollection();
+    }
 
     public function getIdPresup(): ?int
     {
@@ -269,17 +281,7 @@ class TPresup
         return $this;
     }
 
-    public function getClientPresup(): ?int
-    {
-        return $this->clientPresup;
-    }
 
-    public function setClientPresup(?int $clientPresup): self
-    {
-        $this->clientPresup = $clientPresup;
-
-        return $this;
-    }
 
     public function getMarcaCli(): ?string
     {
@@ -341,17 +343,7 @@ class TPresup
         return $this;
     }
 
-    public function getAutorPresup(): ?int
-    {
-        return $this->autorPresup;
-    }
 
-    public function setAutorPresup(?int $autorPresup): self
-    {
-        $this->autorPresup = $autorPresup;
-
-        return $this;
-    }
 
     public function getFraprofPresup(): ?string
     {
@@ -425,17 +417,7 @@ class TPresup
         return $this;
     }
 
-    public function getMetpagPresup(): ?int
-    {
-        return $this->metpagPresup;
-    }
 
-    public function setMetpagPresup(?int $metpagPresup): self
-    {
-        $this->metpagPresup = $metpagPresup;
-
-        return $this;
-    }
 
     public function getMetpagAux(): ?string
     {
@@ -629,17 +611,7 @@ class TPresup
         return $this;
     }
 
-    public function getComercial(): ?int
-    {
-        return $this->comercial;
-    }
 
-    public function setComercial(?int $comercial): self
-    {
-        $this->comercial = $comercial;
-
-        return $this;
-    }
 
     public function getTotalPresup(): ?float
     {
@@ -649,6 +621,85 @@ class TPresup
     public function setTotalPresup(?float $totalPresup): self
     {
         $this->totalPresup = $totalPresup;
+
+        return $this;
+    }
+
+    public function getClientPresup(): ?TClients
+    {
+        return $this->clientPresup;
+    }
+
+    public function setClientPresup(?TClients $clientPresup): self
+    {
+        $this->clientPresup = $clientPresup;
+
+        return $this;
+    }
+
+    public function getComercial(): ?TComercials
+    {
+        return $this->comercial;
+    }
+
+    public function setComercial(?TComercials $comercial): self
+    {
+        $this->comercial = $comercial;
+
+        return $this;
+    }
+
+    public function getMetpagPresup(): ?TMetodePag
+    {
+        return $this->metpagPresup;
+    }
+
+    public function setMetpagPresup(?TMetodePag $metpagPresup): self
+    {
+        $this->metpagPresup = $metpagPresup;
+
+        return $this;
+    }
+
+    public function getAutorPresup(): ?TautorsPresup
+    {
+        return $this->autorPresup;
+    }
+
+    public function setAutorPresup(?TautorsPresup $autorPresup): self
+    {
+        $this->autorPresup = $autorPresup;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TPresupAux[]
+     */
+    public function getTPresupAuxes(): Collection
+    {
+        return $this->tPresupAuxes;
+    }
+
+    public function addTPresupAux(TPresupAux $tPresupAux): self
+    {
+        if (!$this->tPresupAuxes->contains($tPresupAux)) {
+            $this->tPresupAuxes[] = $tPresupAux;
+            $tPresupAux->setNumPresup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTPresupAux(TPresupAux $tPresupAux): self
+    {
+        if ($this->tPresupAuxes->contains($tPresupAux)) {
+            $this->tPresupAuxes->removeElement($tPresupAux);
+            // set the owning side to null (unless already changed)
+            if ($tPresupAux->getNumPresup() === $this) {
+                $tPresupAux->setNumPresup(null);
+            }
+        }
 
         return $this;
     }
