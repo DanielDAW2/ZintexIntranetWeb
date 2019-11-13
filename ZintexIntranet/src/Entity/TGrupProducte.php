@@ -28,12 +28,7 @@ class TGrupProducte
      */
     private $numGrupProducte;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Grup_Gral", type="integer", nullable=true)
-     */
-    private $grupGral;
+
 
     /**
      * @var string|null
@@ -48,6 +43,11 @@ class TGrupProducte
      * @ORM\Column(name="Admet_Marcatge", type="boolean", nullable=true)
      */
     private $admetMarcatge;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TGrupGral", inversedBy="tGrupProductes")
+     */
+    private $grupGral;
 
     public function getIdGrupproducte(): ?int
     {
@@ -66,17 +66,7 @@ class TGrupProducte
         return $this;
     }
 
-    public function getGrupGral(): ?int
-    {
-        return $this->grupGral;
-    }
 
-    public function setGrupGral(?int $grupGral): self
-    {
-        $this->grupGral = $grupGral;
-
-        return $this;
-    }
 
     public function getDescripGrupProducte(): ?string
     {
@@ -98,6 +88,18 @@ class TGrupProducte
     public function setAdmetMarcatge(?bool $admetMarcatge): self
     {
         $this->admetMarcatge = $admetMarcatge;
+
+        return $this;
+    }
+
+    public function getGrupGral(): ?TGrupGral
+    {
+        return $this->grupGral;
+    }
+
+    public function setGrupGral(?TGrupGral $grupGral): self
+    {
+        $this->grupGral = $grupGral;
 
         return $this;
     }
