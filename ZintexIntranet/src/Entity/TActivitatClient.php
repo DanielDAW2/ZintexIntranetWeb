@@ -42,6 +42,14 @@ class TActivitatClient
      */
     private $coefRecarrec;
 
+    /**
+     * Undocumented variable
+     *
+     * @ORM\OneToMany(targetEntity="TClients", mappedBy="activitat1")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $activitatClient;
+
     public function getId(): ?int
     {
         return $this->id;
