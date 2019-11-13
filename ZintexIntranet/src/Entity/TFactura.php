@@ -14,7 +14,7 @@ class TFactura
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private $Id_Factura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tFacturas")
@@ -116,9 +116,9 @@ class TFactura
      */
     private $Ultim_Pagament;
 
-    public function getId(): ?int
+    public function getId_Factura(): ?int
     {
-        return $this->id;
+        return $this->Id_Factura;
     }
 
     public function getClientFactura(): ?TClients
