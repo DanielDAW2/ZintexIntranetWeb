@@ -114,12 +114,7 @@ class TClients
      */
     private $pobfraCli;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="PaisFra_Cli", type="integer", nullable=true)
-     */
-    private $paisfraCli;
+
 
     /**
      * @var string|null
@@ -156,12 +151,7 @@ class TClients
      */
     private $empentCli;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="TractEnt_Cli", type="integer", nullable=true)
-     */
-    private $tractentCli;
+
 
     /**
      * @var string|null
@@ -191,12 +181,7 @@ class TClients
      */
     private $pobentCli;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="PaisEnt_Cli", type="integer", nullable=true)
-     */
-    private $paisentCli;
+   
 
     /**
      * @var string|null
@@ -219,19 +204,9 @@ class TClients
      */
     private $webCli;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Met_Pag", type="integer", nullable=true)
-     */
-    private $metPag;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Inst_Pag", type="integer", nullable=true)
-     */
-    private $instPag;
+
+
 
     /**
      * @var string|null
@@ -523,6 +498,31 @@ class TClients
      */
     private $TAlbara;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="tClients")
+     */
+    private $paisfraCli;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TTractaments")
+     */
+    private $tractentCli;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="TClient")
+     */
+    private $paisentCli;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
+     */
+    private $metPag;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
+     */
+    private $instPag;
+
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
@@ -692,17 +692,6 @@ class TClients
         return $this;
     }
 
-    public function getPaisfraCli(): ?int
-    {
-        return $this->paisfraCli;
-    }
-
-    public function setPaisfraCli(?int $paisfraCli): self
-    {
-        $this->paisfraCli = $paisfraCli;
-
-        return $this;
-    }
 
     public function getTelfraCli(): ?string
     {
@@ -764,17 +753,6 @@ class TClients
         return $this;
     }
 
-    public function getTractentCli(): ?int
-    {
-        return $this->tractentCli;
-    }
-
-    public function setTractentCli(?int $tractentCli): self
-    {
-        $this->tractentCli = $tractentCli;
-
-        return $this;
-    }
 
     public function getPersentCli(): ?string
     {
@@ -824,17 +802,6 @@ class TClients
         return $this;
     }
 
-    public function getPaisentCli(): ?int
-    {
-        return $this->paisentCli;
-    }
-
-    public function setPaisentCli(?int $paisentCli): self
-    {
-        $this->paisentCli = $paisentCli;
-
-        return $this;
-    }
 
     public function getTelentCli(): ?string
     {
@@ -868,30 +835,6 @@ class TClients
     public function setWebCli(?string $webCli): self
     {
         $this->webCli = $webCli;
-
-        return $this;
-    }
-
-    public function getMetPag(): ?int
-    {
-        return $this->metPag;
-    }
-
-    public function setMetPag(?int $metPag): self
-    {
-        $this->metPag = $metPag;
-
-        return $this;
-    }
-
-    public function getInstPag(): ?int
-    {
-        return $this->instPag;
-    }
-
-    public function setInstPag(?int $instPag): self
-    {
-        $this->instPag = $instPag;
 
         return $this;
     }
@@ -1434,6 +1377,66 @@ class TClients
                 $tAlbara->setClientAlbara(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPaisfraCli(): ?TPaisos
+    {
+        return $this->paisfraCli;
+    }
+
+    public function setPaisfraCli(?TPaisos $paisfraCli): self
+    {
+        $this->paisfraCli = $paisfraCli;
+
+        return $this;
+    }
+
+    public function getTractentCli(): ?TTractaments
+    {
+        return $this->tractentCli;
+    }
+
+    public function setTractentCli(?TTractaments $tractentCli): self
+    {
+        $this->tractentCli = $tractentCli;
+
+        return $this;
+    }
+
+    public function getPaisentCli(): ?TPaisos
+    {
+        return $this->paisentCli;
+    }
+
+    public function setPaisentCli(?TPaisos $paisentCli): self
+    {
+        $this->paisentCli = $paisentCli;
+
+        return $this;
+    }
+
+    public function getMetPag(): ?TMetodePag
+    {
+        return $this->metPag;
+    }
+
+    public function setMetPag(?TMetodePag $metPag): self
+    {
+        $this->metPag = $metPag;
+
+        return $this;
+    }
+
+    public function getInstPag(): ?TInstrumentPag
+    {
+        return $this->instPag;
+    }
+
+    public function setInstPag(?TInstrumentPag $instPag): self
+    {
+        $this->instPag = $instPag;
 
         return $this;
     }

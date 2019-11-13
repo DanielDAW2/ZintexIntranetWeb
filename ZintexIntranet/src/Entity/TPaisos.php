@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,18 @@ class TPaisos
      */
     private $preftelPais;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TClients", mappedBy="paisentCli")
+     */
+    private $TClients;
+
+
+    public function __construct()
+    {
+        $this->tClients = new ArrayCollection();
+        $this->TClient = new ArrayCollection();
+    }
+
     public function getIdPais(): ?int
     {
         return $this->idPais;
@@ -63,6 +77,38 @@ class TPaisos
 
         return $this;
     }
+
+    /**
+     * @return Collection|TClients[]
+     */
+    public function getTClients(): Collection
+    {
+        return $this->TClients;
+    }
+
+    public function addTClient(TClients $tClient): self
+    {
+        if (!$this->TClients->contains($tClient)) {
+            $this->TClients[] = $tClient;
+            $tClient->setPaisentCli($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTClient(TClients $tClient): self
+    {
+        if ($this->TClients->contains($tClient)) {
+            $this->TClients->removeElement($tClient);
+            // set the owning side to null (unless already changed)
+            if ($tClient->getPaisentCli() === $this) {
+                $tClient->setPaisentCli(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 
 }
