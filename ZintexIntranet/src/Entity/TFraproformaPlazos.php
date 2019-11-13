@@ -21,19 +21,8 @@ class TFraproformaPlazos
      */
     private $idFraproformaPlazo;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_FraProforma", type="integer", nullable=true)
-     */
-    private $numFraproforma;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodProd_FraProf_Plazo", type="integer", nullable=true)
-     */
-    private $codprodFraprofPlazo;
+
 
     /**
      * @var string|null
@@ -49,34 +38,24 @@ class TFraproformaPlazos
      */
     private $baixa;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tFraproformaPlazos")
+     */
+    private $numFraproforma;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tproductes")
+     */
+    private $codprodFraprofPlazo;
+
+    
+
     public function getIdFraproformaPlazo(): ?int
     {
         return $this->idFraproformaPlazo;
     }
 
-    public function getNumFraproforma(): ?int
-    {
-        return $this->numFraproforma;
-    }
 
-    public function setNumFraproforma(?int $numFraproforma): self
-    {
-        $this->numFraproforma = $numFraproforma;
-
-        return $this;
-    }
-
-    public function getCodprodFraprofPlazo(): ?int
-    {
-        return $this->codprodFraprofPlazo;
-    }
-
-    public function setCodprodFraprofPlazo(?int $codprodFraprofPlazo): self
-    {
-        $this->codprodFraprofPlazo = $codprodFraprofPlazo;
-
-        return $this;
-    }
 
     public function getDescripprodFraprofPlazo(): ?string
     {
@@ -98,6 +77,30 @@ class TFraproformaPlazos
     public function setBaixa(?bool $baixa): self
     {
         $this->baixa = $baixa;
+
+        return $this;
+    }
+
+    public function getNumFraproforma(): ?TFraProforma
+    {
+        return $this->numFraproforma;
+    }
+
+    public function setNumFraproforma(?TFraProforma $numFraproforma): self
+    {
+        $this->numFraproforma = $numFraproforma;
+
+        return $this;
+    }
+
+    public function getCodprodFraprofPlazo(): ?Tproductes
+    {
+        return $this->codprodFraprofPlazo;
+    }
+
+    public function setCodprodFraprofPlazo(?Tproductes $codprodFraprofPlazo): self
+    {
+        $this->codprodFraprofPlazo = $codprodFraprofPlazo;
 
         return $this;
     }

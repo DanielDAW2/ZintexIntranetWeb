@@ -268,12 +268,24 @@ class TFraproforma
      */
     private $numAutorProforma;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaPlazos", mappedBy="numFraproforma")
+     */
+    private $tFraproformaPlazos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaVto", mappedBy="numProforma")
+     */
+    private $tFraproformaVtos;
+
 
 
     public function __construct()
     {
         $this->clientFraprof = new ArrayCollection();
         $this->tFraproformaAuxes = new ArrayCollection();
+        $this->tFraproformaPlazos = new ArrayCollection();
+        $this->tFraproformaVtos = new ArrayCollection();
     }
 
     public function getIdFraprof(): ?int
@@ -743,6 +755,68 @@ class TFraproforma
     public function setNumAutorProforma(?Tautorspresup $numAutorProforma): self
     {
         $this->numAutorProforma = $numAutorProforma;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFraproformaPlazos[]
+     */
+    public function getTFraproformaPlazos(): Collection
+    {
+        return $this->tFraproformaPlazos;
+    }
+
+    public function addTFraproformaPlazo(TFraproformaPlazos $tFraproformaPlazo): self
+    {
+        if (!$this->tFraproformaPlazos->contains($tFraproformaPlazo)) {
+            $this->tFraproformaPlazos[] = $tFraproformaPlazo;
+            $tFraproformaPlazo->setNumFraproforma($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFraproformaPlazo(TFraproformaPlazos $tFraproformaPlazo): self
+    {
+        if ($this->tFraproformaPlazos->contains($tFraproformaPlazo)) {
+            $this->tFraproformaPlazos->removeElement($tFraproformaPlazo);
+            // set the owning side to null (unless already changed)
+            if ($tFraproformaPlazo->getNumFraproforma() === $this) {
+                $tFraproformaPlazo->setNumFraproforma(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFraproformaVto[]
+     */
+    public function getTFraproformaVtos(): Collection
+    {
+        return $this->tFraproformaVtos;
+    }
+
+    public function addTFraproformaVto(TFraproformaVto $tFraproformaVto): self
+    {
+        if (!$this->tFraproformaVtos->contains($tFraproformaVto)) {
+            $this->tFraproformaVtos[] = $tFraproformaVto;
+            $tFraproformaVto->setNumProforma($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFraproformaVto(TFraproformaVto $tFraproformaVto): self
+    {
+        if ($this->tFraproformaVtos->contains($tFraproformaVto)) {
+            $this->tFraproformaVtos->removeElement($tFraproformaVto);
+            // set the owning side to null (unless already changed)
+            if ($tFraproformaVto->getNumProforma() === $this) {
+                $tFraproformaVto->setNumProforma(null);
+            }
+        }
 
         return $this;
     }

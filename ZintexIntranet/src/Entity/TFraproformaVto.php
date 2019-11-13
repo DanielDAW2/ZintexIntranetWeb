@@ -21,12 +21,6 @@ class TFraproformaVto
      */
     private $idFraproformaVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Proforma", type="integer", nullable=true)
-     */
-    private $numProforma;
 
     /**
      * @var string|null
@@ -35,12 +29,7 @@ class TFraproformaVto
      */
     private $concepteVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="InstPag", type="integer", nullable=true)
-     */
-    private $instpag;
+
 
     /**
      * @var string|null
@@ -77,22 +66,22 @@ class TFraproformaVto
      */
     private $okbancVto;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tfraproforma", inversedBy="tFraproformaVtos")
+     */
+    private $numProforma;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
+     */
+    private $instpag;
+
     public function getIdFraproformaVto(): ?int
     {
         return $this->idFraproformaVto;
     }
 
-    public function getNumProforma(): ?int
-    {
-        return $this->numProforma;
-    }
 
-    public function setNumProforma(?int $numProforma): self
-    {
-        $this->numProforma = $numProforma;
-
-        return $this;
-    }
 
     public function getConcepteVto(): ?string
     {
@@ -106,17 +95,7 @@ class TFraproformaVto
         return $this;
     }
 
-    public function getInstpag(): ?int
-    {
-        return $this->instpag;
-    }
 
-    public function setInstpag(?int $instpag): self
-    {
-        $this->instpag = $instpag;
-
-        return $this;
-    }
 
     public function getInstpagAux(): ?string
     {
@@ -174,6 +153,30 @@ class TFraproformaVto
     public function setOkbancVto(?\DateTimeInterface $okbancVto): self
     {
         $this->okbancVto = $okbancVto;
+
+        return $this;
+    }
+
+    public function getNumProforma(): ?Tfraproforma
+    {
+        return $this->numProforma;
+    }
+
+    public function setNumProforma(?Tfraproforma $numProforma): self
+    {
+        $this->numProforma = $numProforma;
+
+        return $this;
+    }
+
+    public function getInstpag(): ?TInstrumentPag
+    {
+        return $this->instpag;
+    }
+
+    public function setInstpag(?TInstrumentPag $instpag): self
+    {
+        $this->instpag = $instpag;
 
         return $this;
     }
