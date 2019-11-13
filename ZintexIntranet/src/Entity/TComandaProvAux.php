@@ -21,19 +21,9 @@ class TComandaProvAux
      */
     private $idComandaProvAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Comanda_Prov", type="integer", nullable=true)
-     */
-    private $numComandaProv;
+    
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Prod_Prov", type="integer", nullable=true)
-     */
-    private $numProdProv;
+
 
     /**
      * @var string|null
@@ -63,33 +53,21 @@ class TComandaProvAux
      */
     private $preuTotalProd;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TComandaProv", inversedBy="tComandaProvAuxes")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Comanda_Prov")
+     */
+    private $numComandaProv;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductesProv")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prod_Prov")
+     */
+    private $numProdProv;
+
     public function getIdComandaProvAux(): ?int
     {
         return $this->idComandaProvAux;
-    }
-
-    public function getNumComandaProv(): ?int
-    {
-        return $this->numComandaProv;
-    }
-
-    public function setNumComandaProv(?int $numComandaProv): self
-    {
-        $this->numComandaProv = $numComandaProv;
-
-        return $this;
-    }
-
-    public function getNumProdProv(): ?int
-    {
-        return $this->numProdProv;
-    }
-
-    public function setNumProdProv(?int $numProdProv): self
-    {
-        $this->numProdProv = $numProdProv;
-
-        return $this;
     }
 
     public function getDescripProdProv(): ?string
@@ -136,6 +114,30 @@ class TComandaProvAux
     public function setPreuTotalProd(?float $preuTotalProd): self
     {
         $this->preuTotalProd = $preuTotalProd;
+
+        return $this;
+    }
+
+    public function getNumComandaProv(): ?TComandaProv
+    {
+        return $this->numComandaProv;
+    }
+
+    public function setNumComandaProv(?TComandaProv $numComandaProv): self
+    {
+        $this->numComandaProv = $numComandaProv;
+
+        return $this;
+    }
+
+    public function getNumProdProv(): ?TProductesProv
+    {
+        return $this->numProdProv;
+    }
+
+    public function setNumProdProv(?TProductesProv $numProdProv): self
+    {
+        $this->numProdProv = $numProdProv;
 
         return $this;
     }
