@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,7 +28,12 @@ class TComandaProv
      */
     private $refComandaProv;
 
-    
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="Num_Proveidor_Comanda", type="integer", nullable=true)
+     */
+    private $numProveidorComanda;
 
     /**
      * @var string|null
@@ -67,22 +70,6 @@ class TComandaProv
      */
     private $facturat;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tComandaProvs")
-     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
-     */
-    private $numProveidorComanda;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TComandaProvAux", mappedBy="numComandaProv", orphanRemoval=true)
-     */
-    private $tComandaProvAuxes;
-
-    public function __construct()
-    {
-        $this->tComandaProvAuxes = new ArrayCollection();
-    }
-
     public function getIdComandaProv(): ?int
     {
         return $this->idComandaProv;
@@ -100,6 +87,17 @@ class TComandaProv
         return $this;
     }
 
+    public function getNumProveidorComanda(): ?int
+    {
+        return $this->numProveidorComanda;
+    }
+
+    public function setNumProveidorComanda(?int $numProveidorComanda): self
+    {
+        $this->numProveidorComanda = $numProveidorComanda;
+
+        return $this;
+    }
 
     public function getDescripComanda(): ?string
     {
@@ -157,49 +155,6 @@ class TComandaProv
     public function setFacturat(?bool $facturat): self
     {
         $this->facturat = $facturat;
-
-        return $this;
-    }
-
-    public function getNumProveidorComanda(): ?TClients
-    {
-        return $this->numProveidorComanda;
-    }
-
-    public function setNumProveidorComanda(?TClients $numProveidorComanda): self
-    {
-        $this->numProveidorComanda = $numProveidorComanda;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|TComandaProvAux[]
-     */
-    public function getTComandaProvAuxes(): Collection
-    {
-        return $this->tComandaProvAuxes;
-    }
-
-    public function addTComandaProvAux(TComandaProvAux $tComandaProvAux): self
-    {
-        if (!$this->tComandaProvAuxes->contains($tComandaProvAux)) {
-            $this->tComandaProvAuxes[] = $tComandaProvAux;
-            $tComandaProvAux->setNumComandaProv($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTComandaProvAux(TComandaProvAux $tComandaProvAux): self
-    {
-        if ($this->tComandaProvAuxes->contains($tComandaProvAux)) {
-            $this->tComandaProvAuxes->removeElement($tComandaProvAux);
-            // set the owning side to null (unless already changed)
-            if ($tComandaProvAux->getNumComandaProv() === $this) {
-                $tComandaProvAux->setNumComandaProv(null);
-            }
-        }
 
         return $this;
     }

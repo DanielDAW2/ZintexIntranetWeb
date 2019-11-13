@@ -533,17 +533,11 @@ class TClients
      */
     private $tClientsMails;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TComandaProv", mappedBy="numProveidorComanda")
-     */
-    private $tComandaProvs;
-
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
         $this->TAlbara = new ArrayCollection();
         $this->tClientsMails = new ArrayCollection();
-        $this->tComandaProvs = new ArrayCollection();
     }
 
     
@@ -1483,37 +1477,6 @@ class TClients
             // set the owning side to null (unless already changed)
             if ($tClientsMail->getNumClientMail() === $this) {
                 $tClientsMail->setNumClientMail(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|TComandaProv[]
-     */
-    public function getTComandaProvs(): Collection
-    {
-        return $this->tComandaProvs;
-    }
-
-    public function addTComandaProv(TComandaProv $tComandaProv): self
-    {
-        if (!$this->tComandaProvs->contains($tComandaProv)) {
-            $this->tComandaProvs[] = $tComandaProv;
-            $tComandaProv->setNumProveidorComanda($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTComandaProv(TComandaProv $tComandaProv): self
-    {
-        if ($this->tComandaProvs->contains($tComandaProv)) {
-            $this->tComandaProvs->removeElement($tComandaProv);
-            // set the owning side to null (unless already changed)
-            if ($tComandaProv->getNumProveidorComanda() === $this) {
-                $tComandaProv->setNumProveidorComanda(null);
             }
         }
 
