@@ -286,7 +286,7 @@ class TFraproforma
         return $this->clientFraprof;
     }
 
-    public function setClientFraprof(?int $clientFraprof): self
+    public function setClientFraprof(?TClients $clientFraprof): self
     {
         $this->clientFraprof = $clientFraprof;
 
