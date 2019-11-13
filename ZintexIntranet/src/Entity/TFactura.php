@@ -126,9 +126,15 @@ class TFactura
      */
     private $tFacturaAuxes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFacturaVto", mappedBy="numFactura")
+     */
+    private $tFacturaVtos;
+
     public function __construct()
     {
         $this->tFacturaAuxes = new ArrayCollection();
+        $this->tFacturaVtos = new ArrayCollection();
     }
 
     public function getId_Factura(): ?int
@@ -401,6 +407,37 @@ class TFactura
             // set the owning side to null (unless already changed)
             if ($tFacturaAux->getNumFactura() === $this) {
                 $tFacturaAux->setNumFactura(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFacturaVto[]
+     */
+    public function getTFacturaVtos(): Collection
+    {
+        return $this->tFacturaVtos;
+    }
+
+    public function addTFacturaVto(TFacturaVto $tFacturaVto): self
+    {
+        if (!$this->tFacturaVtos->contains($tFacturaVto)) {
+            $this->tFacturaVtos[] = $tFacturaVto;
+            $tFacturaVto->setNumFactura($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFacturaVto(TFacturaVto $tFacturaVto): self
+    {
+        if ($this->tFacturaVtos->contains($tFacturaVto)) {
+            $this->tFacturaVtos->removeElement($tFacturaVto);
+            // set the owning side to null (unless already changed)
+            if ($tFacturaVto->getNumFactura() === $this) {
+                $tFacturaVto->setNumFactura(null);
             }
         }
 

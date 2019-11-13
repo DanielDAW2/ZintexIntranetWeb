@@ -21,12 +21,6 @@ class TFacturaVto
      */
     private $idFacturaVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Factura", type="integer", nullable=true)
-     */
-    private $numFactura;
 
     /**
      * @var \DateTime|null
@@ -42,12 +36,7 @@ class TFacturaVto
      */
     private $concepteVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="InstPag", type="integer", nullable=true)
-     */
-    private $instpag;
+
 
     /**
      * @var string|null
@@ -84,22 +73,21 @@ class TFacturaVto
      */
     private $okbancVto;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tfactura", inversedBy="tFacturaVtos")
+     */
+    private $numFactura;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
+     */
+    private $instpag;
+
     public function getIdFacturaVto(): ?int
     {
         return $this->idFacturaVto;
     }
 
-    public function getNumFactura(): ?int
-    {
-        return $this->numFactura;
-    }
-
-    public function setNumFactura(?int $numFactura): self
-    {
-        $this->numFactura = $numFactura;
-
-        return $this;
-    }
 
     public function getDataVto(): ?\DateTimeInterface
     {
@@ -125,17 +113,6 @@ class TFacturaVto
         return $this;
     }
 
-    public function getInstpag(): ?int
-    {
-        return $this->instpag;
-    }
-
-    public function setInstpag(?int $instpag): self
-    {
-        $this->instpag = $instpag;
-
-        return $this;
-    }
 
     public function getInstpagAux(): ?string
     {
@@ -193,6 +170,30 @@ class TFacturaVto
     public function setOkbancVto(?\DateTimeInterface $okbancVto): self
     {
         $this->okbancVto = $okbancVto;
+
+        return $this;
+    }
+
+    public function getNumFactura(): ?Tfactura
+    {
+        return $this->numFactura;
+    }
+
+    public function setNumFactura(?Tfactura $numFactura): self
+    {
+        $this->numFactura = $numFactura;
+
+        return $this;
+    }
+
+    public function getInstpag(): ?TInstrumentPag
+    {
+        return $this->instpag;
+    }
+
+    public function setInstpag(?TInstrumentPag $instpag): self
+    {
+        $this->instpag = $instpag;
 
         return $this;
     }
