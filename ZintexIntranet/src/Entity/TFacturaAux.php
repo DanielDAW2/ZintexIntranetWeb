@@ -21,12 +21,7 @@ class TFacturaAux
      */
     private $idFacturaAux;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Factura", type="integer", nullable=true)
-     */
-    private $numFactura;
+
 
     /**
      * @var int|null
@@ -35,12 +30,7 @@ class TFacturaAux
      */
     private $numLinia;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodProd_Factura", type="integer", nullable=true)
-     */
-    private $codprodFactura;
+
 
     /**
      * @var string|null
@@ -49,12 +39,7 @@ class TFacturaAux
      */
     private $descripprodFactura;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodParamImp_Factura", type="integer", nullable=true)
-     */
-    private $codparamimpFactura;
+
 
     /**
      * @var string|null
@@ -91,12 +76,6 @@ class TFacturaAux
      */
     private $baixa;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Grup_Producte", type="integer", nullable=true)
-     */
-    private $grupProducte;
 
     /**
      * @var string|null
@@ -105,22 +84,35 @@ class TFacturaAux
      */
     private $codiFactura;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFactura", inversedBy="tFacturaAuxes")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Factura")
+     */
+    private $numFactura;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
+     */
+    private $codprodFactura;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamimp")
+     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp")
+     */
+    private $codparamimpFactura;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
+     */
+    private $grupProducte;
+
     public function getIdFacturaAux(): ?int
     {
         return $this->idFacturaAux;
     }
 
-    public function getNumFactura(): ?int
-    {
-        return $this->numFactura;
-    }
-
-    public function setNumFactura(?int $numFactura): self
-    {
-        $this->numFactura = $numFactura;
-
-        return $this;
-    }
 
     public function getNumLinia(): ?int
     {
@@ -134,17 +126,7 @@ class TFacturaAux
         return $this;
     }
 
-    public function getCodprodFactura(): ?int
-    {
-        return $this->codprodFactura;
-    }
 
-    public function setCodprodFactura(?int $codprodFactura): self
-    {
-        $this->codprodFactura = $codprodFactura;
-
-        return $this;
-    }
 
     public function getDescripprodFactura(): ?string
     {
@@ -158,17 +140,7 @@ class TFacturaAux
         return $this;
     }
 
-    public function getCodparamimpFactura(): ?int
-    {
-        return $this->codparamimpFactura;
-    }
 
-    public function setCodparamimpFactura(?int $codparamimpFactura): self
-    {
-        $this->codparamimpFactura = $codparamimpFactura;
-
-        return $this;
-    }
 
     public function getDescripparamimpFactura(): ?string
     {
@@ -230,17 +202,6 @@ class TFacturaAux
         return $this;
     }
 
-    public function getGrupProducte(): ?int
-    {
-        return $this->grupProducte;
-    }
-
-    public function setGrupProducte(?int $grupProducte): self
-    {
-        $this->grupProducte = $grupProducte;
-
-        return $this;
-    }
 
     public function getCodiFactura(): ?string
     {
@@ -250,6 +211,54 @@ class TFacturaAux
     public function setCodiFactura(?string $codiFactura): self
     {
         $this->codiFactura = $codiFactura;
+
+        return $this;
+    }
+
+    public function getNumFactura(): ?TFactura
+    {
+        return $this->numFactura;
+    }
+
+    public function setNumFactura(?TFactura $numFactura): self
+    {
+        $this->numFactura = $numFactura;
+
+        return $this;
+    }
+
+    public function getCodprodFactura(): ?TProductes
+    {
+        return $this->codprodFactura;
+    }
+
+    public function setCodprodFactura(?TProductes $codprodFactura): self
+    {
+        $this->codprodFactura = $codprodFactura;
+
+        return $this;
+    }
+
+    public function getCodparamimpFactura(): ?TParamimp
+    {
+        return $this->codparamimpFactura;
+    }
+
+    public function setCodparamimpFactura(?TParamimp $codparamimpFactura): self
+    {
+        $this->codparamimpFactura = $codparamimpFactura;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?TGrupProducte
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?TGrupProducte $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -118,6 +120,16 @@ class TFactura
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $Ultim_Pagament;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TFacturaAux", mappedBy="numFactura", orphanRemoval=true)
+     */
+    private $tFacturaAuxes;
+
+    public function __construct()
+    {
+        $this->tFacturaAuxes = new ArrayCollection();
+    }
 
     public function getId_Factura(): ?int
     {
@@ -360,6 +372,37 @@ class TFactura
     public function setUltimPagament(?\DateTimeInterface $Ultim_Pagament): self
     {
         $this->Ultim_Pagament = $Ultim_Pagament;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TFacturaAux[]
+     */
+    public function getTFacturaAuxes(): Collection
+    {
+        return $this->tFacturaAuxes;
+    }
+
+    public function addTFacturaAux(TFacturaAux $tFacturaAux): self
+    {
+        if (!$this->tFacturaAuxes->contains($tFacturaAux)) {
+            $this->tFacturaAuxes[] = $tFacturaAux;
+            $tFacturaAux->setNumFactura($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTFacturaAux(TFacturaAux $tFacturaAux): self
+    {
+        if ($this->tFacturaAuxes->contains($tFacturaAux)) {
+            $this->tFacturaAuxes->removeElement($tFacturaAux);
+            // set the owning side to null (unless already changed)
+            if ($tFacturaAux->getNumFactura() === $this) {
+                $tFacturaAux->setNumFactura(null);
+            }
+        }
 
         return $this;
     }
