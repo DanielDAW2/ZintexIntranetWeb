@@ -259,9 +259,17 @@ class TPresup
      */
     private $tPresupAuxes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TPresupVto", mappedBy="numPresup", orphanRemoval=true)
+     */
+    private $tPresupVtos;
+
+
+
     public function __construct()
     {
         $this->tPresupAuxes = new ArrayCollection();
+        $this->tPresupVtos = new ArrayCollection();
     }
 
     public function getIdPresup(): ?int
@@ -703,6 +711,38 @@ class TPresup
 
         return $this;
     }
+
+    /**
+     * @return Collection|TPresupVto[]
+     */
+    public function getTPresupVtos(): Collection
+    {
+        return $this->tPresupVtos;
+    }
+
+    public function addTPresupVto(TPresupVto $tPresupVto): self
+    {
+        if (!$this->tPresupVtos->contains($tPresupVto)) {
+            $this->tPresupVtos[] = $tPresupVto;
+            $tPresupVto->setNumPresup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTPresupVto(TPresupVto $tPresupVto): self
+    {
+        if ($this->tPresupVtos->contains($tPresupVto)) {
+            $this->tPresupVtos->removeElement($tPresupVto);
+            // set the owning side to null (unless already changed)
+            if ($tPresupVto->getNumPresup() === $this) {
+                $tPresupVto->setNumPresup(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 
 }

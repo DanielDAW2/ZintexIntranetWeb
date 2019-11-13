@@ -71,19 +71,9 @@ class TProductes
      */
     private $descripal;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Color", type="integer", nullable=true)
-     */
-    private $color;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Grup_Producte", type="integer", nullable=true)
-     */
-    private $grupProducte;
+
+
 
     /**
      * @var bool|null
@@ -120,6 +110,16 @@ class TProductes
      * @ORM\JoinColumn(nullable=true)
      */
     private $preciosCantidad;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TgrupProducte", inversedBy="tProductes")
+     */
+    private $grupProducte;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TColors")
+     */
+    private $color;
 
     public function __construct()
     {
@@ -225,29 +225,9 @@ class TProductes
         return $this;
     }
 
-    public function getColor(): ?int
-    {
-        return $this->color;
-    }
 
-    public function setColor(?int $color): self
-    {
-        $this->color = $color;
 
-        return $this;
-    }
 
-    public function getGrupProducte(): ?int
-    {
-        return $this->grupProducte;
-    }
-
-    public function setGrupProducte(?int $grupProducte): self
-    {
-        $this->grupProducte = $grupProducte;
-
-        return $this;
-    }
 
     public function getBaixa(): ?bool
     {
@@ -293,6 +273,30 @@ class TProductes
     public function setFoto(?string $foto): self
     {
         $this->foto = $foto;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?TgrupProducte
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?TgrupProducte $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getColor(): ?TColors
+    {
+        return $this->color;
+    }
+
+    public function setColor(?TColors $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }

@@ -56,9 +56,15 @@ class TGrupProducte
      */
     private $tOrdreTreballs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TProductes", mappedBy="grupProducte")
+     */
+    private $tProductes;
+
     public function __construct()
     {
         $this->tOrdreTreballs = new ArrayCollection();
+        $this->tProductes = new ArrayCollection();
     }
 
     public function getIdGrupproducte(): ?int
@@ -141,6 +147,37 @@ class TGrupProducte
             // set the owning side to null (unless already changed)
             if ($tOrdreTreball->getGrupProducte() === $this) {
                 $tOrdreTreball->setGrupProducte(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TProductes[]
+     */
+    public function getTProductes(): Collection
+    {
+        return $this->tProductes;
+    }
+
+    public function addTProducte(TProductes $tProducte): self
+    {
+        if (!$this->tProductes->contains($tProducte)) {
+            $this->tProductes[] = $tProducte;
+            $tProducte->setGrupProducte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTProducte(TProductes $tProducte): self
+    {
+        if ($this->tProductes->contains($tProducte)) {
+            $this->tProductes->removeElement($tProducte);
+            // set the owning side to null (unless already changed)
+            if ($tProducte->getGrupProducte() === $this) {
+                $tProducte->setGrupProducte(null);
             }
         }
 

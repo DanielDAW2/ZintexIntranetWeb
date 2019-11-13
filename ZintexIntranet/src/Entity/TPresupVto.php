@@ -21,12 +21,7 @@ class TPresupVto
      */
     private $idPresupVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Presup", type="integer", nullable=true)
-     */
-    private $numPresup;
+
 
     /**
      * @var string|null
@@ -35,12 +30,7 @@ class TPresupVto
      */
     private $concepteVto;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="InstPag", type="integer", nullable=true)
-     */
-    private $instpag;
+
 
     /**
      * @var string|null
@@ -49,22 +39,27 @@ class TPresupVto
      */
     private $instpagAux;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPresup", inversedBy="tPresupVtos")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $numPresup;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TinstrumentPag")
+     */
+    private $instpag;
+
+
+
+
+
+
     public function getIdPresupVto(): ?int
     {
         return $this->idPresupVto;
     }
 
-    public function getNumPresup(): ?int
-    {
-        return $this->numPresup;
-    }
-
-    public function setNumPresup(?int $numPresup): self
-    {
-        $this->numPresup = $numPresup;
-
-        return $this;
-    }
 
     public function getConcepteVto(): ?string
     {
@@ -78,17 +73,6 @@ class TPresupVto
         return $this;
     }
 
-    public function getInstpag(): ?int
-    {
-        return $this->instpag;
-    }
-
-    public function setInstpag(?int $instpag): self
-    {
-        $this->instpag = $instpag;
-
-        return $this;
-    }
 
     public function getInstpagAux(): ?string
     {
@@ -98,6 +82,30 @@ class TPresupVto
     public function setInstpagAux(?string $instpagAux): self
     {
         $this->instpagAux = $instpagAux;
+
+        return $this;
+    }
+
+    public function getNumPresup(): ?TPresup
+    {
+        return $this->numPresup;
+    }
+
+    public function setNumPresup(?TPresup $numPresup): self
+    {
+        $this->numPresup = $numPresup;
+
+        return $this;
+    }
+
+    public function getInstpag(): ?TinstrumentPag
+    {
+        return $this->instpag;
+    }
+
+    public function setInstpag(?TinstrumentPag $instpag): self
+    {
+        $this->instpag = $instpag;
 
         return $this;
     }
