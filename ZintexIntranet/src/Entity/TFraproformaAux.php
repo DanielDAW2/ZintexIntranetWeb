@@ -29,19 +29,8 @@ class TFraproformaAux
      */
     private $numLinia;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Grup_Producte", type="integer", nullable=true)
-     */
-    private $grupProducte;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodProd_Proforma", type="integer", nullable=true)
-     */
-    private $codprodProforma;
+
 
     /**
      * @var string|null
@@ -50,12 +39,6 @@ class TFraproformaAux
      */
     private $descripprodProforma;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodParamImp_Proforma", type="integer", nullable=true)
-     */
-    private $codparamimpProforma;
 
     /**
      * @var string|null
@@ -119,6 +102,21 @@ class TFraproformaAux
      */
     private $numProforma;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
+     */
+    private $grupProducte;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
+     */
+    private $codprodProforma;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     */
+    private $codparamimpProforma;
+
 
 
     public function getIdFraproformaAux(): ?int
@@ -150,29 +148,7 @@ class TFraproformaAux
         return $this;
     }
 
-    public function getGrupProducte(): ?int
-    {
-        return $this->grupProducte;
-    }
 
-    public function setGrupProducte(?int $grupProducte): self
-    {
-        $this->grupProducte = $grupProducte;
-
-        return $this;
-    }
-
-    public function getCodprodProforma(): ?int
-    {
-        return $this->codprodProforma;
-    }
-
-    public function setCodprodProforma(?int $codprodProforma): self
-    {
-        $this->codprodProforma = $codprodProforma;
-
-        return $this;
-    }
 
     public function getDescripprodProforma(): ?string
     {
@@ -186,17 +162,6 @@ class TFraproformaAux
         return $this;
     }
 
-    public function getCodparamimpProforma(): ?int
-    {
-        return $this->codparamimpProforma;
-    }
-
-    public function setCodparamimpProforma(?int $codparamimpProforma): self
-    {
-        $this->codparamimpProforma = $codparamimpProforma;
-
-        return $this;
-    }
 
     public function getDescripparamimpProforma(): ?string
     {
@@ -290,6 +255,42 @@ class TFraproformaAux
     public function setCodiFraproforma(?string $codiFraproforma): self
     {
         $this->codiFraproforma = $codiFraproforma;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?TGrupProducte
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?TGrupProducte $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getCodprodProforma(): ?TProductes
+    {
+        return $this->codprodProforma;
+    }
+
+    public function setCodprodProforma(?TProductes $codprodProforma): self
+    {
+        $this->codprodProforma = $codprodProforma;
+
+        return $this;
+    }
+
+    public function getCodparamimpProforma(): ?TParamImp
+    {
+        return $this->codparamimpProforma;
+    }
+
+    public function setCodparamimpProforma(?TParamImp $codparamimpProforma): self
+    {
+        $this->codparamimpProforma = $codparamimpProforma;
 
         return $this;
     }
