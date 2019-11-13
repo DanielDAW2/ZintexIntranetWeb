@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +30,16 @@ class TComunitatsAutonomes
      */
     private $comunitat;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TProvincies", mappedBy="idComunitat")
+     */
+    private $tProvincies;
+
+    public function __construct()
+    {
+        $this->tProvincies = new ArrayCollection();
+    }
+
     public function getIdComunitat(): ?int
     {
         return $this->idComunitat;
@@ -41,6 +53,37 @@ class TComunitatsAutonomes
     public function setComunitat(?string $comunitat): self
     {
         $this->comunitat = $comunitat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TProvincies[]
+     */
+    public function getTProvincies(): Collection
+    {
+        return $this->tProvincies;
+    }
+
+    public function addTProvincy(TProvincies $tProvincy): self
+    {
+        if (!$this->tProvincies->contains($tProvincy)) {
+            $this->tProvincies[] = $tProvincy;
+            $tProvincy->setIdComunitat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTProvincy(TProvincies $tProvincy): self
+    {
+        if ($this->tProvincies->contains($tProvincy)) {
+            $this->tProvincies->removeElement($tProvincy);
+            // set the owning side to null (unless already changed)
+            if ($tProvincy->getIdComunitat() === $this) {
+                $tProvincy->setIdComunitat(null);
+            }
+        }
 
         return $this;
     }

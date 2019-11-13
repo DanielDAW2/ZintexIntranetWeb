@@ -21,12 +21,7 @@ class TProvincies
      */
     private $idProvincia;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Id_Comunitat", type="integer", nullable=true)
-     */
-    private $idComunitat;
+
 
     /**
      * @var string|null
@@ -49,22 +44,17 @@ class TProvincies
      */
     private $codtel;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TComunitatsAutonomes", inversedBy="tProvincies")
+     */
+    private $idComunitat;
+
     public function getIdProvincia(): ?int
     {
         return $this->idProvincia;
     }
 
-    public function getIdComunitat(): ?int
-    {
-        return $this->idComunitat;
-    }
 
-    public function setIdComunitat(?int $idComunitat): self
-    {
-        $this->idComunitat = $idComunitat;
-
-        return $this;
-    }
 
     public function getProvincia(): ?string
     {
@@ -98,6 +88,18 @@ class TProvincies
     public function setCodtel(?string $codtel): self
     {
         $this->codtel = $codtel;
+
+        return $this;
+    }
+
+    public function getIdComunitat(): ?TComunitatsAutonomes
+    {
+        return $this->idComunitat;
+    }
+
+    public function setIdComunitat(?TComunitatsAutonomes $idComunitat): self
+    {
+        $this->idComunitat = $idComunitat;
 
         return $this;
     }
