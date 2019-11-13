@@ -21,12 +21,7 @@ class TProductesProv
      */
     private $idProdProv;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Proveidor", type="integer", nullable=true)
-     */
-    private $numProveidor;
+
 
     /**
      * @var string|null
@@ -49,22 +44,18 @@ class TProductesProv
      */
     private $preuunitProducte;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProveidors", inversedBy="tProductesProvs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $numProveidor;
+
     public function getIdProdProv(): ?int
     {
         return $this->idProdProv;
     }
 
-    public function getNumProveidor(): ?int
-    {
-        return $this->numProveidor;
-    }
 
-    public function setNumProveidor(?int $numProveidor): self
-    {
-        $this->numProveidor = $numProveidor;
-
-        return $this;
-    }
 
     public function getCodiProducte(): ?string
     {
@@ -98,6 +89,18 @@ class TProductesProv
     public function setPreuunitProducte(?float $preuunitProducte): self
     {
         $this->preuunitProducte = $preuunitProducte;
+
+        return $this;
+    }
+
+    public function getNumProveidor(): ?TProveidors
+    {
+        return $this->numProveidor;
+    }
+
+    public function setNumProveidor(?TProveidors $numProveidor): self
+    {
+        $this->numProveidor = $numProveidor;
 
         return $this;
     }

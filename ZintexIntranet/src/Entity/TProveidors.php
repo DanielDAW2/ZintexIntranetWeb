@@ -203,9 +203,15 @@ class TProveidors
      */
     private $tFacturaProvs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TProductesProv", mappedBy="numProveidor")
+     */
+    private $tProductesProvs;
+
     public function __construct()
     {
         $this->tFacturaProvs = new ArrayCollection();
+        $this->tProductesProvs = new ArrayCollection();
     }
 
     public function getIdProv(): ?int
@@ -538,6 +544,37 @@ class TProveidors
             // set the owning side to null (unless already changed)
             if ($tFacturaProv->getProveidor() === $this) {
                 $tFacturaProv->setProveidor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TProductesProv[]
+     */
+    public function getTProductesProvs(): Collection
+    {
+        return $this->tProductesProvs;
+    }
+
+    public function addTProductesProv(TProductesProv $tProductesProv): self
+    {
+        if (!$this->tProductesProvs->contains($tProductesProv)) {
+            $this->tProductesProvs[] = $tProductesProv;
+            $tProductesProv->setNumProveidor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTProductesProv(TProductesProv $tProductesProv): self
+    {
+        if ($this->tProductesProvs->contains($tProductesProv)) {
+            $this->tProductesProvs->removeElement($tProductesProv);
+            // set the owning side to null (unless already changed)
+            if ($tProductesProv->getNumProveidor() === $this) {
+                $tProductesProv->setNumProveidor(null);
             }
         }
 
