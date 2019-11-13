@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +50,16 @@ class TGrupProducte
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupGral", inversedBy="tGrupProductes")
      */
     private $grupGral;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreball", mappedBy="grupProducte")
+     */
+    private $tOrdreTreballs;
+
+    public function __construct()
+    {
+        $this->tOrdreTreballs = new ArrayCollection();
+    }
 
     public function getIdGrupproducte(): ?int
     {
@@ -100,6 +112,37 @@ class TGrupProducte
     public function setGrupGral(?TGrupGral $grupGral): self
     {
         $this->grupGral = $grupGral;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TOrdreTreball[]
+     */
+    public function getTOrdreTreballs(): Collection
+    {
+        return $this->tOrdreTreballs;
+    }
+
+    public function addTOrdreTreball(TOrdreTreball $tOrdreTreball): self
+    {
+        if (!$this->tOrdreTreballs->contains($tOrdreTreball)) {
+            $this->tOrdreTreballs[] = $tOrdreTreball;
+            $tOrdreTreball->setGrupProducte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTOrdreTreball(TOrdreTreball $tOrdreTreball): self
+    {
+        if ($this->tOrdreTreballs->contains($tOrdreTreball)) {
+            $this->tOrdreTreballs->removeElement($tOrdreTreball);
+            // set the owning side to null (unless already changed)
+            if ($tOrdreTreball->getGrupProducte() === $this) {
+                $tOrdreTreball->setGrupProducte(null);
+            }
+        }
 
         return $this;
     }

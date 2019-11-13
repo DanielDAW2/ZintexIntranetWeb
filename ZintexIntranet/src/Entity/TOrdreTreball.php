@@ -21,12 +21,7 @@ class TOrdreTreball
      */
     private $idOrdre;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Client", type="integer", nullable=true)
-     */
-    private $numClient;
+
 
     /**
      * @var string|null
@@ -35,12 +30,7 @@ class TOrdreTreball
      */
     private $nomClient;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_FraProforma", type="integer", nullable=true)
-     */
-    private $numFraproforma;
+
 
     /**
      * @var string|null
@@ -56,12 +46,7 @@ class TOrdreTreball
      */
     private $campanya;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Grup_Producte", type="integer", nullable=true)
-     */
-    private $grupProducte;
+
 
     /**
      * @var string|null
@@ -145,7 +130,7 @@ class TOrdreTreball
      *
      * @ORM\Column(name="AdreÃ§a_Entrega", type="boolean", nullable=true)
      */
-    private $adreã§aEntrega;
+    private $adreï¿½aEntrega;
 
     /**
      * @var bool|null
@@ -231,22 +216,26 @@ class TOrdreTreball
      */
     private $unitats;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tOrdreTreballs")
+     */
+    private $numClient;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte", inversedBy="tOrdreTreballs")
+     */
+    private $grupProducte;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tOrdreTreballs")
+     */
+    private $numFraproforma;
+
     public function getIdOrdre(): ?int
     {
         return $this->idOrdre;
     }
 
-    public function getNumClient(): ?int
-    {
-        return $this->numClient;
-    }
-
-    public function setNumClient(?int $numClient): self
-    {
-        $this->numClient = $numClient;
-
-        return $this;
-    }
 
     public function getNomClient(): ?string
     {
@@ -260,17 +249,6 @@ class TOrdreTreball
         return $this;
     }
 
-    public function getNumFraproforma(): ?int
-    {
-        return $this->numFraproforma;
-    }
-
-    public function setNumFraproforma(?int $numFraproforma): self
-    {
-        $this->numFraproforma = $numFraproforma;
-
-        return $this;
-    }
 
     public function getNumSubordre(): ?string
     {
@@ -296,17 +274,6 @@ class TOrdreTreball
         return $this;
     }
 
-    public function getGrupProducte(): ?int
-    {
-        return $this->grupProducte;
-    }
-
-    public function setGrupProducte(?int $grupProducte): self
-    {
-        $this->grupProducte = $grupProducte;
-
-        return $this;
-    }
 
     public function getDescripOrdreTreball(): ?string
     {
@@ -440,14 +407,14 @@ class TOrdreTreball
         return $this;
     }
 
-    public function getAdreã§aEntrega(): ?bool
+    public function getAdreï¿½aEntrega(): ?bool
     {
-        return $this->adreã§aEntrega;
+        return $this->adreï¿½aEntrega;
     }
 
-    public function setAdreã§aEntrega(?bool $adreã§aEntrega): self
+    public function setAdreï¿½aEntrega(?bool $adreï¿½aEntrega): self
     {
-        $this->adreã§aEntrega = $adreã§aEntrega;
+        $this->adreï¿½aEntrega = $adreï¿½aEntrega;
 
         return $this;
     }
@@ -592,6 +559,42 @@ class TOrdreTreball
     public function setUnitats(?int $unitats): self
     {
         $this->unitats = $unitats;
+
+        return $this;
+    }
+
+    public function getNumClient(): ?TClients
+    {
+        return $this->numClient;
+    }
+
+    public function setNumClient(?TClients $numClient): self
+    {
+        $this->numClient = $numClient;
+
+        return $this;
+    }
+
+    public function getGrupProducte(): ?TGrupProducte
+    {
+        return $this->grupProducte;
+    }
+
+    public function setGrupProducte(?TGrupProducte $grupProducte): self
+    {
+        $this->grupProducte = $grupProducte;
+
+        return $this;
+    }
+
+    public function getNumFraproforma(): ?TFraProforma
+    {
+        return $this->numFraproforma;
+    }
+
+    public function setNumFraproforma(?TFraProforma $numFraproforma): self
+    {
+        $this->numFraproforma = $numFraproforma;
 
         return $this;
     }

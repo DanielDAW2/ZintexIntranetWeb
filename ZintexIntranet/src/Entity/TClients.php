@@ -538,12 +538,18 @@ class TClients
      */
     private $tFacturas;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreball", mappedBy="numClient")
+     */
+    private $tOrdreTreballs;
+
     public function __construct()
     {
         $this->tFraproformas = new ArrayCollection();
         $this->TAlbara = new ArrayCollection();
         $this->tClientsMails = new ArrayCollection();
         $this->tFacturas = new ArrayCollection();
+        $this->tOrdreTreballs = new ArrayCollection();
     }
 
     
@@ -1514,6 +1520,37 @@ class TClients
             // set the owning side to null (unless already changed)
             if ($tFactura->getClientFactura() === $this) {
                 $tFactura->setClientFactura(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TOrdreTreball[]
+     */
+    public function getTOrdreTreballs(): Collection
+    {
+        return $this->tOrdreTreballs;
+    }
+
+    public function addTOrdreTreball(TOrdreTreball $tOrdreTreball): self
+    {
+        if (!$this->tOrdreTreballs->contains($tOrdreTreball)) {
+            $this->tOrdreTreballs[] = $tOrdreTreball;
+            $tOrdreTreball->setNumClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTOrdreTreball(TOrdreTreball $tOrdreTreball): self
+    {
+        if ($this->tOrdreTreballs->contains($tOrdreTreball)) {
+            $this->tOrdreTreballs->removeElement($tOrdreTreball);
+            // set the owning side to null (unless already changed)
+            if ($tOrdreTreball->getNumClient() === $this) {
+                $tOrdreTreball->setNumClient(null);
             }
         }
 

@@ -278,6 +278,11 @@ class TFraproforma
      */
     private $tFraproformaVtos;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreball", mappedBy="numFraproforma")
+     */
+    private $tOrdreTreballs;
+
 
 
     public function __construct()
@@ -286,6 +291,7 @@ class TFraproforma
         $this->tFraproformaAuxes = new ArrayCollection();
         $this->tFraproformaPlazos = new ArrayCollection();
         $this->tFraproformaVtos = new ArrayCollection();
+        $this->tOrdreTreballs = new ArrayCollection();
     }
 
     public function getIdFraprof(): ?int
@@ -815,6 +821,37 @@ class TFraproforma
             // set the owning side to null (unless already changed)
             if ($tFraproformaVto->getNumProforma() === $this) {
                 $tFraproformaVto->setNumProforma(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TOrdreTreball[]
+     */
+    public function getTOrdreTreballs(): Collection
+    {
+        return $this->tOrdreTreballs;
+    }
+
+    public function addTOrdreTreball(TOrdreTreball $tOrdreTreball): self
+    {
+        if (!$this->tOrdreTreballs->contains($tOrdreTreball)) {
+            $this->tOrdreTreballs[] = $tOrdreTreball;
+            $tOrdreTreball->setNumFraproforma($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTOrdreTreball(TOrdreTreball $tOrdreTreball): self
+    {
+        if ($this->tOrdreTreballs->contains($tOrdreTreball)) {
+            $this->tOrdreTreballs->removeElement($tOrdreTreball);
+            // set the owning side to null (unless already changed)
+            if ($tOrdreTreball->getNumFraproforma() === $this) {
+                $tOrdreTreball->setNumFraproforma(null);
             }
         }
 
