@@ -260,7 +260,7 @@ class TFraproforma
     private $metodePag;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup", inversedBy="tFraProformas")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TAutorsPresup", inversedBy="tFraProformas")
      * @ORM\JoinColumn( referencedColumnName="Id_AutPresup", name="Num_Autor")
      */
     private $numAutor;
