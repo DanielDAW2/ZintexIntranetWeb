@@ -8,7 +8,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\TClients;
+use App\Entity\TFraproformaAux;
 use App\Form\TFraproformaAuxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class TFraproformaType extends AbstractType
 {
@@ -52,7 +54,11 @@ class TFraproformaType extends AbstractType
             ->add('dataProduccio')
             ->add('horaProduccio')
             ->add('produccio')
-            ->add('tFraproformaAuxes', TFraproformaAuxType::class)
+            ->add('tFraproformaAuxes', CollectionType::class, [
+                "entry_type" => TFraproformaAuxType::class,
+                "allow_add" => true,
+                'prototype' => true,
+            ])
         ;
     }
 

@@ -477,7 +477,7 @@ class TClients
      * @var int|null
      *
      * @ORM\ManyToOne(targetEntity="TActivitatClient", inversedBy="activitatClient")
-     * @ORM\JoinColumn(nullable=true, name="Activitat_1")
+     * @ORM\JoinColumn(nullable=true, referencedColumnName="Id", name="Activitat_1")
      */
     private $activitat1;
 

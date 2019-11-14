@@ -80,7 +80,6 @@ class TClientsType extends AbstractType
             ->add('expressMai')
             ->add('majorista')
             ->add('royalty')
-            ->add('activitat1')
             ->add('activitat2')
         ;
     }

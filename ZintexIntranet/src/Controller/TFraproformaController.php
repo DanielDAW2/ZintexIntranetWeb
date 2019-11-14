@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\TFraproforma;
+use App\Entity\TFraproformaAux;
 use App\Form\TFraproformaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,6 +35,7 @@ class TFraproformaController extends AbstractController
     public function new(Request $request): Response
     {
         $tFraproforma = new TFraproforma();
+        $tFraproforma->addTFraproformaAux(new TFraproformaAux());
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
         $form->handleRequest($request);
 

@@ -704,7 +704,7 @@ class TFraproforma
         return $this->tFraproformaAuxes;
     }
 
-    public function addTFraproformaAux(TFraproformaAux $tFraproformaAux): self
+    public function addTFraproformaAux(?TFraproformaAux $tFraproformaAux): self
     {
         if (!$this->tFraproformaAuxes->contains($tFraproformaAux)) {
             $this->tFraproformaAuxes[] = $tFraproformaAux;

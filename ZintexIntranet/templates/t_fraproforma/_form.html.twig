@@ -3,5 +3,9 @@
     {% for tFraproformaAux in form.tFraproformaAuxes %}
             {{ form_row(tFraproformaAux) }}
         {% endfor %}
+        <button type="button"
+        class="add-another-collection-widget"
+        data-list-selector="#t_fraproforma_tFraproformaAuxes">Afegir Concepte</button>
     <button class="btn">{{ button_label|default('Save') }}</button>
+    <script src="{{asset('./assets/js/add-collection-widget.js')}}"></script>
 {{ form_end(form) }}
