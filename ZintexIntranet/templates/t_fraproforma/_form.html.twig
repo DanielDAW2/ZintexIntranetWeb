@@ -1,11 +1,17 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    
+    
+<ul id="FraProformaAux-fields-list"
+        data-prototype="{{ form_widget(form.tFraproformaAuxes.vars.prototype)|e }}"
+        data-widget-tags="{{ '<li></li>'|e }}"
+        data-widget-counter="{{ form.tFraproformaAuxes|length }}">
     {% for tFraproformaAux in form.tFraproformaAuxes %}
-            {{ form_row(tFraproformaAux) }}
+            <li>{{ form_row(tFraproformaAux) }}</li>
         {% endfor %}
+        </ul>
         <button type="button"
         class="add-another-collection-widget"
-        data-list-selector="#t_fraproforma_tFraproformaAuxes">Afegir Concepte</button>
+        data-list-selector="#FraProformaAux-fields-list">Afegir Concepte</button>
     <button class="btn">{{ button_label|default('Save') }}</button>
     <script src="{{asset('./assets/js/add-collection-widget.js')}}"></script>
 {{ form_end(form) }}

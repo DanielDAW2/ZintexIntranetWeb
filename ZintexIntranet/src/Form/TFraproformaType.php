@@ -57,6 +57,7 @@ class TFraproformaType extends AbstractType
             ->add('tFraproformaAuxes', CollectionType::class, [
                 "entry_type" => TFraproformaAuxType::class,
                 "allow_add" => true,
+                'allow_delete' => true,
                 'prototype' => true,
             ])
         ;
