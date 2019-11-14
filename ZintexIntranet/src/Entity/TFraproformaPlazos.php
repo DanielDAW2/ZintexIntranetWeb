@@ -50,14 +50,10 @@ class TFraproformaPlazos
      */
     private $codprodFraprofPlazo;
 
-    
-
     public function getIdFraproformaPlazo(): ?int
     {
         return $this->idFraproformaPlazo;
     }
-
-
 
     public function getDescripprodFraprofPlazo(): ?string
     {

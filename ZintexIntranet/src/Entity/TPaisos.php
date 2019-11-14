@@ -53,6 +53,7 @@ class TPaisos
         $this->tClients = new ArrayCollection();
         $this->TClient = new ArrayCollection();
         $this->tProveidors = new ArrayCollection();
+        $this->TClients = new ArrayCollection();
     }
 
     public function getIdPais(): ?int

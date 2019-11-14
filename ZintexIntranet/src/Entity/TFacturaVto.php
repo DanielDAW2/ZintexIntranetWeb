@@ -90,7 +90,6 @@ class TFacturaVto
         return $this->idFacturaVto;
     }
 
-
     public function getDataVto(): ?\DateTimeInterface
     {
         return $this->dataVto;
@@ -114,7 +113,6 @@ class TFacturaVto
 
         return $this;
     }
-
 
     public function getInstpagAux(): ?string
     {
@@ -176,12 +174,12 @@ class TFacturaVto
         return $this;
     }
 
-    public function getNumFactura(): ?Tfactura
+    public function getNumFactura(): ?TFactura
     {
         return $this->numFactura;
     }
 
-    public function setNumFactura(?Tfactura $numFactura): self
+    public function setNumFactura(?TFactura $numFactura): self
     {
         $this->numFactura = $numFactura;
 

@@ -123,7 +123,6 @@ class TAlbara
         return $this->idAlbara;
     }
 
-
     public function getDescripClientAlbara(): ?string
     {
         return $this->descripClientAlbara;

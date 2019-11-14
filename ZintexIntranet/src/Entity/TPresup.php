@@ -292,8 +292,6 @@ class TPresup
         return $this;
     }
 
-
-
     public function getMarcaCli(): ?string
     {
         return $this->marcaCli;
@@ -353,8 +351,6 @@ class TPresup
 
         return $this;
     }
-
-
 
     public function getFraprofPresup(): ?string
     {
@@ -427,8 +423,6 @@ class TPresup
 
         return $this;
     }
-
-
 
     public function getMetpagAux(): ?string
     {
@@ -621,8 +615,6 @@ class TPresup
 
         return $this;
     }
-
-
 
     public function getTotalPresup(): ?float
     {

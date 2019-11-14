@@ -132,8 +132,6 @@ class TFraproformaAux
         $this->tOrdreTreballAuxes = new ArrayCollection();
     }
 
-
-
     public function getIdFraproformaAux(): ?int
     {
         return $this->idFraproformaAux;
@@ -163,8 +161,6 @@ class TFraproformaAux
         return $this;
     }
 
-
-
     public function getDescripprodProforma(): ?string
     {
         return $this->descripprodProforma;
@@ -176,7 +172,6 @@ class TFraproformaAux
 
         return $this;
     }
-
 
     public function getDescripparamimpProforma(): ?string
     {

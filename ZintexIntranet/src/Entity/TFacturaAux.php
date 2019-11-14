@@ -113,7 +113,6 @@ class TFacturaAux
         return $this->idFacturaAux;
     }
 
-
     public function getNumLinia(): ?int
     {
         return $this->numLinia;
@@ -126,8 +125,6 @@ class TFacturaAux
         return $this;
     }
 
-
-
     public function getDescripprodFactura(): ?string
     {
         return $this->descripprodFactura;
@@ -139,8 +136,6 @@ class TFacturaAux
 
         return $this;
     }
-
-
 
     public function getDescripparamimpFactura(): ?string
     {
@@ -201,7 +196,6 @@ class TFacturaAux
 
         return $this;
     }
-
 
     public function getCodiFactura(): ?string
     {

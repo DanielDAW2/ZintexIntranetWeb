@@ -252,7 +252,6 @@ class TOrdreTreball
         return $this->idOrdre;
     }
 
-
     public function getNomClient(): ?string
     {
         return $this->nomClient;
@@ -264,7 +263,6 @@ class TOrdreTreball
 
         return $this;
     }
-
 
     public function getNumSubordre(): ?string
     {
@@ -289,7 +287,6 @@ class TOrdreTreball
 
         return $this;
     }
-
 
     public function getDescripOrdreTreball(): ?string
     {

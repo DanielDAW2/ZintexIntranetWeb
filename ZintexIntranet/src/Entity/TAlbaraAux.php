@@ -90,8 +90,6 @@ class TAlbaraAux
         return $this->idAlbaraAux;
     }
 
-
-
     public function getNumLinia(): ?int
     {
         return $this->numLinia;

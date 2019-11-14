@@ -136,9 +136,14 @@ class TProductes
     {
         $this->preciosCantidad = new ArrayCollection();
         $this->tProductesTarifas = new ArrayCollection();
+        $this->preciosCantidad = new ArrayCollection();
     }
 
-    public function getPreciosCantidad(): ?ArrayCollection {
+    /**
+     * @return Collection|TPreciosCantidad[]
+     */
+    public function getPreciosCantidad(): ArrayCollection
+    {
         return $this->preciosCantidad;
     }
 
@@ -237,10 +242,6 @@ class TProductes
         return $this;
     }
 
-
-
-
-
     public function getBaixa(): ?bool
     {
         return $this->baixa;
@@ -338,6 +339,29 @@ class TProductes
             // set the owning side to null (unless already changed)
             if ($tProductesTarifa->getIdProducte() === $this) {
                 $tProductesTarifa->setIdProducte(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addPreciosCantidad(TPreciosCantidad $preciosCantidad): self
+    {
+        if (!$this->preciosCantidad->contains($preciosCantidad)) {
+            $this->preciosCantidad[] = $preciosCantidad;
+            $preciosCantidad->setProductoId($this);
+        }
+
+        return $this;
+    }
+
+    public function removePreciosCantidad(TPreciosCantidad $preciosCantidad): self
+    {
+        if ($this->preciosCantidad->contains($preciosCantidad)) {
+            $this->preciosCantidad->removeElement($preciosCantidad);
+            // set the owning side to null (unless already changed)
+            if ($preciosCantidad->getProductoId() === $this) {
+                $preciosCantidad->setProductoId(null);
             }
         }
 

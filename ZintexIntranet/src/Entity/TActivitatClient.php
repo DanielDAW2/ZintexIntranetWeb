@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,6 +52,11 @@ class TActivitatClient
      */
     private $activitatClient;
 
+    public function __construct()
+    {
+        $this->activitatClient = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +94,37 @@ class TActivitatClient
     public function setCoefRecarrec(?string $coefRecarrec): self
     {
         $this->coefRecarrec = $coefRecarrec;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TClients[]
+     */
+    public function getActivitatClient(): Collection
+    {
+        return $this->activitatClient;
+    }
+
+    public function addActivitatClient(TClients $activitatClient): self
+    {
+        if (!$this->activitatClient->contains($activitatClient)) {
+            $this->activitatClient[] = $activitatClient;
+            $activitatClient->setActivitat1($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActivitatClient(TClients $activitatClient): self
+    {
+        if ($this->activitatClient->contains($activitatClient)) {
+            $this->activitatClient->removeElement($activitatClient);
+            // set the owning side to null (unless already changed)
+            if ($activitatClient->getActivitat1() === $this) {
+                $activitatClient->setActivitat1(null);
+            }
+        }
 
         return $this;
     }

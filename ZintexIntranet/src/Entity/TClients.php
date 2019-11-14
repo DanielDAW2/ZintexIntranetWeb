@@ -558,8 +558,6 @@ class TClients
         $this->tPresups = new ArrayCollection();
     }
 
-    
-
     public function getIdCli(): ?int
     {
         return $this->idCli;
@@ -637,12 +635,12 @@ class TClients
         return $this;
     }
 
-    public function getTractCli(): ?int
+    public function getTractCli(): ?TTractaments
     {
         return $this->tractCli;
     }
 
-    public function setTractCli(?int $tractCli): self
+    public function setTractCli(?TTractaments $tractCli): self
     {
         $this->tractCli = $tractCli;
 
@@ -721,7 +719,6 @@ class TClients
         return $this;
     }
 
-
     public function getTelfraCli(): ?string
     {
         return $this->telfraCli;
@@ -782,7 +779,6 @@ class TClients
         return $this;
     }
 
-
     public function getPersentCli(): ?string
     {
         return $this->persentCli;
@@ -830,7 +826,6 @@ class TClients
 
         return $this;
     }
-
 
     public function getTelentCli(): ?string
     {
@@ -1324,12 +1319,12 @@ class TClients
         return $this;
     }
 
-    public function getActivitat1(): ?int
+    public function getActivitat1(): ?TActivitatClient
     {
         return $this->activitat1;
     }
 
-    public function setActivitat1(?int $activitat1): self
+    public function setActivitat1(?TActivitatClient $activitat1): self
     {
         $this->activitat1 = $activitat1;
 

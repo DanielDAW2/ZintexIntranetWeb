@@ -78,9 +78,6 @@ class TProductesTarifa
      */
     private $idProducte;
 
-
-
-
     public function setIdProducte(?TProductes $idProducte): self
     {
         $this->idProducte = $idProducte;
@@ -175,6 +172,11 @@ class TProductesTarifa
     public function getIdProducte(): ?TProductes
     {
         return $this->idProducte;
+    }
+
+    public function getIdProdTarifa(): ?int
+    {
+        return $this->idProdTarifa;
     }
 
 

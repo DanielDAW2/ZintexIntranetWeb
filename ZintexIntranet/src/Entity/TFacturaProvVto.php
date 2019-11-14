@@ -81,7 +81,6 @@ class TFacturaProvVto
         return $this->idFacturaProvVto;
     }
 
-
     public function getDataFraprovVto(): ?\DateTimeInterface
     {
         return $this->dataFraprovVto;
@@ -105,8 +104,6 @@ class TFacturaProvVto
 
         return $this;
     }
-
-
 
     public function getInstpagAuxFraprovVto(): ?string
     {

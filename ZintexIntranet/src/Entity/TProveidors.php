@@ -271,8 +271,6 @@ class TProveidors
         return $this;
     }
 
-
-
     public function getNomProv(): ?string
     {
         return $this->nomProv;
@@ -345,8 +343,6 @@ class TProveidors
         return $this;
     }
 
-
-
     public function getTelProv(): ?string
     {
         return $this->telProv;
@@ -406,10 +402,6 @@ class TProveidors
 
         return $this;
     }
-
-
-
-
 
     public function getDiaPag(): ?string
     {

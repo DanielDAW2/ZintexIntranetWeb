@@ -218,7 +218,6 @@ class TFacturaVtoAux
      */
     private $idFacturaVto1;
 
-
     public function getIdFacturaVtoAux(): ?int
     {
         return $this->idFacturaVtoAux;
@@ -283,7 +282,6 @@ class TFacturaVtoAux
 
         return $this;
     }
-
 
     public function getDataVto1(): ?\DateTimeInterface
     {
@@ -525,24 +523,24 @@ class TFacturaVtoAux
         return $this;
     }
 
-    public function getIdFactura(): ?Tfactura
+    public function getIdFactura(): ?TFactura
     {
         return $this->idFactura;
     }
 
-    public function setIdFactura(?Tfactura $idFactura): self
+    public function setIdFactura(?TFactura $idFactura): self
     {
         $this->idFactura = $idFactura;
 
         return $this;
     }
 
-    public function getClientFactura(): ?Tclients
+    public function getClientFactura(): ?TClients
     {
         return $this->clientFactura;
     }
 
-    public function setClientFactura(?Tclients $clientFactura): self
+    public function setClientFactura(?TClients $clientFactura): self
     {
         $this->clientFactura = $clientFactura;
 

@@ -87,13 +87,10 @@ class TPresupAux
      */
     private $codprodPresup;
 
- 
-
     public function getIdPresupAux(): ?int
     {
         return $this->idPresupAux;
     }
-
 
     public function getNumLinia(): ?int
     {
@@ -107,8 +104,6 @@ class TPresupAux
         return $this;
     }
 
-
-
     public function getDescripprodPresup(): ?string
     {
         return $this->descripprodPresup;
@@ -120,8 +115,6 @@ class TPresupAux
 
         return $this;
     }
-
-
 
     public function getDescripparamimpPresup(): ?string
     {

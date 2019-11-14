@@ -85,8 +85,6 @@ class TGrupProducte
         return $this;
     }
 
-
-
     public function getDescripGrupProducte(): ?string
     {
         return $this->descripGrupProducte;

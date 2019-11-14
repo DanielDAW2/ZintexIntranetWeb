@@ -55,8 +55,6 @@ class TProductesProv
         return $this->idProdProv;
     }
 
-
-
     public function getCodiProducte(): ?string
     {
         return $this->codiProducte;

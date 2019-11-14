@@ -480,4 +480,9 @@ class TFactura
 
         return $this;
     }
+
+    public function getIdFactura(): ?int
+    {
+        return $this->Id_Factura;
+    }
 }

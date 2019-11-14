@@ -83,8 +83,6 @@ class TFraproformaVto
         return $this->idFraproformaVto;
     }
 
-
-
     public function getConcepteVto(): ?string
     {
         return $this->concepteVto;
@@ -96,8 +94,6 @@ class TFraproformaVto
 
         return $this;
     }
-
-
 
     public function getInstpagAux(): ?string
     {

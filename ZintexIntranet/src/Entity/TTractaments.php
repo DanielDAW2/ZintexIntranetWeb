@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,6 +54,37 @@ class TTractaments
     public function setTractament(?string $tractament): self
     {
         $this->tractament = $tractament;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TClients[]
+     */
+    public function getClient(): Collection
+    {
+        return $this->client;
+    }
+
+    public function addClient(TClients $client): self
+    {
+        if (!$this->client->contains($client)) {
+            $this->client[] = $client;
+            $client->setTractCli($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClient(TClients $client): self
+    {
+        if ($this->client->contains($client)) {
+            $this->client->removeElement($client);
+            // set the owning side to null (unless already changed)
+            if ($client->getTractCli() === $this) {
+                $client->setTractCli(null);
+            }
+        }
 
         return $this;
     }

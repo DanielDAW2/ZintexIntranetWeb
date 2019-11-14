@@ -95,5 +95,12 @@ class TPreciosCantidad
         return $this;
     }
 
+    public function setProductoId(?TProductes $productoId): self
+    {
+        $this->productoId = $productoId;
+
+        return $this;
+    }
+
 
 }

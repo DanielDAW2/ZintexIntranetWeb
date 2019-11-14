@@ -55,8 +55,6 @@ class TProvincies
         return $this->idProvincia;
     }
 
-
-
     public function getProvincia(): ?string
     {
         return $this->provincia;

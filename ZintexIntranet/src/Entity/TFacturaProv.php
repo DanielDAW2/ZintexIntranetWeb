@@ -129,7 +129,6 @@ class TFacturaProv
         return $this->idFacturaProv;
     }
 
-
     public function getNumFraprov(): ?string
     {
         return $this->numFraprov;

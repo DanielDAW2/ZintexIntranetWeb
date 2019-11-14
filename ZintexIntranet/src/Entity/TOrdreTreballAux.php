@@ -163,8 +163,6 @@ class TOrdreTreballAux
         return $this->idOrdreTreballAux;
     }
 
-
-
     public function getNumLinia(): ?int
     {
         return $this->numLinia;
@@ -177,8 +175,6 @@ class TOrdreTreballAux
         return $this;
     }
 
-
-
     public function getDescripprodOrdreTreball(): ?string
     {
         return $this->descripprodOrdreTreball;
@@ -190,8 +186,6 @@ class TOrdreTreballAux
 
         return $this;
     }
-
-
 
     public function getDescripparamimpOrdreTreball(): ?string
     {
@@ -289,7 +283,6 @@ class TOrdreTreballAux
         return $this;
     }
 
-
     public function getCodiOrdreTreball(): ?string
     {
         return $this->codiOrdreTreball;
@@ -325,8 +318,6 @@ class TOrdreTreballAux
 
         return $this;
     }
-
-
 
     public function getPrincipal(): ?bool
     {

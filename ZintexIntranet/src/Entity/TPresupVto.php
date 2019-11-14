@@ -51,16 +51,10 @@ class TPresupVto
      */
     private $instpag;
 
-
-
-
-
-
     public function getIdPresupVto(): ?int
     {
         return $this->idPresupVto;
     }
-
 
     public function getConcepteVto(): ?string
     {
@@ -73,7 +67,6 @@ class TPresupVto
 
         return $this;
     }
-
 
     public function getInstpagAux(): ?string
     {

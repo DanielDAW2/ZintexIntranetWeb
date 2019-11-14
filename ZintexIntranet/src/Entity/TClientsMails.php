@@ -104,7 +104,6 @@ class TClientsMails
         return $this->idCliMail;
     }
 
-
     public function getNomPersonaMail(): ?string
     {
         return $this->nomPersonaMail;

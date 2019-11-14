@@ -302,7 +302,7 @@ class TFraproforma
         return $this->idFraprof;
     }
 
-    public function getClientFraprof(): ?ArrayCollection
+    public function getClientFraprof(): ?TClients
     {
         return $this->clientFraprof;
     }
@@ -518,8 +518,6 @@ class TFraproforma
         return $this;
     }
 
-
-
     public function getMetpagAux(): ?string
     {
         return $this->metpagAux;
@@ -555,8 +553,6 @@ class TFraproforma
 
         return $this;
     }
-
-
 
     public function getDataGravacio(): ?\DateTimeInterface
     {
