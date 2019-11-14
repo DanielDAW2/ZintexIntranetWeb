@@ -220,21 +220,25 @@ class TOrdreTreball
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tOrdreTreballs")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
      */
     private $numClient;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte", inversedBy="tOrdreTreballs")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tOrdreTreballs")
+     * @ORM\JoinColumn(referencedColumnName="Id_FraProf")
      */
     private $numFraproforma;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreballAux", mappedBy="numOrdreTreball", orphanRemoval=true)
+     * @ORM\JoinColumn(referencedColumnName="Id_Ordre_Treball_Aux")
      */
     private $tOrdreTreballAuxes;
 

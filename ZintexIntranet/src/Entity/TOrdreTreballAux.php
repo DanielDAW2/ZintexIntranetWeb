@@ -130,27 +130,31 @@ class TOrdreTreballAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TOrdreTreball", inversedBy="tOrdreTreballAuxes")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Ordre")
      */
     private $numOrdreTreball;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraProformaAux", inversedBy="tOrdreTreballAuxes")
+     * @ORM\JoinColumn(referencedColumnName="Id_FraProforma_Aux")
      */
     private $idFraproformaAux;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp")
      */
     private $codparamimpOrdreTreball;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
      */
     private $codprodOrdreTreball;
 

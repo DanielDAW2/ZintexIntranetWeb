@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+USE Doctrine\DBAL\Schema\Index;
 
 /**
  * TProductes
  *
- * @ORM\Table(name="t_productes")
+ * @ORM\Table(name="t_productes", indexes={@ORM\Index(name="ref_prod_index", columns={"Ref_Prod"})})
  * @ORM\Entity
  */
 class TProductes
@@ -114,11 +115,13 @@ class TProductes
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TgrupProducte", inversedBy="tProductes")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TColors")
+     * @ORM\JoinColumn(referencedColumnName="Id_Color")
      */
     private $color;
 

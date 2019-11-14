@@ -71,18 +71,19 @@ class TPresupAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPresup", inversedBy="tPresupAuxes")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Presup")
      */
     private $numPresup;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_ParamImp")
      */
     private $codparamimpPresup;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prod")
      */
     private $codprodPresup;
 

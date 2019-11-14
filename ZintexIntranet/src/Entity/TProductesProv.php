@@ -46,7 +46,7 @@ class TProductesProv
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProveidors", inversedBy="tProductesProvs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prov")
      */
     private $numProveidor;
 
