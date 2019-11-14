@@ -266,7 +266,7 @@ class TFraproforma
     private $numAutor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TAutorsPresup")
      * @ORM\JoinColumn( referencedColumnName="Id_AutPresup", name="Num_Autor_Proforma")
      */
     private $numAutorProforma;
