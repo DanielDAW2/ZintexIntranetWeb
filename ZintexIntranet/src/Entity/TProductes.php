@@ -115,13 +115,13 @@ class TProductes
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TgrupProducte", inversedBy="tProductes")
-     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte", name="Grup_Producte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TColors")
-     * @ORM\JoinColumn(referencedColumnName="Id_Color")
+     * @ORM\JoinColumn(referencedColumnName="Id_Color", name="Color")
      */
     private $color;
 

@@ -190,25 +190,25 @@ class TProveidors
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TTractaments")
-     * @ORM\JoinColumn(referencedColumnName="Id_Tract")
+     * @ORM\JoinColumn(referencedColumnName="Id_Tract", name="Tract_Prov")
      */
     private $tractProv;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
-     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag", name="Inst_Pag")
      */
     private $instPag;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
-     * @ORM\JoinColumn(referencedColumnName="Id_Metode")
+     * @ORM\JoinColumn(referencedColumnName="Id_Metode", name="Met_Pag")
      */
     private $metPag;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="tProveidors")
-     * @ORM\JoinColumn(referencedColumnName="Id_Pais")
+     * @ORM\JoinColumn(referencedColumnName="Id_Pais", name="Pais_Prov")
      */
     private $paisProv;
 

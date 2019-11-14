@@ -40,13 +40,13 @@ class TFraproformaPlazos
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tFraproformaPlazos")
-     * @ORM\JoinColumn(referencedColumnName="Id_FraProf")
+     * @ORM\JoinColumn(referencedColumnName="Id_FraProf", name="Num_FraProforma")
      */
     private $numFraproforma;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tproductes")
-     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod", name="CodProd_FraProf_Plazo")
      */
     private $codprodFraprofPlazo;
 

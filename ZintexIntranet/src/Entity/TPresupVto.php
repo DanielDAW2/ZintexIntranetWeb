@@ -41,13 +41,13 @@ class TPresupVto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPresup", inversedBy="tPresupVtos")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Presup")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Presup", name="Num_Presup")
      */
     private $numPresup;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TinstrumentPag")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Inst_Pag")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Inst_Pag", name="InstPag")
      */
     private $instpag;
 

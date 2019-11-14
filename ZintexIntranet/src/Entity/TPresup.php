@@ -235,25 +235,25 @@ class TPresup
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tPresups")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli", name="Client_Presup")
      */
     private $clientPresup;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TComercials", inversedBy="tPresups")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Comercial")
+     * @ORM\JoinColumn(nullable=false, name="Comercial", referencedColumnName="Id_Comercial")
      */
     private $comercial;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag", inversedBy="tPresups")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Metode")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Metode", name="MetPag_Presup")
      */
     private $metpagPresup;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TautorsPresup", inversedBy="tPresups")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_AutPresup")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_AutPresup", name="Autor_Presup")
      */
     private $autorPresup;
 

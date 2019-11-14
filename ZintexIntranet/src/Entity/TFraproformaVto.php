@@ -68,13 +68,13 @@ class TFraproformaVto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tfraproforma", inversedBy="tFraproformaVtos")
-     * @ORM\JoinColumn(referencedColumnName="Id_FraProf")
+     * @ORM\JoinColumn(referencedColumnName="Id_FraProf", name="Num_Proforma")
      */
     private $numProforma;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
-     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag", name="InstPag")
      */
     private $instpag;
 

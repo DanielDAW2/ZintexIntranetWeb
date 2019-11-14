@@ -118,7 +118,7 @@ class TFraproformaAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
-     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp")
+     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp", name="CodParamImp_Proforma")
      */
     private $codparamimpProforma;
 

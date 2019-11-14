@@ -48,7 +48,7 @@ class TGrupProducte
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupGral", inversedBy="tGrupProductes")
-     * @ORM\JoinColumn(referencedColumnName="Id_Grupo")
+     * @ORM\JoinColumn(referencedColumnName="Id_Grupo", name="Grup_Gral")
      */
     private $grupGral;
 

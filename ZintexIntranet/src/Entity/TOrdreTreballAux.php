@@ -130,31 +130,31 @@ class TOrdreTreballAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TOrdreTreball", inversedBy="tOrdreTreballAuxes")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Ordre")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Ordre", name="Num_Ordre_Treball")
      */
     private $numOrdreTreball;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraProformaAux", inversedBy="tOrdreTreballAuxes")
-     * @ORM\JoinColumn(referencedColumnName="Id_FraProforma_Aux")
+     * @ORM\JoinColumn(referencedColumnName="Id_FraProforma_Aux", name="Id_FraProforma_Aux")
      */
     private $idFraproformaAux;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
-     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte", name="Grup_Producte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
-     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp")
+     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp", name="CodParamImp_Ordre_Treball")
      */
     private $codparamimpOrdreTreball;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
-     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod", name="CodProd_Ordre_Treball")
      */
     private $codprodOrdreTreball;
 

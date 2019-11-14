@@ -46,7 +46,7 @@ class TProvincies
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TComunitatsAutonomes", inversedBy="tProvincies")
-     * @ORM\JoinColumn(referencedColumnName="Id_Comunitat")
+     * @ORM\JoinColumn(referencedColumnName="Id_Comunitat", name="Id_Comunitat")
      */
     private $idComunitat;
 

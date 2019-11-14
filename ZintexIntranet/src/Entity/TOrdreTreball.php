@@ -220,19 +220,19 @@ class TOrdreTreball
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tOrdreTreballs")
-     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli", name="Num_Client")
      */
     private $numClient;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte", inversedBy="tOrdreTreballs")
-     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte", name="Grup_Producte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tOrdreTreballs")
-     * @ORM\JoinColumn(referencedColumnName="Id_FraProf")
+     * @ORM\JoinColumn(referencedColumnName="Id_FraProf", name="Num_FraProforma")
      */
     private $numFraproforma;
 
