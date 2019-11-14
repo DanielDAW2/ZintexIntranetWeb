@@ -86,25 +86,25 @@ class TFacturaAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFactura", inversedBy="tFacturaAuxes")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Factura")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Factura", name="Num_Factura")
      */
     private $numFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
-     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod", name="CodProd_Factura")
      */
     private $codprodFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TParamimp")
-     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp")
+     * @ORM\JoinColumn(referencedColumnName="Id_ParamImp", name="CodParamImp_Factura")
      */
     private $codparamimpFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
-     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte", name="Grup_Producte")
      */
     private $grupProducte;
 

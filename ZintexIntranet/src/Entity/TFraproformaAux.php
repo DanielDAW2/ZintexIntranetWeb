@@ -100,19 +100,19 @@ class TFraproformaAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFraproforma", inversedBy="tFraproformaAuxes")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_FraProf")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_FraProf", name="Num_Proforma")
      */
     private $numProforma;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte")
-     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte")
+     * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte", name="Grup_Producte")
      */
     private $grupProducte;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TProductes")
-     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod", name="CodProd_Proforma")
      */
     private $codprodProforma;
 

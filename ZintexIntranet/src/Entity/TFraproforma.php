@@ -243,7 +243,7 @@ class TFraproforma
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tFraproformas")
-     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli", name="Client_FraProf")
      */
     private $clientFraprof;
 
@@ -255,19 +255,19 @@ class TFraproforma
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
-     * @ORM\JoinColumn( referencedColumnName="Id_Metode")
+     * @ORM\JoinColumn( referencedColumnName="Id_Metode", name="Metode_Pag")
      */
     private $metodePag;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup", inversedBy="tFraProformas")
-     * @ORM\JoinColumn( referencedColumnName="Id_AutPresup")
+     * @ORM\JoinColumn( referencedColumnName="Id_AutPresup", name="Num_Autor")
      */
     private $numAutor;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tautorspresup")
-     * @ORM\JoinColumn( referencedColumnName="Id_AutPresup")
+     * @ORM\JoinColumn( referencedColumnName="Id_AutPresup", name="Num_Autor_Proforma")
      */
     private $numAutorProforma;
 

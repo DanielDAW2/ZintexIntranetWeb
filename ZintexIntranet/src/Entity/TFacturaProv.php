@@ -110,7 +110,7 @@ class TFacturaProv
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tproveidors", inversedBy="tFacturaProvs")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prov")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Prov", name="Proveidor")
      */
     private $proveidor;
 

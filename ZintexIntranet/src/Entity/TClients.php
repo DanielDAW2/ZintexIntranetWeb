@@ -68,7 +68,7 @@ class TClients
     /**
      * @var int|null
      * @ORM\ManyToOne(targetEntity="TTractaments", inversedBy="client")
-     * @ORM\JoinColumn(nullable=true,  referencedColumnName="Id_Tract")
+     * @ORM\JoinColumn(nullable=true,  referencedColumnName="Id_Tract", name="Tract_Cli")
      */
     private $tractCli;
 
@@ -477,7 +477,7 @@ class TClients
      * @var int|null
      *
      * @ORM\ManyToOne(targetEntity="TActivitatClient", inversedBy="activitatClient")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, name="Activitat_1")
      */
     private $activitat1;
 
@@ -500,31 +500,31 @@ class TClients
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="tClients")
-     * @ORM\JoinColumn(referencedColumnName="Id_Pais")
+     * @ORM\JoinColumn(referencedColumnName="Id_Pais", name="PaisFra_Cli")
      */
     private $paisfraCli;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TTractaments")
-     * @ORM\JoinColumn(referencedColumnName="Id_Tract")
+     * @ORM\JoinColumn(referencedColumnName="Id_Tract", name="TractEnt_Cli")
      */
     private $tractentCli;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="TClient")
-     * @ORM\JoinColumn(referencedColumnName="Id_Pais")
+     * @ORM\JoinColumn(referencedColumnName="Id_Pais", name="PaisEnt_Cli")
      */
     private $paisentCli;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
-     * @ORM\JoinColumn(referencedColumnName="Id_Metode")
+     * @ORM\JoinColumn(referencedColumnName="Id_Metode", name="Met_Pag")
      */
     private $metPag;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPag")
-     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag", name="Inst_Pag")
      */
     private $instPag;
 

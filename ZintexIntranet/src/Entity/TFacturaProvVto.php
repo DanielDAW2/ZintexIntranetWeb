@@ -66,13 +66,13 @@ class TFacturaProvVto
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFacturaProv", inversedBy="tFacturaProvVtos")
-     * @ORM\JoinColumn(referencedColumnName="Id_Factura_Prov")
+     * @ORM\JoinColumn(referencedColumnName="Id_Factura_Prov", name="Num_FraProv_Vto")
      */
     private $numFraprovVto;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TInstrumentPagProv")
-     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag")
+     * @ORM\JoinColumn(referencedColumnName="Id_Inst_Pag", name="InstPag_FraProv_Vto")
      */
     private $instpagFraprovVto;
 

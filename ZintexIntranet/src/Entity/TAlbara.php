@@ -104,7 +104,7 @@ class TAlbara
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="TAlbara")
-     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli", name="Client_Albara")
      */
     private $clientAlbara;
 

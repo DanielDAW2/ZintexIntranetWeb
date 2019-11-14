@@ -95,7 +95,7 @@ class TClientsMails
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tClientsMails")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli", name="Id_Cli_Mail")
      */
     private $numClientMail;
 

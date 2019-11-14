@@ -202,19 +202,19 @@ class TFacturaVtoAux
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFactura", inversedBy="tFacturaVtoAuxes")
-     * @ORM\JoinColumn(referencedColumnName="Id_Factura")
+     * @ORM\JoinColumn(referencedColumnName="Id_Factura", name="Id_Factura")
      */
     private $idFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients")
-     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli", name="Client_Factura")
      */
     private $clientFactura;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TFacturaVTo")
-     * @ORM\JoinColumn(referencedColumnName="Id_Factura_Vto")
+     * @ORM\JoinColumn(referencedColumnName="Id_Factura_Vto", name="Id_Factura_Vto_1")
      */
     private $idFacturaVto1;
 

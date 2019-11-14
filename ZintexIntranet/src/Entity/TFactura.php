@@ -21,7 +21,7 @@ class TFactura
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tFacturas")
-     * @ORM\JoinColumn(referencedColumnName="Id_Cli")
+     * @ORM\JoinColumn(referencedColumnName="Id_Cli", name="Client_Factura")
      */
     private $Client_Factura;
 
@@ -107,7 +107,7 @@ class TFactura
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
-     * @ORM\JoinColumn(referencedColumnName="Id_Metode")
+     * @ORM\JoinColumn(referencedColumnName="Id_Metode", name="Metode_Pag")
      */
     private $Metode_Pag;
 
