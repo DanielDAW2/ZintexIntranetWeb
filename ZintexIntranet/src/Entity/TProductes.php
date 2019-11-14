@@ -142,7 +142,7 @@ class TProductes
     /**
      * @return Collection|TPreciosCantidad[]
      */
-    public function getPreciosCantidad(): Collection
+    public function getPreciosCantidad(): ?ArrayCollection
     {
         return $this->preciosCantidad;
     }
