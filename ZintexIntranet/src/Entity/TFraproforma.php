@@ -290,7 +290,6 @@ class TFraproforma
 
     public function __construct()
     {
-        $this->clientFraprof = new ArrayCollection();
         $this->tFraproformaAuxes = new ArrayCollection();
         $this->tFraproformaPlazos = new ArrayCollection();
         $this->tFraproformaVtos = new ArrayCollection();

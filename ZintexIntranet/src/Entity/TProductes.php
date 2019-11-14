@@ -136,13 +136,13 @@ class TProductes
     {
         $this->preciosCantidad = new ArrayCollection();
         $this->tProductesTarifas = new ArrayCollection();
-        $this->preciosCantidad = new ArrayCollection();
+
     }
 
     /**
      * @return Collection|TPreciosCantidad[]
      */
-    public function getPreciosCantidad(): ArrayCollection
+    public function getPreciosCantidad(): Collection
     {
         return $this->preciosCantidad;
     }
