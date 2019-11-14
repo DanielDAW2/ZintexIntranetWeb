@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TGrupGral
  *
  * @ORM\Table(name="t_grup_gral")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TGrupGralRepository")
  */
 class TGrupGral
 {

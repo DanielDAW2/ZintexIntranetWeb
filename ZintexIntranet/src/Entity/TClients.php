@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TClients
  *
  * @ORM\Table(name="t_clients")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TClientsRepository")
  */
 class TClients
 {

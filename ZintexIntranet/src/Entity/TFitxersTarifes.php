@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TFitxersTarifes
  *
  * @ORM\Table(name="t_fitxers_tarifes")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TFitxersTarifesRepository")
  */
 class TFitxersTarifes
 {

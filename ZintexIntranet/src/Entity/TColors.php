@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TColors
  *
  * @ORM\Table(name="t_colors")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TColorsRepository")
  */
 class TColors
 {

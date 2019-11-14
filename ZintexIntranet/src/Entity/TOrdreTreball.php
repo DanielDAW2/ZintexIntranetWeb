@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TOrdreTreball
  *
  * @ORM\Table(name="t_ordre_treball")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TOrdreTreballRepository")
  */
 class TOrdreTreball
 {

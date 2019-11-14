@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TClientsMails
  *
  * @ORM\Table(name="t_clients_mails")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TClientsMailsRepository")
  */
 class TClientsMails
 {

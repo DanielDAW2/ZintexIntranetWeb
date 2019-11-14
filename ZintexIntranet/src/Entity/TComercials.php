@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TComercials
  *
  * @ORM\Table(name="t_comercials")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TComercialsRepository")
  */
 class TComercials
 {

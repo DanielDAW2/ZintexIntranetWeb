@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TPresup
  *
  * @ORM\Table(name="t_presup")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TPresupRepository")
  */
 class TPresup
 {

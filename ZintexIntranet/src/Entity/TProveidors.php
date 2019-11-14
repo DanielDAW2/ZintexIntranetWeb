@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TProveidors
  *
  * @ORM\Table(name="t_proveidors")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TProveidorsRepository")
  */
 class TProveidors
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TPresupAux
  *
  * @ORM\Table(name="t_presup_aux")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TPresupAuxRepository")
  */
 class TPresupAux
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TEmpresesPath
  *
  * @ORM\Table(name="t_empreses_path")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TEmpresesPathRepository")
  */
 class TEmpresesPath
 {

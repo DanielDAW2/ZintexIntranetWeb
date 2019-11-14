@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TBlanc
  *
  * @ORM\Table(name="t_blanc")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TBlancRepository")
  */
 class TBlanc
 {

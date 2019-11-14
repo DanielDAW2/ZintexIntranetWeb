@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TPresupVto
  *
  * @ORM\Table(name="t_presup_vto")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TPresupVtoRepository")
  */
 class TPresupVto
 {

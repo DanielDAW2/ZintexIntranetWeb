@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TFacturaAux
  *
  * @ORM\Table(name="t_factura_aux")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TFacturaAuxRepository")
  */
 class TFacturaAux
 {

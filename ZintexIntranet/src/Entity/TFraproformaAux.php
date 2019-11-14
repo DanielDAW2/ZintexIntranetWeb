@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TFraproformaAux
  *
  * @ORM\Table(name="t_fraproforma_aux")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TFraproformaAuxRepository")
  */
 class TFraproformaAux
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TInstrumentPagProv
  *
  * @ORM\Table(name="t_instrument_pag_prov")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TInstrumentPagProvRepository")
  */
 class TInstrumentPagProv
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TComandaProvAux
  *
  * @ORM\Table(name="t_comanda_prov_aux")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TComandaProvAuxRepository")
  */
 class TComandaProvAux
 {

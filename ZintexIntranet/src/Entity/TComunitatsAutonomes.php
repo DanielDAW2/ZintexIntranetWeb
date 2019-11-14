@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TComunitatsAutonomes
  *
  * @ORM\Table(name="t_comunitats_autonomes")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TComunitatsAutonomesRepository")
  */
 class TComunitatsAutonomes
 {

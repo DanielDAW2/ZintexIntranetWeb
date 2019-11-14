@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TAlbaraAux
  *
  * @ORM\Table(name="t_albara_aux")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TAlbaraAuxRepository")
  */
 class TAlbaraAux
 {

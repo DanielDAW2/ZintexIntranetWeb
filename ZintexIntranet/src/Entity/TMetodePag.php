@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TMetodePag
  *
  * @ORM\Table(name="t_metode_pag")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TMetodePagRepository")
  */
 class TMetodePag
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TFraproformaPlazos
  *
  * @ORM\Table(name="t_fraproforma_plazos")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TFraproformaPlazosRepository")
  */
 class TFraproformaPlazos
 {

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TFacturaProv
  *
  * @ORM\Table(name="t_factura_prov")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TFacturaProvRepository")
  */
 class TFacturaProv
 {

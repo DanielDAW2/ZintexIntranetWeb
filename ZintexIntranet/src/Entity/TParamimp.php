@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TParamimp
  *
  * @ORM\Table(name="t_paramimp")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TParamimpRepository")
  */
 class TParamimp
 {

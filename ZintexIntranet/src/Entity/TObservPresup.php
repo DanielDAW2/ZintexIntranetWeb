@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TObservPresup
  *
  * @ORM\Table(name="t_observ_presup")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TObservPresupRepository")
  */
 class TObservPresup
 {

@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TTractaments
  *
  * @ORM\Table(name="t_tractaments")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TTractamentsRepository")
  */
 class TTractaments
 {

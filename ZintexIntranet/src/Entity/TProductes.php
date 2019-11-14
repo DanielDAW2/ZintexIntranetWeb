@@ -11,7 +11,7 @@ USE Doctrine\DBAL\Schema\Index;
  * TProductes
  *
  * @ORM\Table(name="t_productes", indexes={@ORM\Index(name="ref_prod_index", columns={"Ref_Prod"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TProductesRepository")
  */
 class TProductes
 {

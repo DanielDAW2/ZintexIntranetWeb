@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TBancs
  *
  * @ORM\Table(name="t_bancs")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TBancsRepository")
  */
 class TBancs
 {

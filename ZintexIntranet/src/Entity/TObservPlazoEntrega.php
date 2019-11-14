@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TObservPlazoEntrega
  *
  * @ORM\Table(name="t_observ_plazo_entrega")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TObservPlazoEntregaRepository")
  */
 class TObservPlazoEntrega
 {

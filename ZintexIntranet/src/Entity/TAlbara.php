@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TAlbara
  *
  * @ORM\Table(name="t_albara")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TAlbaraRepository")
  */
 class TAlbara
 {

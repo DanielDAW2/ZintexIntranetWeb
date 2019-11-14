@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TObservProforma
  *
  * @ORM\Table(name="t_observ_proforma")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TObservProformaRepository")
  */
 class TObservProforma
 {
