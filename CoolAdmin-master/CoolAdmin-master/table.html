@@ -1,44 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{asset('./assets/css/bootstrap-reboot.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('./assets/css/bootstrap.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('./assets/css/bootstrap-grid.css')}}">
-            <!-- Fontfaces CSS-->
-        <link href="{{asset('./assets/css/font-face.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+<html lang="en">
 
-        <!-- Bootstrap CSS-->
-        <link href="{{asset('./assets/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
-        <!-- Vendor CSS-->
-        <link href="{{asset('./assets/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
-        <link href="{{asset('./assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+    <!-- Title Page-->
+    <title>Tables</title>
 
-        <!-- Main CSS-->
-        <link href="{{asset('./assets/css/theme.css')}}" rel="stylesheet" media="all">
-        {% endblock %}
-        <script src="{{asset('./assets/js/jquery.min.js')}}"></script>
-    </head>
-    <body>
-        <div class="page-wrapper">
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin">
+                            <img src="images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -153,10 +158,10 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
-            <div class="menu-sidebar__content js-scrollbar1 ps">
+            <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
@@ -253,7 +258,7 @@
                         </li>
                     </ul>
                 </nav>
-            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+            </div>
         </aside>
         <!-- END MENU SIDEBAR-->
 
@@ -265,7 +270,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports...">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -281,7 +286,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno">
+                                                    <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>Michelle Moreno</h6>
@@ -291,7 +296,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-04.jpg" alt="Diane Myers">
+                                                    <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>Diane Myers</h6>
@@ -313,7 +318,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey">
+                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -322,7 +327,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey">
+                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -331,7 +336,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey">
+                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -386,7 +391,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe">
+                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">john doe</a>
@@ -395,7 +400,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe">
+                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -437,10 +442,8 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                    
                         <div class="row">
                             <div class="col-lg-9">
-                                {% block body %}
                                 <div class="table-responsive table--no-card m-b-30">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
@@ -521,7 +524,50 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                {% endblock %}
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-30">
+                                    <div class="au-card-inner">
+                                        <div class="table-responsive">
+                                            <table class="table table-top-countries">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>United States</td>
+                                                        <td class="text-right">$119,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Australia</td>
+                                                        <td class="text-right">$70,261.65</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>United Kingdom</td>
+                                                        <td class="text-right">$46,399.22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Turkey</td>
+                                                        <td class="text-right">$35,364.90</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Germany</td>
+                                                        <td class="text-right">$20,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>France</td>
+                                                        <td class="text-right">$10,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Australia</td>
+                                                        <td class="text-right">$5,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Italy</td>
+                                                        <td class="text-right">$1639.32</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -532,19 +578,19 @@
                                         <i class="zmdi zmdi-account-calendar"></i>user data</h3>
                                     <div class="filters m-b-45">
                                         <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                            <select class="js-select2" name="property">
                                                 <option selected="selected">All Properties</option>
                                                 <option value="">Products</option>
                                                 <option value="">Services</option>
-                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 127px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-property-4u-container"><span class="select2-selection__rendered" id="select2-property-4u-container" title="All Properties">All Properties</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--border">
-                                            <select class="js-select2 au-select-dark select2-hidden-accessible" name="time" tabindex="-1" aria-hidden="true">
+                                            <select class="js-select2 au-select-dark" name="time">
                                                 <option selected="selected">All Time</option>
                                                 <option value="">By Month</option>
                                                 <option value="">By Day</option>
-                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 98px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-time-kf-container"><span class="select2-selection__rendered" id="select2-time-kf-container" title="All Time">All Time</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
@@ -585,11 +631,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="rs-select2--trans rs-select2--sm">
-                                                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                                            <select class="js-select2" name="property">
                                                                 <option selected="selected">Full Control</option>
                                                                 <option value="">Post</option>
                                                                 <option value="">Watch</option>
-                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 113px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-property-vt-container"><span class="select2-selection__rendered" id="select2-property-vt-container" title="Full Control">Full Control</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                            </select>
                                                             <div class="dropDownSelect2"></div>
                                                         </div>
                                                     </td>
@@ -619,11 +665,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="rs-select2--trans rs-select2--sm">
-                                                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                                            <select class="js-select2" name="property">
                                                                 <option value="">Full Control</option>
                                                                 <option value="" selected="selected">Post</option>
                                                                 <option value="">Watch</option>
-                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 113px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-property-4w-container"><span class="select2-selection__rendered" id="select2-property-4w-container" title="Post">Post</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                            </select>
                                                             <div class="dropDownSelect2"></div>
                                                         </div>
                                                     </td>
@@ -653,11 +699,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="rs-select2--trans rs-select2--sm">
-                                                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                                            <select class="js-select2" name="property">
                                                                 <option value="">Full Control</option>
                                                                 <option value="" selected="selected">Post</option>
                                                                 <option value="">Watch</option>
-                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 113px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-property-71-container"><span class="select2-selection__rendered" id="select2-property-71-container" title="Post">Post</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                            </select>
                                                             <div class="dropDownSelect2"></div>
                                                         </div>
                                                     </td>
@@ -687,11 +733,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="rs-select2--trans rs-select2--sm">
-                                                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                                            <select class="js-select2" name="property">
                                                                 <option selected="selected">Full Control</option>
                                                                 <option value="">Post</option>
                                                                 <option value="">Watch</option>
-                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 113px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-property-3j-container"><span class="select2-selection__rendered" id="select2-property-3j-container" title="Full Control">Full Control</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                            </select>
                                                             <div class="dropDownSelect2"></div>
                                                         </div>
                                                     </td>
@@ -779,19 +825,19 @@
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
-                                            <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+                                            <select class="js-select2" name="property">
                                                 <option selected="selected">All Properties</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 127px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-property-me-container"><span class="select2-selection__rendered" id="select2-property-me-container" title="All Properties">All Properties</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <div class="rs-select2--light rs-select2--sm">
-                                            <select class="js-select2 select2-hidden-accessible" name="time" tabindex="-1" aria-hidden="true">
+                                            <select class="js-select2" name="time">
                                                 <option selected="selected">Today</option>
                                                 <option value="">3 Days</option>
                                                 <option value="">1 Week</option>
-                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 77px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-time-3o-container"><span class="select2-selection__rendered" id="select2-time-3o-container" title="Today">Today</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <button class="au-btn-filter">
@@ -801,11 +847,11 @@
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                                             <i class="zmdi zmdi-plus"></i>add item</button>
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2 select2-hidden-accessible" name="type" tabindex="-1" aria-hidden="true">
+                                            <select class="js-select2" name="type">
                                                 <option selected="selected">Export</option>
                                                 <option value="">Option 1</option>
                                                 <option value="">Option 2</option>
-                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 91px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-type-7g-container"><span class="select2-selection__rendered" id="select2-type-7g-container" title="Export">Export</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </select>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
@@ -849,16 +895,16 @@
                                                 <td>$679.00</td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                             <i class="zmdi zmdi-mail-send"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
                                                         </button>
                                                     </div>
@@ -884,16 +930,16 @@
                                                 <td>$999.00</td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                             <i class="zmdi zmdi-mail-send"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
                                                         </button>
                                                     </div>
@@ -919,16 +965,16 @@
                                                 <td>$1199.00</td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                             <i class="zmdi zmdi-mail-send"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
                                                         </button>
                                                     </div>
@@ -954,16 +1000,16 @@
                                                 <td>$699.00</td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                             <i class="zmdi zmdi-mail-send"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                             <i class="zmdi zmdi-more"></i>
                                                         </button>
                                                     </div>
@@ -1065,30 +1111,32 @@
         </div>
 
     </div>
-        
-        
-        {% block javascripts %}
-  <!-- Bootstrap JS-->
-    <script src="{{asset('./assets/vendor/bootstrap-4.1/popper.min.js')}}"></script>
-    <script src="{{asset('./assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="{{asset('./assets/vendor/slick/slick.min.js')}}">
+    <script src="vendor/slick/slick.min.js">
     </script>
-    <script src="{{asset('./assets/vendor/wow/wow.min.js')}}"></script>
-    <script src="{{asset('./assets/vendor/animsition/animsition.min.js') }}"></script>
-    <script src="{{asset('./assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="{{asset('./assets/vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
     <script src="vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="{{asset('./assets/vendor/circle-progress/circle-progress.min.js')}}"></script>
-    <script src="{{asset('./assets/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('./assets/vendor/chartjs/Chart.bundle.min.js')}}"></script>
-    <script src="{{asset('./assets/vendor/select2/select2.min.js')}}">
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-        {% endblock %}
-    </body>
+
+</body>
+
 </html>
+<!-- end document-->
