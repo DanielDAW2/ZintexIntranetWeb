@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\TFraproformaAux;
+use App\Entity\TProductes;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,11 +15,11 @@ class TFraproformaAuxType extends AbstractType
     {
         $builder
             ->add('numLinia')
-            ->add('grupProducte')
-            ->add('codprodProforma')
+            ->add('codprodProforma', EntityType::class, [
+                "class"=>TProductes::class,
+                "choice_label"=>"nomProd"
+            ])
             ->add('descripprodProforma')
-            ->add('codparamimpProforma')
-            ->add('descripparamimpProforma')
             ->add('numunitProforma')
             ->add('preuunitProforma')
             ->add('preuProforma')

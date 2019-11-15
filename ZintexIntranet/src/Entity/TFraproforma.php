@@ -248,7 +248,7 @@ class TFraproforma
     private $clientFraprof;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaAux", mappedBy="numProforma", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaAux", mappedBy="numProforma", orphanRemoval=true, cascade={"PERSIST"})
      * @ORM\JoinColumn( referencedColumnName="idFraproformaAux")
      */
     private $tFraproformaAuxes;

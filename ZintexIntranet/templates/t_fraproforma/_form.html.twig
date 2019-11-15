@@ -1,13 +1,12 @@
 {{ form_start(form) }}
-    
-    
+
 <ul id="FraProformaAux-fields-list"
         data-prototype="{{ form_widget(form.tFraproformaAuxes.vars.prototype)|e }}"
         data-widget-tags="{{ '<li></li>'|e }}"
         data-widget-counter="{{ form.tFraproformaAuxes|length }}">
     {% for tFraproformaAux in form.tFraproformaAuxes %}
             <li>{{ form_row(tFraproformaAux) }}</li>
-        {% endfor %}
+    {% endfor %}
         </ul>
         <button type="button"
         class="add-another-collection-widget"
