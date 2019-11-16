@@ -3,14 +3,14 @@
 {% block title %}TFraproforma index{% endblock %}
 
 {% block body %}
-    <h1>Listado Proformas</h1>
+    <h1 class="title-1">Listado Proformas</h1>
     <div class="table-responsive table--no-card m-b-30">
-    <table class="table table-borderless table-earning">
+    <table class="table table-borderless table-striped table-earning">
         <thead>
             <tr>
-                <th>PersonaFraprof</th>
-                <th>DataFraprof</th>
                 <th>NumFraprof</th>
+                <th>Cliente</th>
+                <th>DataFraprof</th>
                 <th>Nref</th>
                 <th>Sref</th>
                 <th>Valorada</th>
@@ -22,9 +22,13 @@
         <tbody>
         {% for t_fraproforma in t_fraproformas %}
             <tr>
-                <td>{{ t_fraproforma.personaFraprof }}</td>
+            <td>{{ t_fraproforma.numFraprof }}</td>
                 <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_fraproforma.numFraprof }}</td>
+                {% if t_fraproforma.clientFraprof is null %}
+                <td>Sin Cliente</td>
+                {% else %}
+                <td>{{ t_fraproforma.clientFraprof.client }}</td>
+                {% endif %}
                 <td>{{ t_fraproforma.nref }}</td>
                 <td>{{ t_fraproforma.sref }}</td>
                 <td>{{ t_fraproforma.valorada ? 'Yes' : 'No' }}</td>
