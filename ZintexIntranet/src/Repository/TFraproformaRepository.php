@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\TFraproforma;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method TFraproforma|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +16,30 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class TFraproformaRepository extends ServiceEntityRepository
 {
+    private $LIMIT = 30;
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TFraproforma::class);
+    }
+
+    public function paginate($query, $page, $limit){
+        $paginator = new Paginator($query);
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+        
+        return $paginator;
+    }
+
+    public function getFraProformasPaginated($currentPage, $limit)
+    {
+        $query = $this->createQueryBuilder("fra")
+        ->select()
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $currentPage, $limit);
+
+        return ["paginator"=>$paginator,"query"=>$query];
     }
 
     // /**

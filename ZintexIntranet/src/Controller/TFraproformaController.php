@@ -18,16 +18,25 @@ class TFraproformaController extends AbstractController
     /**
      * @Route("/", name="t_fraproforma_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $req): Response
     {
-        $tFraproformas = $this->getDoctrine()
+        $tFraproformasQuery = $this->getDoctrine()
             ->getRepository(TFraproforma::class)
-            ->findAll();
+            ->getFraProformasPaginated($req->get("page") ? $req->get("page"): 1);
+            $tFraproformas = $tFraproformasQuery['paginator'];
+            $inmueblesQueryCompleta =  $tFraproformasQuery['query'];
+          
+            $maxPages = ceil($tFraproformasQuery['paginator']->count() / $this->limitResults);
+          
+            return $this->render('t_fraproforma/index.html.twig', array(
+                  't_fraproformas' => $tFraproformas,
+                  'maxPages'=>$maxPages,
+                  'thisPage' => $req->get("page"),
+                  'all_items' => $inmueblesQueryCompleta
+              ) );
+          }
 
-        return $this->render('t_fraproforma/index.html.twig', [
-            't_fraproformas' => $tFraproformas,
-        ]);
-    }
+    
 
     /**
      * @Route("/new", name="t_fraproforma_new", methods={"GET","POST"})
