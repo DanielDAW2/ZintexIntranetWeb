@@ -22,7 +22,7 @@ class TFraproformaController extends AbstractController
     {
         $tFraproformasQuery = $this->getDoctrine()
             ->getRepository(TFraproforma::class)
-            ->getFraProformasPaginated($req->get("page") ? $req->get("page"): 1);
+            ->getFraProformasPaginated($req->get("page") ? $req->get("page"): 1, $this->limitResults);
             $tFraproformas = $tFraproformasQuery['paginator'];
             $inmueblesQueryCompleta =  $tFraproformasQuery['query'];
           

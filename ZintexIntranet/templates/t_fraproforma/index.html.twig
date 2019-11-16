@@ -4,43 +4,42 @@
 
 {% block body %}
     <h1 class="title-1">Listado Proformas</h1>
-    
-    <div class="table-responsive table--no-card m-b-30">
     {% if maxPages > 1 %}
     <ul class="pagination">
         {%if thisPage > 1 %}
             <li class="page-item" >
-                <a class="page-link" aria-label="previous" href="{{ path('t_fraproforma_index', {currentPage: thisPage-1 < 1 ? 1 : thisPage-1}) }}"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a>
+                <a class="page-link" aria-label="previous" href="{{ path('t_fraproforma_index', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a>
             </li>
         {% endif %}
 
         {# Render each page number #}
         {% for i in 1..maxPages %}
             <li class="page-item {% if thisPage == i %} active {% endif %}">
-                <a class="page-link" href="{{ path('t_fraproforma_index', {currentPage: i}) }}">{{ i }}</a>
+                <a class="page-link" href="{{ path('t_fraproforma_index', {page: i}) }}">{{ i }}</a>
             </li>
         {% endfor %}
 
         {# `»` arrow #}
         {%if thisPage < maxPages %}
             <li class="page-item" >
-                <a class="page-link" aria-label="next"  href="{{ path('t_fraproforma_index', {currentPage: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
+                <a class="page-link" aria-label="next"  href="{{ path('t_fraproforma_index', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
             </li>
         {% endif %}
     </ul>
+    <div class="table-responsive table--no-card m-b-30">
+    
 {% endif %}
     <table class="table table-borderless table-striped table-earning">
         <thead>
             <tr>
                 <th>NumFraprof</th>
-                <th>Cliente</th>
                 <th>DataFraprof</th>
+                <th>Cliente</th>
                 <th>Nref</th>
                 <th>Sref</th>
                 <th>Valorada</th>
                 <th>TotalFra</th>
                 <th>ImportPendent</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -58,10 +57,6 @@
                 <td>{{ t_fraproforma.valorada ? 'Yes' : 'No' }}</td>
                 <td>{{ t_fraproforma.totalFra }}</td>
                 <td>{{ t_fraproforma.importPendent }}</td>
-                <td>
-                    <a href="{{ path('t_fraproforma_show', {'idFraprof': t_fraproforma.idFraprof}) }}">show</a>
-                    <a href="{{ path('t_fraproforma_edit', {'idFraprof': t_fraproforma.idFraprof}) }}">edit</a>
-                </td>
             </tr>
         {% else %}
             <tr>
