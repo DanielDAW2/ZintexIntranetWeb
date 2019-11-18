@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TFraproforma index{% endblock %}
+{% block title %}Proformas{% endblock %}
 
 {% block body %}
-    <h1 class="title-1">Listado Proformas</h1>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fh-3.1.6/datatables.min.js"></script>
+    <h1 class="title-1">Proformas</h1> <a href="#" class="btn btn-primary">Nueva Proforma</a>
     {% if maxPages > 1 %}
     <ul class="pagination">
         {%if thisPage > 1 %}
@@ -26,27 +27,25 @@
             </li>
         {% endif %}
     </ul>
-    <div class="table-responsive table--no-card m-b-30">
+    <div class="table-responsive table-responsive-data2 table--no-card m-b-30">
     
 {% endif %}
-    <table class="table table-borderless table-striped table-earning">
+    <table id="t_fraproforma" class="table table-data2 table-borderless">
         <thead>
-            <tr>
-                <th>NumFraprof</th>
-                <th>DataFraprof</th>
+            <tr class="tr-shadow">
+                <th>Proforma</th>
+                <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Nref</th>
                 <th>Sref</th>
-                <th>Valorada</th>
                 <th>TotalFra</th>
-                <th>ImportPendent</th>
             </tr>
         </thead>
         <tbody>
         {% for t_fraproforma in t_fraproformas %}
             <tr>
             <td>{{ t_fraproforma.numFraprof }}</td>
-                <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d') : '' }}</td>
                 {% if t_fraproforma.clientFraprof is null %}
                 <td>Sin Cliente</td>
                 {% else %}
@@ -54,9 +53,7 @@
                 {% endif %}
                 <td>{{ t_fraproforma.nref }}</td>
                 <td>{{ t_fraproforma.sref }}</td>
-                <td>{{ t_fraproforma.valorada ? 'Yes' : 'No' }}</td>
                 <td>{{ t_fraproforma.totalFra }}</td>
-                <td>{{ t_fraproforma.importPendent }}</td>
             </tr>
         {% else %}
             <tr>
@@ -67,4 +64,11 @@
     </table>
 </div>
     <a href="{{ path('t_fraproforma_new') }}">Create new</a>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#t_fraproforma').DataTable();
+} );
 {% endblock %}
