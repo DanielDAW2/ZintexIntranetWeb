@@ -42,6 +42,16 @@ class TFraproformaRepository extends ServiceEntityRepository
         return ["paginator"=>$paginator,"query"=>$query];
     }
 
+    public function findNumProformas(string $index)
+    {
+        return $this->createQueryBuilder("q")
+        ->select("q.numFraprof")
+        ->andWhere("q.numFraprof LIKE :index")
+        ->setParameter("index","%".$index."%")
+        ->getQuery()->getResult();
+
+    }
+
     // /**
     //  * @return TFraproforma[] Returns an array of TFraproforma objects
     //  */
