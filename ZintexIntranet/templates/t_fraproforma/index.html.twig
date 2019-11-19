@@ -3,53 +3,73 @@
 {% block title %}Proformas{% endblock %}
 
 {% block body %}
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fh-3.1.6/datatables.min.js"></script>
-    <h1 class="title-1">Proformas</h1> <a href="#" class="btn btn-primary">Nueva Proforma</a>
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--md">    
+                <h1 class="title-1">Proformas</h1>
+
+            </div>
+
+        </div>
+        <div class="table-data__tool-right">
+            <a href="{{ path('t_fraproforma_new') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+            <i class="zmdi zmdi-plus"></i>Crear Proforma</a><a ></a>
+        </div>
+    </div>
     {% if maxPages > 1 %}
     <ul class="pagination">
-        {%if thisPage > 1 %}
+        {% if thisPage > 1 %}
             <li class="page-item" >
                 <a class="page-link" aria-label="previous" href="{{ path('t_fraproforma_index', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a>
             </li>
         {% endif %}
+        <li class="page-item ">
+                <a class="page-link" href="{{ path('t_fraproforma_index', {page: 2}) }}">Primera</a>
+            </li>
 
         {# Render each page number #}
-        {% for i in 1..maxPages %}
+        {% for i in thisPage.. thisPage + 5 %}
+            {% if i <= maxPages %}
             <li class="page-item {% if thisPage == i %} active {% endif %}">
                 <a class="page-link" href="{{ path('t_fraproforma_index', {page: i}) }}">{{ i }}</a>
             </li>
+            {% endif %}
         {% endfor %}
-
+<li class="page-item ">
+                <a class="page-link" href="{{ path('t_fraproforma_index', {page: maxPages}) }}">Última</a>
+            </li>
         {# `»` arrow #}
-        {%if thisPage < maxPages %}
+        {% if thisPage < maxPages %}
             <li class="page-item" >
                 <a class="page-link" aria-label="next"  href="{{ path('t_fraproforma_index', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
             </li>
         {% endif %}
     </ul>
-    <div class="table-responsive table-responsive-data2 table--no-card m-b-30">
+    
     
 {% endif %}
-    <table id="t_fraproforma" class="table table-data2 table-borderless">
+<div class="table-responsive table-responsive-data2 table--no-card m-b-30">
+    
+    <table id="t_fraproforma" class="table table-data2 table-borderless table-striped">
         <thead>
             <tr class="tr-shadow">
-                <th>Proforma</th>
+                <th scope="col">Proforma</th>
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Nref</th>
                 <th>Sref</th>
-                <th>TotalFra</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
         {% for t_fraproforma in t_fraproformas %}
             <tr>
-            <td>{{ t_fraproforma.numFraprof }}</td>
+            <td><a href="{{ path("t_fraproforma_edit",{"idFraprof":t_fraproforma.IdFraProf }) }}"> {{ t_fraproforma.numFraprof }}</a></td>
                 <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d') : '' }}</td>
                 {% if t_fraproforma.clientFraprof is null %}
                 <td>Sin Cliente</td>
                 {% else %}
-                <td>{{ t_fraproforma.clientFraprof.client }}</td>
+                <td><a href="{{ path("t_clients_edit",{"idCli": t_fraproforma.clientFraprof.IdCli}) }}"> {{ t_fraproforma.clientFraprof.client }}</a></td>
                 {% endif %}
                 <td>{{ t_fraproforma.nref }}</td>
                 <td>{{ t_fraproforma.sref }}</td>
@@ -57,18 +77,23 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="36">no records found</td>
+                <td colspan="36">No se han encontrado Proformas.</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
-    <a href="{{ path('t_fraproforma_new') }}">Create new</a>
+    
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
-<script type="text/javascript">
-$(document).ready( function () {
-    $('#t_fraproforma').DataTable();
+    {{ parent() }}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fh-3.1.6/datatables.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('#t_fraproforma').DataTable( {
+        "order": [[ 3, "desc" ]]
+    } );
 } );
+    </script>
 {% endblock %}
