@@ -50,22 +50,32 @@
 {% endif %}
 <div class="table-responsive table-responsive-data2 table--no-card m-b-30">
     
-    <table id="t_fraproforma" class="table table-data2 table-borderless table-striped">
+    <table id="t_fraproforma" class="table table-data2 table-borderless table-striped table-hover">
         <thead>
             <tr class="tr-shadow">
-                <th scope="col">Proforma</th>
+                <th class="w-auto" scope="col">Proforma</th>
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Nref</th>
                 <th>Sref</th>
                 <th>Total</th>
             </tr>
+
         </thead>
+        
         <tbody>
+        <tr>
+            <td class="w-25"><form method="GET" ><select id="tFraProformaFilter" class="js-data-example-ajax"></select></td>
+            <td><form method="GET" ><input name="fechaProforma" type="text" placeholder="Buscar por fecha"></form></td>
+            <td class="w-25">Cliente</td>
+            <td>Nref</td>
+            <td class="w-25">Sref</td>
+            <td>Total</td>
+        </tr>
         {% for t_fraproforma in t_fraproformas %}
             <tr>
-            <td><a href="{{ path("t_fraproforma_edit",{"idFraprof":t_fraproforma.IdFraProf }) }}"> {{ t_fraproforma.numFraprof }}</a></td>
-                <td>{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d') : '' }}</td>
+            <td class="w-auto" scope="row"><a href="{{ path("t_fraproforma_edit",{"idFraprof":t_fraproforma.IdFraProf }) }}"> {{ t_fraproforma.numFraprof }}</a></td>
+                <td >{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d') : '' }}</td>
                 {% if t_fraproforma.clientFraprof is null %}
                 <td>Sin Cliente</td>
                 {% else %}
@@ -87,13 +97,28 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fh-3.1.6/datatables.min.js"></script>
-
     <script type="text/javascript">
-    $(document).ready(function() {
-    $('#t_fraproforma').DataTable( {
-        "order": [[ 3, "desc" ]]
-    } );
-} );
+    $('#tFraProformaFilter').select2({
+        ajax: {
+            url: '{{path("t_fraproformas_numprof")|escape("js")}}',
+            data: function (params) {
+            var query = {
+                search: params.term,
+                type: 'public'
+                
+            }
+            
+
+            // Query parameters will be ?search=[term]&type=public
+            return query;
+            }
+            processResults: function (data) {
+      // Transforms the top-level key of the response object from 'items' to 'results'
+      return {
+        results: data.items
+      };
+        }
+        });
     </script>
+    
 {% endblock %}
