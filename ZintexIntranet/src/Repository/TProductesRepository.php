@@ -19,6 +19,17 @@ class TProductesRepository extends ServiceEntityRepository
         parent::__construct($registry, TProductes::class);
     }
 
+    public function findProductes(string $index)
+    {
+        return $this->createQueryBuilder("q")
+        ->select("q.idProd as id, q.nomProdCurt as text")
+        ->orWhere("q.nomProd LIKE :index")
+        ->orWhere("q.nomProd LIKE :index")
+        ->setParameter("index","%".$index."%")
+        ->getQuery()->getResult();
+
+    }
+
     // /**
     //  * @return TProductes[] Returns an array of TProductes objects
     //  */

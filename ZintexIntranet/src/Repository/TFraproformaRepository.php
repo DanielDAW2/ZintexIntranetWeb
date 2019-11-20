@@ -35,6 +35,7 @@ class TFraproformaRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder("fra")
         ->select()
+        ->orderBy("fra.idFraprof","DESC")
         ->getQuery();
 
         $paginator = $this->paginate($query, $currentPage, $limit);

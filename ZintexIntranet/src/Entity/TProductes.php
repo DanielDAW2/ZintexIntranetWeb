@@ -114,7 +114,7 @@ class TProductes
     private $preciosCantidad;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TgrupProducte", inversedBy="tProductes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte", inversedBy="tProductes")
      * @ORM\JoinColumn(referencedColumnName="Id_GrupProducte", name="Grup_Producte")
      */
     private $grupProducte;

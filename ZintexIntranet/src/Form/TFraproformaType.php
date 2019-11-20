@@ -9,10 +9,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\TClients;
-use App\Entity\TFraproformaAux;
 use App\Entity\TMetodePag;
 use App\Form\TFraproformaAuxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Doctrine\ORM\EntityRepository;
+
 
 class TFraproformaType extends AbstractType
 {
@@ -21,14 +24,25 @@ class TFraproformaType extends AbstractType
         $builder
             ->add('clientFraprof',EntityType::class,[
                 "class"=>TClients::class,
-                "choice_label"=>"client"
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->setMaxResults(5);
+                },
+                "choice_label"=>"client",
+                "label"=>"Client"
             ])
-            ->add('personaFraprof')
-            ->add('dataFraprof')
-            ->add('numFraprof')
+            ->add('personaFraprof', TextType::class, [
+                "label"=>"Persona"
+            ])
+            ->add('dataFraprof', DateType::class,[
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                "label"=>"Fecha Proforma"])
+            ->add('numFraprof', TextType::class, [
+                "label"=>"Proforma"
+                ])
             ->add('nref')
             ->add('sref')
-            ->add('valorada')
             ->add('baseImp')
             ->add('iva')
             ->add('req')
@@ -49,6 +63,11 @@ class TFraproformaType extends AbstractType
             ])
             ->add('tFraproformaAuxes', CollectionType::class, [
                 "entry_type" => TFraproformaAuxType::class,
+                "allow_add" => true,
+                'allow_delete' => true,
+            ])
+            ->add('tFraproformaVtos', CollectionType::class, [
+                "entry_type" => TFraproformaVtoType::class,
                 "allow_add" => true,
                 'allow_delete' => true,
                 'prototype' => true,

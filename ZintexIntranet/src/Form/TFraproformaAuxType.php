@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\TFraproformaAux;
 use App\Entity\TProductes;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,15 +19,18 @@ class TFraproformaAuxType extends AbstractType
             ->add('numLinia')
             ->add('codprodProforma', EntityType::class, [
                 "class"=>TProductes::class,
-                "choice_label"=>"nomProd"
+                "choice_label"=>"nomProd",
+                "label"=>"Producte",
+                "attr" => [
+                    "class" => "selectorProducte"
+                ]
             ])
-            ->add('descripprodProforma')
-            ->add('numunitProforma')
-            ->add('preuunitProforma')
-            ->add('preuProforma')
-            ->add('baixa')
-            ->add('marcat')
-            ->add('prodPrincipal')
+            ->add('descripprodProforma', TextType::class, [
+                "label"=>"Impresió"
+            ])
+            ->add('numunitProforma', null, ["label"=>"Unitats"])
+            ->add('preuunitProforma', null,["label"=>"Preu"])
+            ->add('preuProforma', null,["label"=>"Subtotal"])
         ;
     }
 
