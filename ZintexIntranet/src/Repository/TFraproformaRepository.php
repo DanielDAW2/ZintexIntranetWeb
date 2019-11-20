@@ -45,7 +45,7 @@ class TFraproformaRepository extends ServiceEntityRepository
     public function findNumProformas(string $index)
     {
         return $this->createQueryBuilder("q")
-        ->select("q.numFraprof")
+        ->select("q.idFraprof as id, q.numFraprof as text")
         ->andWhere("q.numFraprof LIKE :index")
         ->setParameter("index","%".$index."%")
         ->getQuery()->getResult();

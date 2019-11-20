@@ -16,9 +16,14 @@ class TFraProformaController extends AbstractController {
      * @Route("/get_numprof", name="t_fraproformas_numprof")
      */
     public function getNumproforma(TFraproformaRepository $repo, Request $req) : JsonResponse {
+        
         $findedNumProf = $repo->findNumProformas($req->get("numProf"));
 
-        return new JsonResponse($findedNumProf,200);
+        $numProf = array_map(function($prof){
+            return $prof;
+        }, $findedNumProf);
+
+        return new JsonResponse(["results"=>$numProf],200);
 
     }
 }
