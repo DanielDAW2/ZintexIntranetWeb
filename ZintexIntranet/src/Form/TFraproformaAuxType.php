@@ -19,7 +19,7 @@ class TFraproformaAuxType extends AbstractType
         $builder
             ->add('numLinia', NumberType::class, [
                 "attr"=>[
-                    "editable"=> false
+                    "read_only"=> true
                 ]
             ])
             ->add('codprodProforma', EntityType::class, [

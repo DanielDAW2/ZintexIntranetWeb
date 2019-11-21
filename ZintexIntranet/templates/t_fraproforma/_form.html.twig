@@ -1,21 +1,37 @@
 {{ form_start(form) }}
 <div class="row">
     <div class="col">
-        {{form_row(form.clientFraprof)}}
+        <div class="row">
+            <div class="col">{{form_row(form.clientFraprof)}}</div>
+            <div class="col">{{form_row(form.personaFraprof)}}</div>
+        </div>
+        
         <div class="row">
         <div class="col">{{form_row(form.numFraprof)}}</div>
         <div class="col">{{form_row(form.dataFraprof)}}</div>
         </div>
-        {{form_row(form.numAutor)}}
+        <div class="row">
+            <div class="col">
+                {{form_row(form.numAutor)}}
+            </div>
+            <div class="col">
+                {{form_row(form.nref)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">{{form_row(form.sref)}}</div>
+        </div>
+        
         
     </div>
     <div class="col">
-        {{form_row(form.personaFraprof)}}
-        {{form_row(form.nref)}}
-        {{form_row(form.sref)}}
+        
+        
+        
     </div>
 </div>
-<ul id="FraProformaAux-fields-list"
+<h3 class="title-2 mb-3">Conceptos</h3>
+<ul id="FraProformaAux-fields-list" 
         data-prototype='{{ include("t_fraproforma_aux/_form_proto.html.twig")|e }}'
         data-widget-tags="{{ '<li data-type="AUX"></li>'|e }}"
         data-widget-counter="{{ form.tFraproformaAuxes|length }}">
@@ -26,7 +42,7 @@
         </ul>
         <button type="button"
         id="add-FraProfAux"
-        class="btn btn-secondary add-another-collection-widget"
+        class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaAux-fields-list">Afegir Concepte</button>
         <ul id="FraProformaVto-fields-list"
         data-prototype="{{ form_widget(form.tFraproformaVtos.vars.prototype)|e }}"
@@ -37,36 +53,7 @@
     {% endfor %}
         </ul>
     <button class="btn">{{ button_label|default('Save') }}</button>
-    <script src="{{asset('./assets/js/add-collection-widget.js')}}"></script>
-    <script type="text/javascript">
-    jQuery(document).ready(function () {
-    jQuery('#add-FraProfAux').click(function (e) {
-        var list = jQuery(jQuery(this).attr('data-list-selector'));
-        // Try to find the counter of the list or use the length of the list
-        var counter = list.data('widget-counter') || list.children().length;
 
-        // grab the prototype template
-        var newWidget = list.attr('data-prototype');
-
-       
-    
-
-        // replace the "__name__" used in the id and name of the prototype
-        // with a number that's unique to your emails
-        // end name attribute looks like name="contact[emails][2]"
-        newWidget = newWidget.replace(/#V#/g, counter);
-        console.log(newWidget)
-        // Increase the counter
-        counter++;
-        // And store it, the length cannot be used if deleting widgets is allowed
-        list.data('widget-counter', counter);
-
-        // create a new list element and add it to the list
-        var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
-        newElem.appendTo(list);
-    });
-});
-    </script>
 {{ form_end(form) }}
 
 
