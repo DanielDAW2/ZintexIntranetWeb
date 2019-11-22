@@ -12,31 +12,43 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="col">{{form_label(form.numAutor)}}</div>
-                <div class="col">{{form_row(form.numAutor)}}</div>
-                
+                {{form_row(form.numAutor)}}
             </div>
             <div class="col">
                 {{form_row(form.nref)}}
             </div>
         </div>
         <div class="row">
-            <div class="col">{{form_row(form.sref)}}</div>
+            <div class="col">
+                {{form_row(form.sref)}}
+            </div>
         </div>
+        
     </div>
     <div class="col">
         <div class="form-row justify-content-end">
             <div class="col-md-6 ">
-                {{form_row(form.iva)}}
-                {{form_row(form.req)}}
+            <div class="row">
+            <div class="col">
+            <h1 class="title-1">Detalles</h1></div></div>
+                <div class="row">
+                    <div class="col">{{form_row(form.ivaVar)}}</div>
+                    <div class="col">{{form_row(form.iva)}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">{{form_row(form.reqVar)}}</div>
+                    <div class="col">{{form_row(form.req)}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{form_row(form.baseImp)}}
+                    </div>
+                    <div class="col">
+                        {{form_row(form.totalFra)}}
+                    </div>
+                </div>
                 
             </div>
-        </div>
-        <div class="row">
-        <div class="col">{{form_row(form.baseImp)}}</div>
-        <div class="col">{{form_row(form.totalFra)}}</div>
-                
-                    
         </div>
     </div>
 </div>
@@ -54,6 +66,15 @@
         id="add-FraProfAux"
         class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaAux-fields-list">Afegir Concepte</button>
+        
+        <div class="row">
+        <div class="col">{{form_row(form.metodePag)}}</div>
+        <div class="col">{{form_row(form.metpagAux)}}</div>
+        <div class="col">{{form_row(form.importPendent)}}</div>
+        <div class="col">{{form_row(form.importPagat)}}</div>
+    </div>
+        <h3 class="title-2 mb-3">Vencimientos</h3>
+        
         <ul id="FraProformaVto-fields-list"
         data-prototype="{{ form_widget(form.tFraproformaVtos.vars.prototype)|e }}"
         data-widget-tags="{{ '<li></li>'|e }}"
@@ -62,7 +83,12 @@
            {{ include('t_fraproforma_vto/_form.html.twig') }}
     {% endfor %}
         </ul>
-    <button class="btn">{{ button_label|default('Save') }}</button>
+        <button type="button"
+        id="add-FraProfVto"
+        class="btn btn-secondary mt-3 mb-3"
+        data-list-selector="#FraProformaVto-fields-list">Afegir Venciment</button>
+    <button class="btn">{{ button_label|default('Guardar') }}</button>
+    
 
 {{ form_end(form) }}
 

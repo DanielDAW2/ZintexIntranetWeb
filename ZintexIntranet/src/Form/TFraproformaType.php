@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
-
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class TFraproformaType extends AbstractType
 {
@@ -56,7 +56,11 @@ class TFraproformaType extends AbstractType
                 "choice_label" => "metode"
             ])
             ->add('metpagAux')
-            ->add('observFraprof')
+            ->add('observFraprof', TextareaType::class, [
+                "attr" => [
+                    "cols"=> 12
+                ]
+            ])
             ->add('numAutor', EntityType::class, [
                 "class"=>TAutorsPresup::class,
                 "choice_label"=>"descripAutpresup"
