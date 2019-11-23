@@ -1,14 +1,25 @@
-<div class='form-row'>
-    <div class='form-group col'>
-      {{form_widget(tFraproformaVto.concepteVto)}}
+<div class='row'>
+    <div class='col-2'>
+    {{form_row(tFraproformaVto.instpag)}}
+      
     </div>
-    <div class='form-group col-md-4'>
-      {{form_widget(tFraproformaVto.instpag)}}
+    <div class='col-2'>
+      {{form_row(tFraproformaVto.concepteVto)}}
     </div>
-    <div class='form-group col'>
-      {{form_widget(tFraproformaVto.importVto)}}
+    <div class='col-2'>
+      {{form_row(tFraproformaVto.instpagAux)}}
     </div>
-    <div class='form-group col'>
-      {{form_widget(tFraproformaVto.datapagVto)}}
+    <div class='col'>
+      {{form_row(tFraproformaVto.datapagVto)}}
     </div>
+    <div class='col'>
+      {{form_row(tFraproformaVto.importVto)}}
+    </div>
+    <div class='col'>
+      {{form_row(tFraproformaVto.okbancVto)}}
+    </div>
+    <div class='col'>
+      {{form_row(tFraproformaVto.importpagVto)}}
+    </div>
+    
   </div>

@@ -1,6 +1,7 @@
 {{ form_start(form) }}
 <div class="row">
     <div class="col">
+        <h1 class="title-1">Datos Cliente</h1>
         <div class="row">
             <div class="col">{{form_row(form.clientFraprof)}}</div>
             <div class="col">{{form_row(form.personaFraprof)}}</div>
@@ -87,7 +88,8 @@
         id="add-FraProfVto"
         class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaVto-fields-list">Afegir Venciment</button>
-    <button class="btn">{{ button_label|default('Guardar') }}</button>
+        {{form_row(form.observFraprof)}}
+    <button class="btn btn-success">{{ button_label|default('Guardar') }}</button>
     
 
 {{ form_end(form) }}

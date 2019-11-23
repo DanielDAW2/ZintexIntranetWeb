@@ -79,6 +79,14 @@ class TFraproformaController extends AbstractController
      */
     public function edit(Request $request, TFraproforma $tFraproforma): Response
     {
+        if($tFraproforma->getTFraproformaAuxes())
+        {
+            if(count($tFraproforma->getTFraproformaAuxes()) == 0)
+            {
+
+            $tFraproforma->addTFraproformaAux( new TFraproformaAux());
+            }
+        }
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
         $form->handleRequest($request);
 
