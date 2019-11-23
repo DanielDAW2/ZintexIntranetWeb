@@ -74,7 +74,11 @@ class TFraproformaType extends AbstractType
                 "entry_type" => TFraproformaVtoType::class,
                 "allow_add" => true,
                 'allow_delete' => true,
-                'prototype' => true,
+            ])
+            ->add('tFraproformaPlazos', CollectionType::class, [
+                "entry_type" => TFraproformaPlazosType::class,
+                "allow_add" => true,
+                'allow_delete' => true,
             ])
         ;
     }
