@@ -98,6 +98,7 @@
                     console.log("AJAX SUCCESS "+response.client)
                     $("#t_fraproforma_metodePag").val(response.metode);
                     $("#t_fraproforma_metpagAux").val(response.metodeDesc);
+                    setFraProformaVto(response.metode)
                 }
             }
            
@@ -105,6 +106,18 @@
 
         )
     })
+
+    function setFraProformaVto(metode)
+    {
+        switch(metode){
+            case 1:
+            console.log("1");
+            case 2:
+            console.log("2");
+        }
+    }
+
+
 });
     </script>
 {% endblock %}
