@@ -14,7 +14,6 @@ class TFraproformaPlazosType extends AbstractType
         $builder
             ->add('descripprodFraprofPlazo')
             ->add('baixa')
-            ->add('codprodFraprofPlazo')
         ;
     }
 
