@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\TFraproforma;
 use App\Entity\TFraproformaAux;
+use App\Entity\TFraproformaPlazos;
 use App\Entity\TFraproformaVto;
 use App\Form\TFraproformaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,6 +48,7 @@ class TFraproformaController extends AbstractController
         $tFraproforma = new TFraproforma();
         $tFraproforma->addTFraproformaAux(new TFraproformaAux());
         $tFraproforma->addTFraproformaVto(new TFraproformaVto());
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
         $form->handleRequest($request);
 

@@ -12,9 +12,7 @@ class TFraproformaPlazosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripprodFraprofPlazo')
-            ->add('baixa')
-        ;
+            ->add('descripprodFraprofPlazo');
     }
 
     public function configureOptions(OptionsResolver $resolver)
