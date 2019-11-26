@@ -39,7 +39,8 @@ class TFraproformaType extends AbstractType
                 'format' => 'yyyy-MM-dd',
                 "label"=>"Fecha Proforma"])
             ->add('numFraprof', TextType::class, [
-                "label"=>"Proforma"
+                "label"=>"Proforma",
+                "attr"=>["readonly"=>true]
                 ])
             ->add('nref')
             ->add('sref')

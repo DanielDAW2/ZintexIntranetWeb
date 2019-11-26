@@ -85,7 +85,7 @@
     $("#t_fraproforma_clientFraprof").on("change", function(e){
         $.ajax(
             {
-                url: '{{path("t_clients_get_metode_pag")|e("js")}}',
+                url: '{{path("t_clients_get_fraprof")|e("js")}}',
                 data: 
                 {
                     client: e.target.value,
@@ -98,6 +98,8 @@
                     console.log("AJAX SUCCESS "+response.client)
                     $("#t_fraproforma_metodePag").val(response.metode);
                     $("#t_fraproforma_metpagAux").val(response.metodeDesc);
+                    $("#t_fraproforma_personaFraprof").val(response.persona);
+                    $("#t_fraproforma_ivaVar").val(response.iva);
                     setFraProformaVto(response.metode)
                 }
             }

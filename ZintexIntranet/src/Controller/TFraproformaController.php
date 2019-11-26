@@ -7,6 +7,7 @@ use App\Entity\TFraproformaAux;
 use App\Entity\TFraproformaPlazos;
 use App\Entity\TFraproformaVto;
 use App\Form\TFraproformaType;
+use App\Repository\TObservProformaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,11 +44,16 @@ class TFraproformaController extends AbstractController
     /**
      * @Route("/new", name="t_fraproforma_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, TObservProformaRepository $obv): Response
     {
         $tFraproforma = new TFraproforma();
         $tFraproforma->addTFraproformaAux(new TFraproformaAux());
         $tFraproforma->addTFraproformaVto(new TFraproformaVto());
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
+        $tFraproforma->setObservFraprof($obv->find(1)->getObservProforma());
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
         $form->handleRequest($request);

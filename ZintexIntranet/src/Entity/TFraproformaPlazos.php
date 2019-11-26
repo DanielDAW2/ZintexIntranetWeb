@@ -50,6 +50,20 @@ class TFraproformaPlazos
      */
     private $codprodFraprofPlazo;
 
+    public function __construct(TProductes $producte)
+    {
+        $this->setCodprodFraprofPlazo($producte);
+        $this->setDescripprodFraprofPlazo($producte->getNomProd());
+    }
+
+    /**
+     * RS_FraProforma_Plazos!Num_FraProforma = Me.Id_FraProf
+     * RS_FraProforma_Plazos!CodProd_FraProf_Plazo = 240
+     * Descrip_Termini = DLookup("Nom_Prod", "T_Productes", "Id_Prod = " & 240)
+     * RS_FraProforma_Plazos!DescripProd_FraProf_Plazo = Descrip_Termini
+     *
+     * @return integer|null
+     */
     public function getIdFraproformaPlazo(): ?int
     {
         return $this->idFraproformaPlazo;

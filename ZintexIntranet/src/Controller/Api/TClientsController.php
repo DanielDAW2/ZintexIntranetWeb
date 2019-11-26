@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TClientsController extends AbstractController {
 
     /**
-     * @Route("/get_metode_pag", name="t_clients_get_metode_pag")
+     * @Route("/get_metode_pag", name="t_clients_get_fraprof")
      */
     public function getMetodePag(TClientsRepository $repo, Request $req) : JsonResponse {
         
@@ -22,7 +22,7 @@ class TClientsController extends AbstractController {
 
         
 
-        return new JsonResponse(["metode"=>$client->getMetPag()->getIdMetode(),"metodeDesc"=>$client->getMetPag()->getDescripcio()],200);
+        return new JsonResponse(["metode"=>$client->getMetPag()->getIdMetode(),"metodeDesc"=>$client->getMetPag()->getDescripcio(), "iva"=>$client->getTipusIva(),"persona"=>$client->getTractCli()->getTractament()." ".$client->getNomfraCli()." ".$client->getCognomfraCli()],200);
 
     }
 }
