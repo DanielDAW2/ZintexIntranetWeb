@@ -45,7 +45,7 @@ class TFraproformaPlazos
     private $numFraproforma;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tproductes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tproductes", cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="Id_Prod", name="CodProd_FraProf_Plazo")
      */
     private $codprodFraprofPlazo;

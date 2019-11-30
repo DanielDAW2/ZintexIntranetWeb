@@ -8,6 +8,8 @@ use App\Entity\TFraproformaPlazos;
 use App\Entity\TFraproformaVto;
 use App\Form\TFraproformaType;
 use App\Repository\TObservProformaRepository;
+use App\Repository\TProductesProvRepository;
+use App\Repository\TProductesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,18 +46,21 @@ class TFraproformaController extends AbstractController
     /**
      * @Route("/new", name="t_fraproforma_new", methods={"GET","POST"})
      */
-    public function new(Request $request, TObservProformaRepository $obv): Response
+    public function new(Request $request, TObservProformaRepository $obv, TProductesRepository $producte): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
         $tFraproforma = new TFraproforma();
         $tFraproforma->addTFraproformaAux(new TFraproformaAux());
         $tFraproforma->addTFraproformaVto(new TFraproformaVto());
-        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
         $tFraproforma->setObservFraprof($obv->find(1)->getObservProforma());
-        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
-        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
-        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
-        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos());
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(241)));
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(240)));
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(239)));
+        $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(296)));
+        $entityManager->persist($tFraproforma);
+        $entityManager->flush();
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

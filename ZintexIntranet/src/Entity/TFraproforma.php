@@ -273,12 +273,12 @@ class TFraproforma
     private $numAutorProforma;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaPlazos", mappedBy="numFraproforma")
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaPlazos", mappedBy="numFraproforma", cascade={"persist"})
      */
     private $tFraproformaPlazos;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaVto", mappedBy="numProforma")
+     * @ORM\OneToMany(targetEntity="App\Entity\TFraproformaVto", mappedBy="numProforma", cascade={"persist"})
      */
     private $tFraproformaVtos;
 

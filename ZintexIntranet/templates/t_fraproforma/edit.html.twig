@@ -15,12 +15,16 @@
             </div>
         </div>
         <div class="table-data__tool-right">
-            {{ include('t_fraproforma/_delete_form.html.twig') }}
+            <a href="#" class="btn btn-warning">Emitir Orden de trabajo</a>
+            <a href="#" class="btn btn-success">Emitir Albarán</a>
+            
         </div>
     </div>
     
     
     {{ include('t_fraproforma/_form.html.twig', {'button_label': 'Guardar'}) }}
+
+    {{ include('t_fraproforma/_delete_form.html.twig') }}
 
     
 {% endblock %}

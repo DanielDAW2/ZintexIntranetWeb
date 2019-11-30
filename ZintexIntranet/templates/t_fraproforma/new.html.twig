@@ -89,6 +89,7 @@
                 data: 
                 {
                     client: e.target.value,
+                    FraProf: {{t_fraproforma.idFraProf}}
                 },
                 
                 complete: function(e){
@@ -100,6 +101,7 @@
                     $("#t_fraproforma_metpagAux").val(response.metodeDesc);
                     $("#t_fraproforma_personaFraprof").val(response.persona);
                     $("#t_fraproforma_ivaVar").val(response.iva);
+                    $("#t_fraproforma_numFraprof").val(response.numProf)
                     setFraProformaVto(response.metode)
                 }
             }
