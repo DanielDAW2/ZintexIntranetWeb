@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TAlbara index{% endblock %}
+
+{% block body %}
+    <h1>TAlbara index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAlbara</th>
+                <th>DescripClientAlbara</th>
+                <th>NomClientAlbara</th>
+                <th>DireccioClientAlbara</th>
+                <th>NumAlbara</th>
+                <th>DataAlbara</th>
+                <th>DataSortidaAlbara</th>
+                <th>NrefAlbara</th>
+                <th>SrefAlbara</th>
+                <th>FacturableAlbara</th>
+                <th>NumfraproformaAlbara</th>
+                <th>NumfacturaAlbara</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_albara in t_albaras %}
+            <tr>
+                <td>{{ t_albara.idAlbara }}</td>
+                <td>{{ t_albara.descripClientAlbara }}</td>
+                <td>{{ t_albara.nomClientAlbara }}</td>
+                <td>{{ t_albara.direccioClientAlbara }}</td>
+                <td>{{ t_albara.numAlbara }}</td>
+                <td>{{ t_albara.dataAlbara ? t_albara.dataAlbara|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_albara.dataSortidaAlbara ? t_albara.dataSortidaAlbara|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_albara.nrefAlbara }}</td>
+                <td>{{ t_albara.srefAlbara }}</td>
+                <td>{{ t_albara.facturableAlbara }}</td>
+                <td>{{ t_albara.numfraproformaAlbara }}</td>
+                <td>{{ t_albara.numfacturaAlbara }}</td>
+                <td>
+                    <a href="{{ path('t_albara_show', {'idAlbara': t_albara.idAlbara}) }}">show</a>
+                    <a href="{{ path('t_albara_edit', {'idAlbara': t_albara.idAlbara}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_albara_new') }}">Create new</a>
+{% endblock %}

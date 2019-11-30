@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TGrupProducte index{% endblock %}
+
+{% block body %}
+    <h1>TGrupProducte index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdGrupproducte</th>
+                <th>NumGrupProducte</th>
+                <th>DescripGrupProducte</th>
+                <th>AdmetMarcatge</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_grup_producte in t_grup_productes %}
+            <tr>
+                <td>{{ t_grup_producte.idGrupproducte }}</td>
+                <td>{{ t_grup_producte.numGrupProducte }}</td>
+                <td>{{ t_grup_producte.descripGrupProducte }}</td>
+                <td>{{ t_grup_producte.admetMarcatge ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('t_grup_producte_show', {'idGrupproducte': t_grup_producte.idGrupproducte}) }}">show</a>
+                    <a href="{{ path('t_grup_producte_edit', {'idGrupproducte': t_grup_producte.idGrupproducte}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_grup_producte_new') }}">Create new</a>
+{% endblock %}

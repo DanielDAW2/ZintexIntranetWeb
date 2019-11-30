@@ -15,8 +15,10 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Event\PreSubmitEvent;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\FormEvents;
 
 class TFraproformaType extends AbstractType
 {
@@ -126,10 +128,10 @@ class TFraproformaType extends AbstractType
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
     }
-    public function onPreSubmit(FormEvent $event)
+    public function onPreSubmit(PreSubmitEvent  $event)
         {
             $data = $event->getData();
-            $data['genusScientists'] = array_values($data['genusScientists']);
+            $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
             $event->setData($data);
         }
 

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TProveidors{% endblock %}
+
+{% block body %}
+    <h1>Edit TProveidors</h1>
+
+    {{ include('t_proveidors/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('t_proveidors_index') }}">back to list</a>
+
+    {{ include('t_proveidors/_delete_form.html.twig') }}
+{% endblock %}

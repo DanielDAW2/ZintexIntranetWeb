@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TOrdreTreball{% endblock %}
+
+{% block body %}
+    <h1>TOrdreTreball</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdOrdre</th>
+                <td>{{ t_ordre_treball.idOrdre }}</td>
+            </tr>
+            <tr>
+                <th>NomClient</th>
+                <td>{{ t_ordre_treball.nomClient }}</td>
+            </tr>
+            <tr>
+                <th>NumSubordre</th>
+                <td>{{ t_ordre_treball.numSubordre }}</td>
+            </tr>
+            <tr>
+                <th>Campanya</th>
+                <td>{{ t_ordre_treball.campanya }}</td>
+            </tr>
+            <tr>
+                <th>DescripOrdreTreball</th>
+                <td>{{ t_ordre_treball.descripOrdreTreball }}</td>
+            </tr>
+            <tr>
+                <th>Proveidor</th>
+                <td>{{ t_ordre_treball.proveidor }}</td>
+            </tr>
+            <tr>
+                <th>EntregaDisseny</th>
+                <td>{{ t_ordre_treball.entregaDisseny ? t_ordre_treball.entregaDisseny|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>SortidaCalandra</th>
+                <td>{{ t_ordre_treball.sortidaCalandra ? t_ordre_treball.sortidaCalandra|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>SortidaImpressio</th>
+                <td>{{ t_ordre_treball.sortidaImpressio ? t_ordre_treball.sortidaImpressio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>SortidaProduccio</th>
+                <td>{{ t_ordre_treball.sortidaProduccio ? t_ordre_treball.sortidaProduccio|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>EntregaClient</th>
+                <td>{{ t_ordre_treball.entregaClient ? t_ordre_treball.entregaClient|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dissenyador</th>
+                <td>{{ t_ordre_treball.dissenyador }}</td>
+            </tr>
+            <tr>
+                <th>PostaMarxa</th>
+                <td>{{ t_ordre_treball.postaMarxa }}</td>
+            </tr>
+            <tr>
+                <th>Calandra</th>
+                <td>{{ t_ordre_treball.calandra }}</td>
+            </tr>
+            <tr>
+                <th>Anonim</th>
+                <td>{{ t_ordre_treball.anonim ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Adre�aEntrega</th>
+                <td>{{ t_ordre_treball.adre�aEntrega ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>RecullClient</th>
+                <td>{{ t_ordre_treball.recullClient ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>PortsDeguts</th>
+                <td>{{ t_ordre_treball.portsDeguts ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ServeiUrgent830</th>
+                <td>{{ t_ordre_treball.serveiUrgent830 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ServeiUrgent10</th>
+                <td>{{ t_ordre_treball.serveiUrgent10 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ServeiUrgent12</th>
+                <td>{{ t_ordre_treball.serveiUrgent12 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ServeiUrgent14</th>
+                <td>{{ t_ordre_treball.serveiUrgent14 ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ObservacionsDisseny</th>
+                <td>{{ t_ordre_treball.observacionsDisseny }}</td>
+            </tr>
+            <tr>
+                <th>ObservacionsProduccio</th>
+                <td>{{ t_ordre_treball.observacionsProduccio }}</td>
+            </tr>
+            <tr>
+                <th>Persona</th>
+                <td>{{ t_ordre_treball.persona }}</td>
+            </tr>
+            <tr>
+                <th>ResumUnitats</th>
+                <td>{{ t_ordre_treball.resumUnitats }}</td>
+            </tr>
+            <tr>
+                <th>ResumProductes</th>
+                <td>{{ t_ordre_treball.resumProductes }}</td>
+            </tr>
+            <tr>
+                <th>Unitats</th>
+                <td>{{ t_ordre_treball.unitats }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_ordre_treball_index') }}">back to list</a>
+
+    <a href="{{ path('t_ordre_treball_edit', {'idOrdre': t_ordre_treball.idOrdre}) }}">edit</a>
+
+    {{ include('t_ordre_treball/_delete_form.html.twig') }}
+{% endblock %}

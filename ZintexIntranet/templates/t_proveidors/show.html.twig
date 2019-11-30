@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TProveidors{% endblock %}
+
+{% block body %}
+    <h1>TProveidors</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdProv</th>
+                <td>{{ t_proveidor.idProv }}</td>
+            </tr>
+            <tr>
+                <th>CodiProv</th>
+                <td>{{ t_proveidor.codiProv }}</td>
+            </tr>
+            <tr>
+                <th>NifProv</th>
+                <td>{{ t_proveidor.nifProv }}</td>
+            </tr>
+            <tr>
+                <th>Proveidor</th>
+                <td>{{ t_proveidor.proveidor }}</td>
+            </tr>
+            <tr>
+                <th>ProveidorCom</th>
+                <td>{{ t_proveidor.proveidorCom }}</td>
+            </tr>
+            <tr>
+                <th>NomProv</th>
+                <td>{{ t_proveidor.nomProv }}</td>
+            </tr>
+            <tr>
+                <th>CognomProv</th>
+                <td>{{ t_proveidor.cognomProv }}</td>
+            </tr>
+            <tr>
+                <th>CarrecProv</th>
+                <td>{{ t_proveidor.carrecProv }}</td>
+            </tr>
+            <tr>
+                <th>DirProv</th>
+                <td>{{ t_proveidor.dirProv }}</td>
+            </tr>
+            <tr>
+                <th>CodpProv</th>
+                <td>{{ t_proveidor.codpProv }}</td>
+            </tr>
+            <tr>
+                <th>PobProv</th>
+                <td>{{ t_proveidor.pobProv }}</td>
+            </tr>
+            <tr>
+                <th>TelProv</th>
+                <td>{{ t_proveidor.telProv }}</td>
+            </tr>
+            <tr>
+                <th>FaxProv</th>
+                <td>{{ t_proveidor.faxProv }}</td>
+            </tr>
+            <tr>
+                <th>MobProv</th>
+                <td>{{ t_proveidor.mobProv }}</td>
+            </tr>
+            <tr>
+                <th>EmailProv</th>
+                <td>{{ t_proveidor.emailProv }}</td>
+            </tr>
+            <tr>
+                <th>WebProv</th>
+                <td>{{ t_proveidor.webProv }}</td>
+            </tr>
+            <tr>
+                <th>DiaPag</th>
+                <td>{{ t_proveidor.diaPag }}</td>
+            </tr>
+            <tr>
+                <th>CcProv</th>
+                <td>{{ t_proveidor.ccProv }}</td>
+            </tr>
+            <tr>
+                <th>ObservacionsProv</th>
+                <td>{{ t_proveidor.observacionsProv }}</td>
+            </tr>
+            <tr>
+                <th>ActivitatProv</th>
+                <td>{{ t_proveidor.activitatProv }}</td>
+            </tr>
+            <tr>
+                <th>Mailing</th>
+                <td>{{ t_proveidor.mailing ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ t_proveidor.stock ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_proveidors_index') }}">back to list</a>
+
+    <a href="{{ path('t_proveidors_edit', {'idProv': t_proveidor.idProv}) }}">edit</a>
+
+    {{ include('t_proveidors/_delete_form.html.twig') }}
+{% endblock %}

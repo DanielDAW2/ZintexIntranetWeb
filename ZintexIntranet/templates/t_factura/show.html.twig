@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFactura{% endblock %}
+
+{% block body %}
+    <h1>TFactura</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id_Factura</th>
+                <td>{{ t_factura.IdFactura }}</td>
+            </tr>
+            <tr>
+                <th>Data_factura</th>
+                <td>{{ t_factura.DataFactura ? t_factura.DataFactura|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Data_Vto_Factura</th>
+                <td>{{ t_factura.DataVtoFactura ? t_factura.DataVtoFactura|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Num_Factura</th>
+                <td>{{ t_factura.NumFactura }}</td>
+            </tr>
+            <tr>
+                <th>NRef</th>
+                <td>{{ t_factura.NRef }}</td>
+            </tr>
+            <tr>
+                <th>SRef</th>
+                <td>{{ t_factura.SRef }}</td>
+            </tr>
+            <tr>
+                <th>Ref_Proforma</th>
+                <td>{{ t_factura.RefProforma }}</td>
+            </tr>
+            <tr>
+                <th>Ref_Albara</th>
+                <td>{{ t_factura.RefAlbara }}</td>
+            </tr>
+            <tr>
+                <th>Ref_Presup</th>
+                <td>{{ t_factura.RefPresup }}</td>
+            </tr>
+            <tr>
+                <th>Base_Imp</th>
+                <td>{{ t_factura.BaseImp }}</td>
+            </tr>
+            <tr>
+                <th>IVA_VAR</th>
+                <td>{{ t_factura.IVAVAR }}</td>
+            </tr>
+            <tr>
+                <th>IVA</th>
+                <td>{{ t_factura.IVA }}</td>
+            </tr>
+            <tr>
+                <th>REQ_VAR</th>
+                <td>{{ t_factura.REQVAR }}</td>
+            </tr>
+            <tr>
+                <th>REQ</th>
+                <td>{{ t_factura.REQ }}</td>
+            </tr>
+            <tr>
+                <th>Total_Fra</th>
+                <td>{{ t_factura.TotalFra }}</td>
+            </tr>
+            <tr>
+                <th>Import_Pendent</th>
+                <td>{{ t_factura.ImportPendent }}</td>
+            </tr>
+            <tr>
+                <th>Import_Pagat</th>
+                <td>{{ t_factura.ImportPagat }}</td>
+            </tr>
+            <tr>
+                <th>MetPag_Aux</th>
+                <td>{{ t_factura.MetPagAux }}</td>
+            </tr>
+            <tr>
+                <th>Ultim_Pagament</th>
+                <td>{{ t_factura.UltimPagament ? t_factura.UltimPagament|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_factura_index') }}">back to list</a>
+
+    <a href="{{ path('t_factura_edit', {'Id_Factura': t_factura.Id_Factura}) }}">edit</a>
+
+    {{ include('t_factura/_delete_form.html.twig') }}
+{% endblock %}

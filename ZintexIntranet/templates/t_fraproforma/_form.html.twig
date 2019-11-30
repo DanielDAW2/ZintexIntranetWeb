@@ -1,4 +1,37 @@
-{{ form_start(form) }}
+{% import _self as formMacros %}
+
+{% macro printTfraProformaAuxForm(tFraproformaAux) %}
+  <div class="TFraProformaAuxItem">
+  {{ form_errors(tFraproformaAux) }}
+    <div class="form-row">
+      <div class="form-group col">
+        {{form_widget(tFraproformaAux.numLinia)}}
+      </div>
+      <div class="form-group col-md-4">
+        {{form_widget(tFraproformaAux.codprodProforma)}}
+      </div>
+      <div class="form-group col-md-4">
+        {{form_widget(tFraproformaAux.descripprodProforma)}}
+      </div>
+      <div class="form-group col">
+        {{form_widget(tFraproformaAux.numunitProforma)}}
+      </div>
+      <div class="form-group col">
+        {{form_widget(tFraproformaAux.preuunitProforma)}}
+      </div>
+      <div class="form-group col">
+        {{form_widget(tFraproformaAux.preuProforma)}}
+      </div>
+      <div class="col">
+              <a href="#" class="removeTFraProformaAux pull-right">
+                  <span class="fa fa-close"></span>
+              </a>
+          </div>
+    </div>
+  </div>
+
+
+{% endmacro %}{{ form_start(form) }}
 <div class="row">
     <div class="col">
         <h1 class="title-1">Datos Cliente</h1>
@@ -55,11 +88,10 @@
 </div>
 
 <h3 class="title-2 mb-3">Conceptos</h3>
-    <div class="col" id="TFraProformaAuxWrapper" data-prototype="{{ form_widget(form.tFraproformaAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaAuxes|length }}">
+    <div class="col" id="TFraProformaAuxWrapper" data-prototype="{{ formMacros.printTfraProformaAuxForm(form.tFraproformaAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaAuxes|length }}">
         {% for tFraproformaAux in form.tFraproformaAuxes %}
-            {{ form_errors(tFraproformaAux) }}
-            {{ include('t_fraproforma_aux/_form.html.twig') }}
-            {# <li>{{ form_row(tFraproformaAux) }}</li> #} 
+            
+            {{ formMacros.printTfraProformaAuxForm(tFraproformaAux) }}
         {% endfor %}
     <button type="button"
         id="add-FraProfAux"
