@@ -8,49 +8,35 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id_Factura</th>
-                <th>Data_factura</th>
-                <th>Data_Vto_Factura</th>
                 <th>Num_Factura</th>
+                <th>Data_factura</th>
                 <th>NRef</th>
                 <th>SRef</th>
-                <th>Ref_Proforma</th>
-                <th>Ref_Albara</th>
-                <th>Ref_Presup</th>
                 <th>Base_Imp</th>
-                <th>IVA_VAR</th>
                 <th>IVA</th>
-                <th>REQ_VAR</th>
                 <th>REQ</th>
                 <th>Total_Fra</th>
                 <th>Import_Pendent</th>
                 <th>Import_Pagat</th>
-                <th>MetPag_Aux</th>
-                <th>Ultim_Pagament</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for t_factura in t_facturas %}
             <tr>
-                <td>{{ t_factura.IdFactura }}</td>
-                <td>{{ t_factura.DataFactura ? t_factura.DataFactura|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_factura.DataVtoFactura ? t_factura.DataVtoFactura|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ t_factura.NumFactura }}</td>
+                <td>{{ t_factura.DataFactura ? t_factura.DataFactura|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ t_factura.NRef }}</td>
                 <td>{{ t_factura.SRef }}</td>
                 <td>{{ t_factura.RefProforma }}</td>
                 <td>{{ t_factura.RefAlbara }}</td>
                 <td>{{ t_factura.RefPresup }}</td>
                 <td>{{ t_factura.BaseImp }}</td>
-                <td>{{ t_factura.IVAVAR }}</td>
                 <td>{{ t_factura.IVA }}</td>
-                <td>{{ t_factura.REQVAR }}</td>
                 <td>{{ t_factura.REQ }}</td>
                 <td>{{ t_factura.TotalFra }}</td>
                 <td>{{ t_factura.ImportPendent }}</td>
                 <td>{{ t_factura.ImportPagat }}</td>
-                <td>{{ t_factura.MetPagAux }}</td>
                 <td>{{ t_factura.UltimPagament ? t_factura.UltimPagament|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('t_factura_show', {'Id_Factura': t_factura.Id_Factura}) }}">show</a>
