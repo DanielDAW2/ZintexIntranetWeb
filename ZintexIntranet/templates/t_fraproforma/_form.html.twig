@@ -63,14 +63,14 @@
     {% endfor %}
         </ul>
 <h3 class="title-2 mb-3">Conceptos</h3>
-<ul id="FraProformaAux-fields-list" 
-        data-prototype='{{ include("t_fraproforma_aux/_form_proto.html.twig")|e }}'
-        data-widget-tags="{{ '<li data-type="AUX"></li>'|e }}"
-        data-widget-counter="{{ form.tFraproformaAuxes|length }}">
-    {% for tFraproformaAux in form.tFraproformaAuxes %}
-           <li data-type="AUX">{{ include('t_fraproforma_aux/_form.html.twig') }}</li>
-           {# <li>{{ form_row(tFraproformaAux) }}</li> #} 
-    {% endfor %}
+    <div class="row" id="TFraProformaAuxWrapper">
+        {% for tFraproformaAux in form.tFraproformaAuxes %}
+            {{ form_errors(tFraproformaAux) }}
+            {{ include('t_fraproforma_aux/_form.html.twig') }}
+            {# <li>{{ form_row(tFraproformaAux) }}</li> #} 
+        {% endfor %}
+    </div>
+    
         </ul>
         <button type="button"
         id="add-FraProfAux"
