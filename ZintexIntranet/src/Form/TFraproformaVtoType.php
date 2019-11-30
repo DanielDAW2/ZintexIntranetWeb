@@ -18,30 +18,37 @@ class TFraproformaVtoType extends AbstractType
     {
         $builder
             ->add('concepteVto', TextType::class, [
-                "label"=>"Concepte"
+                "label"=>"Concepte",
+                "required"=>false
             ])
             ->add('instpagAux', TextType::class, [
-                "label"=>"Descripcio"
+                "label"=>"Descripcio",
+                "required"=>false
             ])
             ->add('importVto', NumberType::class, [
-                "label"=>"Import Vto"
+                "label"=>"Import Vto",
+                "required"=>false
             ])
             ->add('datapagVto', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
+                "required"=>false,
                 "label"=>"Fecha Vencimiento"]
             )
             ->add('importpagVto', NumberType::class, [
-                "label"=>"Import Pagat"
+                "label"=>"Import Pagat",
+                "required"=>false
             ])
             ->add('okbancVto', DateType::class,[
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
+                "required"=>false,
                 "label"=>"Fecha OK Banco"])
             ->add('instpag', EntityType::class, [
                 "class"=>TInstrumentPag::class,
                 "choice_label"=>"nomInstPag",
-                "label"=>"Forma de Pago"
+                "label"=>"Forma de Pago",
+                "required"=>false
             ])
         ;
     }

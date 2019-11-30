@@ -53,29 +53,22 @@
         </div>
     </div>
 </div>
-<h3 class="title-2 mb-3">Terminis d'entrega</h3>
-<ul id="FraProformaPlazos-fields-list" 
-        data-prototype='{{ include("t_fraproforma_plazos/_form.html.twig")|e }}'
-        data-widget-tags="{{ '<li data-type="PLZ"></li>'|e }}"
-        data-widget-counter="{{ form.tFraproformaPlazos|length }}">
-    {% for tFraproformaPlazo in form.tFraproformaPlazos %}
-           <li data-type="PLZ">{{ include('t_fraproforma_plazos/_form.html.twig') }}</li>
-    {% endfor %}
-        </ul>
+
 <h3 class="title-2 mb-3">Conceptos</h3>
-    <div class="row" id="TFraProformaAuxWrapper">
+    <div class="col" id="TFraProformaAuxWrapper" data-prototype="{{ form_widget(form.tFraproformaAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaAuxes|length }}">
         {% for tFraproformaAux in form.tFraproformaAuxes %}
             {{ form_errors(tFraproformaAux) }}
             {{ include('t_fraproforma_aux/_form.html.twig') }}
             {# <li>{{ form_row(tFraproformaAux) }}</li> #} 
         {% endfor %}
-    </div>
-    
-        </ul>
-        <button type="button"
+    <button type="button"
         id="add-FraProfAux"
         class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaAux-fields-list">Afegir Concepte</button>
+    </div>
+    
+        </ul>
+        
         
         <div class="row">
         <div class="col">{{form_row(form.metodePag)}}</div>
