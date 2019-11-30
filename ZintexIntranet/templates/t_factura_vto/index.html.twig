@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFacturaVto index{% endblock %}
+
+{% block body %}
+    <h1>TFacturaVto index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdFacturaVto</th>
+                <th>DataVto</th>
+                <th>ConcepteVto</th>
+                <th>InstpagAux</th>
+                <th>ImportVto</th>
+                <th>DatapagVto</th>
+                <th>ImportpagVto</th>
+                <th>OkbancVto</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_factura_vto in t_factura_vtos %}
+            <tr>
+                <td>{{ t_factura_vto.idFacturaVto }}</td>
+                <td>{{ t_factura_vto.dataVto ? t_factura_vto.dataVto|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_factura_vto.concepteVto }}</td>
+                <td>{{ t_factura_vto.instpagAux }}</td>
+                <td>{{ t_factura_vto.importVto }}</td>
+                <td>{{ t_factura_vto.datapagVto ? t_factura_vto.datapagVto|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_factura_vto.importpagVto }}</td>
+                <td>{{ t_factura_vto.okbancVto ? t_factura_vto.okbancVto|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('t_factura_vto_show', {'idFacturaVto': t_factura_vto.idFacturaVto}) }}">show</a>
+                    <a href="{{ path('t_factura_vto_edit', {'idFacturaVto': t_factura_vto.idFacturaVto}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_factura_vto_new') }}">Create new</a>
+{% endblock %}

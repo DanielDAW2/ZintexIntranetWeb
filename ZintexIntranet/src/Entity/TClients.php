@@ -499,7 +499,7 @@ class TClients
     private $TAlbara;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="tClients")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="TClients")
      * @ORM\JoinColumn(referencedColumnName="Id_Pais", name="PaisFra_Cli")
      */
     private $paisfraCli;
@@ -511,7 +511,7 @@ class TClients
     private $tractentCli;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="TClient")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TPaisos", inversedBy="TClients")
      * @ORM\JoinColumn(referencedColumnName="Id_Pais", name="PaisEnt_Cli")
      */
     private $paisentCli;
