@@ -86,7 +86,7 @@ class TFactura
     private $REQ_VAR;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", name="REQ", nullable=true)
      */
     private $REQ;
 
