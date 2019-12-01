@@ -18,7 +18,7 @@ class TClients
      * @var int
      *
      * @ORM\Column(name="Id_Cli", type="integer", nullable=false)
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idCli;
