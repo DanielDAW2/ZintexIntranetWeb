@@ -92,6 +92,7 @@ class TFactura
 
     /**
      * @ORM\Column(type="float", nullable=true)
+    
      */
     private $Total_Fra;
 
