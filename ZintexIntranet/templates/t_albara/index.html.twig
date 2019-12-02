@@ -8,36 +8,22 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdAlbara</th>
-                <th>DescripClientAlbara</th>
-                <th>NomClientAlbara</th>
-                <th>DireccioClientAlbara</th>
-                <th>NumAlbara</th>
-                <th>DataAlbara</th>
-                <th>DataSortidaAlbara</th>
-                <th>NrefAlbara</th>
-                <th>SrefAlbara</th>
-                <th>FacturableAlbara</th>
-                <th>NumfraproformaAlbara</th>
-                <th>NumfacturaAlbara</th>
-                <th>actions</th>
+                <th>Cliente</th>
+                <th>Albarán</th>
+                <th>Fecha Albaran</th>
+                <th>Fecha Salida</th>
+                <th>Facturable</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
         {% for t_albara in t_albaras %}
             <tr>
-                <td>{{ t_albara.idAlbara }}</td>
-                <td>{{ t_albara.descripClientAlbara }}</td>
                 <td>{{ t_albara.nomClientAlbara }}</td>
-                <td>{{ t_albara.direccioClientAlbara }}</td>
                 <td>{{ t_albara.numAlbara }}</td>
-                <td>{{ t_albara.dataAlbara ? t_albara.dataAlbara|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_albara.dataSortidaAlbara ? t_albara.dataSortidaAlbara|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_albara.nrefAlbara }}</td>
-                <td>{{ t_albara.srefAlbara }}</td>
+                <td>{{ t_albara.dataAlbara ? t_albara.dataAlbara|date('Y-m-d') : '' }}</td>
+                <td>{{ t_albara.dataSortidaAlbara ? t_albara.dataSortidaAlbara|date('Y-m-d') : '' }}</td>
                 <td>{{ t_albara.facturableAlbara }}</td>
-                <td>{{ t_albara.numfraproformaAlbara }}</td>
-                <td>{{ t_albara.numfacturaAlbara }}</td>
                 <td>
                     <a href="{{ path('t_albara_show', {'idAlbara': t_albara.idAlbara}) }}">show</a>
                     <a href="{{ path('t_albara_edit', {'idAlbara': t_albara.idAlbara}) }}">edit</a>
