@@ -16,8 +16,10 @@
 
         </div>
         <div class="table-data__tool-right">
+            <a href="{{ path('t_fraproforma_download') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                <i class="zmdi zmdi-plus"></i>Exportar a PDF</a>
             <a href="{{ path('t_fraproforma_new') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
-            <i class="zmdi zmdi-plus"></i>Crear Proforma</a><a ></a>
+            <i class="zmdi zmdi-plus"></i>Crear Proforma</a>
         </div>
     </div>
     {% if maxPages > 1 %}

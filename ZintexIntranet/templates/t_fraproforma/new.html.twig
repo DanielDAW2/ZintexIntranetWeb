@@ -11,7 +11,7 @@
 
     {{ include('t_fraproforma/_form.html.twig') }}
 
-    <a href="{{ path('t_fraproforma_index') }}">back to list</a>
+    <a href="{{ path('t_fraproforma_index') }}">Volver a la lista</a>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -104,6 +104,13 @@
         )
     })
 
+    $(".unitProf").keyup(function(e){
+        $preuUnit = $(this).closest(".preuUnit").val()
+        $(this).closest(".totalProf").val(e.target.value * $preuUnit)
+        console.log($(this).closest(".totalProf").val())
+
+    })
+
     function setFraProformaVto(metode)
     {
         switch(metode){
@@ -115,8 +122,5 @@
             break;
         }
     }
-
-
-});
     </script>
 {% endblock %}

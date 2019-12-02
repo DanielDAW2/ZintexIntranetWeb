@@ -8,12 +8,13 @@ use App\Entity\TFraproformaPlazos;
 use App\Entity\TFraproformaVto;
 use App\Form\TFraproformaType;
 use App\Repository\TObservProformaRepository;
-use App\Repository\TProductesProvRepository;
 use App\Repository\TProductesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /**
  * @Route("/t/fraproforma")
@@ -57,8 +58,6 @@ class TFraproformaController extends AbstractController
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(240)));
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(239)));
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(296)));
-        $entityManager->persist($tFraproforma);
-        $entityManager->flush();
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
 
         $form->handleRequest($request);
@@ -127,6 +126,50 @@ class TFraproformaController extends AbstractController
         }
 
         return $this->redirectToRoute('t_fraproforma_index');
+    }
+
+    /**
+     * @Route("/download/pdf", name="t_fraproforma_download")
+     */
+    public function download(Request $req)
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+        
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        $tFraproformasQuery = $this->getDoctrine()
+            ->getRepository(TFraproforma::class)
+            ->getFraProformasPaginated($req->get("page") ? $req->get("page"): 1, $this->limitResults);
+            $tFraproformas = $tFraproformasQuery['paginator'];
+            $inmueblesQueryCompleta =  $tFraproformasQuery['query'];
+          
+            $maxPages = ceil($tFraproformasQuery['paginator']->count() / $this->limitResults);
+                    
+        
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('t_fraproforma/index.html.twig', array(
+            't_fraproformas' => $tFraproformas,
+            'maxPages'=>$maxPages,
+            'thisPage' => $req->get("page"),
+            'all_items' => $inmueblesQueryCompleta
+        ) );
+        
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+        
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("proformas.pdf", [
+            "Attachment" => true
+        ]);
     }
 
 }
