@@ -3,37 +3,42 @@
 {% block title %}TFacturaVto index{% endblock %}
 
 {% block body %}
-    <h1>TFacturaVto index</h1>
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--md">    
+                <h1 class="title-1">Vencimientos de Facturas</h1>
+
+            </div>
+
+        </div>
+        <div class="table-data__tool-right">
+            <a href="{{ path('t_fraproforma_index') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+            <i class="zmdi zmdi-plus"></i>Filtrar</a><a ></a>
+        </div>
+    </div>
 
     <table class="table">
         <thead>
             <tr>
-                <th>IdFacturaVto</th>
-                <th>DataVto</th>
-                <th>ConcepteVto</th>
-                <th>InstpagAux</th>
-                <th>ImportVto</th>
-                <th>DatapagVto</th>
-                <th>ImportpagVto</th>
-                <th>OkbancVto</th>
-                <th>actions</th>
+                <th>Factura</th>
+                <th>Fecha Vencimiento</th>
+                <th>Concepto</th>
+                <th>Importe</th>
+                <th>Fecha Pago</th>
+                <th>Importe Pagado</th>
+                <th>Fecha OK Banco</th>
             </tr>
         </thead>
         <tbody>
         {% for t_factura_vto in t_factura_vtos %}
             <tr>
-                <td>{{ t_factura_vto.idFacturaVto }}</td>
-                <td>{{ t_factura_vto.dataVto ? t_factura_vto.dataVto|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{% if t_factura_vto.getNumFactura %} <a href="{{path("t_factura_edit",{"Id_Factura":t_factura_vto.getNumFactura.idFactura})}}">{{t_factura_vto.getNumFactura.getNumFactura}}</a> {% else %} Factura Borrada {% endif %}</td>
+                <td>{{ t_factura_vto.dataVto ? t_factura_vto.dataVto|date('Y-m-d') : '' }}</td>
                 <td>{{ t_factura_vto.concepteVto }}</td>
-                <td>{{ t_factura_vto.instpagAux }}</td>
                 <td>{{ t_factura_vto.importVto }}</td>
-                <td>{{ t_factura_vto.datapagVto ? t_factura_vto.datapagVto|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_factura_vto.datapagVto ? t_factura_vto.datapagVto|date('Y-m-d') : '' }}</td>
                 <td>{{ t_factura_vto.importpagVto }}</td>
-                <td>{{ t_factura_vto.okbancVto ? t_factura_vto.okbancVto|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('t_factura_vto_show', {'idFacturaVto': t_factura_vto.idFacturaVto}) }}">show</a>
-                    <a href="{{ path('t_factura_vto_edit', {'idFacturaVto': t_factura_vto.idFacturaVto}) }}">edit</a>
-                </td>
+                <td>{{ t_factura_vto.okbancVto ? t_factura_vto.okbancVto|date('Y-m-d') : '' }}</td>
             </tr>
         {% else %}
             <tr>

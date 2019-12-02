@@ -80,7 +80,8 @@
             <tr>
             <td class="w-auto" scope="row"><a href="{{ path("t_fraproforma_edit",{"idFraprof":t_fraproforma.IdFraProf }) }}"> {{ t_fraproforma.numFraprof }}</a></td>
                 <td >{{ t_fraproforma.dataFraprof ? t_fraproforma.dataFraprof|date('Y-m-d') : '' }}</td>
-                {% if (t_fraproforma.clientFraprof is null or t_fraproforma.clientFraprof.IdCli == 0) %}
+                {% if (t_fraproforma
+                .clientFraprof is null or t_fraproforma.clientFraprof.IdCli == 0) %}
                 <td>Sin Cliente</td>
                 {% else %}
                 <td><a href="{{ path("t_clients_edit",{"idCli": t_fraproforma.clientFraprof.IdCli}) }}"> {{ t_fraproforma.clientFraprof.client }}</a></td>

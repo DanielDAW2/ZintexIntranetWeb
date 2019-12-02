@@ -116,6 +116,8 @@ class TAlbara
     public function __construct()
     {
         $this->tAlbaraAuxes = new ArrayCollection();
+        $this->setDataAlbara(new \Datetime());
+        $this->setDataSortidaAlbara(new \DateTime());
     }
 
     public function getIdAlbara(): ?int

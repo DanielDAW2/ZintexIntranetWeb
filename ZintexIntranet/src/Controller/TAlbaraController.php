@@ -3,8 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\TAlbara;
+use App\Entity\TAlbaraAux;
+use App\Entity\TFraproforma;
 use App\Form\TAlbaraType;
 use App\Repository\TAlbaraRepository;
+use App\Repository\TEmpresesRepository;
+use App\Repository\TPaisosRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -90,5 +95,66 @@ class TAlbaraController extends AbstractController
         }
 
         return $this->redirectToRoute('t_albara_index');
+    }
+
+    /**
+     * @Route("/proformaToAlbara/{proforma}", name="t_albara_proforma")
+     */
+    public function proformaToAlbara(TFraproforma $proforma, TPaisosRepository $paisos, TEmpresesRepository $repoEmpreses, EntityManagerInterface $em)
+    {
+        $albara = new TAlbara();
+        $client = $proforma->getClientFraprof();
+        $albara->setNomClientAlbara($proforma->getClientFraprof()->getClient());
+        $albara->setClientAlbara($proforma->getClientFraprof());
+        $marca = $proforma->getClientFraprof()->getMarcaCli();
+        $ultimAlbara = $repoEmpreses->findOneBy(["marca"=>$marca]);
+        $ultimAlbara->setNumAlbara($ultimAlbara->getNumAlbara()+1);
+        
+        $year = new \DateTime();
+        $year = $year->format("y");
+        $codigo = $marca." ".$year."_";
+        $zeros = str_pad("0",4-count($ultimAlbara->getNumAlbara()),"0");
+
+        $numAlbara = $codigo.$zeros.$ultimAlbara->getNumAlbara();
+        $albara->setNumAlbara($numAlbara);
+        $albara->setNumfraproformaAlbara($proforma->getNumFraprof());
+        $albara->setFacturableAlbara(1);
+        $albara->setNrefAlbara($proforma->getNumFraprof());
+        $albara->setSrefAlbara($proforma->getSref());
+        $albara->setDescripClientAlbara($client->getNomfraCli());
+        if($client->getPaisfraCli()->getIdPais() == 74)
+        {
+            $pais = "";
+        }
+        else{
+            $pais = $client->getPaisfraCli()->getPais();
+        }
+        $albara->setDireccioClientAlbara($client->getDirfraCli()." ".$client->getCodpfraCli()." ".$client->getPobfraCli(). " ".$pais);
+        $proforma->setRefAlbara($albara->getNumAlbara());
+
+        foreach( $proforma->getTFraproformaAuxes() as $auxProforma)
+        {
+            $auxAlbara = new TAlbaraAux();
+            $auxAlbara->setCodprodAlbara($auxProforma->getCodprodProforma());
+            if($auxAlbara->getCodprodAlbara()->getIdProd()== 243)
+            {
+            }else{
+                $auxAlbara->setDescripprodAlbara($auxAlbara->getCodprodAlbara()->getDescripal);
+            }
+            $auxAlbara->setNumAlbara($albara);
+            $auxAlbara->setNumLinia($auxProforma->getNumLinia());
+            $auxAlbara->setPreuAlbara($auxProforma->getPreuProforma());
+            $auxAlbara->setNumunitAlbara($auxProforma->getNumunitProforma());
+            $auxAlbara->setDescripprodAlbara($auxProforma->getDescripprodProforma());
+            $auxAlbara->setPreuunitAlbara($auxProforma->getPreuunitProforma());
+            $auxAlbara->setCodparamimpAlbara($auxProforma->getCodparamimpProforma());
+            $albara->addTAlbaraAux($auxAlbara);
+        }
+        $em->persist($albara);
+        $em->persist($proforma);
+        $em->persist($ultimAlbara);
+        $em->flush();
+
+        return $this->redirectToRoute("t_alabra_edit",["idAlbara"=>$albara->getIdAlbara()]);
     }
 }

@@ -176,7 +176,7 @@ class TFacturaVto
 
     public function getNumFactura(): ?TFactura
     {
-        return $this->numFactura;
+             return $this->numFactura;
     }
 
     public function setNumFactura(?TFactura $numFactura): self
