@@ -23,11 +23,11 @@ class TFraproformaController extends AbstractController
     {
         $tFraproformasQuery = $this->getDoctrine()
             ->getRepository(TFraproforma::class)
-            ->getFraProformasPaginated($req->get("page") ? $req->get("page"): 1, $this->limitResults);
+            ->getFraProformasPaginated($req->get("page") ? $req->get("page"): 1, $this->getParameter('limit'));
             $tFraproformas = $tFraproformasQuery['paginator'];
             $inmueblesQueryCompleta =  $tFraproformasQuery['query'];
           
-            $maxPages = ceil($tFraproformasQuery['paginator']->count() / $this->limitResults);
+            $maxPages = ceil($tFraproformasQuery['paginator']->count() / $this->getParameter('limit'));
           
             return $this->render('t_fraproforma/index.html.twig', array(
                   't_fraproformas' => $tFraproformas,
