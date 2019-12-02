@@ -139,7 +139,7 @@ class TAlbaraController extends AbstractController
             if($auxAlbara->getCodprodAlbara()->getIdProd()== 243)
             {
             }else{
-                $auxAlbara->setDescripprodAlbara($auxAlbara->getCodprodAlbara()->getDescripal);
+                $auxAlbara->setDescripprodAlbara($auxAlbara->getCodprodAlbara()->getDescripal());
             }
             $auxAlbara->setNumAlbara($albara);
             $auxAlbara->setNumLinia($auxProforma->getNumLinia());
@@ -147,7 +147,7 @@ class TAlbaraController extends AbstractController
             $auxAlbara->setNumunitAlbara($auxProforma->getNumunitProforma());
             $auxAlbara->setDescripprodAlbara($auxProforma->getDescripprodProforma());
             $auxAlbara->setPreuunitAlbara($auxProforma->getPreuunitProforma());
-            $auxAlbara->setCodparamimpAlbara($auxProforma->getCodparamimpProforma());
+            $auxAlbara->setCodparamimpAlbara($auxProforma->getCodparamimpProforma()->getIdParamimp());
             $albara->addTAlbaraAux($auxAlbara);
         }
         $em->persist($albara);
@@ -155,6 +155,6 @@ class TAlbaraController extends AbstractController
         $em->persist($ultimAlbara);
         $em->flush();
 
-        return $this->redirectToRoute("t_alabra_edit",["idAlbara"=>$albara->getIdAlbara()]);
+        return $this->redirectToRoute("t_albara_edit",["idAlbara"=>$albara->getIdAlbara()]);
     }
 }
