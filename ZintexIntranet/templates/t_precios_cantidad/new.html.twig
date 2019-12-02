@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TPreciosCantidad{% endblock %}
+
+{% block body %}
+    <h1>Create new TPreciosCantidad</h1>
+
+    {{ include('t_precios_cantidad/_form.html.twig') }}
+
+    <a href="{{ path('t_precios_cantidad_index') }}">back to list</a>
+{% endblock %}

@@ -305,18 +305,32 @@
                                 <li>
                                     <a href="{{path("t_factura_index")}}">Facturas</a>
                                 </li>
+                                <li>
+                                    <a href="{{path("t_factura_vto_index")}}">Vencimientos Facturas</a>
+                                </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="chart.html">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-chart-bar"></i>Compras</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{path("t_proveidors_index")}}">Proveedores</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path("t_factura_prov_index")}}">Facturas Compras</a>
+                                </li>
+                                <li>
+                                    <a href="{{path("t_factura_prov_vto_index")}}">Vencimientos Facturas Compras</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="active">
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Productos</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="{{path("t_ordre_treball_index")}}">
                                 <i class="far fa-check-square"></i>Operaciones</a>
                         </li>
                         

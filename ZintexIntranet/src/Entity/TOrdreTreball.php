@@ -231,7 +231,7 @@ class TOrdreTreball
     private $grupProducte;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TFraProforma", inversedBy="tOrdreTreballs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TFraproforma", inversedBy="tOrdreTreballs")
      * @ORM\JoinColumn(referencedColumnName="Id_FraProf", name="Num_FraProforma")
      */
     private $numFraproforma;

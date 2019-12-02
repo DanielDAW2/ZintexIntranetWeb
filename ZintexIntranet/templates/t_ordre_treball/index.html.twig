@@ -8,68 +8,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdOrdre</th>
                 <th>NomClient</th>
-                <th>NumSubordre</th>
                 <th>Campanya</th>
-                <th>DescripOrdreTreball</th>
                 <th>Proveidor</th>
-                <th>EntregaDisseny</th>
-                <th>SortidaCalandra</th>
-                <th>SortidaImpressio</th>
-                <th>SortidaProduccio</th>
-                <th>EntregaClient</th>
-                <th>Dissenyador</th>
-                <th>PostaMarxa</th>
-                <th>Calandra</th>
-                <th>Anonim</th>
-                <th>Adre�aEntrega</th>
-                <th>RecullClient</th>
-                <th>PortsDeguts</th>
-                <th>ServeiUrgent830</th>
-                <th>ServeiUrgent10</th>
-                <th>ServeiUrgent12</th>
-                <th>ServeiUrgent14</th>
-                <th>ObservacionsDisseny</th>
-                <th>ObservacionsProduccio</th>
-                <th>Persona</th>
-                <th>ResumUnitats</th>
-                <th>ResumProductes</th>
-                <th>Unitats</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for t_ordre_treball in t_ordre_treballs %}
             <tr>
-                <td>{{ t_ordre_treball.idOrdre }}</td>
                 <td>{{ t_ordre_treball.nomClient }}</td>
-                <td>{{ t_ordre_treball.numSubordre }}</td>
                 <td>{{ t_ordre_treball.campanya }}</td>
-                <td>{{ t_ordre_treball.descripOrdreTreball }}</td>
                 <td>{{ t_ordre_treball.proveidor }}</td>
-                <td>{{ t_ordre_treball.entregaDisseny ? t_ordre_treball.entregaDisseny|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_ordre_treball.sortidaCalandra ? t_ordre_treball.sortidaCalandra|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_ordre_treball.sortidaImpressio ? t_ordre_treball.sortidaImpressio|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_ordre_treball.sortidaProduccio ? t_ordre_treball.sortidaProduccio|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_ordre_treball.entregaClient ? t_ordre_treball.entregaClient|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ t_ordre_treball.dissenyador }}</td>
-                <td>{{ t_ordre_treball.postaMarxa }}</td>
-                <td>{{ t_ordre_treball.calandra }}</td>
-                <td>{{ t_ordre_treball.anonim ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.adre�aEntrega ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.recullClient ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.portsDeguts ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.serveiUrgent830 ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.serveiUrgent10 ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.serveiUrgent12 ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.serveiUrgent14 ? 'Yes' : 'No' }}</td>
-                <td>{{ t_ordre_treball.observacionsDisseny }}</td>
-                <td>{{ t_ordre_treball.observacionsProduccio }}</td>
-                <td>{{ t_ordre_treball.persona }}</td>
-                <td>{{ t_ordre_treball.resumUnitats }}</td>
-                <td>{{ t_ordre_treball.resumProductes }}</td>
-                <td>{{ t_ordre_treball.unitats }}</td>
                 <td>
                     <a href="{{ path('t_ordre_treball_show', {'idOrdre': t_ordre_treball.idOrdre}) }}">show</a>
                     <a href="{{ path('t_ordre_treball_edit', {'idOrdre': t_ordre_treball.idOrdre}) }}">edit</a>

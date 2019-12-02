@@ -132,6 +132,7 @@ class TFraproformaType extends AbstractType
         {
             $data = $event->getData();
             $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
+            $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
             $event->setData($data);
         }
 

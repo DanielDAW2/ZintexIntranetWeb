@@ -252,7 +252,7 @@ class TPresup
     private $metpagPresup;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TautorsPresup", inversedBy="tPresups")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TAutorsPresup", inversedBy="tPresups")
      * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_AutPresup", name="Autor_Presup")
      */
     private $autorPresup;

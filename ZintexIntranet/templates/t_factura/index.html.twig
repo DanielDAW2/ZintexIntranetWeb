@@ -33,7 +33,7 @@
         {% for t_factura in t_facturas %}
             <tr>
                 <td>{{ t_factura.NumFactura }}</td>
-                <td>{{ t_factura.DataFactura ? t_factura.DataFactura|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_factura.DataFactura ? t_factura.DataFactura|date('Y-m-d') : '' }}</td>
                 <td>{{ t_factura.NRef }}</td>
                 <td>{{ t_factura.SRef }}</td>
                 <td>{{ t_factura.BaseImp }}</td>
