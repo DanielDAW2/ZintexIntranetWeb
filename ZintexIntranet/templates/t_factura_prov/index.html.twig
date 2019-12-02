@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFacturaProv index{% endblock %}
+
+{% block body %}
+    <h1>TFacturaProv index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NumFraprov</th>
+                <th>Proveedor<th>
+                <th>DataFraprov</th>
+                <th>TotalFraprov</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_factura_prov in t_factura_provs %}
+            <tr>
+                <td>{{ t_factura_prov.numFraprov }}</td>
+                <td>{{ t_factura_prov.proveidor.proveidor}}</td>
+                <td>{{ t_factura_prov.dataFraprov ? t_factura_prov.dataFraprov|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ t_factura_prov.totalFraprov }}</td>
+                <td>
+                    <a href="{{ path('t_factura_prov_show', {'idFacturaProv': t_factura_prov.idFacturaProv}) }}">show</a>
+                    <a href="{{ path('t_factura_prov_edit', {'idFacturaProv': t_factura_prov.idFacturaProv}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_factura_prov_new') }}">Create new</a>
+{% endblock %}

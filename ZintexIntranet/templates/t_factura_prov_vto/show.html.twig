@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFacturaProvVto{% endblock %}
+
+{% block body %}
+    <h1>TFacturaProvVto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdFacturaProvVto</th>
+                <td>{{ t_factura_prov_vto.idFacturaProvVto }}</td>
+            </tr>
+            <tr>
+                <th>DataFraprovVto</th>
+                <td>{{ t_factura_prov_vto.dataFraprovVto ? t_factura_prov_vto.dataFraprovVto|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ConcepteFraprovVto</th>
+                <td>{{ t_factura_prov_vto.concepteFraprovVto }}</td>
+            </tr>
+            <tr>
+                <th>InstpagAuxFraprovVto</th>
+                <td>{{ t_factura_prov_vto.instpagAuxFraprovVto }}</td>
+            </tr>
+            <tr>
+                <th>ImportFraprovVto</th>
+                <td>{{ t_factura_prov_vto.importFraprovVto }}</td>
+            </tr>
+            <tr>
+                <th>DatapagFraprovVto</th>
+                <td>{{ t_factura_prov_vto.datapagFraprovVto ? t_factura_prov_vto.datapagFraprovVto|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>OkbancFraprovVto</th>
+                <td>{{ t_factura_prov_vto.okbancFraprovVto ? t_factura_prov_vto.okbancFraprovVto|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_factura_prov_vto_index') }}">back to list</a>
+
+    <a href="{{ path('t_factura_prov_vto_edit', {'idFacturaProvVto': t_factura_prov_vto.idFacturaProvVto}) }}">edit</a>
+
+    {{ include('t_factura_prov_vto/_delete_form.html.twig') }}
+{% endblock %}

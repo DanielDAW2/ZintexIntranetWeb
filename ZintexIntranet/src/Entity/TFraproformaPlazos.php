@@ -45,11 +45,25 @@ class TFraproformaPlazos
     private $numFraproforma;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tproductes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tproductes", cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="Id_Prod", name="CodProd_FraProf_Plazo")
      */
     private $codprodFraprofPlazo;
 
+    public function __construct(TProductes $producte)
+    {
+        $this->setCodprodFraprofPlazo($producte);
+        $this->setDescripprodFraprofPlazo($producte->getNomProd());
+    }
+
+    /**
+     * RS_FraProforma_Plazos!Num_FraProforma = Me.Id_FraProf
+     * RS_FraProforma_Plazos!CodProd_FraProf_Plazo = 240
+     * Descrip_Termini = DLookup("Nom_Prod", "T_Productes", "Id_Prod = " & 240)
+     * RS_FraProforma_Plazos!DescripProd_FraProf_Plazo = Descrip_Termini
+     *
+     * @return integer|null
+     */
     public function getIdFraproformaPlazo(): ?int
     {
         return $this->idFraproformaPlazo;

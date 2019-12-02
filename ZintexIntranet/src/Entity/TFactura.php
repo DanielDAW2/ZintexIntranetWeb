@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 class TFactura
 {
     /**
+     * @ORM\Column(name="Id_Factura", type="integer", nullable=false)
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $Id_Factura;
 
@@ -86,12 +86,13 @@ class TFactura
     private $REQ_VAR;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", name="REQ", nullable=true)
      */
     private $REQ;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+    
      */
     private $Total_Fra;
 
@@ -112,7 +113,7 @@ class TFactura
     private $Metode_Pag;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, name="MetPag_Aux")
      */
     private $MetPag_Aux;
 

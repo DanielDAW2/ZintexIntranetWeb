@@ -30,12 +30,7 @@ class TAlbaraAux
      */
     private $numLinia;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="CodProd_Albara", type="integer", nullable=true)
-     */
-    private $codprodAlbara;
+
 
     /**
      * @var string|null
@@ -85,6 +80,12 @@ class TAlbaraAux
      */
     private $numAlbara;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TProductes", inversedBy="tAlbaraAuxes")
+     * @ORM\JoinColumn(referencedColumnName="Id_Prod")
+     */
+    private $codprodAlbara;
+
     public function getIdAlbaraAux(): ?int
     {
         return $this->idAlbaraAux;
@@ -102,12 +103,12 @@ class TAlbaraAux
         return $this;
     }
 
-    public function getCodprodAlbara(): ?int
+    public function getCodprodAlbara(): ?TProductes
     {
         return $this->codprodAlbara;
     }
 
-    public function setCodprodAlbara(?int $codprodAlbara): self
+    public function setCodprodAlbara(?TProductes $codprodAlbara): self
     {
         $this->codprodAlbara = $codprodAlbara;
 

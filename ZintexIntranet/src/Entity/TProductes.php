@@ -130,12 +130,18 @@ class TProductes
      */
     private $tProductesTarifas;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TAlbaraAux", mappedBy="codprodAlbara")
+     */
+    private $tAlbaraAuxes;
+
 
 
     public function __construct()
     {
         $this->preciosCantidad = new ArrayCollection();
         $this->tProductesTarifas = new ArrayCollection();
+        $this->tAlbaraAuxes = new ArrayCollection();
 
     }
 
@@ -362,6 +368,37 @@ class TProductes
             // set the owning side to null (unless already changed)
             if ($preciosCantidad->getProductoId() === $this) {
                 $preciosCantidad->setProductoId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TAlbaraAux[]
+     */
+    public function getTAlbaraAuxes(): Collection
+    {
+        return $this->tAlbaraAuxes;
+    }
+
+    public function addTAlbaraAux(TAlbaraAux $tAlbaraAux): self
+    {
+        if (!$this->tAlbaraAuxes->contains($tAlbaraAux)) {
+            $this->tAlbaraAuxes[] = $tAlbaraAux;
+            $tAlbaraAux->setCodprodAlbara($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTAlbaraAux(TAlbaraAux $tAlbaraAux): self
+    {
+        if ($this->tAlbaraAuxes->contains($tAlbaraAux)) {
+            $this->tAlbaraAuxes->removeElement($tAlbaraAux);
+            // set the owning side to null (unless already changed)
+            if ($tAlbaraAux->getCodprodAlbara() === $this) {
+                $tAlbaraAux->setCodprodAlbara(null);
             }
         }
 

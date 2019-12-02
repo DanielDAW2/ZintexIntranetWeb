@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TEmpreses{% endblock %}
+
+{% block body %}
+    <h1>Edit TEmpreses</h1>
+
+    {{ include('t_empreses/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('t_empreses_index') }}">back to list</a>
+
+    {{ include('t_empreses/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TEmpreses{% endblock %}
+
+{% block body %}
+    <h1>TEmpreses</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ t_emprese.id }}</td>
+            </tr>
+            <tr>
+                <th>Marca</th>
+                <td>{{ t_emprese.marca }}</td>
+            </tr>
+            <tr>
+                <th>Empresa</th>
+                <td>{{ t_emprese.empresa }}</td>
+            </tr>
+            <tr>
+                <th>Titular</th>
+                <td>{{ t_emprese.titular }}</td>
+            </tr>
+            <tr>
+                <th>Nif</th>
+                <td>{{ t_emprese.nif }}</td>
+            </tr>
+            <tr>
+                <th>Direccio</th>
+                <td>{{ t_emprese.direccio }}</td>
+            </tr>
+            <tr>
+                <th>Codpos</th>
+                <td>{{ t_emprese.codpos }}</td>
+            </tr>
+            <tr>
+                <th>Poblacio</th>
+                <td>{{ t_emprese.poblacio }}</td>
+            </tr>
+            <tr>
+                <th>Telefon</th>
+                <td>{{ t_emprese.telefon }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ t_emprese.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ t_emprese.email }}</td>
+            </tr>
+            <tr>
+                <th>Web</th>
+                <td>{{ t_emprese.web }}</td>
+            </tr>
+            <tr>
+                <th>NumPresup</th>
+                <td>{{ t_emprese.numPresup }}</td>
+            </tr>
+            <tr>
+                <th>NumProforma</th>
+                <td>{{ t_emprese.numProforma }}</td>
+            </tr>
+            <tr>
+                <th>NumAlbara</th>
+                <td>{{ t_emprese.numAlbara }}</td>
+            </tr>
+            <tr>
+                <th>NumFra</th>
+                <td>{{ t_emprese.numFra }}</td>
+            </tr>
+            <tr>
+                <th>NumClient</th>
+                <td>{{ t_emprese.numClient }}</td>
+            </tr>
+            <tr>
+                <th>NumFrarectif</th>
+                <td>{{ t_emprese.numFrarectif }}</td>
+            </tr>
+            <tr>
+                <th>PathLogo</th>
+                <td>{{ t_emprese.pathLogo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_empreses_index') }}">back to list</a>
+
+    <a href="{{ path('t_empreses_edit', {'id': t_emprese.id}) }}">edit</a>
+
+    {{ include('t_empreses/_delete_form.html.twig') }}
+{% endblock %}

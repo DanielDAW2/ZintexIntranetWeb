@@ -18,6 +18,7 @@ class TFraproformaAuxType extends AbstractType
     {
         $builder
             ->add('numLinia', NumberType::class, [
+                "required"=>false,
                 "attr"=>[
                     "read_only"=> true
                 ]
@@ -26,16 +27,18 @@ class TFraproformaAuxType extends AbstractType
                 "class"=>TProductes::class,
                 "choice_label"=>"nomProd",
                 "label"=>"Producte",
+                "required"=>false,
                 "attr" => [
                     "class" => "selectorProducte"
                 ]
             ])
             ->add('descripprodProforma', TextType::class, [
-                "label"=>"Impresió"
+                "label"=>"Impresió",
+                "required"=>false
             ])
-            ->add('numunitProforma', null, ["label"=>"Unitats"])
-            ->add('preuunitProforma', null,["label"=>"Preu"])
-            ->add('preuProforma', null,["label"=>"Subtotal"])
+            ->add('numunitProforma', null, ["label"=>"Unitats","required"=>false])
+            ->add('preuunitProforma', null,["label"=>"Preu","required"=>false])
+            ->add('preuProforma', null,["label"=>"Subtotal","required"=>false])
         ;
     }
 

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TPreciosCantidad{% endblock %}
+
+{% block body %}
+    <h1>Edit TPreciosCantidad</h1>
+
+    {{ include('t_precios_cantidad/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('t_precios_cantidad_index') }}">back to list</a>
+
+    {{ include('t_precios_cantidad/_delete_form.html.twig') }}
+{% endblock %}

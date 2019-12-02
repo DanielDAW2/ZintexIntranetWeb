@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TProveidors index{% endblock %}
+
+{% block body %}
+    <h1>TProveidors index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NifProv</th>
+                <th>Proveidor</th>
+                <th>NomProv</th>
+                <th>CognomProv</th>
+                <th>TelProv</th>
+                <th>EmailProv</th>
+                <th>WebProv</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_proveidor in t_proveidors %}
+            <tr>
+                <td>{{ t_proveidor.nifProv }}</td>
+                <td>{{ t_proveidor.proveidor }}</td>
+                <td>{{ t_proveidor.nomProv }}</td>
+                <td>{{ t_proveidor.cognomProv }}</td>
+                <td>{{ t_proveidor.telProv }}</td>
+                <td>{{ t_proveidor.emailProv }}</td>
+                <td>{{ t_proveidor.webProv }}</td>
+                <td>
+                    <a href="{{ path('t_proveidors_show', {'idProv': t_proveidor.idProv}) }}">show</a>
+                    <a href="{{ path('t_proveidors_edit', {'idProv': t_proveidor.idProv}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="23">No se han Encontrado datos</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_proveidors_new') }}">Create new</a>
+{% endblock %}

@@ -84,7 +84,7 @@ class TAlbara
     /**
      * @var int|null
      *
-     * @ORM\Column(name="Facturable_Albara", type="integer", nullable=true)
+     * @ORM\Column(name="Facturable_Albara", type="boolean", nullable=true)
      */
     private $facturableAlbara;
 
@@ -109,13 +109,15 @@ class TAlbara
     private $clientAlbara;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TAlbaraAux", mappedBy="numAlbara", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\TAlbaraAux", mappedBy="numAlbara", orphanRemoval=true, cascade={"persist"})
      */
     private $tAlbaraAuxes;
 
     public function __construct()
     {
         $this->tAlbaraAuxes = new ArrayCollection();
+        $this->setDataAlbara(new \Datetime());
+        $this->setDataSortidaAlbara(new \DateTime());
     }
 
     public function getIdAlbara(): ?int
@@ -219,12 +221,12 @@ class TAlbara
         return $this;
     }
 
-    public function getFacturableAlbara(): ?int
+    public function getFacturableAlbara(): ?bool
     {
         return $this->facturableAlbara;
     }
 
-    public function setFacturableAlbara(?int $facturableAlbara): self
+    public function setFacturableAlbara(?bool $facturableAlbara): self
     {
         $this->facturableAlbara = $facturableAlbara;
 

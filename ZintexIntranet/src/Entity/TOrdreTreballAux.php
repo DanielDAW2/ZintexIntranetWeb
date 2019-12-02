@@ -147,7 +147,7 @@ class TOrdreTreballAux
     private $grupProducte;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamimp")
      * @ORM\JoinColumn(referencedColumnName="Id_ParamImp", name="CodParamImp_Ordre_Treball")
      */
     private $codparamimpOrdreTreball;

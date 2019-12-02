@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TPreciosCantidad{% endblock %}
+
+{% block body %}
+    <h1>TPreciosCantidad</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ t_precios_cantidad.id }}</td>
+            </tr>
+            <tr>
+                <th>Cantidad</th>
+                <td>{{ t_precios_cantidad.cantidad }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ t_precios_cantidad.precio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_precios_cantidad_index') }}">back to list</a>
+
+    <a href="{{ path('t_precios_cantidad_edit', {'id': t_precios_cantidad.id}) }}">edit</a>
+
+    {{ include('t_precios_cantidad/_delete_form.html.twig') }}
+{% endblock %}

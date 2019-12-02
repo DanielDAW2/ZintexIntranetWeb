@@ -97,7 +97,7 @@ class TFacturaAux
     private $codprodFactura;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TParamimp")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
      * @ORM\JoinColumn(referencedColumnName="Id_ParamImp", name="CodParamImp_Factura")
      */
     private $codparamimpFactura;

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TOrdreTreball{% endblock %}
+
+{% block body %}
+    <h1>Edit TOrdreTreball</h1>
+
+    {{ include('t_ordre_treball/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('t_ordre_treball_index') }}">back to list</a>
+
+    {{ include('t_ordre_treball/_delete_form.html.twig') }}
+{% endblock %}

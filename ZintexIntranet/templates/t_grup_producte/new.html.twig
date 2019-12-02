@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TGrupProducte{% endblock %}
+
+{% block body %}
+    <h1>Create new TGrupProducte</h1>
+
+    {{ include('t_grup_producte/_form.html.twig') }}
+
+    <a href="{{ path('t_grup_producte_index') }}">back to list</a>
+{% endblock %}

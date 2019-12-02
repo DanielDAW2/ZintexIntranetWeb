@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TFacturaProv{% endblock %}
+
+{% block body %}
+    <h1>Create new TFacturaProv</h1>
+
+    {{ include('t_factura_prov/_form.html.twig') }}
+
+    <a href="{{ path('t_factura_prov_index') }}">back to list</a>
+{% endblock %}

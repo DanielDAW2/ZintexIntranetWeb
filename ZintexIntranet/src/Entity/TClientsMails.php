@@ -16,11 +16,10 @@ class TClientsMails
      * @var int
      *
      * @ORM\Column(name="Id_Cli_Mail", type="integer", nullable=false)
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idCliMail;
-
 
 
     /**
@@ -95,7 +94,7 @@ class TClientsMails
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TClients", inversedBy="tClientsMails")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli", name="Id_Cli_Mail")
+     * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_Cli", name="Num_Client_Mail")
      */
     private $numClientMail;
 

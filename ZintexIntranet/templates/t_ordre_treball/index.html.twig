@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TOrdreTreball index{% endblock %}
+
+{% block body %}
+    <h1>TOrdreTreball index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomClient</th>
+                <th>Campanya</th>
+                <th>Proveidor</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_ordre_treball in t_ordre_treballs %}
+            <tr>
+                <td>{{ t_ordre_treball.nomClient }}</td>
+                <td>{{ t_ordre_treball.campanya }}</td>
+                <td>{{ t_ordre_treball.proveidor }}</td>
+                <td>
+                    <a href="{{ path('t_ordre_treball_show', {'idOrdre': t_ordre_treball.idOrdre}) }}">show</a>
+                    <a href="{{ path('t_ordre_treball_edit', {'idOrdre': t_ordre_treball.idOrdre}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="29">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_ordre_treball_new') }}">Create new</a>
+{% endblock %}

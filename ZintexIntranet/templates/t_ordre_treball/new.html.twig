@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TOrdreTreball{% endblock %}
+
+{% block body %}
+    <h1>Create new TOrdreTreball</h1>
+
+    {{ include('t_ordre_treball/_form.html.twig') }}
+
+    <a href="{{ path('t_ordre_treball_index') }}">back to list</a>
+{% endblock %}

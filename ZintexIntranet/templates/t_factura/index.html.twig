@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TFactura index{% endblock %}
+
+{% block body %}
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--md">    
+                <h1 class="title-1">Facturas</h1>
+
+            </div>
+
+        </div>
+        <div class="table-data__tool-right">
+            <a href="{{ path('t_fraproforma_new') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+            <i class="zmdi zmdi-plus"></i>Nueva Factura</a><a ></a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Num_Factura</th>
+                <th>Data_factura</th>
+                <th>NRef</th>
+                <th>SRef</th>
+                <th>Base_Imp</th>
+                <th>IVA</th>
+                <th>Total_Fra</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_factura in t_facturas %}
+            <tr>
+                <td>{{ t_factura.NumFactura }}</td>
+                <td>{{ t_factura.DataFactura ? t_factura.DataFactura|date('Y-m-d') : '' }}</td>
+                <td>{{ t_factura.NRef }}</td>
+                <td>{{ t_factura.SRef }}</td>
+                <td>{{ t_factura.BaseImp }}</td>
+                <td>{{ t_factura.IVA }}</td>
+                <td>{{ t_factura.TotalFra }}</td>
+                <td>
+                    <a href="{{ path('t_factura_show', {'Id_Factura': t_factura.Id_Factura}) }}">show</a>
+                    <a href="{{ path('t_factura_edit', {'Id_Factura': t_factura.Id_Factura}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">No se han trobat Factures</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
