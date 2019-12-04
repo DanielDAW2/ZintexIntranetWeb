@@ -36,9 +36,11 @@ class TFraproformaAuxType extends AbstractType
                 "label"=>"Impresió",
                 "required"=>false
             ])
-            ->add('numunitProforma', null, ["label"=>"Unitats","required"=>false])
-            ->add('preuunitProforma', null,["label"=>"Preu","required"=>false])
-            ->add('preuProforma', null,["label"=>"Subtotal","required"=>false])
+            ->add('numunitProforma', null, ["label"=>"Unitats","required"=>false, "attr"=>[
+                "class"=>"unitProf"
+            ]])
+            ->add('preuunitProforma', null,["label"=>"Preu","required"=>false, "attr"=>["class"=>"preuUnit"]])
+            ->add('preuProforma', null,["label"=>"Subtotal","required"=>false,"attr"=>["class"=>"totalProf"]])
         ;
     }
 

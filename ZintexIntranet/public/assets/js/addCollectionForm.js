@@ -56,4 +56,9 @@
         // Display the form in the page before the "new" link
         $(this).before(newForm);
     });
+    $proformaVtowrapper.on('keyup', '.unitProf', function(e) {
+        e.preventDefault();
+        $(this).closest('.totalProf ')
+            .val(e.target.value)
+    });
 })(jQuery);

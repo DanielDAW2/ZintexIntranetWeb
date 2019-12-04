@@ -76,7 +76,7 @@ class TPresupAux
     private $numPresup;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TParamImp")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TParamimp")
      * @ORM\JoinColumn(nullable=false, referencedColumnName="Id_ParamImp", name="CodParamImp_Presup")
      */
     private $codparamimpPresup;
