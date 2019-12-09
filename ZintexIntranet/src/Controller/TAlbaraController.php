@@ -118,7 +118,7 @@ class TAlbaraController extends AbstractController
         $numAlbara = $codigo.$zeros.$ultimAlbara->getNumAlbara();
         $albara->setNumAlbara($numAlbara);
         $albara->setNumfraproformaAlbara($proforma->getNumFraprof());
-        $albara->setFacturableAlbara(1);
+        $albara->setFacturableAlbara(true);
         $albara->setNrefAlbara($proforma->getNumFraprof());
         $albara->setSrefAlbara($proforma->getSref());
         $albara->setDescripClientAlbara($client->getNomfraCli());

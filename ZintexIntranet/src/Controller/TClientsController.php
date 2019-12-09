@@ -17,16 +17,30 @@ class TClientsController extends AbstractController
     /**
      * @Route("/", name="t_clients_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $req): Response
     {
-        $tClients = $this->getDoctrine()
+        $tclientsQuery = $this->getDoctrine()
             ->getRepository(TClients::class)
-            ->findAll();
-
-        return $this->render('t_clients/index.html.twig', [
-            't_clients' => $tClients,
-        ]);
-    }
+            ->getClientsPaginated($req->get("page") ? $req->get("page"): 1, $this->getParameter('limit'));
+            $tclients = $tclientsQuery['paginator'];
+            $allitems =  $tclientsQuery['query'];
+          
+            $maxPages = ceil($tclientsQuery['paginator']->count() / $this->getParameter('limit'));
+          
+            return $this->render('t_clients/index.html.twig', array(
+                  't_clients' => $tclients,
+                  'maxPages'=>$maxPages,
+                  'thisPage' => $req->get("page"),
+                  'all_items' => $allitems
+              ) );
+          
+          
+            return $this->render('t_clients/index.html.twig', array(
+                  't_clients' => $tclients,
+                  'thisPage' => $req->get("page"),
+              ) );
+          }
+    
 
     /**
      * @Route("/new", name="t_clients_new", methods={"GET","POST"})

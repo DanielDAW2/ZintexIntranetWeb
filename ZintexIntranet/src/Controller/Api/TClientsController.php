@@ -47,6 +47,20 @@ class TClientsController extends AbstractController {
 
     }
 
+    /**
+     * @Route("/getclients", name="t_clients_get")
+     */
+    public function getClient(Request $req, TClientsRepository $repo)
+    {
+        $findedClient = $repo->findClients($req->get("numProf"));
+
+        $clients = array_map(function($prof){
+            return $prof;
+        }, $findedClient);
+
+        return new JsonResponse(["results"=>$clients],200);
+    }
+
 }
 
 

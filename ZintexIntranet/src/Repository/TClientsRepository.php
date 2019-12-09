@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\TClients;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method TClients|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,37 @@ class TClientsRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TClients::class);
+    }
+
+    public function paginate($query, $page, $limit){
+        $paginator = new Paginator($query);
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+        
+        return $paginator;
+    }
+
+
+    public function getClientsPaginated($currentPage, $limit)
+    {
+        $query = $this->createQueryBuilder("cli")
+        ->select()
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $currentPage, $limit);
+
+        return ["paginator"=>$paginator,"query"=>$query];
+    }
+
+    public function findClients(string $index)
+    {
+        return $this->createQueryBuilder("q")
+        ->select("q.idCli as id, q.client as text")
+        ->andWhere("q.client LIKE :index")
+        ->setParameter("index","%".$index."%")
+        ->getQuery()->getResult();
+
     }
 
     // /**

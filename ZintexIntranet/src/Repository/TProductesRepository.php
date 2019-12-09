@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\TProductes;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method TProductes|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,12 +20,33 @@ class TProductesRepository extends ServiceEntityRepository
         parent::__construct($registry, TProductes::class);
     }
 
-    public function findProductes(string $index)
+    public function paginate($query, $page, $limit){
+        $paginator = new Paginator($query);
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+        
+        return $paginator;
+    }
+
+
+    public function getProductesPaginated($currentPage, $limit)
+    {
+        $query = $this->createQueryBuilder("prod")
+        ->select()
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $currentPage, $limit);
+
+        return ["paginator"=>$paginator,"query"=>$query];
+    }
+
+    public function findProduct(string $index)
     {
         return $this->createQueryBuilder("q")
         ->select("q.idProd as id, q.nomProdCurt as text")
         ->orWhere("q.nomProd LIKE :index")
-        ->orWhere("q.nomProd LIKE :index")
+        ->orWhere("q.refProd LIKE :index")
         ->setParameter("index","%".$index."%")
         ->getQuery()->getResult();
 
