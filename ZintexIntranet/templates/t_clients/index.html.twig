@@ -20,19 +20,17 @@
         <thead>
             <tr>
                 <th>Client</th>
-                <th>NIF/CIF</th>
-                <th>Codi</th>
-                <th>Nom Comercial</th>
+                <th>Comercial</th>
+                <th>Telefono</th>
             </tr>
         </thead>
         <tbody>
         {% for t_client in t_clients %}
             <tr>
                 <td><a href="{{path("t_clients_edit",{"idCli":t_client.IdCli})}}">{{ t_client.client }}</a></td>
-                <td><a href="{{path("t_clients_edit",{"idCli":t_client.IdCli})}}">{{ t_client.nifCli }}</a></td>
+                <td><a href="{{path("t_clients_edit",{"idCli":t_client.IdCli})}}">{{ t_client.getNumAgentComercial ? t_client.getNumAgentComercial.getNomComercial : "Sense Comercial" }}</a></td>
                 
-                <td>{{ t_client.codiCli }}</td>
-                <td>{{ t_client.clientCom }}</td>
+                <td>{{ t_client.getTelentCli }}</td>
             </tr>
         {% else %}
             <tr>

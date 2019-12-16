@@ -116,9 +116,7 @@
                                 <li>
                                     <a href="{{path("t_factura_index")}}">Facturas</a>
                                 </li>
-                                <li>
-                                    <a href="{{path("t_factura_vto_index")}}">Vencimientos Facturas</a>
-                                </li>
+                                
                             </ul>
                         </li>
                         <li class="has-sub">
@@ -131,12 +129,10 @@
                                 <li>
                                     <a href="{{ path("t_factura_prov_index")}}">Facturas Compras</a>
                                 </li>
-                                <li>
-                                    <a href="{{path("t_factura_prov_vto_index")}}">Vencimientos Facturas Compras</a>
-                                </li>
+                                
                             </ul>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="{{path("t_productes_index")}}">
                                 <i class="fas fa-table"></i>Productos</a>
                         </li>
@@ -144,7 +140,18 @@
                             <a href="{{path("t_ordre_treball_index")}}">
                                 <i class="far fa-check-square"></i>Operaciones</a>
                         </li>
-                        
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-chart-bar"></i>Estadisticas</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{path("t_factura_vto_index")}}">Vencimientos Facturas Venta</a>
+                                </li>
+                                <li>
+                                    <a href="{{path("t_factura_prov_vto_index")}}">Vencimientos Facturas Compras</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
@@ -158,13 +165,13 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                     <div class="rs-select2--light rs-select2--sm">
-<select class="js-select2 select2-hidden-accessible" name="time" tabindex="-1" aria-hidden="true">
-<option selected="selected">Today</option>
-<option value="">3 Days</option>
-<option value="">1 Week</option>
-</select><span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" style="width: 77px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-time-aw-container"><span class="select2-selection__rendered" id="select2-time-aw-container" title="Today">Today</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-<div class="dropDownSelect2"></div>
-</div>
+                    <select class="js-select2 select2-hidden-accessible" name="time" tabindex="-1" aria-hidden="true">
+                    <option selected="selected">Today</option>
+                    <option value="">3 Days</option>
+                    <option value="">1 Week</option>
+                    </select><span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" style="width: 77px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-time-aw-container"><span class="select2-selection__rendered" id="select2-time-aw-container" title="Today">Today</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    <div class="dropDownSelect2"></div>
+                    </div>
                     </div>
                 </div>
             </header>

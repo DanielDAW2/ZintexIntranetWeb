@@ -45,8 +45,8 @@
     <table class="table table-data2 table-borderless table-striped table-hover">
         <thead>
             <tr>
-                <th>RefProd</th>
-                <th>NomProdCurt</th>
+                <th>Referencia</th>
+                <th>Nombre Corto</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -62,20 +62,20 @@
                 <td>{{ t_producte.refProd }}</td>
                 <td>{{ t_producte.nomProdCurt }}</td>
                 <td>
-                    <a href="{{ path('t_productes_show', {'idProd': t_producte.idProd}) }}">show</a>
-                    <a href="{{ path('t_productes_edit', {'idProd': t_producte.idProd}) }}">edit</a>
+                    <a href="{{ path('t_productes_show', {'idProd': t_producte.idProd}) }}">Ver</a>
+                    <a href="{{ path('t_productes_edit', {'idProd': t_producte.idProd}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="13">No s'han trobat productes</td>
+                <td colspan="13">No se han encontrado productos.</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     </div>
 
-    <a href="{{ path('t_productes_new') }}">Create new</a>
+    <a href="{{ path('t_productes_new') }}">Añadir nuevo</a>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

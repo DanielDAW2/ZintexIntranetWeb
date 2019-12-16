@@ -355,12 +355,7 @@ class TClients
      */
     private $baixaCycred;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="Num_Agent_Comercial", type="integer", nullable=true)
-     */
-    private $numAgentComercial;
+    
 
     /**
      * @var string|null
@@ -547,6 +542,12 @@ class TClients
      * @ORM\OneToMany(targetEntity="App\Entity\TPresup", mappedBy="clientPresup")
      */
     private $tPresups;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TComercials", inversedBy="tClients")
+     * @ORM\JoinColumn(name="Num_Agent_Comercial", referencedColumnName="Id_Comercial")
+     */
+    private $numAgentComercial;
 
     public function __construct()
     {
@@ -1115,12 +1116,12 @@ class TClients
         return $this;
     }
 
-    public function getNumAgentComercial(): ?int
+    public function getNumAgentComercial(): ?TComercials
     {
         return $this->numAgentComercial;
     }
 
-    public function setNumAgentComercial(?int $numAgentComercial): self
+    public function setNumAgentComercial(?TComercials $numAgentComercial): self
     {
         $this->numAgentComercial = $numAgentComercial;
 

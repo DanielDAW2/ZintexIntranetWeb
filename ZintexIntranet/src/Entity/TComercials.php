@@ -42,9 +42,15 @@ class TComercials
      */
     private $tPresups;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TClients", mappedBy="numAgentComercial")
+     */
+    private $tClients;
+
     public function __construct()
     {
         $this->tPresups = new ArrayCollection();
+        $this->tClients = new ArrayCollection();
     }
 
     public function getIdComercial(): ?int
@@ -101,6 +107,37 @@ class TComercials
             // set the owning side to null (unless already changed)
             if ($tPresup->getComercial() === $this) {
                 $tPresup->setComercial(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TClients[]
+     */
+    public function getTClients(): Collection
+    {
+        return $this->tClients;
+    }
+
+    public function addTClient(TClients $tClient): self
+    {
+        if (!$this->tClients->contains($tClient)) {
+            $this->tClients[] = $tClient;
+            $tClient->setNumAgentComercial($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTClient(TClients $tClient): self
+    {
+        if ($this->tClients->contains($tClient)) {
+            $this->tClients->removeElement($tClient);
+            // set the owning side to null (unless already changed)
+            if ($tClient->getNumAgentComercial() === $this) {
+                $tClient->setNumAgentComercial(null);
             }
         }
 
