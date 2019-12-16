@@ -86,7 +86,7 @@
         $('#tProductes').select2({
         minimumInputLength: 3,
         ajax: {
-            url: '{{path("t_productes_get")|escape("js")}}',
+            url: '{{path("t_productes_get_nomprod")|escape("js")}}',
             data: function (params) {
                 var query = {
                     prod: params.term,

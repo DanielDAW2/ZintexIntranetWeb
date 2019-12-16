@@ -17,7 +17,7 @@ class TProductesController extends AbstractController {
      */
     public function getNomProducte(TProductesRepository $repo, Request $req) : JsonResponse {
         
-        $findedProd = $repo->findProductes($req->get("nomProd"));
+        $findedProd = $repo->findProduct($req->get("prod"));
 
         $productes = array_map(function($prof){
             return $prof;
@@ -26,19 +26,7 @@ class TProductesController extends AbstractController {
         return new JsonResponse(["results"=>$productes],200);
 
     }
-    /**
-     * @Route("/getclients", name="t_productes_get")
-     */
-    public function getClient(Request $req, TProductesRepository $repo)
-    {
-        $findedClient = $repo->findProduct($req->get("prod"));
 
-        $clients = array_map(function($prof){
-            return $prof;
-        }, $findedClient);
-
-        return new JsonResponse(["results"=>$clients],200);
-    }
 }
 
 

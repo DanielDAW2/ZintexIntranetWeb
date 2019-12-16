@@ -16,6 +16,8 @@
 
         </div>
         <div class="table-data__tool-right">
+        <button class="au-btn-filter">
+            <i class="zmdi zmdi-filter-list"></i>Filtrar Resultados</button>
             <a href="{{ path('t_fraproforma_download') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
                 <i class="zmdi zmdi-plus"></i>Exportar a PDF</a>
             <a href="{{ path('t_fraproforma_new') }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
@@ -104,7 +106,7 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset("./assets/vendor/select2/select2.min.js")}}"></script>
+    
     <script src="{{ asset('assets/js/addCollectionForm.js') }}"></script>
     <script type="text/javascript">
     $(document).ready(function(){

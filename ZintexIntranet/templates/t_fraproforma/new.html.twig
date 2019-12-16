@@ -62,10 +62,10 @@
                 minimumInputLength: 3,
                 width: '100% !important',
                 ajax: {
-                    url: '{{path("t_productes_get_nomprod")|escape("js")}}',
+                    url: '{{ path("t_productes_get_nomprod")|e("js") }}',
                     data: function (params) {
                         var query = {
-                            nomProd: params.term,
+                            prod: params.term,
                             type: 'public'
                             
                         }
