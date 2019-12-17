@@ -185,8 +185,7 @@
 								<div class="header-button">
 									<div class="noti-wrap">
 										<div class="noti__item js-item-menu">
-											<i class="fa fa-list-ul"></i>
-											<span class="quantity">1</span>
+											<i class="fa fa-list-ul fa-1x"></i>
 											<div class="email-dropdown js-dropdown">
 												<div class="email__title">
 													<p>Acciones rápidas</p>
@@ -207,18 +206,19 @@
 										</div>
 
 									</div>
+									{% if is_granted("ROLE_USER") %}
 									<div class="account-wrap">
 										<div class="account-item clearfix js-item-menu">
 											<div class="content">
-												<a class="js-acc-btn" href="#">Miguel Navarro</a>
+												<a class="js-acc-btn" href="#"> {{app.user.nombre}} {{app.user.apellidos}} </a>
 											</div>
 											<div class="account-dropdown js-dropdown">
 												<div class="info clearfix">
 													<div class="content">
 														<h5 class="name">
-															<a href="#">Miguel Navarro</a>
+															<a href="#">{{app.user.nombre}} {{app.user.apellidos}}</a>
 														</h5>
-														<span class="email">miguel@zintex.com</span>
+														<span class="email">{{app.user.email}}</span>
 													</div>
 												</div>
 												<div class="account-dropdown__body">
@@ -232,13 +232,14 @@
 													</div>
 												</div>
 												<div class="account-dropdown__footer">
-													<a href="#">
+													<a href="{{ path("app_logout") }}">
 														<i class="zmdi zmdi-power"></i>Salir</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+								{%  endif %}
 							</div>
 						</div>
 					</div>
