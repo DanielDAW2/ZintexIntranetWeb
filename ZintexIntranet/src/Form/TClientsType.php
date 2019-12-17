@@ -3,6 +3,12 @@
 namespace App\Form;
 
 use App\Entity\TClients;
+use App\Entity\TTractaments;
+use App\Entity\TPaisos;
+use App\Entity\TComercials;
+use App\Entity\TInstrumentPag;
+use App\Entity\TMetodePag;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,35 +19,51 @@ class TClientsType extends AbstractType
     {
         $builder
             ->add('marcaCli')
-            ->add('codiCli')
-            ->add('codiCliDream')
             ->add('nifCli')
             ->add('client')
             ->add('clientCom')
-            ->add('tractCli')
+            ->add('tractCli', EntityType::class, [
+                "class"=>TTractaments::class,
+                "choice_label"=>"tractament"
+            ])
             ->add('nomfraCli')
             ->add('cognomfraCli')
             ->add('carrecfraCli')
             ->add('dirfraCli')
             ->add('codpfraCli')
             ->add('pobfraCli')
-            ->add('paisfraCli')
+            ->add('paisfraCli', EntityType::class,[
+                "class"=>TPaisos::class,
+                "choice_label"=>"pais"
+            ])
             ->add('telfraCli')
             ->add('faxfraCli')
             ->add('mobfraCli')
             ->add('emailCli')
             ->add('empentCli')
-            ->add('tractentCli')
+            ->add('tractentCli', EntityType::class, [
+                "class"=>TTractaments::class,
+                "choice_label"=>"tractament"
+            ])
             ->add('persentCli')
             ->add('direntCli')
             ->add('codpentCli')
             ->add('pobentCli')
-            ->add('paisentCli')
+            ->add('paisentCli', EntityType::class, [
+                "class"=>TPaisos::class,
+                "choice_label"=>"pais"
+            ])
             ->add('telentCli')
             ->add('faxentCli')
             ->add('webCli')
-            ->add('metPag')
-            ->add('instPag')
+            ->add('metPag', EntityType::class, [
+                "class"=>TMetodePag::class,
+                "choice_label"=>"metode"
+            ])
+            ->add('instPag', EntityType::class, [
+                "class"=>TInstrumentPag::class,
+                "choice_label"=>"nomInstPag"
+            ])
             ->add('diaPag')
             ->add('problemaPag')
             ->add('titularccCli')
@@ -63,7 +85,6 @@ class TClientsType extends AbstractType
             ->add('statusCycred')
             ->add('limitCycred')
             ->add('baixaCycred')
-            ->add('numAgentComercial')
             ->add('numUltimPresup')
             ->add('dataUltimPresup')
             ->add('numUltimFraproforma')
@@ -81,6 +102,11 @@ class TClientsType extends AbstractType
             ->add('majorista')
             ->add('royalty')
             ->add('activitat2')
+            ->add('numAgentComercial', EntityType::class,
+            [
+                "class"=>TComercials::class,
+                "choice_label"=>"nomComercial"
+            ])
         ;
     }
 

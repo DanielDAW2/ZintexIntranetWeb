@@ -19,9 +19,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Client</th>
-                <th>Comercial</th>
-                <th>Telefono</th>
+                <th>Cliente</th>
+                <th>Agente Comercial</th>
+                <th>Teléfono</th>
+                <th>Móvil</th>
             </tr>
         </thead>
         <tbody>
@@ -30,11 +31,12 @@
                 <td><a href="{{path("t_clients_edit",{"idCli":t_client.IdCli})}}">{{ t_client.client }}</a></td>
                 <td><a href="{{path("t_clients_edit",{"idCli":t_client.IdCli})}}">{{ t_client.getNumAgentComercial ? t_client.getNumAgentComercial.getNomComercial : "Sense Comercial" }}</a></td>
                 
-                <td>{{ t_client.getTelentCli }}</td>
+                <td>{{ t_client.getTelfraCli }}</td>
+                <td>{{ t_client.getMobfraCli }}</td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="72">No s'han trobat clients</td>
+                <td colspan="72">No se han encontrado clientes</td>
             </tr>
         {% endfor %}
         </tbody>
