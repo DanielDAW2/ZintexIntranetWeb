@@ -1,4 +1,119 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+<div class="row">
+    <div class="col">{{ form_row(form.tractCli) }}</div>
+    <div class="col">{{ form_row(form.client) }}</div>
+    <div class="col">{{ form_row(form.nifCli) }}</div>
+        <div class="col">{{ form_row(form.numAgentComercial) }}</div>
+
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.clientCom) }}</div>
+    <div class="col">{{ form_row(form.nomfraCli) }}</div>
+    <div class="col">{{ form_row(form.cognomfraCli) }}</div>
+    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.carrecfraCli) }}</div>
+    <div class="col">{{ form_row(form.dirfraCli) }}</div>
+    <div class="col">{{ form_row(form.codpfraCli) }}</div>
+    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.pobfraCli) }}</div>
+    <div class="col">{{ form_row(form.paisfraCli) }}</div>    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.telfraCli) }}</div>
+    <div class="col">{{ form_row(form.mobfraCli) }}</div>    
+    <div class="col">{{ form_row(form.emailCli) }}</div>    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.tractentCli) }}</div>
+    <div class="col">{{ form_row(form.persentCli) }}</div>    
+    <div class="col">{{ form_row(form.telentCli) }}</div>    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.pobentCli) }}</div>
+    <div class="col">{{ form_row(form.direntCli) }}</div>    
+    <div class="col">{{ form_row(form.paisentCli) }}</div>    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.telentCli) }}</div>
+    <div class="col">{{ form_row(form.faxentCli) }}</div>    
+    <div class="col">{{ form_row(form.webCli) }}</div>    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.metPag) }}</div>
+    <div class="col">{{ form_row(form.instPag) }}</div>    
+    <div class="col">{{ form_row(form.diaPag) }}</div>    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.titularccCli) }}</div>
+    <div class="col">{{ form_row(form.ccCli) }}</div>
+    <div class="col">{{ form_row(form.persfinCli) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.problemaPag) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.persfinCli) }}</div>
+    <div class="col">{{ form_row(form.emailfinCli) }}</div>
+    <div class="col">{{ form_row(form.carrecfinCli) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.tipusIva) }}</div>
+    <div class="col">{{ form_row(form.tipusReq) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.observacionsCli) }}</div>
+    <div class="col">{{ form_row(form.observacionsfinCli) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.motiuContacte) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.cat) }}</div>
+    <div class="col">{{ form_row(form.clientCycred) }}</div>
+    <div class="col">{{ form_row(form.classificatCycred) }}</div>
+</div>
+    <div class="row">
+    <div class="col">{{ form_row(form.creditCycred) }}</div>
+    <div class="col">{{ form_row(form.statusCycred) }}</div>
+    <div class="col">{{ form_row(form.limitCycred) }}</div>
+</div>
+
+<div class="row">
+    <div class="col">{{ form_row(form.numUltimPresup) }}</div>
+    <div class="col">{{ form_row(form.dataUltimPresup) }}</div>
+    <div class="col">{{ form_row(form.numUltimFraproforma) }}</div>
+    <div class="col">{{ form_row(form.dataUltimFraproforma) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.numUltimFactura) }}</div>
+    <div class="col">{{ form_row(form.dataUltimFactura) }}</div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.especial) }}
+        {{ form_row(form.mailing) }}
+        {{ form_row(form.mailingNadal) }}
+        {{ form_row(form.expressAfegit) }}
+        {{ form_row(form.expressMai) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.dataAlta) }}</div>
+    <div class="col">{{ form_row(form.horaAlta) }}</div>
+</div>
+<div class="row">
+    
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.majorista) }}</div>
+    <div class="col">{{ form_row(form.royalty) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.activitat2) }}</div>
+</div>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
