@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\TFactura;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method TFactura|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,29 @@ class TFacturaRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TFactura::class);
+    }
+
+    public function paginate($query, $page, $limit){
+        $paginator = new Paginator($query);
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+        
+        return $paginator;
+    }
+
+    public function getFacturasByClientWithFilters($client, $filters)
+    {
+
+        $qb = $this->createQueryBuilder("cli")
+        ->select()
+        ->andWhere("cli.Client_Factura = :cli")
+        ->setParameter("cli", $client)
+        ->getQuery();
+
+        $paginator = $this->paginate($qb, $filters["page"], 15);
+
+        return ["paginator"=>$paginator, "query"=>$qb];
     }
 
     // /**

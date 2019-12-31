@@ -3,14 +3,15 @@
 {% block title %}TComercials{% endblock %}
 
 {% block body %}
-    <h1>TComercials</h1>
-
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--lg">    
+                <h1 class="title-1">{{ t_comercial.nomComercial }}</h1>
+            </div>
+        </div>
+    </div>
     <table class="table">
         <tbody>
-            <tr>
-                <th>IdComercial</th>
-                <td>{{ t_comercial.idComercial }}</td>
-            </tr>
             <tr>
                 <th>CodiComercial</th>
                 <td>{{ t_comercial.codiComercial }}</td>
