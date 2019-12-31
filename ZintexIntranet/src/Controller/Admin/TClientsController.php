@@ -139,7 +139,7 @@ class TClientsController extends AbstractController
     {
         $filters = [];
         $filters["page"] = $req->get("page") ? $req->get("page") : 1;
-        $facturasQuery = $facturaRepo->getFacturasByClientWithFilters($client, $filters);
+        $facturasQuery = $facturaRepo->getFacturasByClientWithFilters($client, $filters, $this->getParameter('limit'));
         $facturas = $facturasQuery['paginator'];
         $allitems =  $facturasQuery['query'];
         $maxPages = ceil($facturasQuery['paginator']->count() / $this->getParameter('limit'));

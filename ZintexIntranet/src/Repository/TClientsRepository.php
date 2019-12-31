@@ -51,14 +51,15 @@ class TClientsRepository extends ServiceEntityRepository
 
     }
 
-    public function getClientsByComercial($comercial)
+    public function getClientsByComercial($comercial, $filters, $limit)
     {
         $qb = $this->createQueryBuilder("q")
         ->select()
         ->andWhere("q.numAgentComercial = :comercial")
         ->setParameter("comercial", $comercial)
-        ->getQuery()->getResult();
-        return $qb;
+        ->getQuery();
+        $paginator = $this->paginate($qb,$filters["page"],$limit);
+        return ["paginator"=>$paginator, "query"=>$qb];
     }
 
     // /**

@@ -12,6 +12,38 @@
         </div>
     </div>
     <h1 class="title-2">Clientes Asignados: {{t_clients|length}}</h1>
+    {% if maxPages > 1 %}
+    <ul class="pagination">
+        {% if thisPage > 1 %}
+            <li class="page-item" >
+                <a class="page-link" aria-label="previous" href="{{ path('t_comercials_show', {idComercial:t_comercial.idComercial,page: thisPage-1 < 1 ? 1 : thisPage-1}) }}"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a>
+            </li>
+        {% endif %}
+        <li class="page-item ">
+                <a class="page-link" href="{{ path('t_comercials_show', {idComercial:t_comercial.idComercial,page: 2}) }}">Primera</a>
+            </li>
+
+        {# Render each page number #}
+        {% for i in thisPage.. thisPage + 5 %}
+            {% if i <= maxPages %}
+            <li class="page-item {% if thisPage == i %} active {% endif %}">
+                <a class="page-link" href="{{ path('t_comercials_show', {idComercial:t_comercial.idComercial,page: i}) }}">{{ i }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+<li class="page-item ">
+                <a class="page-link" href="{{ path('t_comercials_show', {idComercial:t_comercial.idComercial,page: maxPages}) }}">Última</a>
+            </li>
+        {# `»` arrow #}
+        {% if thisPage < maxPages %}
+            <li class="page-item" >
+                <a class="page-link" aria-label="next"  href="{{ path('t_comercials_show', {idComercial:t_comercial.idComercial,page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
+            </li>
+        {% endif %}
+    </ul>
+    
+    
+{% endif %}
     <table class="table">
         <tbody>
             <tr>

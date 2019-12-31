@@ -54,11 +54,19 @@ class TComercialsController extends AbstractController
      */
     public function show(TComercials $tComercial, TClientsRepository $clientesRepo, Request $req): Response
     {
-        $clients = $clientesRepo->getClientsByComercial($tComercial);
-        return $this->render('t_comercials/show.html.twig', [
-            't_comercial' => $tComercial,
-            't_clients' => $clients
-        ]);
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $clientsQuery = $clientesRepo->getClientsByComercial($tComercial, $filters, $this->getParameter('limit'));
+        $clients = $clientsQuery['paginator'];
+        $allitems =  $clientsQuery['query'];
+        $maxPages = ceil($clientsQuery['paginator']->count() / $this->getParameter('limit'));
+        return $this->render('t_comercials/show.html.twig', array(
+                't_comercial' => $tComercial,
+                't_clients' => $clients,
+                'maxPages'=>$maxPages,
+                'thisPage' => $req->get("page"),
+                'all_items' => $allitems
+            ) );
     }
 
     /**
