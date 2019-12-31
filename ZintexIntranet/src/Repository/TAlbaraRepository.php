@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\TAlbara;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method TAlbara|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,26 @@ class TAlbaraRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TAlbara::class);
+    }
+
+    public function paginate($query, $page, $limit){
+        $paginator = new Paginator($query);
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+        
+        return $paginator;
+    }
+
+    public function getAlbaraPaginated($filters, $limit)
+    {
+        $query = $this->createQueryBuilder("cli")
+        ->select()
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $filters["page"], $limit);
+
+        return ["paginator"=>$paginator,"query"=>$query];
     }
 
     // /**
