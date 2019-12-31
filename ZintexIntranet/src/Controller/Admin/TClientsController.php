@@ -108,4 +108,16 @@ class TClientsController extends AbstractController
 
         return $this->redirectToRoute('t_clients_index');
     }
+
+    /**
+     * @Route("/{idCli}/proformas")
+     */
+    public function getClientProformas(TClientes $Client, TFraProformarRepository $proformaRepo)
+    {
+        $filters = [];
+        $proformas = $proformaRepo->getProformasByClientWithFilters($client, $filters);
+
+
+    }
+
 }
