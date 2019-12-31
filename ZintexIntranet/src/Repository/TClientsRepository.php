@@ -51,6 +51,16 @@ class TClientsRepository extends ServiceEntityRepository
 
     }
 
+    public function getClientsByComercial($comercial)
+    {
+        $qb = $this->createQueryBuilder("q")
+        ->select()
+        ->andWhere("q.numAgentComercial = :comercial")
+        ->setParameter("comercial", $comercial)
+        ->getQuery()->getResult();
+        return $qb;
+    }
+
     // /**
     //  * @return TClients[] Returns an array of TClients objects
     //  */

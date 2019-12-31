@@ -19,18 +19,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th>IdComercial</th>
+            <th>NomComercial</th>
                 <th>CodiComercial</th>
-                <th>NomComercial</th>
+                
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for t_comercial in t_comercials %}
             <tr>
-                <td>{{ t_comercial.idComercial }}</td>
-                <td>{{ t_comercial.codiComercial }}</td>
+                
                 <td>{{ t_comercial.nomComercial }}</td>
+                <td>{{ t_comercial.codiComercial }}</td>
                 <td>
                     <a href="{{ path('t_comercials_show', {'idComercial': t_comercial.idComercial}) }}">show</a>
                     <a href="{{ path('t_comercials_edit', {'idComercial': t_comercial.idComercial}) }}">edit</a>
@@ -38,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">No existen Comerciales, <a href="{{ path("t_comercials_new")}}"</td>
             </tr>
         {% endfor %}
         </tbody>

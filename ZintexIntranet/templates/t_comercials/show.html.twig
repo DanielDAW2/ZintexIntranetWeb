@@ -7,19 +7,23 @@
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--lg">    
                 <h1 class="title-1">{{ t_comercial.nomComercial }}</h1>
+                <h2 class="title-4">{{ t_comercial.codiComercial }}</h2>
             </div>
         </div>
     </div>
+    <h1 class="title-2">Clientes Asignados: {{t_clients|length}}</h1>
     <table class="table">
         <tbody>
             <tr>
-                <th>CodiComercial</th>
-                <td>{{ t_comercial.codiComercial }}</td>
+                <th>Nombre</th>
+                <th>Fecha Alta</th>
             </tr>
+            {% for t_client in t_clients %}
             <tr>
-                <th>NomComercial</th>
-                <td>{{ t_comercial.nomComercial }}</td>
+                <td>{{ t_client.client }}</td>
+                <td>{{ t_client.dataAlta|date("d-m-y") }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 

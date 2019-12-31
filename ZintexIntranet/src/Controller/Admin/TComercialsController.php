@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\TComercials;
 use App\Form\TComercialsType;
+use App\Repository\TClientsRepository;
 use App\Repository\TComercialsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,10 +52,12 @@ class TComercialsController extends AbstractController
     /**
      * @Route("/{idComercial}", name="t_comercials_show", methods={"GET"})
      */
-    public function show(TComercials $tComercial): Response
+    public function show(TComercials $tComercial, TClientsRepository $clientesRepo, Request $req): Response
     {
+        $clients = $clientesRepo->getClientsByComercial($tComercial);
         return $this->render('t_comercials/show.html.twig', [
             't_comercial' => $tComercial,
+            't_clients' => $clients
         ]);
     }
 
