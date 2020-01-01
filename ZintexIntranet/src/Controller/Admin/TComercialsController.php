@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\TComercials;
 use App\Form\TComercialsType;
+use App\Repository\TClientsRepository;
 use App\Repository\TComercialsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,11 +52,21 @@ class TComercialsController extends AbstractController
     /**
      * @Route("/{idComercial}", name="t_comercials_show", methods={"GET"})
      */
-    public function show(TComercials $tComercial): Response
+    public function show(TComercials $tComercial, TClientsRepository $clientesRepo, Request $req): Response
     {
-        return $this->render('t_comercials/show.html.twig', [
-            't_comercial' => $tComercial,
-        ]);
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $clientsQuery = $clientesRepo->getClientsByComercial($tComercial, $filters, $this->getParameter('limit'));
+        $clients = $clientsQuery['paginator'];
+        $allitems =  $clientsQuery['query'];
+        $maxPages = ceil($clientsQuery['paginator']->count() / $this->getParameter('limit'));
+        return $this->render('t_comercials/show.html.twig', array(
+                't_comercial' => $tComercial,
+                't_clients' => $clients,
+                'maxPages'=>$maxPages,
+                'thisPage' => $req->get("page"),
+                'all_items' => $allitems
+            ) );
     }
 
     /**

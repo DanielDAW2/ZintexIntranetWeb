@@ -23,11 +23,20 @@ class TAlbaraController extends AbstractController
     /**
      * @Route("/", name="t_albara_index", methods={"GET"})
      */
-    public function index(TAlbaraRepository $tAlbaraRepository): Response
+    public function index(TAlbaraRepository $tAlbaraRepository, Request $req): Response
     {
-        return $this->render('t_albara/index.html.twig', [
-            't_albaras' => $tAlbaraRepository->findAll(),
-        ]);
+        $filters = [];
+        $filters["page"]= $req->get("page") ? $req->get("page") : 1;
+        $albaraQuery = $tAlbaraRepository->getAlbaraPaginated($filters,$this->getParameter("limit"));
+        $albara = $albaraQuery['paginator'];
+        $allitems =  $albaraQuery['query'];
+        $maxPages = ceil($albaraQuery['paginator']->count() / $this->getParameter('limit'));
+        return $this->render('t_albara/index.html.twig', array(
+                't_albaras' => $albara,
+                'maxPages'=>$maxPages,
+                'thisPage' => $req->get("page"),
+                'all_items' => $allitems
+            ) );
     }
 
     /**
@@ -62,6 +71,8 @@ class TAlbaraController extends AbstractController
             't_albara' => $tAlbara,
         ]);
     }
+
+    
 
     /**
      * @Route("/{idAlbara}/edit", name="t_albara_edit", methods={"GET","POST"})

@@ -16,7 +16,6 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class TFraproformaRepository extends ServiceEntityRepository
 {
-    private $LIMIT = 30;
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TFraproforma::class);
@@ -66,6 +65,20 @@ class TFraproformaRepository extends ServiceEntityRepository
         ->setParameter("index","%".$index."%")
         ->getQuery()->getResult();
 
+    }
+
+    public function getProformasByClientWithFilters($client, $filters)
+    {
+
+        $qb = $this->createQueryBuilder("cli")
+        ->select()
+        ->andWhere("cli.clientFraprof = :cli")
+        ->setParameter("cli", $client)
+        ->getQuery();
+
+        $paginator = $this->paginate($qb, $filters["page"], 15);
+
+        return ["paginator"=>$paginator, "query"=>$qb];
     }
 
     // /**

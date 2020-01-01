@@ -19,6 +19,9 @@ class TComercialsRepository extends ServiceEntityRepository
         parent::__construct($registry, TComercials::class);
     }
 
+
+    
+
     // /**
     //  * @return TComercials[] Returns an array of TComercials objects
     //  */

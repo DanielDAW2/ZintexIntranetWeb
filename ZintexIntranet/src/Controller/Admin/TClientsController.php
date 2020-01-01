@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\TClients;
 use App\Form\TClientsType;
 use App\Repository\TClientsRepository;
+use App\Repository\TFacturaRepository;
+use App\Repository\TFraproformaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,8 +22,10 @@ class TClientsController extends AbstractController
      */
     public function index(Request $req, TClientsRepository $clientsRepo): Response
     {
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
         $tclientsQuery = $clientsRepo
-            ->getClientsPaginated($req->get("page") ? $req->get("page"): 1, $this->getParameter('limit'));
+            ->getClientsPaginated($filters["page"], $this->getParameter('limit'));
             $tclients = $tclientsQuery['paginator'];
             $allitems =  $tclientsQuery['query'];
           
@@ -108,4 +112,43 @@ class TClientsController extends AbstractController
 
         return $this->redirectToRoute('t_clients_index');
     }
+
+    /**
+     * @Route("/{idCli}/proformas", name="t_clients_proformas")
+     */
+    public function getClientProformas(TClients $client, TFraproformaRepository $proformaRepo, Request $req)
+    {
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $proformasQuery = $proformaRepo->getProformasByClientWithFilters($client, $filters);
+        $proformas = $proformasQuery['paginator'];
+        $allitems =  $proformasQuery['query'];
+        $maxPages = ceil($proformasQuery['paginator']->count() / $this->getParameter('limit'));
+        return $this->render('t_fraproforma/index.html.twig', array(
+                't_fraproformas' => $proformas,
+                'maxPages'=>$maxPages,
+                'thisPage' => $req->get("page"),
+                'all_items' => $allitems
+            ) );
+    }
+
+    /**
+     * @Route("/{idCli}/facturas", name="t_clients_facturas")
+     */
+    public function getClientFacturas(TClients $client, TFacturaRepository $facturaRepo, Request $req)
+    {
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $facturasQuery = $facturaRepo->getFacturasByClientWithFilters($client, $filters, $this->getParameter('limit'));
+        $facturas = $facturasQuery['paginator'];
+        $allitems =  $facturasQuery['query'];
+        $maxPages = ceil($facturasQuery['paginator']->count() / $this->getParameter('limit'));
+        return $this->render('t_factura/index.html.twig', array(
+                't_facturas' => $facturas,
+                'maxPages'=>$maxPages,
+                'thisPage' => $req->get("page"),
+                'all_items' => $allitems
+            ) );
+    }
+
 }
