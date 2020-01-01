@@ -24,6 +24,7 @@
             <i class="zmdi zmdi-plus"></i>Crear Proforma</a>
         </div>
     </div>
+    {% block pagination %}
     {% if maxPages > 1 %}
     <ul class="pagination">
         {% if thisPage > 1 %}
@@ -56,6 +57,7 @@
     
     
 {% endif %}
+{% endblock %}
 <div class="table-responsive table-responsive-data2 table--no-card m-b-30">
     
     <table id="t_fraproforma" class="table table-data2 table-borderless table-striped table-hover">
@@ -134,9 +136,10 @@
 								</button>
 							</div>
 							<div class="modal-body">
-									<div class="col"><input type="text" name="cliente" id="clientSearcher"></div>
+									<div class="col"><label for="clientSearcher" style="width: 100%"><input style="width: 100%" type="text" name="cliente" id="clientSearcher" placeholder="Escribe 3 caracteres para buscar"></label></div>
                                     <div class="row">
-                                    <div class="col" id="clientSearcherWrapper"></div>
+                                    <table class="table table-borderless table-data3 mt-3" id="clientSearcherWrapper">
+                                    </table>
                                         
                                     </div>
 							</div>
@@ -172,7 +175,7 @@
 
     $("#clientSearcher").keyup(e => {
         const value = e.target.value;
-        if(value.length > 3)
+        if(value.length > 2)
         {
             $.ajax({
                 url: "{{path("t_clients_search")|e("js")}}",
@@ -187,7 +190,7 @@
                     console.log(response.responseJSON)
                     var data = "";
                     response.responseJSON.forEach(e => {
-                        data += '<div class="row"><div class="col">'+e.nifCli+'</div><div class="col" >'+e.client+'</div><div class="col">'+e.telfraCli+'</div></div>'; 
+                        data += '<tr><td>'+e.nifCli+'</td><td >'+e.client+'</td><td>'+e.telfraCli+'</td></tr>'; 
                     })
                     wrapper.innerHTML = data;
                 }

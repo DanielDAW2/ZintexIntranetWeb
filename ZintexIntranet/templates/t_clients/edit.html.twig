@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit TClients{% endblock %}
+{% block title %}Cliente{% endblock %}
 
 {% block body %}
     <div class="table-data__tool">
@@ -12,9 +12,9 @@
 
         </div>
         <div class="table-data__tool-right">
-            <a href="#" class="au-btn au-btn-icon au-btn--green au-btn--small">
+            <a href="{{path("t_clients_facturas",{"idCli":t_client.idCli})}}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
                 <i class="zmdi zmdi-plus"></i>Ver Facturas</a>
-            <a href="#" class="au-btn au-btn-icon au-btn--green au-btn--small">
+            <a href="{{path("t_clients_proformas",{"idCli":t_client.idCli})}}" class="au-btn au-btn-icon au-btn--green au-btn--small">
             <i class="zmdi zmdi-plus"></i>Ver Proformas</a>
         </div>
     </div>

@@ -128,7 +128,8 @@ class TClientsController extends AbstractController
                 't_fraproformas' => $proformas,
                 'maxPages'=>$maxPages,
                 'thisPage' => $req->get("page"),
-                'all_items' => $allitems
+                'all_items' => $allitems,
+                't_client' => $client
             ) );
     }
 
@@ -147,7 +148,8 @@ class TClientsController extends AbstractController
                 't_facturas' => $facturas,
                 'maxPages'=>$maxPages,
                 'thisPage' => $req->get("page"),
-                'all_items' => $allitems
+                'all_items' => $allitems,
+                't_client' => $client
             ) );
     }
 
