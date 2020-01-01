@@ -27,18 +27,22 @@ class TFraproformaController extends AbstractController
      */
     public function index(Request $req, TFraproformaRepository $proformaRepo): Response
     {
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $filters["date-from"] = $req->get("from") ? $req->get("from") : null;
+        $filters["date-to"] = $req->get("to") ? $req->get("to") : null;
         $tFraproformasQuery = $proformaRepo
-            ->getFraProformasPaginated($req->get("page") ? $req->get("page") : 1, $this->getParameter('limit'));
+            ->getFraProformasPaginated($filters, $this->getParameter('limit'));
         $tFraproformas = $tFraproformasQuery['paginator'];
-        $inmueblesQueryCompleta =  $tFraproformasQuery['query'];
+        $fraProformaQuery =  $tFraproformasQuery['query'];
 
         $maxPages = ceil($tFraproformasQuery['paginator']->count() / $this->getParameter('limit'));
 
         return $this->render('t_fraproforma/index.html.twig', array(
             't_fraproformas' => $tFraproformas,
             'maxPages' => $maxPages,
-            'thisPage' => $req->get("page"),
-            'all_items' => $inmueblesQueryCompleta
+            'thisPage' => trim($filters["page"]),
+            'all_items' => $fraProformaQuery
         ));
     }
 

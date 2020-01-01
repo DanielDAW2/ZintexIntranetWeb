@@ -74,8 +74,8 @@
         <tbody>
         <tr>
             <td class="w-25"><form method="GET"><select id="tFraProformaFilter" class="form-control" name="numProf"><option placeholder="Buscar Proforma">Empieza a buscar...</option></select></form></td>
-            <td><form method="GET" ><input name="fechaProforma" type="text" placeholder="Buscar por fecha"></form></td>
-            <td class="w-25">Cliente</td>
+            <td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#mediumModal">Buscar por fechas</button></td>
+            <td class="w-25"><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#clientSearchModal">Buscar por Clientes</button></td>
             <td>Nref</td>
             <td class="w-25">Sref</td>
             <td>Total</td>
@@ -102,7 +102,47 @@
         </tbody>
     </table>
 </div>
-    
+{% endblock %}
+{% block modal %}
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="mediumModalLabel">Buscar por fechas</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form class="form-row">
+									<div class="col"><input type="date" name="from" ></div>
+									<div class="col"><input type="date" name="to" ></div>
+									<input type="hidden" name="page" value="{% if thisPage is defined %} {{ thisPage }} {% else  %} 1 {% endif %}" id="">
+									<button class="btn btn-primary">Buscar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="clientSearchModal" tabindex="-1" role="dialog" aria-labelledby="clientSearchModalLabel">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="clientSearchModalLabel">Buscar por Clientes</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+									<div class="col"><input type="text" name="cliente" id="clientSearcher"></div>
+                                    <div class="row">
+                                    <div class="col" id="clientSearcherWrapper"></div>
+                                        
+                                    </div>
+							</div>
+						</div>
+					</div>
+				</div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -128,6 +168,33 @@
     $("#tFraProformaFilter").on("change", function(){
         window.location = "/t/fraproforma/"+this.value+"/edit";
         
+    })
+
+    $("#clientSearcher").keyup(e => {
+        const value = e.target.value;
+        if(value.length > 3)
+        {
+            $.ajax({
+                url: "{{path("t_clients_search")|e("js")}}",
+                data: {
+                    client: value
+                },
+                success: function(){
+                    console.log("SUCCESS!!")
+                },
+                complete: function(response){
+                    const wrapper = document.getElementById("clientSearcherWrapper")
+                    console.log(response.responseJSON)
+                    var data = "";
+                    response.responseJSON.forEach(e => {
+                        data += '<div class="row"><div class="col">'+e.nifCli+'</div><div class="col" >'+e.client+'</div><div class="col">'+e.telfraCli+'</div></div>'; 
+                    })
+                    wrapper.innerHTML = data;
+                }
+            })
+        }
+            
+    
     })
     })
     </script>

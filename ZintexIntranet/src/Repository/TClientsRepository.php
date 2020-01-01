@@ -51,6 +51,18 @@ class TClientsRepository extends ServiceEntityRepository
 
     }
 
+    public function getClientesByData($data)
+    {
+        return $this->createQueryBuilder("q")
+        ->select("q.idCli as id, q.client, q.nifCli, q.telfraCli")
+        ->orWhere("q.client LIKE :index")
+        ->orWhere("q.nifCli LIKE :index")
+        ->orWhere("q.telfraCli LIKE :index")
+        ->setParameter("index","%".$data."%")
+        ->getQuery()->setMaxResults(15)->getResult();
+
+    }
+
     // /**
     //  * @return TClients[] Returns an array of TClients objects
     //  */

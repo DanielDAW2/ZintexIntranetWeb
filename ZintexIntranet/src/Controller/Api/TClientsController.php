@@ -43,6 +43,18 @@ class TClientsController extends AbstractController {
         return new JsonResponse(["results"=>$clients],200);
     }
 
+    /**
+     * @Route("/searchClients", name="t_clients_search")
+     */
+    public function getClientsSearch(Request $req, TClientsRepository $clientesRepo)
+    {
+
+        $clientes  = $clientesRepo->getClientesByData($req->get("client"));
+        return new JsonResponse($clientes);
+    }
+
+
+
 }
 
 

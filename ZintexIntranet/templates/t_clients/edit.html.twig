@@ -3,7 +3,21 @@
 {% block title %}Edit TClients{% endblock %}
 
 {% block body %}
-    <h1>Edit TClients</h1>
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--md">    
+                <h1 class="title-1">Clientes</h1>
+
+            </div>
+
+        </div>
+        <div class="table-data__tool-right">
+            <a href="#" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                <i class="zmdi zmdi-plus"></i>Ver Facturas</a>
+            <a href="#" class="au-btn au-btn-icon au-btn--green au-btn--small">
+            <i class="zmdi zmdi-plus"></i>Ver Proformas</a>
+        </div>
+    </div>
 
     {{ include('t_clients/_form.html.twig', {'button_label': 'Update'}) }}
 

@@ -31,14 +31,29 @@ class TFraproformaRepository extends ServiceEntityRepository
         return $paginator;
     }
 
-    public function getFraProformasPaginated($currentPage, $limit)
+    public function getFraProformasPaginated($filters, $limit)
     {
         $query = $this->createQueryBuilder("fra")
         ->select()
-        ->orderBy("fra.idFraprof","DESC")
-        ->getQuery();
+        ->orderBy("fra.idFraprof","DESC");
 
-        $paginator = $this->paginate($query, $currentPage, $limit);
+        if($filters["date-from"] || $filters["date-to"])
+        {
+            if($filters["date-to"] && $filters["date-from"])
+            {
+               $query->andWhere("fra.dataFraprof BETWEEN :from AND :to")
+            ->setParameters(["from"=>$filters["date-from"],"to"=>$filters["date-to"]]); 
+            }else{
+                $query->andWhere("fra.dataFraprof > :date")
+            ->setParameter("date", $filters["date-from"] ? $filters["date-from"] : $filters["date-to"]); 
+
+            }
+        }
+        $query->getQuery();
+
+        
+
+        $paginator = $this->paginate($query, trim($filters["page"]), $limit);
 
         return ["paginator"=>$paginator,"query"=>$query];
     }
