@@ -1,0 +1,37 @@
+{% extends "t_fraproforma/index.html.twig" %}
+
+{% block pagination %}
+{% if maxPages > 1 %}
+    <ul class="pagination">
+        {% if thisPage > 1 %}
+            <li class="page-item" >
+                <a class="page-link" aria-label="previous" href="{{ path('t_clients_proformas', {idCli:t_client.idCli, page: thisPage-1 < 1 ? 1 : thisPage-1}) }}"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a>
+            </li>
+        {% endif %}
+        <li class="page-item ">
+                <a class="page-link" href="{{ path('t_clients_proformas', {idCli:t_client.idCli,page: 2}) }}">Primera</a>
+            </li>
+
+        {# Render each page number #}
+        {% for i in thisPage.. thisPage + 5 %}
+            {% if i <= maxPages %}
+            <li class="page-item {% if thisPage == i %} active {% endif %}">
+                <a class="page-link" href="{{ path('t_clients_proformas', {idCli:t_client.idCli,page: i}) }}">{{ i }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+<li class="page-item ">
+                <a class="page-link" href="{{ path('t_clients_proformas', {idCli:t_client.idCli,page: maxPages}) }}">Última</a>
+            </li>
+        {# `»` arrow #}
+        {% if thisPage < maxPages %}
+            <li class="page-item" >
+                <a class="page-link" aria-label="next"  href="{{ path('t_clients_proformas', {idCli:t_client.idCli,page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a>
+            </li>
+        {% endif %}
+    </ul>
+    
+    
+{% endif %}
+    
+{% endblock %}

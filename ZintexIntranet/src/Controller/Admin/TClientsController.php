@@ -124,7 +124,7 @@ class TClientsController extends AbstractController
         $proformas = $proformasQuery['paginator'];
         $allitems =  $proformasQuery['query'];
         $maxPages = ceil($proformasQuery['paginator']->count() / $this->getParameter('limit'));
-        return $this->render('t_fraproforma/index.html.twig', array(
+        return $this->render('t_clients/proformas.html.twig', array(
                 't_fraproformas' => $proformas,
                 'maxPages'=>$maxPages,
                 'thisPage' => $req->get("page"),
@@ -144,7 +144,7 @@ class TClientsController extends AbstractController
         $facturas = $facturasQuery['paginator'];
         $allitems =  $facturasQuery['query'];
         $maxPages = ceil($facturasQuery['paginator']->count() / $this->getParameter('limit'));
-        return $this->render('t_factura/index.html.twig', array(
+        return $this->render('t_clients/facturas.html.twig', array(
                 't_facturas' => $facturas,
                 'maxPages'=>$maxPages,
                 'thisPage' => $req->get("page"),
