@@ -63,8 +63,6 @@ class TFraproformaController extends AbstractController
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(239)));
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(296)));
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
-        $entityManager->persist($tFraproforma);
-        $entityManager->flush();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -20,21 +20,6 @@
         $proformawrapper.data('index', index + 1);
         // Display the form in the page before the "new" link
         $(this).before(newForm);
-        $('.selectorProducte').select2({
-            minimumInputLength: 3,
-            width: '100% !important',
-            ajax: {
-                url: '{{path("t_productes_get_nomprod")|escape("js")}}',
-                data: function (params) {
-                    var query = {
-                        nomProd: params.term,
-                        type: 'public'
-                        
-                    }
-                    return query;
-                },
-            }  
-            });
     });
     $proformaVtowrapper.on('click', '.removeTFraProformaVto', function(e) {
         e.preventDefault();
@@ -61,4 +46,5 @@
         $(this).closest('.totalProf ')
             .val(e.target.value)
     });
+
 })(jQuery);

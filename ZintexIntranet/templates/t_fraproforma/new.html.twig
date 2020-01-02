@@ -104,6 +104,21 @@
         )
     })
 
+    $("#t_fraproforma_clientFraprof").select2({
+                    minimumInputLength: 3,
+                    ajax: {
+                        url: '{{path("t_clients_get")|e("js")}}',
+                        data: function(params)
+                        {
+                            var query = {
+                                client: params.term,
+                                type: 'public'
+                            }
+                            return query
+                        }
+                    }
+                })
+
     $(".unitProf").keyup(function(e){
         $preuUnit = $(this).closest(".preuUnit").val()
         $(this).closest(".totalProf").val(e.target.value * $preuUnit)

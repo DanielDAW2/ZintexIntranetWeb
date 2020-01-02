@@ -34,7 +34,7 @@ class TClientsController extends AbstractController {
      */
     public function getClient(Request $req, TClientsRepository $repo)
     {
-        $findedClient = $repo->findClients($req->get("numProf"));
+        $findedClient = $repo->findClients($req->get("client"));
 
         $clients = array_map(function($prof){
             return $prof;
