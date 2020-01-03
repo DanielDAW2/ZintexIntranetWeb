@@ -1,4 +1,5 @@
 {{ form_start(form) }}
+<h1 class="title-2 mb-3">Datos Generales</h1>
 <div class="row">
     <div class="col">{{ form_row(form.tractCli) }}</div>
     <div class="col">{{ form_row(form.client) }}</div>
@@ -12,6 +13,8 @@
     <div class="col">{{ form_row(form.cognomfraCli) }}</div>
     
 </div>
+<h1 class="title-2 mb-3">Direccion</h1>
+
 <div class="row">
     <div class="col">{{ form_row(form.carrecfraCli) }}</div>
     <div class="col">{{ form_row(form.dirfraCli) }}</div>
@@ -22,6 +25,8 @@
     <div class="col">{{ form_row(form.pobfraCli) }}</div>
     <div class="col">{{ form_row(form.paisfraCli) }}</div>    
 </div>
+<h1 class="title-2 mb-3">Datos Contacto</h1>
+
 <div class="row">
     <div class="col">{{ form_row(form.telfraCli) }}</div>
     <div class="col">{{ form_row(form.mobfraCli) }}</div>    
@@ -42,6 +47,8 @@
     <div class="col">{{ form_row(form.faxentCli) }}</div>    
     <div class="col">{{ form_row(form.webCli) }}</div>    
 </div>
+<h1 class="title-2 mb-3">Datos Bancarios</h1>
+
 <div class="row">
     <div class="col">{{ form_row(form.metPag) }}</div>
     <div class="col">{{ form_row(form.instPag) }}</div>    
@@ -60,10 +67,14 @@
     <div class="col">{{ form_row(form.emailfinCli) }}</div>
     <div class="col">{{ form_row(form.carrecfinCli) }}</div>
 </div>
+<h1 class="title-2 mb-3">Impuestos</h1>
+
 <div class="row">
     <div class="col">{{ form_row(form.tipusIva) }}</div>
     <div class="col">{{ form_row(form.tipusReq) }}</div>
 </div>
+<h1 class="title-2 mb-3">Obvservaciones</h1>
+
 <div class="row">
     <div class="col">{{ form_row(form.observacionsCli) }}</div>
     <div class="col">{{ form_row(form.observacionsfinCli) }}</div>
@@ -83,7 +94,8 @@
 </div>
 <div class="row">
     <div class="col">
-    <h1>Comunicaciones</h1>
+    <h1 class="title-2 mb-3">Permisos Mailing</h1>
+
         {{ form_row(form.especial) }}
         {{ form_row(form.mailing) }}
         {{ form_row(form.mailingNadal) }}
