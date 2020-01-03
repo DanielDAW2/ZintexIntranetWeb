@@ -30,15 +30,56 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/addCollectionForm.js') }}"></script>
     <script src="{{asset("./assets/vendor/select2/select2.min.js")}}"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-            $('.selectorProducte').select2({
+        $('.selectorProducte').select2({
+        minimumInputLength: 3,
+        width: '100% !important',
+        ajax: {
+            url: '{{path("t_productes_get_nomprod")|escape("js")}}',
+            data: function (params) {
+                var query = {
+                    nomProd: params.term,
+                    type: 'public'
+                    
+                }
+                return query;
+            },
+        }  
+        });
+        
+        
+    })
+    function initiateSelect2(element)
+         {
+        element.select2({
+        minimumInputLength: 3,
+        width: '100% !important',
+        ajax: {
+            url: '{{path("t_productes_get_nomprod")|escape("js")}}',
+            data: function (params) {
+                var query = {
+                    nomProd: params.term,
+                    type: 'public'
+                    
+                }
+                return query;
+            },
+        }  
+        });  
+         }
+    </script>
+    <script src="{{ asset('assets/js/addCollectionForm.js') }}"></script>
+    <script type="text/javascript">
+    const $proformawrapper = $('#TFraProformaAuxWrapper');
+    const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
+    jQuery(document).ready(function () {
+        $('.selectorProducte').select2({
                 minimumInputLength: 3,
                 width: '100% !important',
                 ajax: {
-                    url: '{{path("t_productes_get_nomprod")|e("js")}}',
+                    url: '{{ path("t_productes_get_nomprod")|e("js") }}',
                     data: function (params) {
                         var query = {
                             prod: params.term,
@@ -49,8 +90,151 @@
                     },
                 }  
                 });
+    });
+
+    $("#t_fraproforma_clientFraprof").on("change", function(e){
+        $.ajax(
+            {
+                url: '{{path("t_clients_get_fraprof")|e("js")}}',
+                data: 
+                {
+                    client: e.target.value
+                },
                 
+                complete: function(e){
+                    console.log("AJAX Complete")
+                },
+                success: function(response){
+                    console.log("AJAX SUCCESS "+response.client)
+                    $("#t_fraproforma_metodePag").val(response.metode);
+                    $("#t_fraproforma_metpagAux").val(response.metodeDesc);
+                    $("#t_fraproforma_personaFraprof").val(response.persona);
+                    $("#t_fraproforma_ivaVar").val(response.iva);
+                    $("#t_fraproforma_numFraprof").val(response.numProf)
+                    setFraProformaVto(response.metode)
+                }
+            }
+           
+            
+
+        )
+    })
+
+    $("#t_fraproforma_clientFraprof").select2({
+                    minimumInputLength: 3,
+                    ajax: {
+                        url: '{{path("t_clients_get")|e("js")}}',
+                        data: function(params)
+                        {
+                            var query = {
+                                client: params.term,
+                                type: 'public'
+                            }
+                            return query
+                        }
+                    }
+                })
+
+    $(".unitProf").keyup(function(e){
+        $preuUnit = $(this).closest(".preuUnit").val()
+        $(this).closest(".totalProf").val(e.target.value * $preuUnit)
+        console.log($(this).closest(".totalProf").val())
 
     })
+
+    $proformawrapper.on('click', '#add-FraProfAux', function(e) {
+        e.preventDefault();
+        // Get the data-prototype explained earlier
+        var prototype = $proformawrapper.data('prototype');
+        // get the new index
+        var index = $proformawrapper.data('index');
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+        // increase the index with one for the next item
+        $proformawrapper.data('index', index + 1);
+        // Display the form in the page before the "new" link
+        $(this).before(newForm);
+        $('.selectorProducte').select2({
+            minimumInputLength: 3,
+            width: '100% !important',
+            ajax: {
+                url: '{{path("t_productes_get_nomprod")|escape("js")}}',
+                data: function (params) {
+                    var query = {
+                        prod: params.term,
+                        type: 'public'
+                        
+                    }
+                    return query;
+                },
+            }  
+            });
+    $(".unitProf").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+        console.log($preuUnit)
+    })
+    $(".preuUnit").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+        console.log($preuUnit)
+    })
+    });
+
+    function setFraProformaVto(metode)
+    {
+        switch(metode){
+            case 1:
+            console.log("1");
+            break;
+            case 2:
+            console.log("2");
+            break;
+        }
+    }
+
+    $(".unitProf").keyup((e)=>
+    {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
+        const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+
+        $.ajax({
+            url: "{{ path("t_precios_cantidad_get") }}",
+            data: {
+                nomProd: $prod.value,
+                cantidad: e.target.value
+            },
+            success: function(response)
+            {
+                $preuUnit.value = response.precio;
+            }
+        })
+    })
+    $(".preuUnit").keyup((e)=>
+    {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
+        const $wrapper = e.target.parentNode.parentNode;
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+        console.log($preuUnit)
+    })
+    $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
     </script>
 {% endblock %}

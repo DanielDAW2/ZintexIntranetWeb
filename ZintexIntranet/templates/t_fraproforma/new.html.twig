@@ -7,7 +7,13 @@
 {% block title %}Nueva Proforma{% endblock %}
 
 {% block body %}
-    <h1>Crear Nueva Proforma</h1>
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light ">    
+                <h1 class="title">Nueva Proforma</h1>
+            </div>
+        </div>
+    </div>
 
     {{ include('t_fraproforma/_form.html.twig') }}
 
@@ -163,13 +169,26 @@
         $preuProd.value = e.target.value * $preuUnit.value;
         console.log($preuUnit)
     })
-    $(".preuUnit").keyup((e)=>
+    $(".unitProf").keyup((e)=>
     {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
         const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
         $preuProd.value = e.target.value * $preuUnit.value;
-        console.log($preuUnit)
+
+        $.ajax({
+            url: "{{ path("t_precios_cantidad_get") }}",
+            data: {
+                nomProd: $prod.value,
+                cantidad: e.target.value
+            },
+            success: function(response)
+            {
+                $preuUnit.value = response.precio;
+            }
+        })
     })
     });
 

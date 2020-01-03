@@ -58,7 +58,7 @@
     <div class='col'>
       {{form_row(TfraProformaVto.importpagVto)}}
     </div>
-      <div class="col">
+      <div class="">
               <a href="#" class="removeTFraProformaVto pull-right">
                   <span class="fa fa-close"></span>
               </a>
@@ -136,11 +136,33 @@
 <h3 class="title-2 mb-3">Plazos</h3>
         
     <div class="col" id="TFraProformaVtoWrapper" data-prototype="{{ formMacros.printTfraProformaPlazosForm(form.tFraproformaVtos.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaVtos|length }}">
+    
     {% for tFraproformaPlazo in form.tFraproformaPlazos %}
            {{ formMacros.printTfraProformaPlazosForm(tFraproformaPlazo) }}
     {% endfor %}
 <h3 class="title-2 mb-3">Conceptos</h3>
     <div class="col" id="TFraProformaAuxWrapper" data-prototype="{{ formMacros.printTfraProformaAuxForm(form.tFraproformaAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaAuxes|length }}">
+        <div class="form-row">
+      <div class="form-group col">
+        Linea
+      </div>
+      <div class="form-group col-md-4">
+        Producto
+      </div>
+      <div class="form-group col-md-4">
+        Descripcion
+      </div>
+      <div class="form-group col">
+        Cant
+      </div>
+      <div class="form-group col">
+        Precio
+      </div>
+      <div class="form-group col">
+        Total
+      </div>
+      <div class=""></div>
+    </div>
         {% for tFraproformaAux in form.tFraproformaAuxes %}
             
             {{ formMacros.printTfraProformaAuxForm(tFraproformaAux) }}

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/user")
- * @isGranted("ROLE_USER")
+ * @isGranted("ROLE_ADMIN")
  */
 class UserController extends AbstractController
 {
