@@ -1,4 +1,130 @@
+{% import _self as formMacros %}
+
+{% macro printFacturaAuxForm(tFacturaAux) %}
+  <div class="TFraProformaAuxItem">
+  {{ form_errors(tFacturaAux) }}
+    <div class="form-row">
+      <div class="form-group col-sm-1">
+        {{form_widget(tFacturaAux.numLinia)}}
+      </div>
+      <div class="form-group col-md-4">
+        {{form_widget(tFacturaAux.codprodFactura)}}
+      </div>
+      <div class="form-group col-md-2">
+        {{form_widget(tFacturaAux.descripprodFactura)}}
+      </div>
+      <div class="form-group col-md-1">
+        {{form_widget(tFacturaAux.preuunitFactura)}}
+      </div>
+      <div class="form-group col-md-1">
+        {{form_widget(tFacturaAux.numunitFactura)}}
+      </div>
+      <div class="form-group col-md-1">
+        {{form_widget(tFacturaAux.preuFactura)}}
+      </div>
+      <div class="col-sm">
+              <a href="#" class="removeTFraProformaAux pull-right">
+                  <span class="fa fa-close"></span>
+              </a>
+          </div>
+    </div>
+  </div>
+
+
+{% endmacro %}
+
+
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+    <div class="col">
+        <h1 class="title-1">Datos Cliente</h1>
+        <div class="row">
+            <div class="col">{{form_row(form.Client_Factura)}}</div>
+            <div class="col">{{form_row(form.Data_factura)}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{form_row(form.NRef)}}
+            </div>
+            <div class="col">
+                {{form_row(form.SRef)}}
+            </div>
+        </div>
+        
+    </div>
+    <div class="col">
+        <div class="form-row justify-content-end">
+            <div class="col-md-6 ">
+            <div class="row">
+            <div class="col">
+            <h1 class="title-1">Detalles</h1></div></div>
+                <div class="row">
+                    <div class="col">{{form_row(form.IVA_VAR)}}</div>
+                    <div class="col">{{form_row(form.IVA)}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">{{form_row(form.REQ_VAR)}}</div>
+                    <div class="col">{{form_row(form.REQ)}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{form_row(form.Base_Imp)}}
+                    </div>
+                    <div class="col">
+                        {{form_row(form.Total_Fra)}}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<h3 class="title-2 mb-3">Conceptos</h3>
+    <div class="col" id="TFacturaAuxWrapper" data-prototype="{{ formMacros.printFacturaAuxForm(form.tFacturaAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFacturaAuxes|length }}">
+        <div class="form-row">
+      <div class="form-group col-sm-1">
+        Linea
+      </div>
+      <div class="form-group col-md-4">
+        Producto
+      </div>
+      <div class="form-group col-md-2">
+        Descripcion
+      </div>
+      <div class="form-group col-md-1">
+        Cant
+      </div>
+      <div class="form-group col-md-1">
+        Precio
+      </div>
+      <div class="form-group col-md-1">
+        Total
+      </div>
+      <div class="col-sm"></div>
+    </div>
+        {% for tFacturaAux in form.tFacturaAuxes %}
+            
+            {{ formMacros.printFacturaAuxForm(tFacturaAux) }}
+        {% endfor %}
+    <button type="button"
+        id="add-FraProfAux"
+        class="btn btn-secondary mt-3 mb-3"
+        data-list-selector="#FraProformaAux-fields-list">Afegir Concepte</button>
+    </div>        
+        
+        <div class="row">
+        <div class="col">{{form_row(form.Metode_Pag)}}</div>
+        <div class="col">{{form_row(form.MetPag_Aux)}}</div>
+        <div class="col">{{form_row(form.Import_Pendent)}}</div>
+        <div class="col">{{form_row(form.Import_Pagat)}}</div>
+        <div class="col">{{form_row(form.Data_Vto_Factura)}}</div>
+    </div>        
+
+    <button class="btn btn-success">{{ button_label|default('Guardar') }}</button>
+    
+
 {{ form_end(form) }}
+
+

@@ -52,7 +52,7 @@
             </tr>
             {% for t_client in t_clients %}
             <tr>
-                <td>{{ t_client.client }}</td>
+                <td><a href="{{ path("t_clients_edit",{"idCli":t_client.idCli}) }}">{{ t_client.client }}</a></td>
                 <td>{{ t_client.dataAlta|date("d-m-y") }}</td>
             </tr>
             {% endfor %}
