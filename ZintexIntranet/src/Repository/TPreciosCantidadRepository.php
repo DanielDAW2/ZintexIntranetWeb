@@ -19,17 +19,13 @@ class TPreciosCantidadRepository extends ServiceEntityRepository
         parent::__construct($registry, TPreciosCantidad::class);
     }
 
-    public function findPrecioProduct($prod,$cantidad)
+    public function findPrecioProduct($prod)
     {
         return $this->createQueryBuilder("pr")
         ->select()
         ->andWhere("pr.productoId = :prod")
-        ->andWhere("pr.cantidad < :cantidad")
         ->setParameter("prod", $prod)
-        ->setParameter("cantidad", $cantidad)
-        ->orderBy("pr.cantidad", "DESC")
         ->getQuery()
-        ->setMaxResults(2)
         ->getResult();
     }
 

@@ -202,10 +202,9 @@
             },
             success: function(response)
             {
-                console.log(response);
+                $preuUnit.value = response.precio;
             }
         })
-        console.log($preuUnit)
     })
     $(".preuUnit").keyup((e)=>
     {

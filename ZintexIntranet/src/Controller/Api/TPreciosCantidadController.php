@@ -20,10 +20,18 @@ class TPreciosCantidadController extends AbstractController {
         
         $findedProd = $prodRepo->find($req->get("nomProd"));
         $cantidad = $req->get("cantidad");
+        $precios = $repoPrecios->findPrecioProduct($findedProd->getRefProd(),$cantidad);
+        $precio = 0;
 
-        $precio = $repoPrecios->findPrecioProduct($findedProd->getRefProd(),$cantidad);
+        foreach ($precios as $tramo) {
+            if($tramo->getCantidad() <= $cantidad)
+            {
+                $precio = $tramo->getPrecio();
+            }
+            
+        }
 
-        return new JsonResponse(["precio"=>$precio[1]->getPrecio()],200);
+        return new JsonResponse(["precio"=>$precio],200);
 
     }
 
