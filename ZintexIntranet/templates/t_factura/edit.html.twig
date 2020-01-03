@@ -3,7 +3,7 @@
 {% block title %}Edit TFactura{% endblock %}
 
 {% block body %}
-    <h1>Edit TFactura</h1>
+    <h1>Factura {{ t_factura.getNumFactura }}</h1>
 
     {{ include('t_factura/_form.html.twig', {'button_label': 'Update'}) }}
 

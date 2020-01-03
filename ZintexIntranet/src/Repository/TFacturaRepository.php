@@ -43,6 +43,17 @@ class TFacturaRepository extends ServiceEntityRepository
         return ["paginator"=>$paginator, "query"=>$qb];
     }
 
+    public function getFacturasPaginated($filters, $limit)
+    {
+        $query = $this->createQueryBuilder("prod")
+        ->select()
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $filters["page"], $limit);
+
+        return ["paginator"=>$paginator,"query"=>$query];
+    }
+
     // /**
     //  * @return TFactura[] Returns an array of TFactura objects
     //  */

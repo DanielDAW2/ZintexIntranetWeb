@@ -18,11 +18,26 @@ class TFacturaController extends AbstractController
     /**
      * @Route("/", name="t_factura_index", methods={"GET"})
      */
-    public function index(TFacturaRepository $tFacturaRepository): Response
+    public function index(TFacturaRepository $tFacturaRepository, Request $req): Response
     {
-        return $this->render('t_factura/index.html.twig', [
-            't_facturas' => $tFacturaRepository->findAll(),
-        ]);
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $filters["date-from"] = $req->get("from") ? $req->get("from") : null;
+        $filters["date-to"] = $req->get("to") ? $req->get("to") : null;
+        $FacturasQuery = $tFacturaRepository
+            ->getFacturasPaginated($filters, $this->getParameter('limit'));
+        $tFacturas = $FacturasQuery['paginator'];
+
+
+        $maxPages = ceil($FacturasQuery['paginator']->count() / $this->getParameter('limit'));
+
+        return $this->render('t_factura/index.html.twig', array(
+            't_facturas' => $tFacturas,
+            'maxPages' => $maxPages,
+            'thisPage' => trim($filters["page"]),
+            'all_items' => $FacturasQuery['query']
+        ));
+
     }
 
     /**
