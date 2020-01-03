@@ -7,6 +7,7 @@ use App\Entity\TFraproformaAux;
 use App\Entity\TFraproformaPlazos;
 use App\Entity\TFraproformaVto;
 use App\Form\TFraproformaType;
+use App\Repository\TEmpresesRepository;
 use App\Repository\TFraproformaRepository;
 use App\Repository\TObservProformaRepository;
 use App\Repository\TProductesRepository;
@@ -51,7 +52,7 @@ class TFraproformaController extends AbstractController
     /**
      * @Route("/new", name="t_fraproforma_new", methods={"GET","POST"})
      */
-    public function new(Request $request, TObservProformaRepository $obv, TProductesRepository $producte): Response
+    public function new(Request $request, TObservProformaRepository $obv, TProductesRepository $producte, TEmpresesRepository $empreseRepo): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $tFraproforma = new TFraproforma();
@@ -66,8 +67,26 @@ class TFraproformaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $client = $data->getClientFraprof();
+            $marca = $client->getMarcaCli();
+            $ultimaProforma = $empreseRepo->findOneBy(["marca"=>$marca]);
+            $ultimaProforma->setNumProforma($ultimaProforma->getNumProforma()+ 1);
+
+            $year = new \DateTime();
+            $year = $year->format("y");
+            $codigo = $marca." ".$year."_";
+            dump($ultimaProforma->getNumProforma());
+            $zeros = str_pad("0",4-count(strval($ultimaProforma->getNumProforma())),"0");
+            $numFraProf = $codigo.$zeros.$ultimaProforma->getNumProforma()." P";
+            $data->setNumFraprof($numFraProf);
+            
+            dump($data);
+            die;
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($tFraproforma);
+            $entityManager->persist($ultimaProforma);
+            $entityManager->persist($data);
             $entityManager->flush();
 
             return $this->redirectToRoute('t_fraproforma_index');

@@ -172,11 +172,25 @@
             });
     $(".unitProf").keyup((e)=>
     {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
         const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        
+
+        $.ajax({
+            url: "{{ path("t_precios_cantidad_get") }}",
+            data: {
+                nomProd: $prod.value,
+                cantidad: e.target.value
+            },
+            success: function(response)
+            {
+                $preuUnit.value = response.precio;
+            }
+        })
         $preuProd.value = e.target.value * $preuUnit.value;
-        console.log($preuUnit)
     })
     $(".preuUnit").keyup((e)=>
     {
@@ -207,7 +221,7 @@
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        $preuProd.value = e.target.value * $preuUnit.value;
+        
 
         $.ajax({
             url: "{{ path("t_precios_cantidad_get") }}",
@@ -220,6 +234,7 @@
                 $preuUnit.value = response.precio;
             }
         })
+        $preuProd.value = e.target.value * $preuUnit.value;
     })
     $(".preuUnit").keyup((e)=>
     {
