@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 USE Doctrine\DBAL\Schema\Index;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * TProductes
@@ -34,6 +35,7 @@ class TProductes
     /**
      * @var string|null
      *
+     * 
      * @ORM\Column(name="Ref_Prod", type="string", length=255, nullable=true)
      */
     private $refProd;
@@ -105,13 +107,7 @@ class TProductes
      */
     private $foto;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\OneToMany(targetEntity="TPreciosCantidad", mappedBy="productoId")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $preciosCantidad;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TGrupProducte", inversedBy="tProductes")
@@ -139,25 +135,11 @@ class TProductes
 
     public function __construct()
     {
-        $this->preciosCantidad = new ArrayCollection();
         $this->tProductesTarifas = new ArrayCollection();
         $this->tAlbaraAuxes = new ArrayCollection();
 
     }
 
-    /**
-     * @return Collection|TPreciosCantidad[]
-     */
-    public function getPreciosCantidad(): ?ArrayCollection
-    {
-        return $this->preciosCantidad;
-    }
-
-    public function setPreciosCantidad(?TPreciosCantidad $preciosCantidad) : self {
-        $this->preciosCantidad = $preciosCantidad;
-
-        return self;
-    }
 
     public function getIdProd(): ?int
     {
@@ -351,28 +333,6 @@ class TProductes
         return $this;
     }
 
-    public function addPreciosCantidad(TPreciosCantidad $preciosCantidad): self
-    {
-        if (!$this->preciosCantidad->contains($preciosCantidad)) {
-            $this->preciosCantidad[] = $preciosCantidad;
-            $preciosCantidad->setProductoId($this);
-        }
-
-        return $this;
-    }
-
-    public function removePreciosCantidad(TPreciosCantidad $preciosCantidad): self
-    {
-        if ($this->preciosCantidad->contains($preciosCantidad)) {
-            $this->preciosCantidad->removeElement($preciosCantidad);
-            // set the owning side to null (unless already changed)
-            if ($preciosCantidad->getProductoId() === $this) {
-                $preciosCantidad->setProductoId(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|TAlbaraAux[]

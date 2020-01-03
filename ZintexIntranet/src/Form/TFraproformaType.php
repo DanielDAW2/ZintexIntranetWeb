@@ -43,11 +43,6 @@ class TFraproformaType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
                 "label"=>"Fecha Proforma"])
-            ->add('numFraprof', TextType::class, [
-                "label"=>"Proforma",
-                "required"=>false,
-                "attr"=>["readonly"=>true]
-                ])
             ->add('nref', TextType::class,[
                 
                 "required"=>false
@@ -116,12 +111,14 @@ class TFraproformaType extends AbstractType
                 "entry_type" => TFraproformaVtoType::class,
                 "allow_add" => true,
                 'allow_delete' => true,
+                'by_reference' => false,
                 "required"=>false
             ])
             ->add('tFraproformaPlazos', CollectionType::class, [
                 "entry_type" => TFraproformaPlazosType::class,
                 "allow_add" => true,
                 'allow_delete' => true,
+                'by_reference' => false,
                 "required"=>false
             ])
         ;
@@ -133,6 +130,7 @@ class TFraproformaType extends AbstractType
             $data = $event->getData();
             $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
             $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
+            $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
             $event->setData($data);
         }
 

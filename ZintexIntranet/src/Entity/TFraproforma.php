@@ -94,7 +94,7 @@ class TFraproforma
      *
      * @ORM\Column(name="Base_Imp", type="float", precision=10, scale=0, nullable=true)
      */
-    private $baseImp;
+    private $baseImp = 0;
 
     /**
      * @var float|null
@@ -108,42 +108,42 @@ class TFraproforma
      *
      * @ORM\Column(name="REQ", type="float", precision=10, scale=0, nullable=true)
      */
-    private $req;
+    private $req = 0;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="IVA_VAR", type="float", precision=10, scale=0, nullable=true)
      */
-    private $ivaVar;
+    private $ivaVar = 0;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="REQ_VAR", type="float", precision=10, scale=0, nullable=true)
      */
-    private $reqVar;
+    private $reqVar = 0;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="Total_Fra", type="float", precision=10, scale=0, nullable=true)
      */
-    private $totalFra;
+    private $totalFra = 0;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="Import_Pendent", type="float", precision=10, scale=0, nullable=true)
      */
-    private $importPendent;
+    private $importPendent = 0;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="Import_Pagat", type="float", precision=10, scale=0, nullable=true)
      */
-    private $importPagat;
+    private $importPagat = 0;
 
 
 

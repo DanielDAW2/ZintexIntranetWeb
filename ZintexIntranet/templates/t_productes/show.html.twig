@@ -3,20 +3,24 @@
 {% block title %}TProductes{% endblock %}
 
 {% block body %}
-    <h1>TProductes</h1>
+    <h1></h1>
+<div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light rs-select2--lg">    
+                <h1 class="title-1">{{ t_producte.nomProdCurt }}</h1>
 
-    <table class="table">
+            </div>
+
+        </div>
+        <div class="table-data__tool-right">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"><table class="table">
         <tbody>
             <tr>
-                <th>IdProd</th>
-                <td>{{ t_producte.idProd }}</td>
-            </tr>
-            <tr>
-                <th>Ordre</th>
-                <td>{{ t_producte.ordre }}</td>
-            </tr>
-            <tr>
-                <th>RefProd</th>
+                <th>Referencia</th>
                 <td>{{ t_producte.refProd }}</td>
             </tr>
             <tr>
@@ -24,31 +28,31 @@
                 <td>{{ t_producte.etiqueta }}</td>
             </tr>
             <tr>
-                <th>NomProd</th>
+                <th>Producto</th>
                 <td>{{ t_producte.nomProd }}</td>
             </tr>
             <tr>
-                <th>NomProdCurt</th>
+                <th>Nombre Corto</th>
                 <td>{{ t_producte.nomProdCurt }}</td>
             </tr>
             <tr>
-                <th>Descripot</th>
+                <th>Descripción OT</th>
                 <td>{{ t_producte.descripot }}</td>
             </tr>
             <tr>
-                <th>Descripal</th>
+                <th>Descripcion Albaran</th>
                 <td>{{ t_producte.descripal }}</td>
             </tr>
             <tr>
-                <th>Baixa</th>
+                <th>Baja</th>
                 <td>{{ t_producte.baixa ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>Disseny</th>
+                <th>Diseño</th>
                 <td>{{ t_producte.disseny ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>Produccio</th>
+                <th>Producción</th>
                 <td>{{ t_producte.produccio ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
@@ -56,7 +60,31 @@
                 <td>{{ t_producte.foto }}</td>
             </tr>
         </tbody>
-    </table>
+    </table></div>
+        <div class="col">
+        {% if precios %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for precio in precios %}
+                <tr>
+                    <td>{{ precio.cantidad }}</td>
+                    <td>{{ precio.precio }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+        <p>No se han encontrado precios </p>
+        {% endif %}
+
+        </tbody>
+    </table></div>
+    </div>
+    
 
     <a href="{{ path('t_productes_index') }}">back to list</a>
 

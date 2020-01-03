@@ -11,20 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/t/precios/cantidad")
+ * @Route("/t/precioscantidad")
  */
 class TPreciosCantidadController extends AbstractController
 {
-    /**
-     * @Route("/", name="t_precios_cantidad_index", methods={"GET"})
-     */
-    public function index(TPreciosCantidadRepository $tPreciosCantidadRepository): Response
-    {
-        return $this->render('t_precios_cantidad/index.html.twig', [
-            't_precios_cantidads' => $tPreciosCantidadRepository->findAll(),
-        ]);
-    }
-
     /**
      * @Route("/new", name="t_precios_cantidad_new", methods={"GET","POST"})
      */

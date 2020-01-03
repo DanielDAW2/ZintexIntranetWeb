@@ -57,6 +57,8 @@
     </script>
     <script src="{{ asset('assets/js/addCollectionForm.js') }}"></script>
     <script type="text/javascript">
+    const $proformawrapper = $('#TFraProformaAuxWrapper');
+    const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
     jQuery(document).ready(function () {
         $('.selectorProducte').select2({
                 minimumInputLength: 3,
@@ -81,8 +83,7 @@
                 url: '{{path("t_clients_get_fraprof")|e("js")}}',
                 data: 
                 {
-                    client: e.target.value,
-                    FraProf: {{t_fraproforma.idFraProf}}
+                    client: e.target.value
                 },
                 
                 complete: function(e){
@@ -126,6 +127,52 @@
 
     })
 
+    $proformawrapper.on('click', '#add-FraProfAux', function(e) {
+        e.preventDefault();
+        // Get the data-prototype explained earlier
+        var prototype = $proformawrapper.data('prototype');
+        // get the new index
+        var index = $proformawrapper.data('index');
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+        // increase the index with one for the next item
+        $proformawrapper.data('index', index + 1);
+        // Display the form in the page before the "new" link
+        $(this).before(newForm);
+        $('.selectorProducte').select2({
+            minimumInputLength: 3,
+            width: '100% !important',
+            ajax: {
+                url: '{{path("t_productes_get_nomprod")|escape("js")}}',
+                data: function (params) {
+                    var query = {
+                        prod: params.term,
+                        type: 'public'
+                        
+                    }
+                    return query;
+                },
+            }  
+            });
+    $(".unitProf").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+        console.log($preuUnit)
+    })
+    $(".preuUnit").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+        console.log($preuUnit)
+    })
+    });
+
     function setFraProformaVto(metode)
     {
         switch(metode){
@@ -137,5 +184,43 @@
             break;
         }
     }
+
+    $(".unitProf").keyup((e)=>
+    {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
+        const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+
+        $.ajax({
+            url: "{{ path("t_precios_cantidad_get") }}",
+            data: {
+                nomProd: $prod.value,
+                cantidad: e.target.value
+            },
+            success: function(response)
+            {
+                console.log(response);
+            }
+        })
+        console.log($preuUnit)
+    })
+    $(".preuUnit").keyup((e)=>
+    {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
+        const $wrapper = e.target.parentNode.parentNode;
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = e.target.value * $preuUnit.value;
+        console.log($preuUnit)
+    })
+    $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
     </script>
 {% endblock %}

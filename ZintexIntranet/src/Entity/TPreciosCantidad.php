@@ -24,8 +24,7 @@ class TPreciosCantidad
     /**
      * @var string|null
      *
-     * @ORM\ManyToOne(targetEntity="TProductes", inversedBy="preciosCantidad")
-     * @ORM\JoinColumn(name="producto_id", nullable=true, referencedColumnName="Ref_Prod")
+     * @ORM\Column(name="producto_id", nullable=true, name="Ref_Prod")
      */
     private $productoId;
 
@@ -58,17 +57,6 @@ class TPreciosCantidad
         $this->productoId[] = $productoId;
 
         return $this;
-    }
-
-    public function removeProductoId(TProductes $TProducte){
-        if($this->productoId->contains($TProducte))
-        {
-            $this->productoId->removeElement($TProducte);
-            if($TProducte->getPreciosCantidad() === $this){
-                $TProducte->setPreciosCantidad(null);
-            }
-        }
-        return self;
     }
 
     public function getCantidad(): ?int

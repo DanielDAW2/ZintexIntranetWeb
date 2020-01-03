@@ -14,7 +14,7 @@ class TFraproformaPlazosType extends AbstractType
     {
         $builder
             ->add('descripprodFraprofPlazo', TextType::class, [
-                "label"=>"Decripcio: "
+                "label"=>false
             ]);
     }
 

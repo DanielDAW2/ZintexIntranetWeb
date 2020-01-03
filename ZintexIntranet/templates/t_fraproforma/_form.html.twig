@@ -68,6 +68,19 @@
 
 
 {% endmacro %}
+{% macro printTfraProformaPlazosForm(tFraproformaPlazo) %}
+  <div class="TFraProformaPlazoItem">
+  {{ form_errors(tFraproformaPlazo) }}
+    <div class='row'>
+      <div class='col-6'>
+        {{form_widget(tFraproformaPlazo,{"label":""})}}
+      </div>
+    </div>
+    
+  </div>
+
+
+{% endmacro %}
 
 
 {{ form_start(form) }}
@@ -80,18 +93,13 @@
         </div>
         
         <div class="row">
-        <div class="col">{{form_row(form.numFraprof)}}</div>
+        <div class="col">{{form_row(form.numAutor)}}</div>
         <div class="col">{{form_row(form.dataFraprof)}}</div>
         </div>
         <div class="row">
             <div class="col">
-                {{form_row(form.numAutor)}}
-            </div>
-            <div class="col">
                 {{form_row(form.nref)}}
             </div>
-        </div>
-        <div class="row">
             <div class="col">
                 {{form_row(form.sref)}}
             </div>
@@ -125,7 +133,12 @@
         </div>
     </div>
 </div>
-
+<h3 class="title-2 mb-3">Plazos</h3>
+        
+    <div class="col" id="TFraProformaVtoWrapper" data-prototype="{{ formMacros.printTfraProformaPlazosForm(form.tFraproformaVtos.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaVtos|length }}">
+    {% for tFraproformaPlazo in form.tFraproformaPlazos %}
+           {{ formMacros.printTfraProformaPlazosForm(tFraproformaPlazo) }}
+    {% endfor %}
 <h3 class="title-2 mb-3">Conceptos</h3>
     <div class="col" id="TFraProformaAuxWrapper" data-prototype="{{ formMacros.printTfraProformaAuxForm(form.tFraproformaAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaAuxes|length }}">
         {% for tFraproformaAux in form.tFraproformaAuxes %}
@@ -136,10 +149,7 @@
         id="add-FraProfAux"
         class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaAux-fields-list">Afegir Concepte</button>
-    </div>
-    
-        </ul>
-        
+    </div>        
         
         <div class="row">
         <div class="col">{{form_row(form.metodePag)}}</div>

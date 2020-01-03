@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\TClients;
 use App\Entity\TProductes;
 use App\Form\TProductesType;
+use App\Repository\TPreciosCantidadRepository;
 use App\Repository\TProductesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -63,10 +64,13 @@ class TProductesController extends AbstractController
     /**
      * @Route("/{idProd}", name="t_productes_show", methods={"GET"})
      */
-    public function show(TProductes $tProducte): Response
+    public function show(TProductes $tProducte, TPreciosCantidadRepository $preciosCantidadRepo): Response
     {
+
+        $precios = $preciosCantidadRepo->findBy(["productoId"=>$tProducte->getRefProd()]);
         return $this->render('t_productes/show.html.twig', [
             't_producte' => $tProducte,
+            'precios'=> $precios
         ]);
     }
 
