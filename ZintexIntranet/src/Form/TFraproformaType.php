@@ -114,13 +114,8 @@ class TFraproformaType extends AbstractType
                 'by_reference' => false,
                 "required"=>false
             ])
-            ->add('tFraproformaPlazos', CollectionType::class, [
-                "entry_type" => TFraproformaPlazosType::class,
-                "allow_add" => true,
-                'allow_delete' => true,
-                'by_reference' => false,
-                "required"=>false
-            ])
+            ->add('tFraproformaPlazos', TFraproformaPlazosType::class
+            )
         ;
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
