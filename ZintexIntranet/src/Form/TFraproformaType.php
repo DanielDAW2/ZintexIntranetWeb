@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\TClients;
+use App\Entity\TFraproformaPlazos;
 use App\Entity\TMetodePag;
 use App\Form\TFraproformaAuxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -29,7 +30,8 @@ class TFraproformaType extends AbstractType
                 "class"=>TClients::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
-                        ->setMaxResults(5);
+                        ->select()
+                        ;
                 },
                 "choice_label"=>"client",
                 "label"=>"Client",
@@ -114,8 +116,10 @@ class TFraproformaType extends AbstractType
                 'by_reference' => false,
                 "required"=>false
             ])
-            ->add('tFraproformaPlazos', TFraproformaPlazosType::class
-            )
+            ->add('tFraproformaPlazos', EntityType::class, [
+                "class"=>TFraproformaPlazos::class,
+                "choice_label"=>"descripprodFraprofPlazo"
+            ])
         ;
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));

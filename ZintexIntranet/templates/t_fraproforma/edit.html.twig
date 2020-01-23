@@ -74,6 +74,7 @@
     <script type="text/javascript">
     const $proformawrapper = $('#TFraProformaAuxWrapper');
     const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
+    var totalProf = [];
     jQuery(document).ready(function () {
         $('.selectorProducte').select2({
                 minimumInputLength: 3,
@@ -135,13 +136,6 @@
                     }
                 })
 
-    $(".unitProf").keyup(function(e){
-        $preuUnit = $(this).closest(".preuUnit").val()
-        $(this).closest(".totalProf").val(e.target.value * $preuUnit)
-        console.log($(this).closest(".totalProf").val())
-
-    })
-
     $proformawrapper.on('click', '#add-FraProfAux', function(e) {
         e.preventDefault();
         // Get the data-prototype explained earlier
@@ -172,7 +166,6 @@
             });
     $(".unitProf").keyup((e)=>
     {
-        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
         const $wrapper = e.target.parentNode.parentNode;
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
@@ -182,7 +175,7 @@
         $.ajax({
             url: "{{ path("t_precios_cantidad_get") }}",
             data: {
-                nomProd: $prod.value,
+                nomProd: $($prod).children("[selected]").val(),
                 cantidad: e.target.value
             },
             success: function(response)
@@ -191,14 +184,18 @@
             }
         })
         $preuProd.value = e.target.value * $preuUnit.value;
+        totalProf[$($prod).children("[selected]").val()]=$preuProd.value;
+        calcularIva();
     })
     $(".preuUnit").keyup((e)=>
     {
         const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
         $preuProd.value = e.target.value * $preuUnit.value;
-        console.log($preuUnit)
+        totalProf[$($prod).children("[selected]").val()]=$preuProd.value;
+        calcularIva();
     })
     });
 
@@ -226,7 +223,7 @@
         $.ajax({
             url: "{{ path("t_precios_cantidad_get") }}",
             data: {
-                nomProd: $prod.value,
+                nomProd: $($prod).children("[selected]").val(),
                 cantidad: e.target.value
             },
             success: function(response)
@@ -235,15 +232,20 @@
             }
         })
         $preuProd.value = e.target.value * $preuUnit.value;
+        totalProf[$($prod).children("[selected]").val()]=$preuProd.value;
+        calcularIva();
+
     })
     $(".preuUnit").keyup((e)=>
     {
-        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
         const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
         $preuProd.value = e.target.value * $preuUnit.value;
-        console.log($preuUnit)
+        totalProf[$($prod).children("[selected]").val()]=$preuProd.value;
+        calcularIva();
+        console.log(totalProf)
     })
     $(window).keydown(function(event){
     if(event.keyCode == 13) {
@@ -251,5 +253,13 @@
       return false;
     }
   });
+  function calcularIva(){
+      const preu += totalProf.map(e =>{
+          return e;
+
+      })
+      console.log(preu);
+  };
+
     </script>
 {% endblock %}
