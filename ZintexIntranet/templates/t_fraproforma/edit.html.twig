@@ -128,7 +128,7 @@
         const $wrapper = e.target.parentNode.parentNode;
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
-        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) > input")
         
 
         $.ajax({
@@ -141,6 +141,7 @@
             {
                 $preuUnit.value = response.precio;
                 $preuProd.value = e.target.value * $preuUnit.value;
+                calcularIva()
             }
         })
         calcularIva();
@@ -149,9 +150,10 @@
     {
         const $wrapper = e.target.parentNode.parentNode;
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $unitProf = $wrapper.querySelector("div > div > div:nth-child(4) input")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
-        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        $preuProd.value = e.target.value * $preuUnit.value;
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) > input")
+        $preuProd.value = e.target.value * $unitProf.value;
         calcularIva();
     })
     });
@@ -161,8 +163,10 @@
         const $wrapper = e.target.parentNode.parentNode;
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
-        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) > input")
 
+        
+        
         $.ajax({
             url: "{{ path("t_precios_cantidad_get") }}",
             data: {
@@ -172,6 +176,10 @@
             success: function(response)
             {
                 $preuUnit.value = response.precio;
+                
+            },
+            complete: function()
+            {
                 $preuProd.value = e.target.value * $preuUnit.value;
             }
         })
@@ -184,8 +192,10 @@
         const $wrapper = e.target.parentNode.parentNode;
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
-        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        $preuProd.value = e.target.value * $preuUnit.value;
+        const $unitProf = $wrapper.querySelector("div > div > div:nth-child(4) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) > input")
+        console.log($preuProd);
+        $preuProd.value = e.target.value * $unitProf.value;
         calcularIva();
     })
     $(window).keydown(function(event){
@@ -210,7 +220,11 @@
          return parseFloat(precio) + parseFloat(total);
      })
 
-     console.log($precioSinIva);
+    $iva = document.querySelector("#t_fraproforma_ivaVar").value
+     document.querySelector("#t_fraproforma_iva").value = $precioSinIva * ($iva / 100);
+     document.querySelector("#t_fraproforma_baseImp").value = $precioSinIva
+     document.querySelector("#t_fraproforma_totalFra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
+     document.querySelector("#t_fraproforma_importPendent").value = document.querySelector("#t_fraproforma_totalFra").value
   };
 
     </script>
