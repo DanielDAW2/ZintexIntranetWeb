@@ -56,7 +56,6 @@ class TFraproformaController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $tFraproforma = new TFraproforma();
-        $tFraproforma->addTFraproformaAux(new TFraproformaAux());
         $tFraproforma->addTFraproformaVto(new TFraproformaVto());
         $tFraproforma->setObservFraprof($obv->find(1)->getObservProforma());
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(241)));

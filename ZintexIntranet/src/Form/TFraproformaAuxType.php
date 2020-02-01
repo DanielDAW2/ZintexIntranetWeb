@@ -29,7 +29,7 @@ class TFraproformaAuxType extends AbstractType
                 "label"=>"Producte",
                 "required"=>false,
                 "attr" => [
-                    "class" => "selectorProducte"
+                    "class" => "selectorProducte",
                 ]
             ])
             ->add('descripprodProforma', TextType::class, [

@@ -108,6 +108,11 @@ class TFacturaAux
      */
     private $grupProducte;
 
+    public function __construct()
+    {
+        $this->setNumLinia(0);
+    }
+
     public function getIdFacturaAux(): ?int
     {
         return $this->idFacturaAux;
