@@ -116,9 +116,12 @@ class TFraproformaType extends AbstractType
                 'by_reference' => false,
                 "required"=>false
             ])
-            ->add('tFraproformaPlazos', EntityType::class, [
-                "class"=>TFraproformaPlazos::class,
-                "choice_label"=>"descripprodFraprofPlazo"
+            ->add('tFraproformaPlazos', CollectionType::class, [
+                "entry_type"=>TFraproformaPlazosType::class,
+                "allow_add" => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                "required"=>false
             ])
         ;
 
@@ -129,7 +132,14 @@ class TFraproformaType extends AbstractType
             $data = $event->getData();
             $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
             $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
-            $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
+            if(is_array($data['tFraproformaPlazos']))
+            {
+                $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
+            }else
+            {
+                $data['tFraproformaPlazos'] = [];
+            }
+            
             $event->setData($data);
         }
 
