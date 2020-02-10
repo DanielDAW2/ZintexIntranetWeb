@@ -80,15 +80,14 @@ class TFraproformaController extends AbstractController
             $numFraProf = $codigo.$zeros.$ultimaProforma->getNumProforma()." P";
             $data->setNumFraprof($numFraProf);
             
-            dump($data);
-            die;
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($tFraproforma);
             $entityManager->persist($ultimaProforma);
             $entityManager->persist($data);
             $entityManager->flush();
 
-            return $this->redirectToRoute('t_fraproforma_index');
+            return $this->redirectToRoute('t_fraproforma_edit',["idFraprof"=>$data->getIdFraprof()]);
         }
 
         return $this->render('t_fraproforma/new.html.twig', [

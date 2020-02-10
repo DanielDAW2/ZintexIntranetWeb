@@ -130,9 +130,9 @@ class TOrdreTreball
     /**
      * @var bool|null
      *
-     * @ORM\Column(name="Adreça_Entrega", type="boolean", nullable=true)
+     * @ORM\Column(name="Adreca_Entrega", type="boolean", nullable=true)
      */
-    private $adre�aEntrega;
+    private $adrecaEntrega;
 
     /**
      * @var bool|null
@@ -420,14 +420,14 @@ class TOrdreTreball
         return $this;
     }
 
-    public function getAdre�aEntrega(): ?bool
+    public function getAdrecaEntrega(): ?bool
     {
-        return $this->adre�aEntrega;
+        return $this->adrecaEntrega;
     }
 
-    public function setAdre�aEntrega(?bool $adre�aEntrega): self
+    public function setAdrecaEntrega(?bool $adrecaEntrega): self
     {
-        $this->adre�aEntrega = $adre�aEntrega;
+        $this->adrecaEntrega = $adrecaEntrega;
 
         return $this;
     }
