@@ -51,13 +51,13 @@ class TFraProformaController extends AbstractController {
             if(count($value->getTOrdreTreballAuxes()) === 0)
             $productes[] = $value->getCodprodProforma()->getNomProdCurt();
             $ordenAux = new TOrdreTreballAux();
-            $ordenAux->setCodprodOrdreTreball($value);
+            $ordenAux->setCodprodOrdreTreball($value->getCodprodProforma());
             $ordenAux->setGrupProducte($value->getGrupProducte());
         }
         
         $ordenes["productes"] = $productes;
         $ordenes["fecha"] = date_format(new DateTime(), "d-m-Y");
-        $ordenes["orden"] = ["num"=>$orden->getNumSubordre,"id"=>"id"];
+        $ordenes["orden"] = ["num"=>$orden->getNumSubordre(),"id"=>"id"];
 
             return new JsonResponse($ordenes);
 

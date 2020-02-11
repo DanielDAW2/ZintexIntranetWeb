@@ -87,15 +87,6 @@
                     }
                 })
 
-<<<<<<< HEAD
-    $(".unitProf").keyup(function(e){
-        $preuUnit = $(this).closest(".preuUnit").val()
-        $(this).closest(".totalProf").val(e.target.value * $preuUnit)
-
-    })
-
-=======
->>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
     $proformawrapper.on('click', '#add-FraProfAux', function(e) {
         e.preventDefault();
         // Get the data-prototype explained earlier
@@ -177,16 +168,11 @@
             success: function(response)
             {
                 $preuUnit.value = response.precio;
-<<<<<<< HEAD
-                $preuProd.value = response.precio * e.target.value;
-
-=======
                 
             },
             complete: function()
             {
                 $preuProd.value = parseFloat(e.target.value) * parseFloat($preuUnit.value);
->>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
             }
         })
         
@@ -196,12 +182,6 @@
     $(".preuUnit").keyup((e)=>
     {
         const $wrapper = e.target.parentNode.parentNode;
-<<<<<<< HEAD
-        const $unitats = $wrapper.querySelector("div > div > div:nth-child(4) input")
-        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
-        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        $preuProd.value = parseFloat(e.target.value * $unitats.value);
-=======
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $unitProf = $wrapper.querySelector("div > div > div:nth-child(4) input")
@@ -209,7 +189,6 @@
         console.log($preuProd);
         $preuProd.value = e.target.value * $unitProf.value;
         calcularIva();
->>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
     })
 
     $(window).keydown(function(event){
