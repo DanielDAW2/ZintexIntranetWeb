@@ -57,7 +57,7 @@ class TFraProformaController extends AbstractController {
         
         $ordenes["productes"] = $productes;
         $ordenes["fecha"] = date_format(new DateTime(), "d-m-Y");
-        $ordenes["orden"] = ["num"=>$orden->getNumSubordre(),"id"=>"id"];
+        $ordenes["orden"] = ["num"=>$orden->getNumSubordre,"id"=>"id"];
 
             return new JsonResponse($ordenes);
 
