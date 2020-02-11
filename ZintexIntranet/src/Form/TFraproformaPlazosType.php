@@ -17,11 +17,6 @@ class TFraproformaPlazosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-<<<<<<< HEAD
-        ->add('descripprodFraprofPlazo', TextType::class, [
-            "label"=>false
-        ]);
-=======
             ->add('codprodFraprofPlazo', EntityType::class, [
                 "class"=> TProductes::class,
                 "choice_label"=>"nomProd",
@@ -35,7 +30,6 @@ class TFraproformaPlazosType extends AbstractType
                 "expanded"=>false,
                 "multiple"=>false
             ]);
->>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
     }
 
     public function configureOptions(OptionsResolver $resolver)
