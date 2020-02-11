@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\TFraproforma;
 use App\Entity\TOrdreTreball;
 use App\Form\TOrdreTreballType;
 use App\Repository\TOrdreTreballRepository;
@@ -90,5 +91,19 @@ class TOrdreTreballController extends AbstractController
         }
 
         return $this->redirectToRoute('t_ordre_treball_index');
+    }
+
+
+    /**
+     * Undocumented function
+     *
+     * @param TFraproforma $proforma
+     * @return void
+     * @Route("/proforma/{idFraprof}", name="t_ordre_treball_proforma")
+     */
+    public function OrdresTreballProforma(TFraproforma $proforma)
+    {
+
+        return $this->render("t_ordre_treball/proforma.html.twig", ["ordres"=>$proforma->getTOrdreTreballs(), "proforma"=>$proforma]);
     }
 }

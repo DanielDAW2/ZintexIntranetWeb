@@ -26,7 +26,7 @@ class TOrdreTreballType extends AbstractType
             ->add('postaMarxa')
             ->add('calandra')
             ->add('anonim')
-            ->add('adre�aEntrega')
+            ->add('adrecaEntrega')
             ->add('recullClient')
             ->add('portsDeguts')
             ->add('serveiUrgent830')

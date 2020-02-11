@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\TClients;
+use App\Entity\TFraproformaPlazos;
 use App\Entity\TMetodePag;
 use App\Form\TFraproformaAuxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -29,7 +30,8 @@ class TFraproformaType extends AbstractType
                 "class"=>TClients::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
-                        ->setMaxResults(5);
+                        ->select()
+                        ;
                 },
                 "choice_label"=>"client",
                 "label"=>"Client",
@@ -114,7 +116,11 @@ class TFraproformaType extends AbstractType
                 "required"=>false
             ])
             ->add('tFraproformaPlazos', CollectionType::class, [
+<<<<<<< HEAD
                 "entry_type" => TFraproformaPlazosType::class,
+=======
+                "entry_type"=>TFraproformaPlazosType::class,
+>>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
                 "allow_add" => true,
                 'allow_delete' => true,
                 'by_reference' => false,
@@ -130,10 +136,22 @@ class TFraproformaType extends AbstractType
             
             if(array_key_exists('tFraproformaAuxes', $data))  
             $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
+<<<<<<< HEAD
             if(array_key_exists('tFraproformaVtos', $data)) 
             $data['tFraproformaVtos'] = $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']) ;
             if(array_key_exists('tFraproformaPlazos', $data))
             $data['tFraproformaPlazos'] =  array_values($data['tFraproformaPlazos']);
+=======
+            $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
+            if(is_array($data['tFraproformaPlazos']))
+            {
+                $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
+            }else
+            {
+                $data['tFraproformaPlazos'] = [];
+            }
+            
+>>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
             $event->setData($data);
         }
 
