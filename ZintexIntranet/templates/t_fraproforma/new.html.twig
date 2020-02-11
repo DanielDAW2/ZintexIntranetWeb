@@ -66,8 +66,10 @@
     const $proformawrapper = $('#TFraProformaAuxWrapper');
     const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
     jQuery(document).ready(function () {
+        var proformaAuxes = []
+        
         $('.selectorProducte').select2({
-                minimumInputLength: 3,
+                minimumInputLength: 2,
                 width: '100% !important',
                 ajax: {
                     url: '{{ path("t_productes_get_nomprod")|e("js") }}',
@@ -129,7 +131,6 @@
     $(".unitProf").keyup(function(e){
         $preuUnit = $(this).closest(".preuUnit").val()
         $(this).closest(".totalProf").val(e.target.value * $preuUnit)
-        console.log($(this).closest(".totalProf").val())
 
     })
 
@@ -164,19 +165,10 @@
     $(".unitProf").keyup((e)=>
     {
         const $wrapper = e.target.parentNode.parentNode;
-        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
-        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        $preuProd.value = e.target.value * $preuUnit.value;
-        console.log($preuUnit)
-    })
-    $(".unitProf").keyup((e)=>
-    {
-        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
-        const $wrapper = e.target.parentNode.parentNode;
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        
+        $preuProd.value = e.target.value * $preuUnit.value;
 
         $.ajax({
             url: "{{ path("t_precios_cantidad_get") }}",
@@ -187,11 +179,24 @@
             success: function(response)
             {
                 $preuUnit.value = response.precio;
+                $preuProd.value = response.precio * e.target.value;
+
             }
         })
-        $preuProd.value = e.target.value * $preuUnit.value;
     })
+    $(".preuUnit").keyup((e)=>
+    {
+        document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
+        const $wrapper = e.target.parentNode.parentNode;
+        const $unitats = $wrapper.querySelector("div > div > div:nth-child(4) input")
+        const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
+        $preuProd.value = parseFloat(e.target.value * $unitats.value);
+    })
+
     });
+
+    
 
     function setFraProformaVto(metode)
     {
@@ -223,6 +228,8 @@
             success: function(response)
             {
                 $preuUnit.value = response.precio;
+                $preuProd.value = response.precio * e.target.value;
+
             }
         })
     })
@@ -230,16 +237,18 @@
     {
         document.querySelector("#TFraProformaAuxWrapper > div > div > div:nth-child(6)")
         const $wrapper = e.target.parentNode.parentNode;
+        const $unitats = $wrapper.querySelector("div > div > div:nth-child(4) input")
         const $preuUnit = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $preuProd = $wrapper.querySelector("div > div > div:nth-child(6) input")
-        $preuProd.value = e.target.value * $preuUnit.value;
-        console.log($preuUnit)
+        $preuProd.value = parseFloat(e.target.value * $unitats.value);
     })
+
     $(window).keydown(function(event){
     if(event.keyCode == 13) {
       event.preventDefault();
       return false;
     }
+
   });
     </script>
 {% endblock %}

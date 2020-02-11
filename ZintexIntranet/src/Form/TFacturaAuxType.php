@@ -18,8 +18,10 @@ class TFacturaAuxType extends AbstractType
         $builder
             ->add('numLinia', NumberType::class, [
                 "required"=>false,
+                'empty_data' => 'John Doe',
                 "attr"=>[
-                    "read_only"=> true
+                    "read_only"=> true,
+                    "class"=>"linea"
                 ]
             ])
             ->add('descripprodFactura',  TextType::class, [

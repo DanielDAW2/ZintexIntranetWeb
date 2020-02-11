@@ -44,7 +44,7 @@ class TProductesRepository extends ServiceEntityRepository
     public function findProduct(string $index)
     {
         return $this->createQueryBuilder("q")
-        ->select("q.idProd as id, q.nomProdCurt as text")
+        ->select("q.idProd as id, q.nomProd as text")
         ->orWhere("q.nomProd LIKE :index")
         ->orWhere("q.refProd LIKE :index")
         ->setParameter("index","%".$index."%")

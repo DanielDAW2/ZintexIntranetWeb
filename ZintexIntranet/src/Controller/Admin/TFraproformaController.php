@@ -64,6 +64,7 @@ class TFraproformaController extends AbstractController
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(239)));
         $tFraproforma->addTFraproformaPlazo(new TFraproformaPlazos($producte->find(296)));
         $form = $this->createForm(TFraproformaType::class, $tFraproforma);
+        $form->remove('tFraproformaVtos');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -76,8 +77,7 @@ class TFraproformaController extends AbstractController
             $year = new \DateTime();
             $year = $year->format("y");
             $codigo = $marca." ".$year."_";
-            dump($ultimaProforma->getNumProforma());
-            $zeros = str_pad("0",4-count(strval($ultimaProforma->getNumProforma())),"0");
+            $zeros = str_pad("0",4-strlen($ultimaProforma->getNumProforma()),"0");
             $numFraProf = $codigo.$zeros.$ultimaProforma->getNumProforma()." P";
             $data->setNumFraprof($numFraProf);
             

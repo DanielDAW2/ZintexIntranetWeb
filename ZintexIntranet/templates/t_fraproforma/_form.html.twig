@@ -72,7 +72,7 @@
   <div class="TFraProformaPlazoItem">
   {{ form_errors(tFraproformaPlazo) }}
     <div class='row'>
-      <div class='col-6'>
+      <div class='col'>
         {{form_widget(tFraproformaPlazo,{"label":""})}}
       </div>
     </div>
@@ -135,7 +135,7 @@
 </div>
 <h3 class="title-2 mb-3">Plazos</h3>
         
-    <div class="col" id="TFraProformaVtoWrapper" data-prototype="{{ formMacros.printTfraProformaPlazosForm(form.tFraproformaVtos.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaVtos|length }}">
+    <div class="col" id="TFraProformaVtoWrapper" data-prototype="{{ formMacros.printTfraProformaPlazosForm(form.tFraproformaPlazos.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaPlazos|length }}">
     
     {% for tFraproformaPlazo in form.tFraproformaPlazos %}
            {{ formMacros.printTfraProformaPlazosForm(tFraproformaPlazo) }}
@@ -179,6 +179,7 @@
         <div class="col">{{form_row(form.importPendent)}}</div>
         <div class="col">{{form_row(form.importPagat)}}</div>
     </div>
+    {% if tFraproformaVtos is defined %}
         <h3 class="title-2 mb-3">Vencimientos</h3>
         
     <div class="col" id="TFraProformaVtoWrapper" data-prototype="{{ formMacros.printTfraProformaVtoForm(form.tFraproformaVtos.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaVtos|length }}">
@@ -190,6 +191,7 @@
         class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaVto-fields-list">Afegir Venciment</button>
         </div>
+        {% endif %}
         
         {{form_row(form.observFraprof)}}
     <button class="btn btn-success">{{ button_label|default('Guardar') }}</button>

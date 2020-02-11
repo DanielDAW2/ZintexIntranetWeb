@@ -22,6 +22,7 @@ class TProductesController extends AbstractController {
         $productes = array_map(function($prof){
             return $prof;
         }, $findedProd);
+        
 
         return new JsonResponse(["results"=>$productes],200);
 

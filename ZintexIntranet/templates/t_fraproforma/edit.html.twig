@@ -54,7 +54,7 @@
     function initiateSelect2(element)
          {
         element.select2({
-        minimumInputLength: 3,
+        minimumInputLength: 2,
         width: '100% !important',
         ajax: {
             url: '{{path("t_productes_get_nomprod")|escape("js")}}',
@@ -76,7 +76,7 @@
     const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
     jQuery(document).ready(function () {
         $('.selectorProducte').select2({
-                minimumInputLength: 3,
+                minimumInputLength: 2,
                 width: '100% !important',
                 ajax: {
                     url: '{{ path("t_productes_get_nomprod")|e("js") }}',
@@ -121,7 +121,7 @@
     })
 
     $("#t_fraproforma_clientFraprof").select2({
-                    minimumInputLength: 3,
+                    minimumInputLength: 2,
                     ajax: {
                         url: '{{path("t_clients_get")|e("js")}}',
                         data: function(params)

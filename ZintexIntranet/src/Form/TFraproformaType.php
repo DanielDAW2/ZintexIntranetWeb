@@ -33,7 +33,7 @@ class TFraproformaType extends AbstractType
                 },
                 "choice_label"=>"client",
                 "label"=>"Client",
-                "required"=>false
+                "placeholder"=>"Selecciona un cliente"
             ])
             ->add('personaFraprof', TextType::class, [
                 "label"=>"Persona",
@@ -105,7 +105,6 @@ class TFraproformaType extends AbstractType
                 "allow_add" => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                "required"=>false
             ])
             ->add('tFraproformaVtos', CollectionType::class, [
                 "entry_type" => TFraproformaVtoType::class,
@@ -114,8 +113,13 @@ class TFraproformaType extends AbstractType
                 'by_reference' => false,
                 "required"=>false
             ])
-            ->add('tFraproformaPlazos', TFraproformaPlazosType::class
-            )
+            ->add('tFraproformaPlazos', CollectionType::class, [
+                "entry_type" => TFraproformaPlazosType::class,
+                "allow_add" => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                "required"=>false
+            ])
         ;
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
@@ -123,9 +127,13 @@ class TFraproformaType extends AbstractType
     public function onPreSubmit(PreSubmitEvent  $event)
         {
             $data = $event->getData();
+            
+            if(array_key_exists('tFraproformaAuxes', $data))  
             $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
-            $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
-            $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
+            if(array_key_exists('tFraproformaVtos', $data)) 
+            $data['tFraproformaVtos'] = $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']) ;
+            if(array_key_exists('tFraproformaPlazos', $data))
+            $data['tFraproformaPlazos'] =  array_values($data['tFraproformaPlazos']);
             $event->setData($data);
         }
 

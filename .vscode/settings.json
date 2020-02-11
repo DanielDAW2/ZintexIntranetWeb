@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "zintex",
+            "dialect": "MySQL",
+            "name": "Zintex",
+            "password": "Root123456",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}

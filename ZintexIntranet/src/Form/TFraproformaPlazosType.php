@@ -14,17 +14,15 @@ class TFraproformaPlazosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripprodFraprofPlazo', ChoiceType::class, [
-                "label"=>false,
-                "expanded"=>true,
-                "multiple"=>false
-            ]);
+        ->add('descripprodFraprofPlazo', TextType::class, [
+            "label"=>false
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => null,
+            'data_class' => TFraproformaPlazos::class,
         ]);
     }
 }
