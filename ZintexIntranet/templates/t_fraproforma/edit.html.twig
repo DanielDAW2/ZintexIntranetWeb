@@ -32,49 +32,6 @@
     {{ parent() }}
     <script src="{{asset("./assets/vendor/select2/select2.min.js")}}"></script>
     <script type="text/javascript">
-<<<<<<< HEAD
-    $(document).ready(function(){
-        $('.selectorProducte').select2({
-        minimumInputLength: 3,
-        width: '100% !important',
-        ajax: {
-            url: '{{path("t_productes_get_nomprod")|escape("js")}}',
-            data: function (params) {
-                var query = {
-                    nomProd: params.term,
-                    type: 'public'
-                    
-                }
-                return query;
-            },
-        }  
-        });
-        
-        
-    })
-    function initiateSelect2(element)
-         {
-        element.select2({
-        minimumInputLength: 2,
-        width: '100% !important',
-        ajax: {
-            url: '{{path("t_productes_get_nomprod")|escape("js")}}',
-            data: function (params) {
-                var query = {
-                    nomProd: params.term,
-                    type: 'public'
-                    
-                }
-                return query;
-            },
-        }  
-        });  
-         }
-    </script>
-    <script src="{{ asset('assets/js/addCollectionForm.js') }}"></script>
-    <script type="text/javascript">
-=======
->>>>>>> a5b017be7f73a6ae525faf1eb99e6fec82008c3c
     const $proformawrapper = $('#TFraProformaAuxWrapper');
     const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
     jQuery(document).ready(function () {
