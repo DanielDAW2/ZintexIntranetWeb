@@ -123,7 +123,7 @@ class TFactura
     private $Ultim_Pagament;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TFacturaAux", mappedBy="numFactura", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\TFacturaAux", mappedBy="numFactura", orphanRemoval=true, cascade={"persist"})
      */
     private $tFacturaAuxes;
 
