@@ -33,7 +33,7 @@
                 });
     });
 
-    $("#t_fraproforma_clientFraprof").on("change", function(e){
+    $("#t_factura_Client_Factura").on("change", function(e){
         $.ajax(
             {
                 url: '{{path("t_clients_get_fraprof")|e("js")}}',
@@ -46,12 +46,9 @@
                     console.log("AJAX Complete")
                 },
                 success: function(response){
-                    console.log("AJAX SUCCESS "+response.client)
-                    $("#t_fraproforma_metodePag").val(response.metode);
-                    $("#t_fraproforma_metpagAux").val(response.metodeDesc);
-                    $("#t_fraproforma_personaFraprof").val(response.persona);
-                    $("#t_fraproforma_ivaVar").val(response.iva);
-                    $("#t_fraproforma_numFraprof").val(response.numProf)
+                    $("#t_factura_Metode_Pag").val(response.metode);
+                    $("#t_factura_MetPag_Aux").val(response.metodeDesc);
+                    $("#t_factura_IVA_VAR").val(response.iva);
                 }
             }
            
@@ -75,7 +72,7 @@
                     }
                 })
 
-    $facturawrapper.on('click', '#add-FraProfAux', function(e) {
+    $facturawrapper.on('click', '#add-FacturaAux', function(e) {
         e.preventDefault();
         // Get the data-prototype explained earlier
         var prototype = $facturawrapper.data('prototype');
@@ -174,7 +171,6 @@
         const $preuUnitFact = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $unitFact = $wrapper.querySelector("div > div > div:nth-child(4) input")
         const $totalAuxFCT = $wrapper.querySelector("div > div > div:nth-child(6) > input")
-        console.log($totalAuxFCT);
         $totalAuxFCT.value = e.target.value * $unitFact.value;
         calcularIva();
     })
