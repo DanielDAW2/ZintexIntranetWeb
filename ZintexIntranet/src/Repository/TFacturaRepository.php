@@ -20,12 +20,13 @@ class TFacturaRepository extends ServiceEntityRepository
         parent::__construct($registry, TFactura::class);
     }
 
-    public function paginate($query, $page, $limit){
+    public function paginate($query, $page, $limit)
+    {
         $paginator = new Paginator($query);
         $paginator->getQuery()
-        ->setFirstResult($limit * ($page - 1)) // Offset
-        ->setMaxResults($limit); // Limit
-        
+            ->setFirstResult($limit * ($page - 1)) // Offset
+            ->setMaxResults($limit); // Limit
+
         return $paginator;
     }
 
@@ -33,25 +34,26 @@ class TFacturaRepository extends ServiceEntityRepository
     {
 
         $qb = $this->createQueryBuilder("cli")
-        ->select()
-        ->andWhere("cli.Client_Factura = :cli")
-        ->setParameter("cli", $client)
-        ->getQuery();
+            ->select()
+            ->andWhere("cli.Client_Factura = :cli")
+            ->setParameter("cli", $client)
+            ->getQuery();
 
         $paginator = $this->paginate($qb, $filters["page"], 15);
 
-        return ["paginator"=>$paginator, "query"=>$qb];
+        return ["paginator" => $paginator, "query" => $qb];
     }
 
     public function getFacturasPaginated($filters, $limit)
     {
         $query = $this->createQueryBuilder("prod")
-        ->select()
-        ->getQuery();
+            ->select()
+            ->orderBy("u.Id_Factura", "DESC")
+            ->getQuery();
 
         $paginator = $this->paginate($query, $filters["page"], $limit);
 
-        return ["paginator"=>$paginator,"query"=>$query];
+        return ["paginator" => $paginator, "query" => $query];
     }
 
     // /**
