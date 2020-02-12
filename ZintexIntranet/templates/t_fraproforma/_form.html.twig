@@ -179,7 +179,7 @@
         <div class="col">{{form_row(form.importPendent)}}</div>
         <div class="col">{{form_row(form.importPagat)}}</div>
     </div>
-    {% if tFraproformaVtos is defined %}
+        
         <h3 class="title-2 mb-3">Vencimientos</h3>
         
     <div class="col" id="TFraProformaVtoWrapper" data-prototype="{{ formMacros.printTfraProformaVtoForm(form.tFraproformaVtos.vars.prototype)|e('html_attr') }}" data-index="{{ form.tFraproformaVtos|length }}">
@@ -191,7 +191,6 @@
         class="btn btn-secondary mt-3 mb-3"
         data-list-selector="#FraProformaVto-fields-list">Afegir Venciment</button>
         </div>
-        {% endif %}
         
         {{form_row(form.observFraprof)}}
     <button class="btn btn-success">{{ button_label|default('Guardar') }}</button>
