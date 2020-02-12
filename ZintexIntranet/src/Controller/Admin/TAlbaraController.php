@@ -59,8 +59,8 @@ class TAlbaraController extends AbstractController
             $year = new \DateTime();
             $year = $year->format("y");
             $codigo = $marca . " " . $year . "_";
-            $zeros = str_pad($ultimAlbara->getNumAlbara(), 4 - strlen($ultimAlbara->getNumAlbara()), "0");
-            $numFraProf = $codigo . $zeros . $ultimAlbara->getNumAlbara();
+            $zeros = str_pad($ultimAlbara->getNumAlbara(), 4, "0");
+            $numFraProf = $codigo . $zeros;
             $data->setNumAlbara($numFraProf);
 
 

@@ -70,16 +70,16 @@ class TFraproformaController extends AbstractController
             $data = $form->getData();
             $client = $data->getClientFraprof();
             $marca = $client->getMarcaCli();
-            $ultimaProforma = $empreseRepo->findOneBy(["marca"=>$marca]);
-            $ultimaProforma->setNumProforma($ultimaProforma->getNumProforma()+ 1);
+            $ultimaProforma = $empreseRepo->findOneBy(["marca" => $marca]);
+            $ultimaProforma->setNumProforma($ultimaProforma->getNumProforma() + 1);
 
             $year = new \DateTime();
             $year = $year->format("y");
-            $codigo = $marca." ".$year."_";
-            $zeros = str_pad("0",4-strlen($ultimaProforma->getNumProforma()),"0");
-            $numFraProf = $codigo.$zeros.$ultimaProforma->getNumProforma()." P";
+            $codigo = $marca . " " . $year . "_";
+            $zeros = str_pad($ultimaProforma->getNumProforma(), 4, "0");
+            $numFraProf = $codigo . $zeros . " P";
             $data->setNumFraprof($numFraProf);
-            
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($tFraproforma);
@@ -87,7 +87,7 @@ class TFraproformaController extends AbstractController
             $entityManager->persist($data);
             $entityManager->flush();
 
-            return $this->redirectToRoute('t_fraproforma_edit',["idFraprof"=>$data->getIdFraprof()]);
+            return $this->redirectToRoute('t_fraproforma_edit', ["idFraprof" => $data->getIdFraprof()]);
         }
 
         return $this->render('t_fraproforma/new.html.twig', [

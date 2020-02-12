@@ -25,7 +25,6 @@
                 <td>{{ t_emprese.empresa }}</td>
                 <td>{{ t_emprese.titular }}</td>
                 <td>{{ t_emprese.nif }}</td>
-                
                 <td>
                     <a href="{{ path('t_empreses_show', {'id': t_emprese.id}) }}">show</a>
                     <a href="{{ path('t_empreses_edit', {'id': t_emprese.id}) }}">edit</a>
@@ -33,7 +32,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="20">no records found</td>
+                <td colspan="20">Sin Datos</td>
             </tr>
         {% endfor %}
         </tbody>
