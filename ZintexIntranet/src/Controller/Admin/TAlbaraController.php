@@ -140,9 +140,9 @@ class TAlbaraController extends AbstractController
         $year = new \DateTime();
         $year = $year->format("y");
         $codigo = $marca . " " . $year . "_";
-        $zeros = str_pad("0", 4 - count($ultimAlbara->getNumAlbara()), "0");
+        $zeros = str_pad($ultimAlbara->getNumAlbara(), 4 , "0");
 
-        $numAlbara = $codigo . $zeros . $ultimAlbara->getNumAlbara();
+        $numAlbara = $codigo . $zeros ;
         $albara->setNumAlbara($numAlbara);
         $albara->setNumfraproformaAlbara($proforma->getNumFraprof());
         $albara->setFacturableAlbara(true);
@@ -170,7 +170,7 @@ class TAlbaraController extends AbstractController
             $auxAlbara->setNumunitAlbara($auxProforma->getNumunitProforma());
             $auxAlbara->setDescripprodAlbara($auxProforma->getDescripprodProforma());
             $auxAlbara->setPreuunitAlbara($auxProforma->getPreuunitProforma());
-            $auxAlbara->setCodparamimpAlbara($auxProforma->getCodparamimpProforma()->getIdParamimp());
+            $auxAlbara->setCodparamimpAlbara($auxProforma->getCodparamimpProforma() ? $auxProforma->getCodparamimpProforma()->getIdParamimp() : NULL);
             $albara->addTAlbaraAux($auxAlbara);
         }
         $em->persist($albara);

@@ -242,13 +242,16 @@ Documentos Asociados
 </button>
 </div>
 <div class="modal-body">
-<table>
-    <tbody>
-        <tr>
+<table class="table">
+    <thead>
+    <tr>
             <th>Presupuesto</th>
             <th>Albarán</th>
             <th>Proforma</th>
         </tr>
+    </thead>
+        
+        <tbody>
         <tr>
             <td>
             {% if t_fraproforma.getRefPresup %} {{t_fraproforma.getRefPresup}} {% endif %}
