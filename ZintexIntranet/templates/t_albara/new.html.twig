@@ -55,6 +55,29 @@
                         }
                     }
                 })
+                $("#t_albara_clientAlbara").on("change", function(e){
+        $.ajax(
+            {
+                url: '{{path("t_clients_get_fraprof")|e("js")}}',
+                data: 
+                {
+                    client: e.target.value
+                },
+                
+                complete: function(e){
+                    console.log("AJAX Complete")
+                },
+                success: function(response){
+                    console.log("AJAX SUCCESS "+response.client)
+                    $("#t_albara_descripClientAlbara").val(response.persona);
+
+                }
+            }
+           
+            
+
+        )
+    })
     });
 
 
