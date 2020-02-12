@@ -213,7 +213,7 @@
     $iva = document.querySelector("#t_fraproforma_ivaVar").value
      document.querySelector("#t_fraproforma_iva").value = $precioSinIva * ($iva / 100);
      document.querySelector("#t_fraproforma_baseImp").value = $precioSinIva
-     document.querySelector("#t_fraproforma_totalFra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
+     document.querySelector("#t_fraproforma_totalFra").value = parseFloat($precioSinIva) + parseFloat(($precioSinIva * ($iva / 100)))
      document.querySelector("#t_fraproforma_importPendent").value = document.querySelector("#t_fraproforma_totalFra").value
   };
 
