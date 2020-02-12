@@ -17,34 +17,33 @@ class TFacturaAuxType extends AbstractType
     {
         $builder
             ->add('numLinia', NumberType::class, [
-                "required"=>false,
+                "required" => false,
                 'empty_data' => 'John Doe',
-                "attr"=>[
-                    "read_only"=> true,
-                    "class"=>"linea"
+                "attr" => [
+                    "read_only" => true,
+                    "class" => "linea"
                 ]
             ])
             ->add('descripprodFactura',  TextType::class, [
-                "label"=>"Impresió",
-                "required"=>false
+                "label" => "Impresió",
+                "required" => false
             ])
-            ->add('numunitFactura', null, ["label"=>"Unitats","required"=>false, "attr"=>[
-                "class"=>"unitProf"
+            ->add('numunitFactura', null, ["label" => "Unitats", "required" => false, "attr" => [
+                "class" => "unitFact"
             ]])
-            ->add('preuunitFactura',  null, ["label"=>"Unitats","required"=>false, "attr"=>[
-                "class"=>"unitProf"
+            ->add('preuunitFactura',  null, ["label" => "Unitats", "required" => false, "attr" => [
+                "class" => "preuUnitFact"
             ]])
-            ->add('preuFactura', null,["label"=>"Subtotal","required"=>false,"attr"=>["class"=>"totalProf"]])
+            ->add('preuFactura', null, ["label" => "Subtotal", "required" => false, "attr" => ["class" => "totalAuxFCT"]])
             ->add('codprodFactura', EntityType::class, [
-                "class"=>TProductes::class,
-                "choice_label"=>"nomProd",
-                "label"=>"Producte",
-                "required"=>false,
+                "class" => TProductes::class,
+                "choice_label" => "nomProd",
+                "label" => "Producte",
+                "required" => false,
                 "attr" => [
                     "class" => "selectorProducte"
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
