@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\TClients;
 use App\Entity\TFactura;
 use App\Entity\TMetodePag;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -72,10 +73,16 @@ class TFacturaType extends AbstractType
                 "required" => false
             ])
             ->add('MetPag_Aux')
+
             ->add('Client_Factura', EntityType::class, [
                 "class" => TClients::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->select();
+                },
                 "choice_label" => "client",
-
+                "label" => "Client",
+                "placeholder" => "Selecciona un cliente"
             ])
             ->add('Metode_Pag', EntityType::class, [
                 "class" => TMetodePag::class,
