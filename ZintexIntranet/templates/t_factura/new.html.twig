@@ -205,7 +205,7 @@
     $iva = document.querySelector("#t_factura_IVA_VAR").value
      document.querySelector("#t_factura_IVA").value = $precioSinIva * ($iva / 100);
      document.querySelector("#t_factura_Base_Imp").value = $precioSinIva
-     document.querySelector("#t_factura_Total_Fra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
+     document.querySelector("#t_factura_Total_Fra").value = parseFloat($precioSinIva) + parseFloat(($precioSinIva * ($iva / 100)))
      document.querySelector("#t_factura_Import_Pendent").value = document.querySelector("#t_factura_Total_Fra").value
   };
 
