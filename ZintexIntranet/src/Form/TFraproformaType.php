@@ -26,81 +26,81 @@ class TFraproformaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('clientFraprof',EntityType::class,[
-                "class"=>TClients::class,
+            ->add('clientFraprof', EntityType::class, [
+                "class" => TClients::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
-                        ->select()
-                        ;
+                        ->select();
                 },
-                "choice_label"=>"client",
-                "label"=>"Client",
-                "placeholder"=>"Selecciona un cliente"
+                "choice_label" => "client",
+                "label" => "Client",
+                "placeholder" => "Selecciona un cliente"
             ])
             ->add('personaFraprof', TextType::class, [
-                "label"=>"Persona",
-                "required"=>false
+                "label" => "Persona",
+                "required" => false
             ])
-            ->add('dataFraprof', DateType::class,[
+            ->add('dataFraprof', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                "label"=>"Fecha Proforma"])
-            ->add('nref', TextType::class,[
-                
-                "required"=>false
+                "label" => "Fecha Proforma"
+            ])
+            ->add('nref', TextType::class, [
+
+                "required" => false
             ])
             ->add('sref', TextType::class, [
-                
-                "required"=>false
+
+                "required" => false
             ])
-            ->add('baseImp', NumberType::class,[
-                
-                "required"=>false
+            ->add('baseImp', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('iva', NumberType::class,[
-                
-                "required"=>false
+            ->add('iva', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('req', NumberType::class,[
-                
-                "required"=>false
+            ->add('req', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('ivaVar', NumberType::class,[
-                
-                "required"=>false
+            ->add('ivaVar', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('reqVar', NumberType::class,[
-                
-                "required"=>false
+            ->add('reqVar', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('totalFra', NumberType::class,[
-                
-                "required"=>false
+            ->add('totalFra', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('importPendent', NumberType::class,[
-                
-                "required"=>false
+            ->add('importPendent', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('importPagat', NumberType::class,[
-                
-                "required"=>false
+            ->add('importPagat', NumberType::class, [
+
+                "required" => false
             ])
             ->add('metodePag', EntityType::class, [
-                "class"=>TMetodePag::class,
+                "class" => TMetodePag::class,
                 "choice_label" => "metode",
-                "required"=>false
+                "required" => false
             ])
             ->add('metpagAux')
             ->add('observFraprof', TextareaType::class, [
-                "required"=>false,
+                "required" => false,
                 "attr" => [
-                    "cols"=> 12
+                    "cols" => 12
                 ]
             ])
             ->add('numAutor', EntityType::class, [
-                "class"=>TAutorsPresup::class,
-                "choice_label"=>"descripAutpresup",
-                "required"=>false
+                "class" => TAutorsPresup::class,
+                "choice_label" => "descripAutpresup",
+                "required" => false
             ])
             ->add('tFraproformaAuxes', CollectionType::class, [
                 "entry_type" => TFraproformaAuxType::class,
@@ -113,43 +113,38 @@ class TFraproformaType extends AbstractType
                 "allow_add" => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                "required"=>false
+                "required" => false
             ])
             ->add('tFraproformaPlazos', CollectionType::class, [
-                "entry_type"=>TFraproformaPlazosType::class,
+                "entry_type" => TFraproformaPlazosType::class,
                 "allow_add" => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                "required"=>false
-            ])
-        ;
+                "required" => false
+            ]);
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
     }
     public function onPreSubmit(PreSubmitEvent  $event)
-        {
-            $data = $event->getData();
-            
-            if(array_key_exists('tFraproformaAuxes', $data))  
+    {
+        $data = $event->getData();
+
+        if (array_key_exists('tFraproformaAuxes', $data))
             $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
-            if($data['tFraproformaVtos'])
-            {
-                $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
-            }else
-            {
-                $data['tFraproformaVtos'] = [];
-            }
-            
-            if(is_array($data['tFraproformaPlazos']))
-            {
-                $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
-            }else
-            {
-                $data['tFraproformaPlazos'] = [];
-            }
-            
-            $event->setData($data);
+        if (is_array($data['tFraproformaVtos'])) {
+            $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
+        } else {
+            $data['tFraproformaVtos'] = [];
         }
+
+        if (is_array($data['tFraproformaPlazos'])) {
+            $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
+        } else {
+            $data['tFraproformaPlazos'] = [];
+        }
+
+        $event->setData($data);
+    }
 
     public function configureOptions(OptionsResolver $resolver)
     {
