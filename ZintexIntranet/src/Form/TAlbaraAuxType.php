@@ -16,9 +16,11 @@ class TAlbaraAuxType extends AbstractType
         $builder
             ->add('numLinia')
             ->add('descripprodAlbara')
-            ->add('numunitAlbara')
-            ->add('preuunitAlbara')
-            ->add('preuAlbara')
+            ->add('numunitAlbara', null, ["label" => "Unitats", "required" => false, "attr" => [
+                "class" => "unitAlbara"
+            ]])
+            ->add('preuunitAlbara', null, ["label" => "Preu", "required" => false, "attr" => ["class" => "preuUnitAlbara"]])
+            ->add('preuAlbara', null, ["label" => "Subtotal", "required" => false, "attr" => ["class" => "totalAlbara"]])
             ->add('codprodAlbara', EntityType::class, [
                 "class" => TProductes::class,
                 "choice_label" => "nomProd",

@@ -6,7 +6,14 @@
 <link href="{{asset('./assets/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
 {% endblock %}
 {% block body %}
-    <h1>Nueva Factura</h1>
+        <div class="table-data__tool">
+            <div class="table-data__tool-left">
+                <div class="rs-select2--light ">    
+                    <h1 class="title">Nueva Factura</h1>
+                </div>
+            </div>
+
+    </div>
 
     {{ include('t_factura/_form.html.twig') }}
 
