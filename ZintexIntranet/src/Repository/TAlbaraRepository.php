@@ -20,24 +20,26 @@ class TAlbaraRepository extends ServiceEntityRepository
         parent::__construct($registry, TAlbara::class);
     }
 
-    public function paginate($query, $page, $limit){
+    public function paginate($query, $page, $limit)
+    {
         $paginator = new Paginator($query);
         $paginator->getQuery()
-        ->setFirstResult($limit * ($page - 1)) // Offset
-        ->setMaxResults($limit); // Limit
-        
+            ->setFirstResult($limit * ($page - 1)) // Offset
+            ->setMaxResults($limit); // Limit
+
         return $paginator;
     }
 
     public function getAlbaraPaginated($filters, $limit)
     {
         $query = $this->createQueryBuilder("cli")
-        ->select()
-        ->getQuery();
+            ->select()
+            ->orderBy("cli.idAlbara", "DESC")
+            ->getQuery();
 
         $paginator = $this->paginate($query, $filters["page"], $limit);
 
-        return ["paginator"=>$paginator,"query"=>$query];
+        return ["paginator" => $paginator, "query" => $query];
     }
 
     // /**
