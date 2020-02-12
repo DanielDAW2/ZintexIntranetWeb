@@ -22,7 +22,7 @@
       <div class="form-group col">
         {{form_widget(tAlbaraAux.preuAlbara)}}
       </div>
-      <div class="col">
+      <div>
               <a href="#" class="removeTAlbaraAux pull-right">
                   <span class="fa fa-close"></span>
               </a>
@@ -83,6 +83,27 @@
 
 <h3 class="title-2 mb-3">Conceptos</h3>
     <div class="col" id="TAlbaraAuxWrapper" data-prototype="{{ formMacros.printTAlbaraAuxForm(form.tAlbaraAuxes.vars.prototype)|e('html_attr') }}" data-index="{{ form.tAlbaraAuxes|length }}">
+        <div class="form-row">
+      <div class="form-group col-sm-1">
+        Linea
+      </div>
+      <div class="form-group col-md-4">
+        Producto
+      </div>
+      <div class="form-group col-md-2">
+        Descripcion
+      </div>
+      <div class="form-group col-md-1">
+        Cant
+      </div>
+      <div class="form-group col-md-1">
+        Precio
+      </div>
+      <div class="form-group col-md-1">
+        Total
+      </div>
+      <div></div>
+    </div>
         {% for tAlbaraAux in form.tAlbaraAuxes %}
             
             {{ formMacros.printTAlbaraAuxForm(tAlbaraAux) }}
