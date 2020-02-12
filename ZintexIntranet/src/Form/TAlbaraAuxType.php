@@ -15,22 +15,18 @@ class TAlbaraAuxType extends AbstractType
     {
         $builder
             ->add('numLinia')
-            ->add('descripprodAlbara')
-            ->add('codparamimpAlbara')
-            ->add('descripparamimpAlbara')
             ->add('numunitAlbara')
             ->add('preuunitAlbara')
             ->add('preuAlbara')
             ->add('codprodAlbara', EntityType::class, [
-                "class"=>TProductes::class,
-                "choice_label"=>"nomProd",
-                "label"=>"Producte",
-                "required"=>false,
+                "class" => TProductes::class,
+                "choice_label" => "nomProd",
+                "label" => "Producte",
+                "required" => false,
                 "attr" => [
                     "class" => "selectorProducte"
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

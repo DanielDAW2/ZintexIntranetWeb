@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\TAlbara;
 use App\Entity\TClients;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -22,44 +23,45 @@ class TAlbaraType extends AbstractType
             ->add('descripClientAlbara')
             ->add('nomClientAlbara')
             ->add('direccioClientAlbara')
-            ->add('numAlbara', TextType::class,[
-                "label"=>"Albarán",
-                "required"=>false,
-                "attr"=>["readonly"=>true]
+            ->add('numAlbara', TextType::class, [
+                "label" => "Albarán",
+                "required" => false,
+                "attr" => ["readonly" => true]
             ])
             ->add('dataAlbara', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                "label"=>"Fecha Albara"
+                "label" => "Fecha Albara"
             ])
             ->add('dataSortidaAlbara', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                "label"=>"Fecha Salida Albarán"
+                "label" => "Fecha Salida Albarán"
             ])
             ->add('nrefAlbara')
             ->add('srefAlbara')
-            ->add('facturableAlbara', CheckboxType::class, [
-
-            ])
-            ->add('clientAlbara', EntityType::class, [
-                "class"=>TClients::class,
-                'query_builder' => function (ServiceEntityRepositoryInterface $er) {
-                    return $er->createQueryBuilder('u')
-                        ->setMaxResults(5);
-                },
-                "choice_label"=>"client",
-                "label"=>"Client",
-                "required"=>false
-            ]
+            ->add('facturableAlbara', CheckboxType::class, [])
+            ->add(
+                'clientAlbara',
+                EntityType::class,
+                [
+                    "class" => TClients::class,
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->select()
+                            ->setMaxResults(5);
+                    },
+                    "choice_label" => "client",
+                    "label" => "Client",
+                    "required" => false
+                ]
             )
-            ->add('tAlbaraAuxes', CollectionType::class,[
-                "entry_type"=>TAlbaraAuxType::class,
-                "allow_add"=>true,
-                "allow_delete"=>true,
-                "by_reference"=> false
-            ])
-        ;
+            ->add('tAlbaraAuxes', CollectionType::class, [
+                "entry_type" => TAlbaraAuxType::class,
+                "allow_add" => true,
+                "allow_delete" => true,
+                "by_reference" => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
