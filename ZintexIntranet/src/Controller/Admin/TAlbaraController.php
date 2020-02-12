@@ -26,31 +26,47 @@ class TAlbaraController extends AbstractController
     public function index(TAlbaraRepository $tAlbaraRepository, Request $req): Response
     {
         $filters = [];
-        $filters["page"]= $req->get("page") ? $req->get("page") : 1;
-        $albaraQuery = $tAlbaraRepository->getAlbaraPaginated($filters,$this->getParameter("limit"));
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $albaraQuery = $tAlbaraRepository->getAlbaraPaginated($filters, $this->getParameter("limit"));
         $albara = $albaraQuery['paginator'];
         $allitems =  $albaraQuery['query'];
         $maxPages = ceil($albaraQuery['paginator']->count() / $this->getParameter('limit'));
         return $this->render('t_albara/index.html.twig', array(
-                't_albaras' => $albara,
-                'maxPages'=>$maxPages,
-                'thisPage' => $req->get("page"),
-                'all_items' => $allitems
-            ) );
+            't_albaras' => $albara,
+            'maxPages' => $maxPages,
+            'thisPage' => $req->get("page"),
+            'all_items' => $allitems
+        ));
     }
 
     /**
      * @Route("/new", name="t_albara_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, TEmpresesRepository $empreseRepo): Response
     {
         $tAlbara = new TAlbara();
         $form = $this->createForm(TAlbaraType::class, $tAlbara);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $client = $data->getClientAlbara();
+            $marca = $client->getMarcaCli();
+            $ultimAlbara = $empreseRepo->findOneBy(["marca" => $marca]);
+            $ultimAlbara->setNumAlbara($ultimAlbara->getNumAlbara() + 1);
+
+            $year = new \DateTime();
+            $year = $year->format("y");
+            $codigo = $marca . " " . $year . "_";
+            $zeros = str_pad($ultimAlbara->getNumAlbara(), 4 - strlen($ultimAlbara->getNumAlbara()), "0");
+            $numFraProf = $codigo . $zeros . $ultimAlbara->getNumAlbara();
+            $data->setNumFactura($numFraProf);
+
+
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($tAlbara);
+            $entityManager->persist($ultimAlbara);
+            $entityManager->persist($data);
             $entityManager->flush();
 
             return $this->redirectToRoute('t_albara_index');
@@ -72,7 +88,7 @@ class TAlbaraController extends AbstractController
         ]);
     }
 
-    
+
 
     /**
      * @Route("/{idAlbara}/edit", name="t_albara_edit", methods={"GET","POST"})
@@ -99,7 +115,7 @@ class TAlbaraController extends AbstractController
      */
     public function delete(Request $request, TAlbara $tAlbara): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$tAlbara->getIdAlbara(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $tAlbara->getIdAlbara(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($tAlbara);
             $entityManager->flush();
@@ -118,38 +134,34 @@ class TAlbaraController extends AbstractController
         $albara->setNomClientAlbara($proforma->getClientFraprof()->getClient());
         $albara->setClientAlbara($proforma->getClientFraprof());
         $marca = $proforma->getClientFraprof()->getMarcaCli();
-        $ultimAlbara = $repoEmpreses->findOneBy(["marca"=>$marca]);
-        $ultimAlbara->setNumAlbara($ultimAlbara->getNumAlbara()+1);
-        
+        $ultimAlbara = $repoEmpreses->findOneBy(["marca" => $marca]);
+        $ultimAlbara->setNumAlbara($ultimAlbara->getNumAlbara() + 1);
+
         $year = new \DateTime();
         $year = $year->format("y");
-        $codigo = $marca." ".$year."_";
-        $zeros = str_pad("0",4-count($ultimAlbara->getNumAlbara()),"0");
+        $codigo = $marca . " " . $year . "_";
+        $zeros = str_pad("0", 4 - count($ultimAlbara->getNumAlbara()), "0");
 
-        $numAlbara = $codigo.$zeros.$ultimAlbara->getNumAlbara();
+        $numAlbara = $codigo . $zeros . $ultimAlbara->getNumAlbara();
         $albara->setNumAlbara($numAlbara);
         $albara->setNumfraproformaAlbara($proforma->getNumFraprof());
         $albara->setFacturableAlbara(true);
         $albara->setNrefAlbara($proforma->getNumFraprof());
         $albara->setSrefAlbara($proforma->getSref());
         $albara->setDescripClientAlbara($client->getNomfraCli());
-        if($client->getPaisfraCli()->getIdPais() == 74)
-        {
+        if ($client->getPaisfraCli()->getIdPais() == 74) {
             $pais = "";
-        }
-        else{
+        } else {
             $pais = $client->getPaisfraCli()->getPais();
         }
-        $albara->setDireccioClientAlbara($client->getDirfraCli()." ".$client->getCodpfraCli()." ".$client->getPobfraCli(). " ".$pais);
+        $albara->setDireccioClientAlbara($client->getDirfraCli() . " " . $client->getCodpfraCli() . " " . $client->getPobfraCli() . " " . $pais);
         $proforma->setRefAlbara($albara->getNumAlbara());
 
-        foreach( $proforma->getTFraproformaAuxes() as $auxProforma)
-        {
+        foreach ($proforma->getTFraproformaAuxes() as $auxProforma) {
             $auxAlbara = new TAlbaraAux();
             $auxAlbara->setCodprodAlbara($auxProforma->getCodprodProforma());
-            if($auxAlbara->getCodprodAlbara()->getIdProd()== 243)
-            {
-            }else{
+            if ($auxAlbara->getCodprodAlbara()->getIdProd() == 243) {
+            } else {
                 $auxAlbara->setDescripprodAlbara($auxAlbara->getCodprodAlbara()->getDescripal());
             }
             $auxAlbara->setNumAlbara($albara);
@@ -166,6 +178,6 @@ class TAlbaraController extends AbstractController
         $em->persist($ultimAlbara);
         $em->flush();
 
-        return $this->redirectToRoute("t_albara_edit",["idAlbara"=>$albara->getIdAlbara()]);
+        return $this->redirectToRoute("t_albara_edit", ["idAlbara" => $albara->getIdAlbara()]);
     }
 }
