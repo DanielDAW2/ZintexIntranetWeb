@@ -15,6 +15,7 @@ class TAlbaraAuxType extends AbstractType
     {
         $builder
             ->add('numLinia')
+            ->add('descripprodAlbara')
             ->add('numunitAlbara')
             ->add('preuunitAlbara')
             ->add('preuAlbara')
