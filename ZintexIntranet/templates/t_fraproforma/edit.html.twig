@@ -15,6 +15,9 @@
             </div>
         </div>
         <div class="table-data__tool-right">
+        <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#documentsModal">
+Documentos Asociados
+</button>
             <a href="{{path("t_ordre_treball_proforma",{"idFraprof":t_fraproforma.idFraProf})}}" class="btn btn-warning">Ordenes de trabajo</a>
             <a href="{{path("t_albara_proforma",{"proforma":t_fraproforma.idFraProf})}}" class="btn btn-success">Emitir Albarán</a>
             
@@ -227,4 +230,45 @@
   };
 
     </script>
+{% endblock %}
+{% block modal %}
+<div class="modal fade" id="documentsModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true" >
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table>
+    <tbody>
+        <tr>
+            <th>Presupuesto</th>
+            <th>Albarán</th>
+            <th>Proforma</th>
+        </tr>
+        <tr>
+            <td>
+            {% if t_fraproforma.getRefPresup %} {{t_fraproforma.getRefPresup}} {% endif %}
+            </td>
+            <td>
+            {% if t_fraproforma.getRefAlbara %} {{t_fraproforma.getRefAlbara}} {% endif %}
+            </td>
+            <td>
+            {% if t_fraproforma.getRefFactura %}{{t_fraproforma.getRefFactura}} {% endif %}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary">Confirm</button>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}
