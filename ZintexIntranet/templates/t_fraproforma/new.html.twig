@@ -26,8 +26,6 @@
     const $proformawrapper = $('#TFraProformaAuxWrapper');
     const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
     jQuery(document).ready(function () {
-        var proformaAuxes = []
-        
         $('.selectorProducte').select2({
                 minimumInputLength: 2,
                 width: '100% !important',
@@ -73,7 +71,7 @@
     })
 
     $("#t_fraproforma_clientFraprof").select2({
-                    minimumInputLength: 3,
+                    minimumInputLength: 2,
                     ajax: {
                         url: '{{path("t_clients_get")|e("js")}}',
                         data: function(params)
@@ -172,7 +170,7 @@
             },
             complete: function()
             {
-                $preuProd.value = parseFloat(e.target.value) * parseFloat($preuUnit.value);
+                $preuProd.value = e.target.value * $preuUnit.value;
             }
         })
         
@@ -190,13 +188,11 @@
         $preuProd.value = e.target.value * $unitProf.value;
         calcularIva();
     })
-
     $(window).keydown(function(event){
     if(event.keyCode == 13) {
       event.preventDefault();
       return false;
     }
-
   });
   function calcularIva(){
      var $nodelist = document.querySelectorAll(".totalProf");
@@ -217,7 +213,7 @@
     $iva = document.querySelector("#t_fraproforma_ivaVar").value
      document.querySelector("#t_fraproforma_iva").value = $precioSinIva * ($iva / 100);
      document.querySelector("#t_fraproforma_baseImp").value = $precioSinIva
-     document.querySelector("#t_fraproforma_totalFra").value = parseFloat($precioSinIva) + ($precioSinIva * ($iva / 100))
+     document.querySelector("#t_fraproforma_totalFra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
      document.querySelector("#t_fraproforma_importPendent").value = document.querySelector("#t_fraproforma_totalFra").value
   };
 

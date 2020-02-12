@@ -9,3 +9,203 @@
 
     <a href="{{ path('t_factura_index') }}">back to list</a>
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset("./assets/vendor/select2/select2.min.js")}}"></script>
+    <script type="text/javascript">
+    const $proformawrapper = $('#TFraProformaAuxWrapper');
+    const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
+    jQuery(document).ready(function () {
+        $('.selectorProducte').select2({
+                minimumInputLength: 2,
+                width: '100% !important',
+                ajax: {
+                    url: '{{ path("t_productes_get_nomprod")|e("js") }}',
+                    data: function (params) {
+                        var query = {
+                            prod: params.term,
+                            type: 'public'
+                            
+                        }
+                        return query;
+                    },
+                }  
+                });
+    });
+
+    $("#t_fraproforma_clientFraprof").on("change", function(e){
+        $.ajax(
+            {
+                url: '{{path("t_clients_get_fraprof")|e("js")}}',
+                data: 
+                {
+                    client: e.target.value
+                },
+                
+                complete: function(e){
+                    console.log("AJAX Complete")
+                },
+                success: function(response){
+                    console.log("AJAX SUCCESS "+response.client)
+                    $("#t_fraproforma_metodePag").val(response.metode);
+                    $("#t_fraproforma_metpagAux").val(response.metodeDesc);
+                    $("#t_fraproforma_personaFraprof").val(response.persona);
+                    $("#t_fraproforma_ivaVar").val(response.iva);
+                    $("#t_fraproforma_numFraprof").val(response.numProf)
+                }
+            }
+           
+            
+
+        )
+    })
+
+    $("#t_fraproforma_clientFraprof").select2({
+                    minimumInputLength: 2,
+                    ajax: {
+                        url: '{{path("t_clients_get")|e("js")}}',
+                        data: function(params)
+                        {
+                            var query = {
+                                client: params.term,
+                                type: 'public'
+                            }
+                            return query
+                        }
+                    }
+                })
+
+    $proformawrapper.on('click', '#add-FraProfAux', function(e) {
+        e.preventDefault();
+        // Get the data-prototype explained earlier
+        var prototype = $proformawrapper.data('prototype');
+        // get the new index
+        var index = $proformawrapper.data('index');
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+        // increase the index with one for the next item
+        $proformawrapper.data('index', index + 1);
+        // Display the form in the page before the "new" link
+        $(this).before(newForm);
+        $('.selectorProducte').select2({
+            minimumInputLength: 3,
+            width: '100% !important',
+            ajax: {
+                url: '{{path("t_productes_get_nomprod")|escape("js")}}',
+                data: function (params) {
+                    var query = {
+                        prod: params.term,
+                        type: 'public'
+                        
+                    }
+                    return query;
+                },
+            }  
+            });
+    $(".unitFact").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $preuUnitFact = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $totalAuxFCT = $wrapper.querySelector("div > div > div:nth-child(6) > input")
+        
+
+        $.ajax({
+            url: "{{ path("t_precios_cantidad_get") }}",
+            data: {
+                nomProd: $($prod).val(),
+                cantidad: e.target.value
+            },
+            success: function(response)
+            {
+                $preuUnitFact.value = response.precio;
+                $totalAuxFCT.value = e.target.value * $preuUnitFact.value;
+                calcularIva()
+            }
+        })
+        calcularIva();
+    })
+    $(".preuUnitFact").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $unitFact = $wrapper.querySelector("div > div > div:nth-child(4) input")
+        const $preuUnitFact = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $totalAuxFCT = $wrapper.querySelector("div > div > div:nth-child(6) > input")
+        $totalAuxFCT.value = e.target.value * $unitFact.value;
+        calcularIva();
+    })
+    });
+
+    $(".unitFact").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $preuUnitFact = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $totalAuxFCT = $wrapper.querySelector("div > div > div:nth-child(6) > input")
+
+        
+        
+        $.ajax({
+            url: "{{ path("t_precios_cantidad_get") }}",
+            data: {
+                nomProd: $($prod).val(),
+                cantidad: e.target.value
+            },
+            success: function(response)
+            {
+                $preuUnitFact.value = response.precio;
+                
+            },
+            complete: function()
+            {
+                $totalAuxFCT.value = e.target.value * $preuUnitFact.value;
+            }
+        })
+        
+        calcularIva();
+
+    })
+    $(".preuUnitFact").keyup((e)=>
+    {
+        const $wrapper = e.target.parentNode.parentNode;
+        const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
+        const $preuUnitFact = $wrapper.querySelector("div > div > div:nth-child(5) input")
+        const $unitFact = $wrapper.querySelector("div > div > div:nth-child(4) input")
+        const $totalAuxFCT = $wrapper.querySelector("div > div > div:nth-child(6) > input")
+        console.log($totalAuxFCT);
+        $totalAuxFCT.value = e.target.value * $unitFact.value;
+        calcularIva();
+    })
+    $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+  function calcularIva(){
+     var $nodelist = document.querySelectorAll(".totalProf");
+     var nodos = [];
+     $nodelist.forEach(e=> {
+         nodos.push(e.value);
+     })
+     nodos = nodos.filter(e => {
+         if(e === ""){
+             return false
+         }
+         return true
+     })
+     $precioSinIva = nodos.reduce((precio, total)=> {
+         return parseFloat(precio) + parseFloat(total);
+     })
+
+    $iva = document.querySelector("#t_fraproforma_ivaVar").value
+     document.querySelector("#t_fraproforma_iva").value = $precioSinIva * ($iva / 100);
+     document.querySelector("#t_fraproforma_baseImp").value = $precioSinIva
+     document.querySelector("#t_fraproforma_totalFra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
+     document.querySelector("#t__importPendent").value = document.querySelector("#t_fraproforma_totalFra").value
+  };
+
+    </script>
+{% endblock %}

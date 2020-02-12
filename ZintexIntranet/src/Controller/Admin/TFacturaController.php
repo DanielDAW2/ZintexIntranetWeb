@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\TFactura;
 use App\Form\TFacturaType;
 use App\Repository\TFacturaRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,7 +38,6 @@ class TFacturaController extends AbstractController
             'thisPage' => trim($filters["page"]),
             'all_items' => $FacturasQuery['query']
         ));
-
     }
 
     /**
@@ -46,6 +46,7 @@ class TFacturaController extends AbstractController
     public function new(Request $request): Response
     {
         $tFactura = new TFactura();
+        $tFactura->setDataFactura(new DateTime());
         $form = $this->createForm(TFacturaType::class, $tFactura);
         $form->handleRequest($request);
 
@@ -98,7 +99,7 @@ class TFacturaController extends AbstractController
      */
     public function delete(Request $request, TFactura $tFactura): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$tFactura->getId_Factura(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $tFactura->getId_Factura(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($tFactura);
             $entityManager->flush();
