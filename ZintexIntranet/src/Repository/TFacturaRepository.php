@@ -48,7 +48,7 @@ class TFacturaRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder("prod")
             ->select()
-            ->orderBy("u.Id_Factura", "DESC")
+            ->orderBy("prod.Id_Factura", "DESC")
             ->getQuery();
 
         $paginator = $this->paginate($query, $filters["page"], $limit);
