@@ -31,6 +31,20 @@
                     },
                 }  
                 });
+                $("#t_factura_Client_Factura").select2({
+                    minimumInputLength: 2,
+                    ajax: {
+                        url: '{{path("t_clients_get")|e("js")}}',
+                        data: function(params)
+                        {
+                            var query = {
+                                client: params.term,
+                                type: 'public'
+                            }
+                            return query
+                        }
+                    }
+                })
     });
 
     $("#t_factura_Client_Factura").on("change", function(e){
@@ -57,20 +71,7 @@
         )
     })
 
-    $("#t_factura_Client_Factura").select2({
-                    minimumInputLength: 2,
-                    ajax: {
-                        url: '{{path("t_clients_get")|e("js")}}',
-                        data: function(params)
-                        {
-                            var query = {
-                                client: params.term,
-                                type: 'public'
-                            }
-                            return query
-                        }
-                    }
-                })
+    
 
     $facturawrapper.on('click', '#add-FacturaAux', function(e) {
         e.preventDefault();
