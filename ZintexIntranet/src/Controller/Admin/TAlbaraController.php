@@ -61,7 +61,7 @@ class TAlbaraController extends AbstractController
             $codigo = $marca . " " . $year . "_";
             $zeros = str_pad($ultimAlbara->getNumAlbara(), 4 - strlen($ultimAlbara->getNumAlbara()), "0");
             $numFraProf = $codigo . $zeros . $ultimAlbara->getNumAlbara();
-            $data->setNumFactura($numFraProf);
+            $data->setNumAlbara($numFraProf);
 
 
             $entityManager = $this->getDoctrine()->getManager();
