@@ -50,8 +50,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Cliente</th>
                 <th>Albarán</th>
+                <th>Cliente</th>
+                
                 <th>Fecha Albaran</th>
                 <th>Fecha Salida</th>
                 <th>Facturable</th>
@@ -61,14 +62,12 @@
         <tbody>
         {% for t_albara in t_albaras %}
             <tr>
-                <td>{{ t_albara.nomClientAlbara }}</td>
                 <td>{{ t_albara.numAlbara }}</td>
+                <td>{{ t_albara.nomClientAlbara }}</td>
                 <td>{{ t_albara.dataAlbara ? t_albara.dataAlbara|date('Y-m-d') : '' }}</td>
                 <td>{{ t_albara.dataSortidaAlbara ? t_albara.dataSortidaAlbara|date('Y-m-d') : '' }}</td>
-                <td>{{ t_albara.facturableAlbara }}</td>
                 <td>
-                    <a href="{{ path('t_albara_show', {'idAlbara': t_albara.idAlbara}) }}">show</a>
-                    <a href="{{ path('t_albara_edit', {'idAlbara': t_albara.idAlbara}) }}">edit</a>
+                    <a class="btn btn-secondary" href="{{ path('t_albara_edit', {'idAlbara': t_albara.idAlbara}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
