@@ -13,20 +13,7 @@
                 <th>Empresa</th>
                 <th>Titular</th>
                 <th>Nif</th>
-                <th>Direccio</th>
-                <th>Codpos</th>
-                <th>Poblacio</th>
-                <th>Telefon</th>
-                <th>Fax</th>
-                <th>Email</th>
-                <th>Web</th>
-                <th>NumPresup</th>
-                <th>NumProforma</th>
-                <th>NumAlbara</th>
-                <th>NumFra</th>
-                <th>NumClient</th>
-                <th>NumFrarectif</th>
-                <th>PathLogo</th>
+                
                 <th>actions</th>
             </tr>
         </thead>
@@ -38,20 +25,7 @@
                 <td>{{ t_emprese.empresa }}</td>
                 <td>{{ t_emprese.titular }}</td>
                 <td>{{ t_emprese.nif }}</td>
-                <td>{{ t_emprese.direccio }}</td>
-                <td>{{ t_emprese.codpos }}</td>
-                <td>{{ t_emprese.poblacio }}</td>
-                <td>{{ t_emprese.telefon }}</td>
-                <td>{{ t_emprese.fax }}</td>
-                <td>{{ t_emprese.email }}</td>
-                <td>{{ t_emprese.web }}</td>
-                <td>{{ t_emprese.numPresup }}</td>
-                <td>{{ t_emprese.numProforma }}</td>
-                <td>{{ t_emprese.numAlbara }}</td>
-                <td>{{ t_emprese.numFra }}</td>
-                <td>{{ t_emprese.numClient }}</td>
-                <td>{{ t_emprese.numFrarectif }}</td>
-                <td>{{ t_emprese.pathLogo }}</td>
+                
                 <td>
                     <a href="{{ path('t_empreses_show', {'id': t_emprese.id}) }}">show</a>
                     <a href="{{ path('t_empreses_edit', {'id': t_emprese.id}) }}">edit</a>
