@@ -73,12 +73,12 @@ class TFactura
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $IVA_VAR = 0;
+    private $IVA_VAR = 21;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $IVA = 21;
+    private $IVA = 0;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -94,17 +94,17 @@ class TFactura
      * @ORM\Column(type="float", nullable=true)
     
      */
-    private $Total_Fra;
+    private $Total_Fra = 0;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $Import_Pendent;
+    private $Import_Pendent = 0;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $Import_Pagat;
+    private $Import_Pagat = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TMetodePag")
