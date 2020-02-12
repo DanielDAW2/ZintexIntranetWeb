@@ -21,79 +21,83 @@ class TFacturaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Data_factura', DateType::class,[
+            ->add('Data_factura', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                "label"=>"Fecha Fatura"])
-            ->add('Data_Vto_Factura', DateType::class,[
+                "label" => "Fecha Fatura"
+            ])
+            ->add('Data_Vto_Factura', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                "label"=>"Vencimiento Fatura"])
-            ->add('NRef',TextType::class,[
-                
-                "required"=>false
+                "label" => "Vencimiento Fatura"
             ])
-            ->add('SRef',TextType::class,[
-                
-                "required"=>false
+            ->add('NRef', TextType::class, [
+
+                "required" => false
             ])
-            ->add('Base_Imp', NumberType::class,[
-                
-                "required"=>false
+            ->add('SRef', TextType::class, [
+
+                "required" => false
             ])
-            ->add('IVA_VAR', NumberType::class,[
-                
-                "required"=>false
+            ->add('Base_Imp', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('IVA', NumberType::class,[
-                
-                "required"=>false
+            ->add('IVA_VAR', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('REQ_VAR', NumberType::class,[
-                
-                "required"=>false
+            ->add('IVA', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('REQ', NumberType::class,[
-                
-                "required"=>false
+            ->add('REQ_VAR', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('Total_Fra', NumberType::class,[
-                
-                "required"=>false
+            ->add('REQ', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('Import_Pendent', NumberType::class,[
-                
-                "required"=>false
+            ->add('Total_Fra', NumberType::class, [
+
+                "required" => false
             ])
-            ->add('Import_Pagat', NumberType::class,[
-                
-                "required"=>false
+            ->add('Import_Pendent', NumberType::class, [
+
+                "required" => false
+            ])
+            ->add('Import_Pagat', NumberType::class, [
+
+                "required" => false
             ])
             ->add('MetPag_Aux')
             ->add('Client_Factura', EntityType::class, [
-                "class"=>TClients::class,
-                "choice_label"=>"client"
+                "class" => TClients::class,
+                "choice_label" => "client",
+                "attr" => [
+                    "class" => ".s"
+                ]
             ])
             ->add('Metode_Pag', EntityType::class, [
-                "class"=>TMetodePag::class,
-                "choice_label"=>"metode"
+                "class" => TMetodePag::class,
+                "choice_label" => "metode"
             ])
             ->add('tFacturaAuxes', CollectionType::class, [
                 "entry_type" => TFacturaAuxType::class,
                 "allow_add" => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                "required"=>false
-            ])
-        ;
+                "required" => false
+            ]);
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
     }
     public function onPreSubmit(PreSubmitEvent  $event)
-        {
-            $data = $event->getData();
-            $data['tFacturaAuxes'] = array_values($data['tFacturaAuxes']);
-            $event->setData($data);
-        }
+    {
+        $data = $event->getData();
+        $data['tFacturaAuxes'] = array_values($data['tFacturaAuxes']);
+        $event->setData($data);
+    }
 
     public function configureOptions(OptionsResolver $resolver)
     {

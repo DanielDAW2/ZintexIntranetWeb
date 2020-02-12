@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New TFactura{% endblock %}
+{% block title %}Nueva Factira{% endblock %}
 
 {% block body %}
-    <h1>Create new TFactura</h1>
+    <h1>Nueva Factura</h1>
 
     {{ include('t_factura/_form.html.twig') }}
 
@@ -13,8 +13,8 @@
     {{ parent() }}
     <script src="{{asset("./assets/vendor/select2/select2.min.js")}}"></script>
     <script type="text/javascript">
-    const $proformawrapper = $('#TFraProformaAuxWrapper');
-    const $proformaVtowrapper = $('#TFraProformaVtoWrapper');
+    const $facturawrapper = $('#TFacturaAuxWrapper');
+    const $proformaVtowrapper = $('#TFacturaVtoWrapper');
     jQuery(document).ready(function () {
         $('.selectorProducte').select2({
                 minimumInputLength: 2,
@@ -60,7 +60,7 @@
         )
     })
 
-    $("#t_fraproforma_clientFraprof").select2({
+    $("#t_factura_Client_Factura").select2({
                     minimumInputLength: 2,
                     ajax: {
                         url: '{{path("t_clients_get")|e("js")}}',
@@ -75,17 +75,17 @@
                     }
                 })
 
-    $proformawrapper.on('click', '#add-FraProfAux', function(e) {
+    $facturawrapper.on('click', '#add-FraProfAux', function(e) {
         e.preventDefault();
         // Get the data-prototype explained earlier
-        var prototype = $proformawrapper.data('prototype');
+        var prototype = $facturawrapper.data('prototype');
         // get the new index
-        var index = $proformawrapper.data('index');
+        var index = $facturawrapper.data('index');
         // Replace '__name__' in the prototype's HTML to
         // instead be a number based on how many items we have
         var newForm = prototype.replace(/__name__/g, index);
         // increase the index with one for the next item
-        $proformawrapper.data('index', index + 1);
+        $facturawrapper.data('index', index + 1);
         // Display the form in the page before the "new" link
         $(this).before(newForm);
         $('.selectorProducte').select2({
@@ -185,7 +185,7 @@
     }
   });
   function calcularIva(){
-     var $nodelist = document.querySelectorAll(".totalProf");
+     var $nodelist = document.querySelectorAll(".totalAuxFCT");
      var nodos = [];
      $nodelist.forEach(e=> {
          nodos.push(e.value);
@@ -200,11 +200,11 @@
          return parseFloat(precio) + parseFloat(total);
      })
 
-    $iva = document.querySelector("#t_fraproforma_ivaVar").value
-     document.querySelector("#t_fraproforma_iva").value = $precioSinIva * ($iva / 100);
-     document.querySelector("#t_fraproforma_baseImp").value = $precioSinIva
-     document.querySelector("#t_fraproforma_totalFra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
-     document.querySelector("#t__importPendent").value = document.querySelector("#t_fraproforma_totalFra").value
+    $iva = document.querySelector("#t_factura_IVA_VAR").value
+     document.querySelector("#t_factura_IVA").value = $precioSinIva * ($iva / 100);
+     document.querySelector("#t_factura_Base_Imp").value = $precioSinIva
+     document.querySelector("#t_factura_Total_Fra").value = $precioSinIva + ($precioSinIva * ($iva / 100))
+     document.querySelector("#t_factura_Import_Pendent").value = document.querySelector("#t_fraproforma_totalFra").value
   };
 
     </script>

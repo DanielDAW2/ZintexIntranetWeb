@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TFactura index{% endblock %}
+{% block title %}Facturas Venta{% endblock %}
 
 {% block body %}
     <div class="table-data__tool">
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--md">    
-                <h1 class="title-1">Facturas</h1>
+                <h1 class="title-1">Facturas de Venta</h1>
 
             </div>
 
@@ -75,13 +75,12 @@
                 <td>{{ t_factura.IVA }}</td>
                 <td>{{ t_factura.TotalFra }}</td>
                 <td>
-                    <a href="{{ path('t_factura_show', {'Id_Factura': t_factura.Id_Factura}) }}">show</a>
-                    <a href="{{ path('t_factura_edit', {'Id_Factura': t_factura.Id_Factura}) }}">edit</a>
+                    <a href="{{ path('t_factura_edit', {'Id_Factura': t_factura.Id_Factura}) }}">Ver</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="20">No se han trobat Factures</td>
+                <td colspan="20">No se han encontrado facturas</td>
             </tr>
         {% endfor %}
         </tbody>
