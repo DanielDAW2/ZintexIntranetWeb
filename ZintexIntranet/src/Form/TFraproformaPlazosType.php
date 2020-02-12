@@ -12,14 +12,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TFraproformaPlazosType extends AbstractType
+class  TFraproformaPlazosType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('codprodFraprofPlazo', EntityType::class, [
-                "class"=> TProductes::class,
-                "choice_label"=>"nomProd",
+                "class" => TProductes::class,
+                "choice_label" => "nomProd",
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orWhere('u.idProd = 241')
@@ -27,8 +27,8 @@ class TFraproformaPlazosType extends AbstractType
                         ->orWhere('u.idProd = 239')
                         ->orWhere('u.idProd = 296');
                 },
-                "expanded"=>false,
-                "multiple"=>false
+                "expanded" => false,
+                "multiple" => false
             ]);
     }
 

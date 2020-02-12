@@ -129,19 +129,10 @@ class TFraproformaType extends AbstractType
     {
         $data = $event->getData();
 
-        if (array_key_exists('tFraproformaAuxes', $data))
-            $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
-        if (array_key_exists('tFraproformaVtos', $data)) {
-            $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
-        } else {
-            $data['tFraproformaVtos'] = [];
-        }
+        $data['tFraproformaAuxes'] = array_values($data['tFraproformaAuxes']);
+        $data['tFraproformaVtos'] = array_values($data['tFraproformaVtos']);
+        $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
 
-        if (array_key_exists('tFraproformaPlazos', $data)) {
-            $data['tFraproformaPlazos'] = array_values($data['tFraproformaPlazos']);
-        } else {
-            $data['tFraproformaPlazos'] = [];
-        }
 
         $event->setData($data);
     }
