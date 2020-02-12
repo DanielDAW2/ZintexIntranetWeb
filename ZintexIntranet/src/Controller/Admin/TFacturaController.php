@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\TFactura;
 use App\Form\TFacturaType;
+use App\Repository\TEmpresesRepository;
 use App\Repository\TFacturaRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +44,7 @@ class TFacturaController extends AbstractController
     /**
      * @Route("/new", name="t_factura_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, TEmpresesRepository $empreseRepo): Response
     {
         $tFactura = new TFactura();
         $tFactura->setDataFactura(new DateTime());
@@ -51,8 +52,26 @@ class TFacturaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($tFactura);
+            $client = $data->getClientFactura();
+            $marca = $client->getMarcaCli();
+            $ultimaFactura = $empreseRepo->findOneBy(["marca" => $marca]);
+            $ultimaFactura->setNumProforma($ultimaFactura->getNumFra() + 1);
+
+            $year = new \DateTime();
+            $year = $year->format("y");
+            $codigo = $marca . " " . $year . "_";
+            $zeros = str_pad("0", 4 - strlen($ultimaFactura->getNumFra()), "0");
+            $numFraProf = $codigo . $zeros . $ultimaFactura->getNumFra() . " F";
+            $data->setNumFactura($numFraProf);
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($ultimaFactura);
+            $entityManager->persist($data);
             $entityManager->flush();
 
             return $this->redirectToRoute('t_factura_index');
