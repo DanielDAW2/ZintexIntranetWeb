@@ -64,8 +64,8 @@ class TFacturaController extends AbstractController
             $year = new \DateTime();
             $year = $year->format("y");
             $codigo = $marca . " " . $year . "_";
-            $zeros = str_pad("0", 4 - strlen($ultimaFactura->getNumFra()), "0");
-            $numFraProf = $codigo . $zeros . $ultimaFactura->getNumFra() . " F";
+            $zeros = str_pad($ultimaFactura->getNumFra(), 4 - strlen($ultimaFactura->getNumFra()), "0");
+            $numFraProf = $codigo . $zeros . $ultimaFactura->getNumFra();
             $data->setNumFactura($numFraProf);
 
 

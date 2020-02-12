@@ -3,11 +3,60 @@
 {% block title %}Edit TFactura{% endblock %}
 
 {% block body %}
-    <h1>Factura {{ t_factura.getNumFactura }}</h1>
+    <div class="table-data__tool">
+        <div class="table-data__tool-left">
+            <div class="rs-select2--light ">    
+                <h1 class="title">Factura {{ t_factura.getNumFactura }}</h1>
+            </div>
+        </div>
+        <div class="table-data__tool-right">
+            <a href="{{path("t_albara_proforma",{"proforma":t_fraproforma.idFraProf})}}" class="btn btn-success">Emitir Albarán</a>
+            <button class="btn btn-secondary" toggle="modal" data-target="#documentsModal">Ver Documentos Associados</button>
+            
+        </div>
+    </div>
 
     {{ include('t_factura/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('t_factura_index') }}">back to list</a>
 
     {{ include('t_factura/_delete_form.html.twig') }}
+{% endblock %}
+{% block modal %}
+<div class="modal fade show" id="documentsModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" style="display: block;">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="mediumModalLabel">Documentos Asociados</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table>
+    <tbody>
+        <tr>
+            <th>Albarán</th>
+            <th>Proforma</th>
+        </tr>
+        <tr>
+            
+            <td>
+            {% if t_factura.Ref_Albara %} {{t_factura.Ref_Albara}} {% endif %}
+            </td>
+            <td>
+            {% if t_factura.Ref_Proforma %}{{t_factura.Ref_Proforma}} {% endif %}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary">Confirm</button>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}
