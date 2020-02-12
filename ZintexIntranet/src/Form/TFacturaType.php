@@ -75,9 +75,7 @@ class TFacturaType extends AbstractType
             ->add('Client_Factura', EntityType::class, [
                 "class" => TClients::class,
                 "choice_label" => "client",
-                "attr" => [
-                    "class" => ".s"
-                ]
+
             ])
             ->add('Metode_Pag', EntityType::class, [
                 "class" => TMetodePag::class,
