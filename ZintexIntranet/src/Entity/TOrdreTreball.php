@@ -237,7 +237,7 @@ class TOrdreTreball
     private $numFraproforma;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreballAux", mappedBy="numOrdreTreball", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\TOrdreTreballAux", mappedBy="numOrdreTreball", orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="Id_Ordre_Treball_Aux")
      */
     private $tOrdreTreballAuxes;

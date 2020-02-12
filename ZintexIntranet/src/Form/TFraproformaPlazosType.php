@@ -19,6 +19,7 @@ class  TFraproformaPlazosType extends AbstractType
         $builder
             ->add('codprodFraprofPlazo', EntityType::class, [
                 "class" => TProductes::class,
+                "label"=>false,
                 "choice_label" => "nomProd",
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')

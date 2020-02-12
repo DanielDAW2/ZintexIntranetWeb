@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\TOrdreTreball;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method TOrdreTreball|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,28 @@ class TOrdreTreballRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TOrdreTreball::class);
+    }
+
+    public function paginate($query, $page, $limit)
+    {
+        $paginator = new Paginator($query);
+        $paginator->getQuery()
+            ->setFirstResult($limit * ($page - 1)) // Offset
+            ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
+
+    public function getOrdresPaginated($filters, $limit)
+    {
+        $query = $this->createQueryBuilder("od")
+            ->select()
+            ->orderBy("od.idOrdre", "DESC")
+            ->getQuery();
+
+        $paginator = $this->paginate($query, $filters["page"], $limit);
+
+        return ["paginator" => $paginator, "query" => $query];
     }
 
     // /**

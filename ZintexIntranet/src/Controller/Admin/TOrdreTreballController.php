@@ -19,11 +19,21 @@ class TOrdreTreballController extends AbstractController
     /**
      * @Route("/", name="t_ordre_treball_index", methods={"GET"})
      */
-    public function index(TOrdreTreballRepository $tOrdreTreballRepository): Response
+    public function index(TOrdreTreballRepository $tOrdreTreballRepository, Request $req): Response
     {
-        return $this->render('t_ordre_treball/index.html.twig', [
-            't_ordre_treballs' => $tOrdreTreballRepository->findAll(),
-        ]);
+        $filters = [];
+        $filters["page"] = $req->get("page") ? $req->get("page") : 1;
+        $ordresQuery = $tOrdreTreballRepository->getOrdresPaginated($filters, $this->getParameter("limit"));
+        $ordres = $ordresQuery['paginator'];
+        $allitems =  $ordresQuery['query'];
+        $maxPages = ceil($ordresQuery['paginator']->count() / $this->getParameter('limit'));
+        return $this->render('t_ordre_treball/index.html.twig', array(
+            't_ordre_treballs' => $ordres,
+            'maxPages' => $maxPages,
+            'thisPage' => $req->get("page"),
+            'all_items' => $allitems
+        ));
+
     }
 
     /**

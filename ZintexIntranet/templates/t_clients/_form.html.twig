@@ -73,7 +73,7 @@
     <div class="col">{{ form_row(form.tipusIva) }}</div>
     <div class="col">{{ form_row(form.tipusReq) }}</div>
 </div>
-<h1 class="title-2 mb-3">Obvservaciones</h1>
+<h1 class="title-2 mb-3">Observaciones</h1>
 
 <div class="row">
     <div class="col">{{ form_row(form.observacionsCli) }}</div>
@@ -94,7 +94,7 @@
 </div>
 <div class="row">
     <div class="col">
-    <h1 class="title-2 mb-3">Permisos Mailing</h1>
+    <h1 class="title-2 mb-3">Permisos Especiales</h1>
 
         {{ form_row(form.especial) }}
         {{ form_row(form.mailing) }}
@@ -113,5 +113,5 @@
 <div class="row">
     <div class="col">{{ form_row(form.activitat2) }}</div>
 </div>
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn">{{ button_label|default('Guardar') }}</button>
 {{ form_end(form) }}

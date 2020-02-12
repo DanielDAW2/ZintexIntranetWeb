@@ -45,19 +45,29 @@ class TFraProformaController extends AbstractController {
         $ordenes = [];
         $productes = [];
         $orden = new TOrdreTreball();
+        $em = $this->getDoctrine()->getManager();
         $orden->setNumFraproforma($proforma);
         $orden->setNomClient($proforma->getClientFraprof()->getNomfraCli());
         foreach ($proforma->getTFraproformaAuxes() as $value) {
             if(count($value->getTOrdreTreballAuxes()) === 0)
-            $productes[] = $value->getCodprodProforma()->getNomProdCurt();
-            $ordenAux = new TOrdreTreballAux();
-            $ordenAux->setCodprodOrdreTreball($value->getCodprodProforma());
-            $ordenAux->setGrupProducte($value->getGrupProducte());
+            {
+                $productes[] = $value->getCodprodProforma()->getNomProdCurt();
+                $ordenAux = new TOrdreTreballAux();
+                $ordenAux->setCodprodOrdreTreball($value->getCodprodProforma());
+                $ordenAux->setGrupProducte($value->getGrupProducte());
+                $orden->addTOrdreTreballAux($ordenAux);
+                $em->persist($orden);
+            }
+            
         }
+        $em->flush();
+
+       
+        
         
         $ordenes["productes"] = $productes;
         $ordenes["fecha"] = date_format(new DateTime(), "d-m-Y");
-        $ordenes["orden"] = ["num"=>$orden->getNumSubordre(),"id"=>"id"];
+        $ordenes["orden"] = ["num"=>$orden->getIdOrdre()];
 
             return new JsonResponse($ordenes);
 

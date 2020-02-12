@@ -16,7 +16,7 @@
 		<tbody id="t_ordre_treball">
 			{% for t_ordre_treball in ordres %}
 				<tr>
-					<td>{{ t_ordre_treball.numSubordre }}</td>
+					<td>{{ t_ordre_treball.idOrdre }}</td>
 					<td>{{ t_ordre_treball.campanya }}</td>
 					<td>{{ t_ordre_treball.proveidor }}</td>
 					<td>
@@ -45,7 +45,7 @@ $("#newProforma").click(function() {
             if(response.length !== 0)
             {
                 $("#modalContent").html("<p>Se ha creado la orden "+response.orden.num+" con "+response.productes.length+" articulos<p>")
-                $("#t_ordre_treball").append("<tr> <td>"+response.orden.num+"</td><td>"+response.fecha+"</td><td>"+response.productes.map(item => {return "<p>"+item+"</p>"})+"</td><td><a class='btn btn-secondary' href='#'>Ver Orden</a></td></tr>")
+                $("#t_ordre_treball").append("<tr> <td>"+response.orden.num+"</td><td>"+response.fecha+"</td><td>"+response.productes.map(item => {return "<p>"+item+"</p>"})+"</td><td><a class='btn btn-secondary' href='/admin/t/ordre/treball/"+response.orden.num+"'>Ver Orden</a></td></tr>")
 
             }else {
                 $("#modalContent").html("<p>Todos los articulos estan asociados a ordenes de trabajo<p>")
