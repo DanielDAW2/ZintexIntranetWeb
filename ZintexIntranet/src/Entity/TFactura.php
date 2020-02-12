@@ -68,27 +68,27 @@ class TFactura
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $Base_Imp;
+    private $Base_Imp = 0;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $IVA_VAR;
+    private $IVA_VAR = 0;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $IVA;
+    private $IVA = 21;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $REQ_VAR;
+    private $REQ_VAR = 0;
 
     /**
      * @ORM\Column(type="float", name="REQ", nullable=true)
      */
-    private $REQ;
+    private $REQ = 0;
 
     /**
      * @ORM\Column(type="float", nullable=true)
