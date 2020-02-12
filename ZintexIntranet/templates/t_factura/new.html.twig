@@ -110,7 +110,9 @@
         const $prod = $wrapper.querySelector("div > div > div:nth-child(2) select")
         const $preuUnitFact = $wrapper.querySelector("div > div > div:nth-child(5) input")
         const $totalAuxFCT = $wrapper.querySelector("div > div > div:nth-child(6) > input")
-        
+        console.log($prod);
+        console.log($preuUnitFact);
+        console.log($totalAuxFCT);
 
         $.ajax({
             url: "{{ path("t_precios_cantidad_get") }}",
