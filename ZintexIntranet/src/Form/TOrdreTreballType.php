@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\TClients;
 use App\Entity\TOrdreTreball;
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -12,7 +15,7 @@ class TOrdreTreballType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomClient')
+            ->add('nomClient', EntityType::class, ["class"=>TClients::class, "choice_label"=>"client"])
             ->add('numSubordre')
             ->add('campanya')
             ->add('descripOrdreTreball')
@@ -25,14 +28,6 @@ class TOrdreTreballType extends AbstractType
             ->add('dissenyador')
             ->add('postaMarxa')
             ->add('calandra')
-            ->add('anonim')
-            ->add('adrecaEntrega')
-            ->add('recullClient')
-            ->add('portsDeguts')
-            ->add('serveiUrgent830')
-            ->add('serveiUrgent10')
-            ->add('serveiUrgent12')
-            ->add('serveiUrgent14')
             ->add('observacionsDisseny')
             ->add('observacionsProduccio')
             ->add('persona')
