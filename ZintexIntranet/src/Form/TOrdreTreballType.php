@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\TClients;
+use App\Entity\TGrupProducte;
 use App\Entity\TOrdreTreball;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -15,7 +16,7 @@ class TOrdreTreballType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomClient', EntityType::class, ["class"=>TClients::class, "choice_label"=>"client"])
+            ->add('nomClient')
             ->add('numSubordre')
             ->add('campanya')
             ->add('descripOrdreTreball')
@@ -34,8 +35,8 @@ class TOrdreTreballType extends AbstractType
             ->add('resumUnitats')
             ->add('resumProductes')
             ->add('unitats')
-            ->add('numClient')
-            ->add('grupProducte')
+            ->add('numClient',EntityType::class, ["class"=>TClients::class, "choice_label"=>"client"])
+            ->add('grupProducte',EntityType::class, ["class"=>TGrupProducte::class, "choice_label"=>"descripGrupProducte"])
             ->add('numFraproforma')
         ;
     }
